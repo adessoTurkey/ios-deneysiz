@@ -99,13 +99,10 @@
 		A5CC7D25265D8D4F00DD3AA7 /* Deneysiz */ = {
 			isa = PBXGroup;
 			children = (
-				A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */,
-				A5CC7D28265D8D4F00DD3AA7 /* SceneDelegate.swift */,
-				A5CC7D2A265D8D4F00DD3AA7 /* ContentView.swift */,
-				A5CC7D2C265D8D5000DD3AA7 /* Assets.xcassets */,
-				A5CC7D31265D8D5000DD3AA7 /* LaunchScreen.storyboard */,
-				A5CC7D34265D8D5000DD3AA7 /* Info.plist */,
+				A5CC7D5F265D919800DD3AA7 /* Application */,
 				A5CC7D2E265D8D5000DD3AA7 /* Preview Content */,
+				A5CC7D61265D926D00DD3AA7 /* Resources */,
+				A5CC7D60265D91C800DD3AA7 /* Scenes */,
 			);
 			path = Deneysiz;
 			sourceTree = "<group>";
@@ -134,6 +131,33 @@
 				A5CC7D4A265D8D5000DD3AA7 /* Info.plist */,
 			);
 			path = DeneysizUITests;
+			sourceTree = "<group>";
+		};
+		A5CC7D5F265D919800DD3AA7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */,
+				A5CC7D28265D8D4F00DD3AA7 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A5CC7D60265D91C800DD3AA7 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A5CC7D2A265D8D4F00DD3AA7 /* ContentView.swift */,
+				A5CC7D31265D8D5000DD3AA7 /* LaunchScreen.storyboard */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A5CC7D61265D926D00DD3AA7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A5CC7D2C265D8D5000DD3AA7 /* Assets.xcassets */,
+				A5CC7D34265D8D5000DD3AA7 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,7 +464,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Deneysiz/Preview Content\"";
 				DEVELOPMENT_TEAM = K8J8CUXWK9;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Deneysiz/Info.plist;
+				INFOPLIST_FILE = Deneysiz/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,7 +485,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Deneysiz/Preview Content\"";
 				DEVELOPMENT_TEAM = K8J8CUXWK9;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Deneysiz/Info.plist;
+				INFOPLIST_FILE = Deneysiz/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
