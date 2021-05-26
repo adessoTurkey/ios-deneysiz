@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A53F552E265EECFA0005AB1C /* FakeAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F552D265EECFA0005AB1C /* FakeAuthService.swift */; };
+		A562BCF6265EE66400BBC6A9 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BCF5265EE66400BBC6A9 /* Environment.swift */; };
+		A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BD00265EE7B800BBC6A9 /* Request.swift */; };
+		A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */; };
 		A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */; };
 		A5CC7D29265D8D4F00DD3AA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D28265D8D4F00DD3AA7 /* SceneDelegate.swift */; };
 		A5CC7D2B265D8D4F00DD3AA7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D2A265D8D4F00DD3AA7 /* ContentView.swift */; };
@@ -15,6 +19,13 @@
 		A5CC7D33265D8D5000DD3AA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CC7D31265D8D5000DD3AA7 /* LaunchScreen.storyboard */; };
 		A5CC7D3E265D8D5000DD3AA7 /* DeneysizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D3D265D8D5000DD3AA7 /* DeneysizTests.swift */; };
 		A5CC7D49265D8D5000DD3AA7 /* DeneysizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D48265D8D5000DD3AA7 /* DeneysizUITests.swift */; };
+		A5CC7D75265D983400DD3AA7 /* BaseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D74265D983400DD3AA7 /* BaseServiceProtocol.swift */; };
+		A5CC7D80265D9DDE00DD3AA7 /* EnvironmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D7F265D9DDE00DD3AA7 /* EnvironmentProtocol.swift */; };
+		A5CC7D8F265DA18800DD3AA7 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D8E265DA18800DD3AA7 /* HTTPMethod.swift */; };
+		A5CC7D94265DA1BA00DD3AA7 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D93265DA1BA00DD3AA7 /* APIError.swift */; };
+		A5CC7DB5265DA73D00DD3AA7 /* URLSessionAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DB4265DA73D00DD3AA7 /* URLSessionAgent.swift */; };
+		A5CC7DBD265DA93C00DD3AA7 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DBC265DA93C00DD3AA7 /* RequestBuilder.swift */; };
+		A5CC7DC3265DAA9D00DD3AA7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DC2265DAA9D00DD3AA7 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A53F552D265EECFA0005AB1C /* FakeAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthService.swift; sourceTree = "<group>"; };
+		A562BCF5265EE66400BBC6A9 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		A562BD00265EE7B800BBC6A9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		A5CC7D23265D8D4F00DD3AA7 /* Deneysiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deneysiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5CC7D28265D8D4F00DD3AA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +64,13 @@
 		A5CC7D44265D8D5000DD3AA7 /* DeneysizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeneysizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CC7D48265D8D5000DD3AA7 /* DeneysizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeneysizUITests.swift; sourceTree = "<group>"; };
 		A5CC7D4A265D8D5000DD3AA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5CC7D74265D983400DD3AA7 /* BaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseServiceProtocol.swift; sourceTree = "<group>"; };
+		A5CC7D7F265D9DDE00DD3AA7 /* EnvironmentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentProtocol.swift; sourceTree = "<group>"; };
+		A5CC7D8E265DA18800DD3AA7 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		A5CC7D93265DA1BA00DD3AA7 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		A5CC7DB4265DA73D00DD3AA7 /* URLSessionAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionAgent.swift; sourceTree = "<group>"; };
+		A5CC7DBC265DA93C00DD3AA7 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		A5CC7DC2265DAA9D00DD3AA7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +98,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A562BCF4265EE65200BBC6A9 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				A5CC7D7F265D9DDE00DD3AA7 /* EnvironmentProtocol.swift */,
+				A562BCF5265EE66400BBC6A9 /* Environment.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		A562BD0E265EE8F400BBC6A9 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */,
+				A5CC7DC2265DAA9D00DD3AA7 /* AuthService.swift */,
+				A53F552D265EECFA0005AB1C /* FakeAuthService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		A5CC7D1A265D8D4F00DD3AA7 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				A5CC7D5F265D919800DD3AA7 /* Application */,
+				A5CC7D6F265D97F600DD3AA7 /* Network */,
 				A5CC7D2E265D8D5000DD3AA7 /* Preview Content */,
 				A5CC7D61265D926D00DD3AA7 /* Resources */,
 				A5CC7D60265D91C800DD3AA7 /* Scenes */,
@@ -158,6 +200,53 @@
 				A5CC7D34265D8D5000DD3AA7 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A5CC7D6F265D97F600DD3AA7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A5CC7D70265D982400DD3AA7 /* Base */,
+				A5CC7D79265D98E800DD3AA7 /* Entities */,
+				A562BCF4265EE65200BBC6A9 /* Environment */,
+				A5CC7DC1265DAA8C00DD3AA7 /* Web Services */,
+				A5CC7D98265DA22600DD3AA7 /* Remote */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A5CC7D70265D982400DD3AA7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A5CC7D74265D983400DD3AA7 /* BaseServiceProtocol.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		A5CC7D79265D98E800DD3AA7 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A5CC7D93265DA1BA00DD3AA7 /* APIError.swift */,
+				A5CC7D8E265DA18800DD3AA7 /* HTTPMethod.swift */,
+				A5CC7DBC265DA93C00DD3AA7 /* RequestBuilder.swift */,
+				A562BD00265EE7B800BBC6A9 /* Request.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		A5CC7D98265DA22600DD3AA7 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				A5CC7DB4265DA73D00DD3AA7 /* URLSessionAgent.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		A5CC7DC1265DAA8C00DD3AA7 /* Web Services */ = {
+			isa = PBXGroup;
+			children = (
+				A562BD0E265EE8F400BBC6A9 /* Auth */,
+			);
+			path = "Web Services";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,9 +379,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53F552E265EECFA0005AB1C /* FakeAuthService.swift in Sources */,
+				A5CC7DBD265DA93C00DD3AA7 /* RequestBuilder.swift in Sources */,
+				A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */,
+				A562BCF6265EE66400BBC6A9 /* Environment.swift in Sources */,
+				A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */,
 				A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */,
+				A5CC7D80265D9DDE00DD3AA7 /* EnvironmentProtocol.swift in Sources */,
 				A5CC7D29265D8D4F00DD3AA7 /* SceneDelegate.swift in Sources */,
+				A5CC7D94265DA1BA00DD3AA7 /* APIError.swift in Sources */,
+				A5CC7D75265D983400DD3AA7 /* BaseServiceProtocol.swift in Sources */,
+				A5CC7D8F265DA18800DD3AA7 /* HTTPMethod.swift in Sources */,
+				A5CC7DB5265DA73D00DD3AA7 /* URLSessionAgent.swift in Sources */,
 				A5CC7D2B265D8D4F00DD3AA7 /* ContentView.swift in Sources */,
+				A5CC7DC3265DAA9D00DD3AA7 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
