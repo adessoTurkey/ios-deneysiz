@@ -15,7 +15,7 @@ final class Environment: EnvironmentProtocol {
     var headers: Headers?
 
     private init() {
-        baseURL = URL(string: "")!
+        baseURL = URL(string: "https://google.com")!
         headers = [:]
     }
 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A51C45A92660CD51003CCC58 /* DashboardTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C45A82660CD51003CCC58 /* DashboardTabView.swift */; };
+		A51C45B22660D615003CCC58 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C45B12660D615003CCC58 /* FirstView.swift */; };
+		A51C45B72660DAF0003CCC58 /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C45B62660DAF0003CCC58 /* FirstViewModel.swift */; };
+		A51C45BC2660DB4F003CCC58 /* FirstDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C45BB2660DB4F003CCC58 /* FirstDependencyContainer.swift */; };
+		A51C45C12660DD23003CCC58 /* FirstContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C45C02660DD23003CCC58 /* FirstContainerView.swift */; };
 		A53F552E265EECFA0005AB1C /* FakeAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F552D265EECFA0005AB1C /* FakeAuthService.swift */; };
 		A562BCF6265EE66400BBC6A9 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BCF5265EE66400BBC6A9 /* Environment.swift */; };
 		A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BD00265EE7B800BBC6A9 /* Request.swift */; };
@@ -46,6 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A51C45A82660CD51003CCC58 /* DashboardTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabView.swift; sourceTree = "<group>"; };
+		A51C45B12660D615003CCC58 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		A51C45B62660DAF0003CCC58 /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
+		A51C45BB2660DB4F003CCC58 /* FirstDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDependencyContainer.swift; sourceTree = "<group>"; };
+		A51C45C02660DD23003CCC58 /* FirstContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstContainerView.swift; sourceTree = "<group>"; };
 		A53F552D265EECFA0005AB1C /* FakeAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthService.swift; sourceTree = "<group>"; };
 		A562BCF5265EE66400BBC6A9 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		A562BD00265EE7B800BBC6A9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -98,6 +108,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A51C45A62660CC71003CCC58 /* ExampleScenes */ = {
+			isa = PBXGroup;
+			children = (
+				A51C45A72660CC7E003CCC58 /* Tabbar */,
+			);
+			path = ExampleScenes;
+			sourceTree = "<group>";
+		};
+		A51C45A72660CC7E003CCC58 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				A51C45B02660D601003CCC58 /* First */,
+				A51C45A82660CD51003CCC58 /* DashboardTabView.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		A51C45B02660D601003CCC58 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				A51C45C02660DD23003CCC58 /* FirstContainerView.swift */,
+				A51C45BB2660DB4F003CCC58 /* FirstDependencyContainer.swift */,
+				A51C45B12660D615003CCC58 /* FirstView.swift */,
+				A51C45B62660DAF0003CCC58 /* FirstViewModel.swift */,
+			);
+			path = First;
+			sourceTree = "<group>";
+		};
 		A562BCF4265EE65200BBC6A9 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +153,14 @@
 				A53F552D265EECFA0005AB1C /* FakeAuthService.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		A56839EA2660E18900718E9F /* ExampleWebServices */ = {
+			isa = PBXGroup;
+			children = (
+				A562BD0E265EE8F400BBC6A9 /* Auth */,
+			);
+			path = ExampleWebServices;
 			sourceTree = "<group>";
 		};
 		A5CC7D1A265D8D4F00DD3AA7 = {
@@ -187,6 +233,7 @@
 		A5CC7D60265D91C800DD3AA7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A51C45A62660CC71003CCC58 /* ExampleScenes */,
 				A5CC7D2A265D8D4F00DD3AA7 /* ContentView.swift */,
 				A5CC7D31265D8D5000DD3AA7 /* LaunchScreen.storyboard */,
 			);
@@ -244,7 +291,7 @@
 		A5CC7DC1265DAA8C00DD3AA7 /* Web Services */ = {
 			isa = PBXGroup;
 			children = (
-				A562BD0E265EE8F400BBC6A9 /* Auth */,
+				A56839EA2660E18900718E9F /* ExampleWebServices */,
 			);
 			path = "Web Services";
 			sourceTree = "<group>";
@@ -382,15 +429,20 @@
 				A53F552E265EECFA0005AB1C /* FakeAuthService.swift in Sources */,
 				A5CC7DBD265DA93C00DD3AA7 /* RequestBuilder.swift in Sources */,
 				A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */,
+				A51C45BC2660DB4F003CCC58 /* FirstDependencyContainer.swift in Sources */,
 				A562BCF6265EE66400BBC6A9 /* Environment.swift in Sources */,
+				A51C45C12660DD23003CCC58 /* FirstContainerView.swift in Sources */,
 				A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */,
 				A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */,
 				A5CC7D80265D9DDE00DD3AA7 /* EnvironmentProtocol.swift in Sources */,
 				A5CC7D29265D8D4F00DD3AA7 /* SceneDelegate.swift in Sources */,
 				A5CC7D94265DA1BA00DD3AA7 /* APIError.swift in Sources */,
 				A5CC7D75265D983400DD3AA7 /* BaseServiceProtocol.swift in Sources */,
+				A51C45B72660DAF0003CCC58 /* FirstViewModel.swift in Sources */,
 				A5CC7D8F265DA18800DD3AA7 /* HTTPMethod.swift in Sources */,
 				A5CC7DB5265DA73D00DD3AA7 /* URLSessionAgent.swift in Sources */,
+				A51C45A92660CD51003CCC58 /* DashboardTabView.swift in Sources */,
+				A51C45B22660D615003CCC58 /* FirstView.swift in Sources */,
 				A5CC7D2B265D8D4F00DD3AA7 /* ContentView.swift in Sources */,
 				A5CC7DC3265DAA9D00DD3AA7 /* AuthService.swift in Sources */,
 			);
