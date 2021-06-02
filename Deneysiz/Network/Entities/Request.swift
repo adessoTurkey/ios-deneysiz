@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Request {
     var method: HTTPMethod
     var path: String

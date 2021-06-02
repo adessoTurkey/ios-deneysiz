@@ -14,6 +14,17 @@ struct Response<T> {
 }
 
 protocol BaseServiceProtocol {
-    func request<T: Decodable>(_ request: Request) -> AnyPublisher<Response<T>, Error>
-    func request<T: Decodable>(_ request: Request) -> AnyPublisher<T, Error>
+    func request<T: Decodable>(_ requestObject: Request, environment: EnvironmentProtocol) -> AnyPublisher<T, Error>
+    
+    func request<T: Decodable>(_ requestObject: Request, environment: EnvironmentProtocol) -> AnyPublisher<Response<T>, Error>
+}
+
+extension BaseServiceProtocol {
+    func requestWithDefaultEnvironment<T: Decodable>(_ requestObject: Request, with environment: EnvironmentProtocol = Environment.shared) -> AnyPublisher<T, Error> {
+        self.request(requestObject, environment: environment)
+    }
+    
+    func requestWithDefaultEnvironment<T: Decodable>(_ requestObject: Request, with environment: EnvironmentProtocol = Environment.shared) -> AnyPublisher<Response<T>, Error> {
+        self.request(requestObject, environment: environment)
+    }
 }

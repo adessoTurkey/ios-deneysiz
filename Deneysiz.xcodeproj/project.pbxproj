@@ -16,6 +16,8 @@
 		A562BCF6265EE66400BBC6A9 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BCF5265EE66400BBC6A9 /* Environment.swift */; };
 		A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BD00265EE7B800BBC6A9 /* Request.swift */; };
 		A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */; };
+		A5A6EA822667CA40008C8B2F /* FacebookAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A6EA812667CA40008C8B2F /* FacebookAuthService.swift */; };
+		A5A6EA8C2667CF64008C8B2F /* RawRepresentable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A6EA8B2667CF64008C8B2F /* RawRepresentable+Extension.swift */; };
 		A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */; };
 		A5CC7D29265D8D4F00DD3AA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D28265D8D4F00DD3AA7 /* SceneDelegate.swift */; };
 		A5CC7D2B265D8D4F00DD3AA7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D2A265D8D4F00DD3AA7 /* ContentView.swift */; };
@@ -60,6 +62,8 @@
 		A562BCF5265EE66400BBC6A9 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		A562BD00265EE7B800BBC6A9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		A5A6EA812667CA40008C8B2F /* FacebookAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAuthService.swift; sourceTree = "<group>"; };
+		A5A6EA8B2667CF64008C8B2F /* RawRepresentable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RawRepresentable+Extension.swift"; sourceTree = "<group>"; };
 		A5CC7D23265D8D4F00DD3AA7 /* Deneysiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deneysiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5CC7D28265D8D4F00DD3AA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			children = (
 				A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */,
 				A5CC7DC2265DAA9D00DD3AA7 /* AuthService.swift */,
+				A5A6EA812667CA40008C8B2F /* FacebookAuthService.swift */,
 				A53F552D265EECFA0005AB1C /* FakeAuthService.swift */,
 			);
 			path = Auth;
@@ -161,6 +166,14 @@
 				A562BD0E265EE8F400BBC6A9 /* Auth */,
 			);
 			path = ExampleWebServices;
+			sourceTree = "<group>";
+		};
+		A5A6EA8A2667CF43008C8B2F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A5A6EA8B2667CF64008C8B2F /* RawRepresentable+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		A5CC7D1A265D8D4F00DD3AA7 = {
@@ -191,6 +204,7 @@
 				A5CC7D2E265D8D5000DD3AA7 /* Preview Content */,
 				A5CC7D61265D926D00DD3AA7 /* Resources */,
 				A5CC7D60265D91C800DD3AA7 /* Scenes */,
+				A5A6EA8A2667CF43008C8B2F /* Extension */,
 			);
 			path = Deneysiz;
 			sourceTree = "<group>";
@@ -426,9 +440,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A6EA8C2667CF64008C8B2F /* RawRepresentable+Extension.swift in Sources */,
 				A53F552E265EECFA0005AB1C /* FakeAuthService.swift in Sources */,
 				A5CC7DBD265DA93C00DD3AA7 /* RequestBuilder.swift in Sources */,
 				A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */,
+				A5A6EA822667CA40008C8B2F /* FacebookAuthService.swift in Sources */,
 				A51C45BC2660DB4F003CCC58 /* FirstDependencyContainer.swift in Sources */,
 				A562BCF6265EE66400BBC6A9 /* Environment.swift in Sources */,
 				A51C45C12660DD23003CCC58 /* FirstContainerView.swift in Sources */,

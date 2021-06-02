@@ -10,18 +10,26 @@ import Combine
 import Foundation
 
 final class URLSessionAgent: BaseServiceProtocol, RequestBuilder {
-    
+
     static let shared = URLSessionAgent()
 
-    private var environment: EnvironmentProtocol
     private var decoder: JSONDecoder
     
-    private init(environment: EnvironmentProtocol = Environment.shared, _ decoder: JSONDecoder = JSONDecoder()) {
-        self.environment = environment
+    private init(_ decoder: JSONDecoder = JSONDecoder()) {
         self.decoder = decoder
     }
+        
+    func request<T>(_ request: Request, environment: EnvironmentProtocol) -> AnyPublisher<T, Error> where T : Decodable {
+        let urlRequest = build(request, environment)
+        return URLSession.shared
+            .dataTaskPublisher(for: urlRequest)
+            .map(\.data)
+            .decode(type: T.self, decoder: decoder)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
     
-    func request<T: Decodable>(_ request: Request) -> AnyPublisher<Response<T>, Error> {
+    func request<T>(_ request: Request, environment: EnvironmentProtocol) -> AnyPublisher<Response<T>, Error> where T : Decodable {
         let urlRequest = build(request, environment)
         return URLSession.shared
             .dataTaskPublisher(for: urlRequest)
@@ -29,16 +37,6 @@ final class URLSessionAgent: BaseServiceProtocol, RequestBuilder {
                 let value = try decoder.decode(T.self, from: result.data)
                 return Response(value: value, response: result.response)
             }
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }
-    
-    func request<T: Decodable>(_ request: Request) -> AnyPublisher<T, Error> {
-        let urlRequest = build(request, environment)
-        return URLSession.shared
-            .dataTaskPublisher(for: urlRequest)
-            .map(\.data)
-            .decode(type: T.self, decoder: decoder)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
