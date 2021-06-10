@@ -19,10 +19,8 @@ extension RequestBuilder {
 
 private extension URLRequest {
     init(_ request: Request, _ environment: EnvironmentProtocol) {
-        let urlComponents = URLComponents(request, environment)
-        
-        self.init(url: urlComponents.url!)
-        
+        guard let url = URLComponents(request, environment)?.url else { fatalError() }
+        self.init(url: url)
         httpMethod = request.method.rawValue
         environment.headers?.forEach { key, value in
             addValue(value, forHTTPHeaderField: key)
@@ -32,10 +30,8 @@ private extension URLRequest {
 }
 
 private extension URLComponents {
-    init(_ request: Request, _ environment: EnvironmentProtocol) {
+    init?(_ request: Request, _ environment: EnvironmentProtocol) {
         let url = environment.baseURL.appendingPathComponent(request.path)
-        self.init(url: url, resolvingAgainstBaseURL: false)!
+        self.init(url: url, resolvingAgainstBaseURL: false)
     }
 }
-
-

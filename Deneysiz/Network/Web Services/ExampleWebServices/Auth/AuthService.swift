@@ -10,6 +10,7 @@ import Combine
 
 struct AuthService {
     let service: BaseServiceProtocol
+    
     init(service: BaseServiceProtocol = URLSessionAgent.shared) {
         self.service = service
     }

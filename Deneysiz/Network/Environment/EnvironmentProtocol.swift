@@ -14,4 +14,3 @@ protocol EnvironmentProtocol {
     var baseURL: URL { get set }
     var headers: Headers? { get set }
 }
-

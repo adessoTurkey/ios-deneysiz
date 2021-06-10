@@ -12,14 +12,13 @@ import Foundation
 final class URLSessionAgent: BaseServiceProtocol, RequestBuilder {
 
     static let shared = URLSessionAgent()
-
     private var decoder: JSONDecoder
     
     private init(_ decoder: JSONDecoder = JSONDecoder()) {
         self.decoder = decoder
     }
         
-    func request<T>(_ request: Request, environment: EnvironmentProtocol) -> AnyPublisher<T, Error> where T : Decodable {
+    func request<T: Decodable>(_ request: Request, environment: EnvironmentProtocol) -> AnyPublisher<T, Error> {
         let urlRequest = build(request, environment)
         return URLSession.shared
             .dataTaskPublisher(for: urlRequest)
@@ -29,7 +28,7 @@ final class URLSessionAgent: BaseServiceProtocol, RequestBuilder {
             .eraseToAnyPublisher()
     }
     
-    func request<T>(_ request: Request, environment: EnvironmentProtocol) -> AnyPublisher<Response<T>, Error> where T : Decodable {
+    func request<T: Decodable>(_ request: Request, environment: EnvironmentProtocol) -> AnyPublisher<Response<T>, Error> {
         let urlRequest = build(request, environment)
         return URLSession.shared
             .dataTaskPublisher(for: urlRequest)
@@ -41,4 +40,3 @@ final class URLSessionAgent: BaseServiceProtocol, RequestBuilder {
             .eraseToAnyPublisher()
     }
 }
-

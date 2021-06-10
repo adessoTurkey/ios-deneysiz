@@ -11,24 +11,19 @@ struct DashboardTabView: View {
     @State private var selectedtab = DashboardTabViewEnum.first()
 
     var body: some View {
-        
         TabView(selection: $selectedtab) {
-            
             FirstContainerView()
-                .tabItem {Image(systemName: "gear")}
+                .tabItem { Image(systemName: "gear") }
                 .tag(DashboardTabViewEnum.first())
                 .environmentObject(FirstDependencyContainer())
-            
             FirstContainerView()
-                .tabItem {Image(systemName: "gear")}
+                .tabItem { Image(systemName: "gear") }
                 .tag(DashboardTabViewEnum.first())
                 .environmentObject(FirstDependencyContainer())
-            
             FirstContainerView()
-                .tabItem {Image(systemName: "gear")}
+                .tabItem { Image(systemName: "gear") }
                 .tag(DashboardTabViewEnum.third())
                 .environmentObject(FirstDependencyContainer())
-
         }
     }
 }
@@ -40,10 +35,9 @@ struct DashboardTabView_Previews: PreviewProvider {
 }
 
 enum DashboardTabViewEnum: String {
-    case first = "first"
-    case second = "second"
-    case third = "third"
-    
+    case first
+    case second
+    case third
     func callAsFunction() -> String {
         self.rawValue
     }
