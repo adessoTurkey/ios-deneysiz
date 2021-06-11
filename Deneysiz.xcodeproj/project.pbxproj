@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A514220C2668C68E00C047D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A514220E2668C68E00C047D5 /* Localizable.strings */; };
+		A518C6102673655B00CD964D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A518C60F2673655B00CD964D /* Configuration.swift */; };
 		A51C45A92660CD51003CCC58 /* DashboardTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C45A82660CD51003CCC58 /* DashboardTabView.swift */; };
 		A51C45B22660D615003CCC58 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C45B12660D615003CCC58 /* FirstView.swift */; };
 		A51C45B72660DAF0003CCC58 /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C45B62660DAF0003CCC58 /* FirstViewModel.swift */; };
@@ -57,6 +58,9 @@
 		A51422032668C66B00C047D5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A514220D2668C68E00C047D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A51422122668C69600C047D5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A518C60D2673654700CD964D /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		A518C60E2673655500CD964D /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		A518C60F2673655B00CD964D /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		A51C45A82660CD51003CCC58 /* DashboardTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabView.swift; sourceTree = "<group>"; };
 		A51C45B12660D615003CCC58 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		A51C45B62660DAF0003CCC58 /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
@@ -116,6 +120,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A518C60C2673653500CD964D /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				A518C60F2673655B00CD964D /* Configuration.swift */,
+				A518C60D2673654700CD964D /* Development.xcconfig */,
+				A518C60E2673655500CD964D /* Production.xcconfig */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		A51C45A62660CC71003CCC58 /* ExampleScenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +275,7 @@
 		A5CC7D61265D926D00DD3AA7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A518C60C2673653500CD964D /* Configs */,
 				A5CC7D2C265D8D5000DD3AA7 /* Assets.xcassets */,
 				A5CC7D34265D8D5000DD3AA7 /* Info.plist */,
 				A514220E2668C68E00C047D5 /* Localizable.strings */,
@@ -478,6 +493,7 @@
 				A51C45C12660DD23003CCC58 /* FirstContainerView.swift in Sources */,
 				A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */,
 				A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */,
+				A518C6102673655B00CD964D /* Configuration.swift in Sources */,
 				A5CC7D80265D9DDE00DD3AA7 /* EnvironmentProtocol.swift in Sources */,
 				A5CC7D29265D8D4F00DD3AA7 /* SceneDelegate.swift in Sources */,
 				A5CC7D94265DA1BA00DD3AA7 /* APIError.swift in Sources */,
@@ -547,6 +563,7 @@
 /* Begin XCBuildConfiguration section */
 		A5CC7D4B265D8D5000DD3AA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A518C60D2673654700CD964D /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -609,6 +626,7 @@
 		};
 		A5CC7D4C265D8D5000DD3AA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A518C60E2673655500CD964D /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -677,7 +695,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adesso.Deneysiz;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -698,7 +716,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adesso.Deneysiz;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
