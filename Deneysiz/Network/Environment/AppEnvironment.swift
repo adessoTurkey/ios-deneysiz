@@ -7,9 +7,9 @@
 
 import Foundation
 
-final class Environment: EnvironmentProtocol {
+final class AppEnvironment: EnvironmentProtocol {
 
-    static let shared = Environment()
+    static let shared = AppEnvironment()
 
     var baseURL: URL
     var headers: Headers?
