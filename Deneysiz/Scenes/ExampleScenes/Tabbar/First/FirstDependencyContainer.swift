@@ -19,6 +19,8 @@ class FirstDependencyContainer: ObservableObject {
             service = AuthService()
         #endif
         
-        return FirstViewModel(firstService: service)
+        let realService = ExampleService()
+        
+        return FirstViewModel(firstService: service, realService: realService)
     }
 }

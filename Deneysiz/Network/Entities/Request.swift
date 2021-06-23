@@ -21,4 +21,10 @@ struct Request {
             self.payload = nil
         }
     }
+    
+    init(method: HTTPMethod = .POST, path: String) {
+        self.method = method
+        self.path = path
+        self.payload = nil
+    }
 }
