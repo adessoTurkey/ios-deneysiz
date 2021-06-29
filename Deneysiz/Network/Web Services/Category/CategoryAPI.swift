@@ -8,5 +8,5 @@
 import Combine
 
 protocol CategoryAPI {
-    func getCategories() -> AnyPublisher<[Category], Error>
+    func getCategories() -> AnyPublisher<[CategoryEnum], Error>
 }

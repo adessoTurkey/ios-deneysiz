@@ -34,6 +34,7 @@ struct DiscoverView: View {
                 // TODO: add filter text field
                 
                 CategoryListView(viewModel: container.makeCategoryViewModel())
+                    .padding(.horizontal, 23)
             }
             .navigationBarHidden(true)
         }

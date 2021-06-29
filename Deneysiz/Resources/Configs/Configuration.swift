@@ -9,7 +9,7 @@
 import Foundation
 
 final class Configuration {
-
+    
     enum Error: Swift.Error {
         case missingKey, invalidValue
     }
@@ -26,13 +26,13 @@ extension Configuration {
             throw Error.missingKey
         }
         switch object {
-            case let value as T:
-                return value
-            case let string as String:
-                guard let value = T(string) else { fallthrough }
-                return value
-            default:
-                throw Error.invalidValue
+        case let value as T:
+            return value
+        case let string as String:
+            guard let value = T(string) else { fallthrough }
+            return value
+        default:
+            throw Error.invalidValue
         }
     }
 }

@@ -26,9 +26,9 @@ class FirstViewModel: BaseViewModel, ObservableObject {
             .sink(
                 receiveCompletion: { err in
                     switch err {
-                        case .failure(let err):
+                    case .failure(let err):
                         print(err)
-                        case .finished:
+                    case .finished:
                         print("finished")
                     }
                 },

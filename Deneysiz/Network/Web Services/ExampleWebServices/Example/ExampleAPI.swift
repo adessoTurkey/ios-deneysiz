@@ -11,7 +11,6 @@ protocol ExampleAPI {
     func test() -> AnyPublisher<[ExampleModel], Error>
 }
 
-
 // https://jsonplaceholder.typicode.com/posts
 
 struct ExampleModel: Codable {

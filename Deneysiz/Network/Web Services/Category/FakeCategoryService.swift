@@ -13,8 +13,9 @@ struct FakeCategoryService {
 }
 
 extension FakeCategoryService: CategoryAPI {
-    func getCategories() -> AnyPublisher<[Category], Error> {
-        Just(Category.categories)
+    func getCategories() -> AnyPublisher<[CategoryEnum], Error> {
+        let actives = Array(CategoryEnum.allCases.dropFirst())
+        return Just(actives)
             .setFailureType(to: Error.self)
             .delay(for: 0, scheduler: RunLoop.main)
             .eraseToAnyPublisher()

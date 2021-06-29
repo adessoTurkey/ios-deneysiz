@@ -15,8 +15,9 @@ struct MainTabView: View {
             DiscoverView()
                 .tabItem {
                     VStack {
+                        Image("compass")
                         Text("tab-discover")
-                        Image(systemName: "gear")
+
                     }
                 }
                 .tag(TabViewEnum.discover())
@@ -25,8 +26,8 @@ struct MainTabView: View {
             Text("Tab Content 2")
                 .tabItem {
                     VStack {
+                        Image("rabbit")
                         Text("tab-info")
-                        Image(systemName: "gear")
                     }
                 }
                 .tag(TabViewEnum.info())
