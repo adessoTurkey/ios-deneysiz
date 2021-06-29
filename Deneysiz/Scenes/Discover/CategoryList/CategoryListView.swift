@@ -15,7 +15,7 @@ struct CategoryListView: View {
             NavigationLink(
                 destination: Text("Destination"),
                 label: {
-                    CategoryCell(.allBrands)
+                    CategoryCell(CategoryEnum.allBrands.categoryModel)
                 })
             
             ForEach(
@@ -28,7 +28,7 @@ struct CategoryListView: View {
                         NavigationLink(
                             destination: Text("Destination"),
                             label: {
-                                CategoryCell(category)
+                                CategoryCell(category.categoryModel)
                             })
                             .accentColor(.none)
                     }
@@ -42,15 +42,15 @@ struct CategoryListView: View {
 }
 
 private struct CategoryCell: View {
-    let category: CategoryEnum
+    let categoryModel: CategoryEnum.CategoryModel
     
-    init(_ category: CategoryEnum) {
-        self.category = category
+    init(_ categoryModel: CategoryEnum.CategoryModel) {
+        self.categoryModel = categoryModel
     }
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            category.image
+            categoryModel.image
                 .resizable()
                 .scaledToFit()
                 .overlay(
@@ -59,7 +59,7 @@ private struct CategoryCell: View {
                         .cornerRadius(10)
                 )
             
-            Text(category.title)
+            Text(categoryModel.title)
                 .font(.custom("Poppins-Bold", size: 20))
                 .foregroundColor(Color.init(UIColor(red: 0.988, green: 0.988, blue: 0.988, alpha: 1)))
                 .padding()

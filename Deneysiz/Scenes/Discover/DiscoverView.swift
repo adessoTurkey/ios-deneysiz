@@ -24,7 +24,7 @@ struct DiscoverView: View {
                             destination: InfoView(),
                             label: {
                                     HStack(spacing: 4) {
-                                        Text("Biz Kimiz")
+                                        Text("who-we-are")
                                         Image(systemName: "gear")
                                     }
                             })

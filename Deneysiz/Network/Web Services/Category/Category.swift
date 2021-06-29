@@ -39,50 +39,28 @@ enum CategoryEnum: Int, CaseIterable {
 
 extension CategoryEnum {
     
-    var title: LocalizedStringKey {
+    typealias CategoryModel = (title: LocalizedStringKey, image: Image)
+    
+    var categoryModel: CategoryModel {
         switch self {
         case .allBrands:
-            return LocalizedStringKey("allBrands")
+            return (title: LocalizedStringKey("allBrands"), image: Image("allBrands"))
         case .makeup:
-            return LocalizedStringKey("makeup")
+            return (title: LocalizedStringKey("makeup"), image: Image("makeup"))
         case .perfume:
-            return LocalizedStringKey("perfume")
+            return (title: LocalizedStringKey("perfume"), image: Image("perfume"))
         case .skincare:
-            return LocalizedStringKey("skincare")
+            return (title: LocalizedStringKey("skincare"), image: Image("skincare"))
         case .nailcare:
-            return LocalizedStringKey("nailcare")
+            return (title: LocalizedStringKey("nailcare"), image: Image("mombaby"))
         case .haircare:
-            return LocalizedStringKey("haircare")
+            return (title: LocalizedStringKey("haircare"), image: Image("haircare"))
         case .hairDye:
-            return LocalizedStringKey("hairDye")
+            return (title: LocalizedStringKey("hairDye"), image: Image("personalHygiene"))
         case .sunLotion:
-            return LocalizedStringKey("sunLotion")
+            return (title: LocalizedStringKey("sunLotion"), image: Image("personalHygiene"))
         case .bodycare:
-            return LocalizedStringKey("bodycare")
+            return (title: LocalizedStringKey("bodycare"), image: Image("oralcare"))
         }
     }
-    
-    var image: Image {
-        switch self {
-        case .allBrands:
-            return Image("allBrands")
-        case .makeup:
-            return Image("makeup")
-        case .perfume:
-            return Image("perfume")
-        case .skincare:
-            return Image("skincare")
-        case .nailcare:
-            return Image("mombaby")
-        case .haircare:
-            return Image("haircare")
-        case .hairDye:
-            return Image("personalHygiene")
-        case .sunLotion:
-            return Image("personalHygiene")
-        case .bodycare:
-            return Image("oralcare")
-        }
-    }
-    
 }
