@@ -104,7 +104,7 @@ nesting:
 
 switch_case_alignment:
   severity: error
-  indented_cases: true
+  indented_cases: false
 
 switch_case_on_newline:
   severity: error

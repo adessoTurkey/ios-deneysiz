@@ -20,11 +20,11 @@ protocol BaseServiceProtocol {
 }
 
 extension BaseServiceProtocol {
-    func requestWithDefaultEnvironment<T: Decodable>(_ requestObject: Request, with environment: EnvironmentProtocol = Environment.shared) -> AnyPublisher<T, Error> {
+    func requestWithDefaultEnvironment<T: Decodable>(_ requestObject: Request, with environment: EnvironmentProtocol = AppEnvironment.shared) -> AnyPublisher<T, Error> {
         self.request(requestObject, environment: environment)
     }
     
-    func requestWithDefaultEnvironment<T: Decodable>(_ requestObject: Request, with environment: EnvironmentProtocol = Environment.shared) -> AnyPublisher<Response<T>, Error> {
+    func requestWithDefaultEnvironment<T: Decodable>(_ requestObject: Request, with environment: EnvironmentProtocol = AppEnvironment.shared) -> AnyPublisher<Response<T>, Error> {
         self.request(requestObject, environment: environment)
     }
 }

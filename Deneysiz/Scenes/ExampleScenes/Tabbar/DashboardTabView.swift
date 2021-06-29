@@ -16,14 +16,12 @@ struct DashboardTabView: View {
                 .tabItem { Image(systemName: "gear") }
                 .tag(DashboardTabViewEnum.first())
                 .environmentObject(FirstDependencyContainer())
-            FirstContainerView()
+            Text("Second")
                 .tabItem { Image(systemName: "gear") }
                 .tag(DashboardTabViewEnum.first())
-                .environmentObject(FirstDependencyContainer())
-            FirstContainerView()
+            Text("Third")
                 .tabItem { Image(systemName: "gear") }
                 .tag(DashboardTabViewEnum.third())
-                .environmentObject(FirstDependencyContainer())
         }
     }
 }

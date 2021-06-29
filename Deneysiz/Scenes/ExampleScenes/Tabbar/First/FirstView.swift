@@ -12,8 +12,17 @@ struct FirstView: View {
     var body: some View {
         ZStack {
             Color(UIColor.systemBackground)
-            Text("hello-world")
-            .foregroundColor(Color(UIColor.label))
+            ScrollView {
+                VStack {
+                    ForEach(firstViewModel.exampleModel, id: \.id) { each in
+                        VStack {
+                            Text(each.title)
+                                .padding()
+                            Divider()
+                        }
+                    }
+                }
+            }
         }
     }
 }
