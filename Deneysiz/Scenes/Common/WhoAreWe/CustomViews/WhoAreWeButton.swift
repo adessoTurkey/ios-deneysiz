@@ -15,40 +15,40 @@ enum WhoAreWeButtonType {
     
     var imageName: String {
         switch self {
-            case .contactUs:
-                return "mail"
-            case .beVolunteer:
-                return "users"
-            case .donate:
-                return "heart"
+        case .contactUs:
+            return "mail"
+        case .beVolunteer:
+            return "users"
+        case .donate:
+            return "heart"
         }
     }
     
     var text: String {
         switch self {
-            case .contactUs:
-                return "Bizimle İletişime Geç"
-            case .beVolunteer:
-                return "Gönüllümüz Ol!"
-            case .donate:
-                return "Bağış Yap"
+        case .contactUs:
+            return "Bizimle İletişime Geç"
+        case .beVolunteer:
+            return "Gönüllümüz Ol!"
+        case .donate:
+            return "Bağış Yap"
         }
     }
     
     var action: () -> Void {
         switch self {
-            case .contactUs:
-                return {
-                    print("open contactUs")
-                }
-            case .beVolunteer:
-                return {
-                    print("open beVolunteer")
-                }
-            case .donate:
-                return {
-                    print("open donate")
-                }
+        case .contactUs:
+            return {
+                print("open contactUs")
+            }
+        case .beVolunteer:
+            return {
+                print("open beVolunteer")
+            }
+        case .donate:
+            return {
+                print("open donate")
+            }
         }
     }
 }

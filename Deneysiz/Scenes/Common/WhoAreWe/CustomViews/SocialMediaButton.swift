@@ -16,35 +16,35 @@ enum SocialMedia {
     
     var imageName: String {
         switch self {
-            case .facebook:
-                return "facebook"
-            case .instagram:
-                return "instagram"
-            case .twitter:
-                return "twitter"
-            case .youtube:
-                return "youtube"
+        case .facebook:
+            return "facebook"
+        case .instagram:
+            return "instagram"
+        case .twitter:
+            return "twitter"
+        case .youtube:
+            return "youtube"
         }
     }
     
     var action: () -> Void {
         switch self {
-            case .facebook:
-                return {
-                    print("open facebook")
-                }
-            case .instagram:
-                return {
-                    print("open instagram")
-                }
-            case .twitter:
-                return {
-                    print("open twitter")
-                }
-            case .youtube:
-                return {
-                    print("open youtube")
-                }
+        case .facebook:
+            return {
+                print("open facebook")
+            }
+        case .instagram:
+            return {
+                print("open instagram")
+            }
+        case .twitter:
+            return {
+                print("open twitter")
+            }
+        case .youtube:
+            return {
+                print("open youtube")
+            }
         }
     }
 }
