@@ -59,3 +59,9 @@ enum TabViewEnum: String {
         self.rawValue
     }
 }
+
+struct AppFont {
+    static func commonFont(fontSize: CGFloat) -> Font {
+        return Font.custom("Poppins-Regular", size: fontSize)
+    }
+}
