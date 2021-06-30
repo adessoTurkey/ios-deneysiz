@@ -6,14 +6,14 @@
 	<array>
 		<string>Poppins-Regular.ttf</string>
 		<string>Poppins-Bold.ttf</string>
-        <string>Poppins-BoldItalic.ttf</string>
-        <string>Poppins-SemiBold.ttf</string>
-        <string>Poppins-SemiBoldItalic.ttf</string>
-        <string>Poppins-Light.ttf</string>
-        <string>Poppins-LightItalic.ttf</string>
-        <string>Poppins-Black.ttf</string>
-        <string>Poppins-BlackItalic.ttf</string>
-        <string>Poppins-Italic.ttf</string>
+		<string>Poppins-BoldItalic.ttf</string>
+		<string>Poppins-SemiBold.ttf</string>
+		<string>Poppins-SemiBoldItalic.ttf</string>
+		<string>Poppins-Light.ttf</string>
+		<string>Poppins-LightItalic.ttf</string>
+		<string>Poppins-Black.ttf</string>
+		<string>Poppins-BlackItalic.ttf</string>
+		<string>Poppins-Italic.ttf</string>
 	</array>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
@@ -30,9 +30,9 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(APP_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(APP_BUILD)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

@@ -10,3 +10,6 @@
 
 PRODUCT_BUNDLE_IDENTIFIER = com.adesso.Deneysiz
 BASE_URL = api.production.com
+APP_VERSION = 1.0
+APP_BUILD = 1
+
