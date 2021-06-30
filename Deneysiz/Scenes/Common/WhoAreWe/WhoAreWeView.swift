@@ -32,21 +32,23 @@ struct WhoAreWeView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 
                 Text("who_are_we-info_text")
-                    .font(AppFont.commonFont(fontSize: 16))
+                    .font(Font.customFont(size: 16, type: .fontRegular))
                     .padding(.horizontal)
                 HStack {
                     Text("deneysiz.org")
-                        .font(AppFont.commonFont(fontSize: 16))
+                        .font(Font.customFont(size: 16, type: .fontRegular))
                         .foregroundColor(Color("orange"))
                         .font(.body)
                     Spacer()
                 }.padding()
-                WhoAreWeButton(buttonType: .contactUs)
-                WhoAreWeButton(buttonType: .beVolunteer)
-                WhoAreWeButton(buttonType: .donate)
+                Group {
+                    WhoAreWeButton(buttonType: .contactUs)
+                    WhoAreWeButton(buttonType: .beVolunteer)
+                    WhoAreWeButton(buttonType: .donate)
+                }
                 HStack {
                     Text("who_are_we-title")
-                        .font(AppFont.commonFont(fontSize: 16))
+                        .font(Font.customFont(size: 16, type: .fontRegular))
                     Spacer()
                 }.padding()
                 HStack(spacing: 16) {

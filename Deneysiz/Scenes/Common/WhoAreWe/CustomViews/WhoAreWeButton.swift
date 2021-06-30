@@ -63,7 +63,7 @@ struct WhoAreWeButton: View {
             HStack(spacing: 20) {
                 Image(buttonType.imageName)
                 Text(buttonType.text)
-                    .font(AppFont.commonFont(fontSize: 16))
+                    .font(Font.customFont(size: 16, type: .fontRegular))
                 Spacer()
             }
             .padding()

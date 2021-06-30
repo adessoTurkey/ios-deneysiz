@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98598324268C4C8B007678E8 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98598323268C4C8B007678E8 /* Font+Extension.swift */; };
 		985AD11A2685B990002AC6C9 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 985AD1072685B990002AC6C9 /* Poppins-ExtraLight.ttf */; };
 		985AD11B2685B990002AC6C9 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 985AD1082685B990002AC6C9 /* Poppins-ThinItalic.ttf */; };
 		985AD11C2685B990002AC6C9 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 985AD1092685B990002AC6C9 /* Poppins-ExtraLightItalic.ttf */; };
@@ -91,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		98598323268C4C8B007678E8 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		985AD1072685B990002AC6C9 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		985AD1082685B990002AC6C9 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		985AD1092685B990002AC6C9 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 			children = (
 				A52227F2267CEFE300004C1F /* Array+Extension.swift */,
 				A5A6EA8B2667CF64008C8B2F /* RawRepresentable+Extension.swift */,
+				98598323268C4C8B007678E8 /* Font+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				A5CC7DBD265DA93C00DD3AA7 /* RequestBuilder.swift in Sources */,
 				A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */,
 				A52227B8267CE41D00004C1F /* DiscoverDependencyContainer.swift in Sources */,
+				98598324268C4C8B007678E8 /* Font+Extension.swift in Sources */,
 				A52227A5267CDB0500004C1F /* DiscoverView.swift in Sources */,
 				A5A6EA822667CA40008C8B2F /* FacebookAuthService.swift in Sources */,
 				A51C45BC2660DB4F003CCC58 /* FirstDependencyContainer.swift in Sources */,
