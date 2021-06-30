@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Poppins-Regular.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+        <string>Poppins-BoldItalic.ttf</string>
+        <string>Poppins-SemiBold.ttf</string>
+        <string>Poppins-SemiBoldItalic.ttf</string>
+        <string>Poppins-Light.ttf</string>
+        <string>Poppins-LightItalic.ttf</string>
+        <string>Poppins-Black.ttf</string>
+        <string>Poppins-BlackItalic.ttf</string>
+        <string>Poppins-Italic.ttf</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleIdentifier</key>

@@ -1,9 +1,9 @@
-/* 
+/*
   Localizable.strings
   Deneysiz
 
   Created by Ogulcan Keskin on 3.06.2021.
-  
+
 */
 
 
@@ -19,4 +19,6 @@
 "hairDye" = "Saç Boyaları";
 "sunLotion" = "Güneş Kremleri";
 "bodycare" = "Vücut Bakımı";
-"who-we-are" = "Biz Kimiz";
+"who-are-we" = "Biz Kimiz";
+"who_are_we-title" = "Biz Kimiz?";
+"who_are_we-info_text" = "Deutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.\n\nDeutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.";

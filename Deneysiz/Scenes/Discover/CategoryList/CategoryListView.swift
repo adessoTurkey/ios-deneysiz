@@ -60,8 +60,8 @@ private struct CategoryCell: View {
                 )
             
             Text(categoryModel.title)
-                .font(.custom("Poppins-Bold", size: 20))
-                .foregroundColor(Color.init(UIColor(red: 0.988, green: 0.988, blue: 0.988, alpha: 1)))
+                .font(Font.customFont(size: 20, type: .fontBold))
+                .foregroundColor(Color("textForegroundWhite"))
                 .padding()
         }
         

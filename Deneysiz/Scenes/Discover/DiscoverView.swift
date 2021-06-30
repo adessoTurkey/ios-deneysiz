@@ -21,11 +21,12 @@ struct DiscoverView: View {
                     right: {
                         
                         NavigationLink(
-                            destination: InfoView(),
+                            destination: WhoAreWeView(),
                             label: {
                                     HStack(spacing: 4) {
-                                        Text("who-we-are")
-                                        Image(systemName: "gear")
+                                        Text("who-are-we")
+                                            .foregroundColor(.blue)
+                                        Image("Group")
                                     }
                             })
                     })
