@@ -7,7 +7,7 @@
 
 import Combine
 
-class CategoryListViewModel: BaseViewModel, ObservableObject {
+final class CategoryListViewModel: BaseViewModel, ObservableObject {
     
     let categoryAPI: CategoryAPI
     @Published var categories: [CategoryEnum] = []
