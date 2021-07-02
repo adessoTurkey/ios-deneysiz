@@ -19,4 +19,8 @@ extension ExampleService: ExampleAPI {
     func test() -> AnyPublisher<[ExampleModel], Error> {
         service.request(Request(method: .GET, path: ""), environment: ExampleEnvironment.shared)
     }
+    
+    func postTest(param: ExampleModel) -> AnyPublisher<ExampleModel, Error> {
+        service.request(Request(method: .POST, path: "", payload: param), environment: ExampleEnvironment.shared)
+    }
 }

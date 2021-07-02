@@ -9,13 +9,14 @@ import Combine
 
 protocol ExampleAPI {
     func test() -> AnyPublisher<[ExampleModel], Error>
+    func postTest(param: ExampleModel) -> AnyPublisher<ExampleModel, Error>
 }
 
 // https://jsonplaceholder.typicode.com/posts
 
 struct ExampleModel: Codable {
     let id: Int
-    let userId: Int
+    let userId: String
     let title: String
     let body: String
 }

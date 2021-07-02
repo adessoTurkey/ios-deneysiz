@@ -8,7 +8,7 @@
 import SwiftUI
 
 protocol Alertable: View {
-    var onDismiss: (() -> Void) { get }
+    var onDismiss: (() -> Void)? { get }
 }
 
 struct PopUpHelper<T>: ViewModifier where T: Alertable {
@@ -20,7 +20,7 @@ struct PopUpHelper<T>: ViewModifier where T: Alertable {
            return AnyView(content
                 .overlay(
                     ZStack(alignment: .center) {
-                        Color.red.opacity(0.69)
+                        Color.black.opacity(0.69)
                             .ignoresSafeArea()
                         popUpView
                     }

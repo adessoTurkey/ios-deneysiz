@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct DummyAlert: Alertable {
-    var onDismiss: (() -> Void)
+    var onDismiss: (() -> Void)?
     
     var body: some View {
         VStack {
             Text("Dummy Alert")
             Button(
                 action: {
-                    onDismiss()
+                    onDismiss?()
                 },
                 label: {
                 Text("Dismiss")

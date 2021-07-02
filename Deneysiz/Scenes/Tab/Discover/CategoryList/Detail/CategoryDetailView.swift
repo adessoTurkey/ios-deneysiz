@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel: CategoryDetailViewModel
-
+    
     var body: some View {
         VStack {
             navBar
@@ -34,10 +34,12 @@ struct CategoryDetailView: View {
         .navigationBarHidden(true)
         .modifier(
             PopUpHelper(
-                    popUpView: DummyAlert(onDismiss: {
-                        
-                    }),
-                    isPresented: viewModel.isLoading)
+                popUpView:
+                    ActivityIndicator(isAnimating: viewModel.isLoading) {
+                        $0.color = .yellow
+                        $0.hidesWhenStopped = false
+                    },
+                isPresented: viewModel.isLoading)
         )
     }
     
@@ -51,7 +53,7 @@ struct CategoryDetailView: View {
                 }
             },
             center: {
-                Text("who_are_we-title")
+                Text(viewModel.categoryEnum.categoryModel.title)
                     .font(.title)
                     .bold()
             },

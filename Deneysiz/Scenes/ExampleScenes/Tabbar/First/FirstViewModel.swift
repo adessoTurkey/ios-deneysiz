@@ -36,5 +36,19 @@ class FirstViewModel: BaseViewModel, ObservableObject {
                     self?.exampleModel = $0
                 })
             .store(in: &self.cancellables)
+        
+        postTest()
+    }
+    
+    func postTest() {
+        realService.postTest(param: ExampleModel(id: 101, userId: "deneme", title: "fooli", body: "phoeby"))
+            .sink { temp in
+                print(temp)
+            } receiveValue: { exampleModel in
+                if exampleModel.userId == "deneme" {
+                    print("Post Test Succeed")
+                }
+            }
+            .store(in: &self.cancellables)
     }
 }
