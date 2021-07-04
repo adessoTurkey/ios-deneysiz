@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9834C3972691DA230037EC8F /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9834C3962691DA230037EC8F /* EmailService.swift */; };
+		98576D0D2691CDA700C307FA /* DonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98576D0C2691CDA700C307FA /* DonateView.swift */; };
 		98598324268C4C8B007678E8 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98598323268C4C8B007678E8 /* Font+Extension.swift */; };
 		985AD11A2685B990002AC6C9 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 985AD1072685B990002AC6C9 /* Poppins-ExtraLight.ttf */; };
 		985AD11B2685B990002AC6C9 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 985AD1082685B990002AC6C9 /* Poppins-ThinItalic.ttf */; };
@@ -92,6 +94,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9834C3962691DA230037EC8F /* EmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
+		98576D0C2691CDA700C307FA /* DonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateView.swift; sourceTree = "<group>"; };
 		98598323268C4C8B007678E8 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		985AD1072685B990002AC6C9 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		985AD1082685B990002AC6C9 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 			children = (
 				98880FB326887E6200D94852 /* WhoAreWeView.swift */,
 				98880FB526887EE900D94852 /* CustomViews */,
+				98576D0C2691CDA700C307FA /* DonateView.swift */,
 			);
 			path = WhoAreWe;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				A52227ED267CEE3200004C1F /* InstanceTracker.swift */,
+				9834C3962691DA230037EC8F /* EmailService.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -711,7 +717,9 @@
 				A52227A5267CDB0500004C1F /* DiscoverView.swift in Sources */,
 				A5A6EA822667CA40008C8B2F /* FacebookAuthService.swift in Sources */,
 				A51C45BC2660DB4F003CCC58 /* FirstDependencyContainer.swift in Sources */,
+				98576D0D2691CDA700C307FA /* DonateView.swift in Sources */,
 				A562BCF6265EE66400BBC6A9 /* AppEnvironment.swift in Sources */,
+				9834C3972691DA230037EC8F /* EmailService.swift in Sources */,
 				A51C45C12660DD23003CCC58 /* FirstContainerView.swift in Sources */,
 				A52227CC267CE64A00004C1F /* FakeCategoryService.swift in Sources */,
 				A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */,

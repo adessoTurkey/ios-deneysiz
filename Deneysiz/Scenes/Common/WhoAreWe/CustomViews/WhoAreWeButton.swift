@@ -34,32 +34,23 @@ enum WhoAreWeButtonType {
             return "Bağış Yap"
         }
     }
-    
-    var action: () -> Void {
-        switch self {
-        case .contactUs:
-            return {
-                print("open contactUs")
-            }
-        case .beVolunteer:
-            return {
-                print("open beVolunteer")
-            }
-        case .donate:
-            return {
-                print("open donate")
-            }
-        }
-    }
 }
 
 struct WhoAreWeButton: View {
     
     var buttonType: WhoAreWeButtonType
-    
+    @State private var isPresented = false
+    @State private var showEmailProblemAlert = false
+
     var body: some View {
         
-        Button(action: buttonType.action) {
+        Button(action: {
+            buttonAction(for: buttonType, completion: { isWorked in
+                if !isWorked {
+                    showEmailProblemAlert = true
+                }
+            })
+        }) {
             HStack(spacing: 20) {
                 Image(buttonType.imageName)
                 Text(buttonType.text)
@@ -68,10 +59,25 @@ struct WhoAreWeButton: View {
             }
             .padding()
         }
+        .alert(isPresented: $showEmailProblemAlert) {
+            Alert(title: Text("who_are_we-email_problem_alert_title"), message: Text("who_are_we-email_problem_alert_text"), dismissButton: .default(Text("who_are_we-email_problem_alert_dismiss_text")))
+        }
+        .fullScreenCover(isPresented: $isPresented, content: DonateView.init)
         .foregroundColor(Color.black)
         .background(Color.white)
         .cornerRadius(8)
         .shadow(color: Color("button_shadow"), radius: 8, y: 3)
         .padding(.horizontal)
+    }
+    
+    func buttonAction(for buttonType: WhoAreWeButtonType, completion: @escaping (Bool) -> Void) {
+        switch buttonType {
+        case .beVolunteer:
+            EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: completion)
+        case .contactUs:
+            EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: completion)
+        case .donate:
+            isPresented.toggle()
+        }
     }
 }
