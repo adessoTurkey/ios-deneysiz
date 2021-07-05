@@ -60,13 +60,15 @@ struct WhoAreWeButton: View {
             .padding()
         }
         .alert(isPresented: $showEmailProblemAlert) {
-            Alert(title: Text("who_are_we-email_problem_alert_title"), message: Text("who_are_we-email_problem_alert_text"), dismissButton: .default(Text("who_are_we-email_problem_alert_dismiss_text")))
+            Alert(title: Text("who_are_we-email_problem_alert_title"),
+                  message: Text("who_are_we-email_problem_alert_text"),
+                  dismissButton: .default(Text("who_are_we-email_problem_alert_dismiss_text")))
         }
         .fullScreenCover(isPresented: $isPresented, content: DonateView.init)
         .foregroundColor(Color.black)
         .background(Color.white)
         .cornerRadius(8)
-        .shadow(color: Color("button_shadow"), radius: 8, y: 3)
+        .shadow(color: Color("button_shadow"), radius: 10, y: 3)
         .padding(.horizontal)
     }
     
