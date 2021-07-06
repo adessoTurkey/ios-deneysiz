@@ -29,6 +29,7 @@
 		985AD12A2685B990002AC6C9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 985AD1172685B990002AC6C9 /* Poppins-SemiBold.ttf */; };
 		985AD12B2685B990002AC6C9 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 985AD1182685B990002AC6C9 /* Poppins-Italic.ttf */; };
 		985AD12C2685B990002AC6C9 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 985AD1192685B990002AC6C9 /* Poppins-MediumItalic.ttf */; };
+		98619F662694377700E4275E /* BankAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98619F652694377700E4275E /* BankAccountView.swift */; };
 		98880FB426887E6200D94852 /* WhoAreWeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98880FB326887E6200D94852 /* WhoAreWeView.swift */; };
 		98880FB726887F0400D94852 /* SocialMediaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98880FB626887F0400D94852 /* SocialMediaButton.swift */; };
 		98880FBA26887F6500D94852 /* WhoAreWeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98880FB926887F6500D94852 /* WhoAreWeButton.swift */; };
@@ -116,6 +117,7 @@
 		985AD1172685B990002AC6C9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		985AD1182685B990002AC6C9 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		985AD1192685B990002AC6C9 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		98619F652694377700E4275E /* BankAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountView.swift; sourceTree = "<group>"; };
 		98880FB326887E6200D94852 /* WhoAreWeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoAreWeView.swift; sourceTree = "<group>"; };
 		98880FB626887F0400D94852 /* SocialMediaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaButton.swift; sourceTree = "<group>"; };
 		98880FB926887F6500D94852 /* WhoAreWeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoAreWeButton.swift; sourceTree = "<group>"; };
@@ -224,12 +226,29 @@
 			path = Poppins;
 			sourceTree = "<group>";
 		};
+		98619F632694375A00E4275E /* DonateView */ = {
+			isa = PBXGroup;
+			children = (
+				98619F642694376600E4275E /* CustomViews */,
+				98576D0C2691CDA700C307FA /* DonateView.swift */,
+			);
+			path = DonateView;
+			sourceTree = "<group>";
+		};
+		98619F642694376600E4275E /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				98619F652694377700E4275E /* BankAccountView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		98880FB226887E4400D94852 /* WhoAreWe */ = {
 			isa = PBXGroup;
 			children = (
+				98619F632694375A00E4275E /* DonateView */,
 				98880FB326887E6200D94852 /* WhoAreWeView.swift */,
 				98880FB526887EE900D94852 /* CustomViews */,
-				98576D0C2691CDA700C307FA /* DonateView.swift */,
 			);
 			path = WhoAreWe;
 			sourceTree = "<group>";
@@ -713,6 +732,7 @@
 				A5CC7DBD265DA93C00DD3AA7 /* RequestBuilder.swift in Sources */,
 				A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */,
 				A52227B8267CE41D00004C1F /* DiscoverDependencyContainer.swift in Sources */,
+				98619F662694377700E4275E /* BankAccountView.swift in Sources */,
 				98598324268C4C8B007678E8 /* Font+Extension.swift in Sources */,
 				A52227A5267CDB0500004C1F /* DiscoverView.swift in Sources */,
 				A5A6EA822667CA40008C8B2F /* FacebookAuthService.swift in Sources */,

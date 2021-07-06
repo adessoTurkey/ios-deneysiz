@@ -17,9 +17,9 @@ struct WhoAreWeView: View {
                 left: {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }) {
+                    }, label: {
                         Image("back")
-                    }
+                    })
                 },
                 center: {
                     Text("who_are_we-title")
