@@ -17,16 +17,18 @@ struct PopUpHelper<T>: ViewModifier where T: Alertable {
     
     func body(content: Content) -> some View {
         if isPresented {
-           return AnyView(content
+            return content
                 .overlay(
                     ZStack(alignment: .center) {
                         Color.black.opacity(0.69)
                             .ignoresSafeArea()
                         popUpView
                     }
-                ))
+                )
+                .eraseToAnyView()
         } else {
-            return AnyView(content)
+            return content
+                .eraseToAnyView()
         }
     }
 }

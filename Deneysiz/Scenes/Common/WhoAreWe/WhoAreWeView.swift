@@ -28,6 +28,7 @@ struct WhoAreWeView: View {
                 },
                 right: {
                 })
+                .foregroundColor(.deneysizTextColor)
                 .padding()
             ScrollView(.vertical, showsIndicators: false) {
                 

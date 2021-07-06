@@ -8,39 +8,25 @@
 import SwiftUI
 
 struct CategoryDetailView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var container: DiscoverDependencyContainer
     @StateObject var viewModel: CategoryDetailViewModel
-    
+    @Environment(\.presentationMode) var presentationMode
+
+    let tracker = InstanceTracker("Categorydetailview")
     var body: some View {
         VStack {
             navBar
-                .padding()
+                .foregroundColor(.deneysizTextColor)
+                .padding(.bottom, 24)
+                .padding(.top)
+                .padding(.horizontal, 26)
             
-            GeometryReader { geo in
-                VStack(alignment: .leading) {
-                    Text("\(viewModel.brands.count) tane bulundu")
-                        .padding(.horizontal, 16)
-                    
-                    ScrollView(.vertical, showsIndicators: false) {
-                        ForEach(viewModel.brands, id: \.name) {
-                            BrandCell(brand: $0)
-                        }
-                    }
-                    .frame(maxWidth: geo.size.width)
-                }
-            }
+            BrandListView(viewModel: container.makeBrandListViewModel(categoryEnum: viewModel.categoryEnum))
+            
             Spacer()
         }
+        .padding(.top, 0)
         .navigationBarHidden(true)
-        .modifier(
-            PopUpHelper(
-                popUpView:
-                    ActivityIndicator(isAnimating: viewModel.isLoading) {
-                        $0.color = .yellow
-                        $0.hidesWhenStopped = false
-                    },
-                isPresented: viewModel.isLoading)
-        )
     }
     
     var navBar: some View {
@@ -56,43 +42,16 @@ struct CategoryDetailView: View {
                 Text(viewModel.categoryEnum.categoryModel.title)
                     .font(.title)
                     .bold()
+                    .lineLimit(2)
+                    .multilineTextAlignment(.center)
             },
             right: {
-            })
-    }
-}
-
-private struct BrandCell: View {
-    let brand: Brand
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(brand.name ?? "")
-                        .font(.customFont(size: 20, type: .fontBold))
-                        .foregroundColor(Color(UIColor(red: 0.173, green: 0.243, blue: 0.314, alpha: 1)))
-                    Text(brand.parentCompany ?? "")
-                        .font(.customFont(size: 17))
-                        .foregroundColor(Color(UIColor(red: 0.498, green: 0.549, blue: 0.553, alpha: 1)))
+                Button(action: {
+                }) {
+                    Image("add")
                 }
-                
-                Spacer()
-                
-                Text(brand.point)
-                    .frame(width: 50)
-                    .padding(8)
-                    .background(Color.red.cornerRadius(8))
-            }
-            .padding(16)
-            
-            Divider()
-        }
-    }
-}
-
-struct CategoryDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .hairDye))
+            },
+            isCenterMultiline: true
+            )
     }
 }

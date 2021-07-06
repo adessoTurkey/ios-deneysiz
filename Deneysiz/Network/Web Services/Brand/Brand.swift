@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Brand {
     var id: UUID?
@@ -20,9 +21,13 @@ struct Brand {
     var offerInChina: Bool?
     var isSafe: Bool?
     
+    var point: Int!
+    var color: Color!
+    
     init(name: String, parentCompany: String) {
         self.name = name
         self.parentCompany = parentCompany
+        calculatePoint()
     }
 }
 
@@ -35,9 +40,36 @@ extension Brand {
         Brand(name: "Procsin", parentCompany: "Isana")
     ]
     
-    var point: String {
+    private mutating func calculatePoint() {
+        let randomPoint = randomPoint
+        color = calculateColor(randomPoint)
+        point = randomPoint
+    }
+    
+    private func calculateColor(_ point: Int) -> Color {
+        switch point {
+        case let point where point > 8:
+            return .superHighPointGreen
+        case let point where point > 6:
+            return .highPointGreen
+        case let point where point > 3:
+            return .midPointYellow
+        case let point where point > 2:
+            return .lowPointOrange
+        case let point where point >= 1:
+            return .lowPointRed
+        default:
+            return .black
+        }
+    }
+    
+    private var randomPoint: Int {
         let random = Int.random(in: 1...10)
-        return "\(random)/10"
+        return random
+    }
+    
+    var pointTitle: String {
+        "\(point ?? 0)/10"
     }
 }
 

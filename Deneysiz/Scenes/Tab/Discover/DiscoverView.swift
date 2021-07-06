@@ -19,7 +19,6 @@ struct DiscoverView: View {
                             .bold()
                     },
                     right: {
-                        
                         NavigationLink(
                             destination: WhoAreWeView(),
                             label: {
@@ -30,6 +29,7 @@ struct DiscoverView: View {
                                     }
                             })
                     })
+                    .foregroundColor(.deneysizTextColor)
                     .padding()
                 
                 // TODO: add filter text field
