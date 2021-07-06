@@ -1,55 +1,11 @@
 //
-//  DonateView.swift
+//  BankAccountView.swift
 //  Deneysiz
 //
-//  Created by Ilker Bagci on 4.07.2021.
+//  Created by Ilker Bagci on 6.07.2021.
 //
 
 import SwiftUI
-
-struct DonateView: View {
-    @Environment(\.presentationMode) var presentationMode
-
-    var body: some View {
-        VStack {
-            CustomNavBar(
-                left: {
-                },
-                center: {
-                    Text("who_are_we-title")
-                        .font(.title)
-                        .bold()
-                },
-                right: {
-                    Button(action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Image("dismiss")
-                    }
-                })
-                .padding()
-            ScrollView(.vertical, showsIndicators: false) {
-                
-                Text("who_are_we-info_text")
-                    .font(Font.customFont(size: 14, type: .fontRegular))
-                    .foregroundColor(Color("donateText"))
-                    .padding()
-                BankAccountView(account: .turkishLira)
-                    .padding(.vertical)
-                BankAccountView(account: .euro)
-                    .padding(.vertical)
-                
-            }.navigationBarHidden(true)
-            
-        }
-    }
-}
-
-struct DonateView_Previews: PreviewProvider {
-    static var previews: some View {
-        DonateView()
-    }
-}
 
 enum BankAccountType {
     
@@ -116,7 +72,7 @@ struct BankAccountView: View {
             Button(action: {
                 UIPasteboard.general.string = account.IBAN
                 hapticImpact.impactOccurred()
-            }) {
+            }, label: {
                 HStack {
                     Text(account.IBAN)
                         .font(Font.customFont(size: 14, type: .fontRegular))
@@ -126,7 +82,7 @@ struct BankAccountView: View {
                     Image("copy")
                         .padding()
                 }
-            }
+            })
 
             .background(Color("ibanFieldBlue"))
             .cornerRadius(4)

@@ -50,7 +50,7 @@ struct WhoAreWeButton: View {
                     showEmailProblemAlert = true
                 }
             })
-        }) {
+        }, label: {
             HStack(spacing: 20) {
                 Image(buttonType.imageName)
                 Text(buttonType.text)
@@ -58,7 +58,7 @@ struct WhoAreWeButton: View {
                 Spacer()
             }
             .padding()
-        }
+        })
         .alert(isPresented: $showEmailProblemAlert) {
             Alert(title: Text("who_are_we-email_problem_alert_title"),
                   message: Text("who_are_we-email_problem_alert_text"),
