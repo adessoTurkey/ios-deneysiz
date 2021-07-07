@@ -82,7 +82,6 @@
 		A5FBCF0F268DA1C000921791 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBCF0E268DA1C000921791 /* View+Extension.swift */; };
 		A5FC0A962694861800F0FAD6 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC0A952694861800F0FAD6 /* Color+Extension.swift */; };
 		A5FC0A9B2694F5DE00F0FAD6 /* BrandListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC0A9A2694F5DE00F0FAD6 /* BrandListView.swift */; };
-		A5FC0A9D2694F64800F0FAD6 /* BrandListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC0A9C2694F64800F0FAD6 /* BrandListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,7 +187,6 @@
 		A5FBCF0E268DA1C000921791 /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		A5FC0A952694861800F0FAD6 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		A5FC0A9A2694F5DE00F0FAD6 /* BrandListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandListView.swift; sourceTree = "<group>"; };
-		A5FC0A9C2694F64800F0FAD6 /* BrandListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,7 +571,6 @@
 			isa = PBXGroup;
 			children = (
 				A5FC0A9A2694F5DE00F0FAD6 /* BrandListView.swift */,
-				A5FC0A9C2694F64800F0FAD6 /* BrandListViewModel.swift */,
 			);
 			path = BrandList;
 			sourceTree = "<group>";
@@ -760,7 +757,6 @@
 				A5FBCF07268D8B0500921791 /* FakeBrandService.swift in Sources */,
 				A52227B8267CE41D00004C1F /* DiscoverDependencyContainer.swift in Sources */,
 				98598324268C4C8B007678E8 /* Font+Extension.swift in Sources */,
-				A5FC0A9D2694F64800F0FAD6 /* BrandListViewModel.swift in Sources */,
 				A5FBCF09268D8D8B00921791 /* PopUpHelper.swift in Sources */,
 				A52227A5267CDB0500004C1F /* DiscoverView.swift in Sources */,
 				A5A6EA822667CA40008C8B2F /* FacebookAuthService.swift in Sources */,

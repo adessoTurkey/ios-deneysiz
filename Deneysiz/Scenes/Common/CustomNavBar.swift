@@ -27,22 +27,22 @@ struct CustomNavBar<Left, Center, Right>: View where Left: View, Center: View, R
     let left: () -> Left
     let center: () -> Center
     let right: () -> Right
-    let isCenterMultiline: Bool
+    let isCenterNeedMultiline: Bool
     @State private var centerWidth: CGFloat = 0
     
     init(
         @ViewBuilder left: @escaping () -> Left,
         @ViewBuilder center: @escaping () -> Center,
         @ViewBuilder right: @escaping () -> Right,
-        isCenterMultiline: Bool = true) {
+        isCenterNeedMultiline: Bool = false) {
         self.left = left
         self.center = center
         self.right = right
-        self.isCenterMultiline = isCenterMultiline
+        self.isCenterNeedMultiline = isCenterNeedMultiline
     }
     
     var body: some View {
-        if isCenterMultiline {
+        if isCenterNeedMultiline {
             calculated
         } else {
             normal
@@ -50,52 +50,30 @@ struct CustomNavBar<Left, Center, Right>: View where Left: View, Center: View, R
     }
     
     var calculated: some View {
-        var actualWidth: CGFloat = 0
-        return ZStack {
-            
+        ZStack {
             center()
                 .modifier(FrameModifier(width: self.centerWidth))
                 .multilineTextAlignment(.center)
             
             HStack {
+                
                 left()
                     .frame(minWidth: 8)
+                
+                Spacer()
                     .overlay(
-                        GeometryReader { left -> Color in
+                        GeometryReader { middle -> Color in
                             DispatchQueue.main.async {
-                                actualWidth -= left.size.width
+                                self.centerWidth = middle.size.width
                             }
                             return Color.clear
                         }
                     )
-                
-                Spacer()
                 
                 right()
                     .frame(minWidth: 8)
-                    .overlay(
-                        GeometryReader { right -> Color in
-                            DispatchQueue.main.async {
-                                actualWidth -= right.size.width
-                            }
-                            return Color.clear
-                        }
-                    )
-                
             }
         }
-        .overlay(
-            GeometryReader { geo -> Color in
-                actualWidth += geo.size.width
-                return .clear
-            })
-        .onAppear(perform: {
-            if centerWidth == 0 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    centerWidth = actualWidth - 8
-                }
-            }
-        })
     }
     
     var normal: some View {
@@ -126,11 +104,33 @@ extension CustomNavBar where Center == EmptyView {
     }
 }
 
-/*struct CustomNavBar_Previews: PreviewProvider {
-
+struct CustomNavBar_Previews: PreviewProvider {
+    
     static var previews: some View {
-        CustomNavBar()
-            .environment(\.locale, .init(identifier: "tr"))
-
+        VStack {
+            CustomNavBar(
+                left: {
+                    Button(action: {
+                    }) {
+                        Image("back")
+                    }
+                },
+                center: {
+                    Text("perfume")
+                        .font(.title)
+                        .bold()
+                },
+                right: {
+                    Text("who-are-we")
+                },
+                isCenterNeedMultiline: true
+            )
+            .foregroundColor(.deneysizTextColor)
+            .padding(.bottom, 24)
+            .padding(.top)
+            .padding(.horizontal, 26)            .environment(\.locale, .init(identifier: "tr"))
+            Spacer()
+            
+        }
     }
-}*/
+}

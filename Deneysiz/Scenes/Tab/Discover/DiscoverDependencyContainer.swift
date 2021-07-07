@@ -15,11 +15,7 @@ final class DiscoverDependencyContainer: ObservableObject {
     }
     
     func makeCategoryDetailViewModel(categoryEnum: CategoryEnum) -> CategoryDetailViewModel {
-        return CategoryDetailViewModel(categoryEnum: categoryEnum)
-    }
-    
-    func makeBrandListViewModel(categoryEnum: CategoryEnum) -> BrandListViewModel {
         let fakeService = FakeBrandService()
-        return BrandListViewModel(categoryEnum: categoryEnum, brandService: fakeService)
+        return CategoryDetailViewModel(categoryEnum: categoryEnum, brandService: fakeService)
     }
 }

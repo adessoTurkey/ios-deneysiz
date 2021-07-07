@@ -11,22 +11,30 @@ struct CategoryDetailView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
     @StateObject var viewModel: CategoryDetailViewModel
     @Environment(\.presentationMode) var presentationMode
-
+    
     let tracker = InstanceTracker("Categorydetailview")
     var body: some View {
         VStack {
             navBar
-                .foregroundColor(.deneysizTextColor)
                 .padding(.bottom, 24)
                 .padding(.top)
                 .padding(.horizontal, 26)
             
-            BrandListView(viewModel: container.makeBrandListViewModel(categoryEnum: viewModel.categoryEnum))
+            BrandListView(brands: viewModel.brands)
             
             Spacer()
         }
         .padding(.top, 0)
         .navigationBarHidden(true)
+        .modifier(
+            PopUpHelper(
+                popUpView:
+                    ActivityIndicator(isAnimating: viewModel.isLoading) {
+                        $0.color = .yellow
+                        $0.hidesWhenStopped = false
+                    },
+                isPresented: viewModel.isLoading)
+        )
     }
     
     var navBar: some View {
@@ -51,7 +59,8 @@ struct CategoryDetailView: View {
                     Image("add")
                 }
             },
-            isCenterMultiline: true
-            )
+            isCenterNeedMultiline: true
+        )
+        .foregroundColor(.deneysizTextColor)
     }
 }

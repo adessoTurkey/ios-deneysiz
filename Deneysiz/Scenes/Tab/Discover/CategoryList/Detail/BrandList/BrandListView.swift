@@ -8,30 +8,21 @@
 import SwiftUI
 
 struct BrandListView: View {
-    @StateObject var viewModel: BrandListViewModel
+    let brands: [Brand]
     var body: some View {
         GeometryReader { geo in
             VStack(alignment: .leading) {
-                Text("\(viewModel.brands.count) tane bulundu")
+                Text("\(brands.count) tane bulundu")
                     .padding(.horizontal, 16)
                 
                 ScrollView(.vertical, showsIndicators: false) {
-                    ForEach(viewModel.brands, id: \.name) {
+                    ForEach(brands, id: \.name) {
                         BrandCell(brand: $0)
                     }
                 }
                 .frame(maxWidth: geo.size.width)
             }
         }
-        .modifier(
-            PopUpHelper(
-                popUpView:
-                    ActivityIndicator(isAnimating: viewModel.isLoading) {
-                        $0.color = .yellow
-                        $0.hidesWhenStopped = false
-                    },
-                isPresented: viewModel.isLoading)
-        )
     }
 }
 
@@ -72,7 +63,6 @@ struct CategoryDetailView_Previews: PreviewProvider {
 
 struct BrandListView_Previews: PreviewProvider {
     static var previews: some View {
-        BrandListView(viewModel: DiscoverDependencyContainer()
-                        .makeBrandListViewModel(categoryEnum: .haircare))
+        BrandListView(brands: Brand.dummies)
     }
 }
