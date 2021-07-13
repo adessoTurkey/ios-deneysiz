@@ -27,39 +27,57 @@ enum SocialMedia {
         }
     }
     
-    var action: () -> Void {
+    var url: (appURL: URL?, webURL: URL?) {
+        var appURL: URL?
+        var webURL: URL?
+        
         switch self {
         case .facebook:
-            return {
-                print("open facebook")
-            }
+            appURL = URL(string: "fb://profile/adessoturkey")
+            webURL = URL(string: "https://facebook.com/adessoturkey")
         case .instagram:
-            return {
-                print("open instagram")
-            }
+            appURL = URL(string: "instagram://user?username=adessoturkey")
+            webURL = URL(string: "https://instagram.com/adessoturkey")
         case .twitter:
-            return {
-                print("open twitter")
-            }
+            appURL = URL(string: "twitter://user?screen_name=adessoturkey")
+            webURL = URL(string: "https://twitter.com/adessoturkey")
         case .youtube:
-            return {
-                print("open youtube")
-            }
+            appURL = URL(string: "youtube://www.youtube.com/channel/UCAqJjT5M8nWlMx-ARnHvuhg/videos")
+            webURL = URL(string: "https://www.youtube.com/channel/UCAqJjT5M8nWlMx-ARnHvuhg/videos")
         }
+        return (appURL, webURL)
     }
 }
 
 struct SocialMediaButton: View {
     
-    var socialMediaType: SocialMedia
+    var socialMedia: SocialMedia
     
     var body: some View {
         
-        Button(action: socialMediaType.action) {
-            Image(socialMediaType.imageName)
+        Button(action: {
+            openURL(appURL: socialMedia.url.appURL, webURL: socialMedia.url.webURL)
+        }) {
+            Image(socialMedia.imageName)
                 .resizable()
                 .scaledToFit()
         }
     }
     
+    func openURL(appURL: URL?, webURL: URL?) {
+        
+        if let url = appURL, UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        } else if let url = webURL {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
 }
