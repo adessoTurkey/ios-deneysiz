@@ -21,7 +21,8 @@ extension Font {
         static let poppinsBlack = "Poppins-Black"
         static let poppinsBlackItalic = "Poppins-BlackItalic"
         static let poppinsItalic = "Poppins-Italic"
-        
+        static let poppinsMedium = "Poppins-Medium"
+
     }
     
     public enum FontType {
@@ -35,7 +36,7 @@ extension Font {
         case fontBlack
         case fontBlackItalic
         case fontItalic
-        
+        case fontMedium
     }
     
     public static func customFont(size: CGFloat, type: FontType = .fontRegular) -> Font {
@@ -61,6 +62,9 @@ extension Font {
             return Font.custom(FontFamily.poppinsBlackItalic, size: size)
         case .fontItalic:
             return Font.custom(FontFamily.poppinsItalic, size: size)
+        case .fontMedium:
+            return Font.custom(FontFamily.poppinsMedium, size: size)
+
         }
         
     }

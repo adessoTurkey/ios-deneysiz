@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BrandListView: View {
+    @EnvironmentObject var container: DiscoverDependencyContainer
     let brands: [Brand]
     var body: some View {
         GeometryReader { geo in
@@ -16,8 +17,15 @@ struct BrandListView: View {
                     .padding(.horizontal, 16)
                 
                 ScrollView(.vertical, showsIndicators: false) {
-                    ForEach(brands, id: \.name) {
-                        BrandCell(brand: $0)
+                    ForEach(brands, id: \.name) { brand in
+                        NavigationLink(
+                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brand: brand)),
+                            label: {
+                                BrandCell(brand: brand)
+                                    // To get tap gesture event on Spacer
+                                    .contentShape(Rectangle())
+                            })
+                            .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .frame(maxWidth: geo.size.width)
@@ -35,15 +43,17 @@ private struct BrandCell: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(brand.name ?? "")
                         .font(.customFont(size: 20, type: .fontBold))
-                        .foregroundColor(Color(UIColor(red: 0.173, green: 0.243, blue: 0.314, alpha: 1)))
+                        .foregroundColor(.deneysizTextColor)
                     Text(brand.parentCompany ?? "")
                         .font(.customFont(size: 17))
-                        .foregroundColor(Color(UIColor(red: 0.498, green: 0.549, blue: 0.553, alpha: 1)))
+                        .foregroundColor(.deneysizText2Color)
                 }
                 
                 Spacer()
                 
                 Text(brand.pointTitle)
+                    .font(.customFont(size: 17))
+                    .foregroundColor(.white)
                     .frame(width: 50)
                     .padding(8)
                     .background(brand.color.cornerRadius(8))

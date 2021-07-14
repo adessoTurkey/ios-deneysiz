@@ -59,7 +59,7 @@ struct CategoryDetailView: View {
                     Image("add")
                 }
             },
-            isCenterNeedMultiline: true
+            config: .init(isCenterMultiline: true)
         )
         .foregroundColor(.deneysizTextColor)
     }

@@ -27,7 +27,3 @@ final class CategoryListViewModel: BaseViewModel, ObservableObject {
             .store(in: &self.cancellables)
     }
 }
-
-class BaseViewModel {
-    var cancellables = Set<AnyCancellable>()
-}

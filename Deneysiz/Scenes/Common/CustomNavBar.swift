@@ -23,26 +23,35 @@ private struct FrameModifier: ViewModifier {
         }
     }
 }
+
+extension CustomNavBar {
+    struct Config {
+        var isCenterMultiline: Bool = false
+        var alignment: Alignment = .center
+    }
+}
+
 struct CustomNavBar<Left, Center, Right>: View where Left: View, Center: View, Right: View {
     let left: () -> Left
     let center: () -> Center
     let right: () -> Right
-    let isCenterNeedMultiline: Bool
+    let config: Config
+    
     @State private var centerWidth: CGFloat = 0
     
     init(
         @ViewBuilder left: @escaping () -> Left,
         @ViewBuilder center: @escaping () -> Center,
         @ViewBuilder right: @escaping () -> Right,
-        isCenterNeedMultiline: Bool = false) {
+        config: Config = .init()) {
         self.left = left
         self.center = center
         self.right = right
-        self.isCenterNeedMultiline = isCenterNeedMultiline
+        self.config = config
     }
     
     var body: some View {
-        if isCenterNeedMultiline {
+        if self.config.isCenterMultiline {
             calculated
         } else {
             normal
@@ -50,7 +59,7 @@ struct CustomNavBar<Left, Center, Right>: View where Left: View, Center: View, R
     }
     
     var calculated: some View {
-        ZStack {
+        ZStack(alignment: self.config.alignment) {
             center()
                 .modifier(FrameModifier(width: self.centerWidth))
                 .multilineTextAlignment(.center)
@@ -123,7 +132,7 @@ struct CustomNavBar_Previews: PreviewProvider {
                 right: {
                     Text("who-are-we")
                 },
-                isCenterNeedMultiline: true
+                config: .init(isCenterMultiline: true)
             )
             .foregroundColor(.deneysizTextColor)
             .padding(.bottom, 24)
