@@ -17,9 +17,9 @@ struct WhoAreWeView: View {
                 left: {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }) {
+                    }, label: {
                         Image("back")
-                    }
+                    })
                 },
                 center: {
                     Text("who_are_we-title")
@@ -52,11 +52,10 @@ struct WhoAreWeView: View {
                     Spacer()
                 }.padding()
                 HStack(spacing: 16) {
-                    SocialMediaButton(socialMediaType: .twitter)
-                    SocialMediaButton(socialMediaType: .instagram)
-                    SocialMediaButton(socialMediaType: .youtube)
-                    SocialMediaButton(socialMediaType: .facebook)
-
+                    SocialMediaButton(socialMedia: .twitter)
+                    SocialMediaButton(socialMedia: .instagram)
+                    SocialMediaButton(socialMedia: .youtube)
+                    SocialMediaButton(socialMedia: .facebook)
                 }.padding(.horizontal)
                 Spacer()
             }.navigationBarHidden(true)
