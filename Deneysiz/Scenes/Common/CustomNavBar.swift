@@ -86,7 +86,7 @@ struct CustomNavBar<Left, Center, Right>: View where Left: View, Center: View, R
     }
     
     var normal: some View {
-        ZStack {
+        ZStack(alignment: self.config.alignment) {
             HStack {
                 left()
                 Spacer()

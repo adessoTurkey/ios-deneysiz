@@ -6,7 +6,6 @@
 
 */
 
-
 "hello-world" = "Merhaba Dunya";
 "tab-discover" = "Keşfet";
 "tab-info" = "Bilgiler";
@@ -22,6 +21,11 @@
 "who-are-we" = "Biz Kimiz";
 "who_are_we-title" = "Biz Kimiz?";
 "who_are_we-info_text" = "Deutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.\n\nDeutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.";
+"who_are_we-email_problem_alert_title" = "Hata!";
+"who_are_we-email_problem_alert_text" = "Lütfen cihazınızda mail göndermek için uygun bir e-posta adresi olduğundan emin olun.";
+"who_are_we-email_problem_alert_dismiss_text" = "Tamam";
+"how_to_donate" = "Nasıl Bağış Yaparım?";
+"how_to_donate-info_text" = "Deutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.\n\nDeutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.";
 "brand-detail-hasVeganProduct" = "Vegan Ürün";
 "brand-detail-offerInChina" = "Çin'de Satış";
 "brand-detail-parentCompanySafe" = "Çatı Firma Deneysiz";
