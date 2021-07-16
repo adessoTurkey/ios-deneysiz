@@ -119,8 +119,8 @@ struct CustomNavBar_Previews: PreviewProvider {
         VStack {
             CustomNavBar(
                 left: {
-                    Button(action: {
-                    }) {
+                    Button {
+                    } label: {
                         Image("back")
                     }
                 },

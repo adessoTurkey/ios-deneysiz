@@ -33,4 +33,10 @@
 "brand-detail-share" = "Paylaş";
 "brand-detail-description" = "Dirk Rossmann’ın %40’ına sahip olan çatı firma A.S. Watson şiketlerinden Chi-Med hayvanlar üzerinde test yapıyor.";
 "brand-detail-shop" = "Hangi mağazalarda bulabilirim?";
+"brand-detail-title" = "Sırala";
+"brand-detail-subTitle" = "Sırala detay text";
+"brand-detail-point-asc" = "Artan Puan";
+"brand-detail-point-desc" = "Azalan Puan";
+"brand-detail-name-asc" = "İsime göre (A - Z)";
+"brand-detail-name-desc" = "İsime göre (Z - A)";
 "category-brand-found" = "%d tane bulundu";

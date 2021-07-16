@@ -47,9 +47,9 @@ struct BrandDetailView: View {
     var NavBar: some View {
         CustomNavBar(
             left: {
-                Button(action: {
+                Button {
                     presentationMode.wrappedValue.dismiss()
-                }) {
+                } label: {
                     Image("back")
                 }
             },
@@ -58,8 +58,8 @@ struct BrandDetailView: View {
                     .padding(.top, 42)
             },
             right: {
-                Button(action: {
-                }) {
+                Button {
+                } label: {
                     Image("add")
                 }
             },

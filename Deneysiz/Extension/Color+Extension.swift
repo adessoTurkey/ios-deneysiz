@@ -16,4 +16,6 @@ extension Color {
     static let midPointYellow = Color(CGColor(red: 241/255, green: 196/255, blue: 15/255, alpha: 1))
     static let lowPointOrange = Color(CGColor(red: 243/255, green: 156/255, blue: 18/255, alpha: 1))
     static let lowPointRed = Color(CGColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1))
+    static let orderFilterBackground = Color(CGColor(red: 0.024, green: 0.322, blue: 0.867, alpha: 0.1))
+    static let orderFilterTextColor = Color(CGColor(red: 0.024, green: 0.322, blue: 0.867, alpha: 1))
 }

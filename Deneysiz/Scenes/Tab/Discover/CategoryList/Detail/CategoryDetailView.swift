@@ -19,12 +19,23 @@ struct CategoryDetailView: View {
                 .padding(.top)
                 .padding(.horizontal, 26)
             
+            FilterOrder
+                .padding(.bottom, 16)
+            
             BrandListView(brands: viewModel.brands)
             
             Spacer()
         }
         .padding(.top, 0)
         .navigationBarHidden(true)
+        .actionSheet(isPresented: $viewModel.showOrderSheet) {
+            ActionSheet(title: Text("brand-detail-order-title"), message: Text("brand-detail-order-subTitle"), buttons: [
+                .default(Text("brand-detail-point-asc")) { viewModel.order(.point(.asc)) },
+                .default(Text("brand-detail-point-desc")) { viewModel.order(.point(.desc)) },
+                .default(Text("brand-detail-name-asc")) { viewModel.order(.name(.asc)) },
+                .default(Text("brand-detail-name-desc")) { viewModel.order(.name(.desc)) }
+            ])
+        }
         .modifier(
             PopUpHelper(
                 popUpView:
@@ -39,9 +50,9 @@ struct CategoryDetailView: View {
     var NavBar: some View {
         CustomNavBar(
             left: {
-                Button(action: {
+                Button {
                     presentationMode.wrappedValue.dismiss()
-                }) {
+                } label: {
                     Image("back")
                 }
             },
@@ -53,13 +64,44 @@ struct CategoryDetailView: View {
                     .multilineTextAlignment(.center)
             },
             right: {
-                Button(action: {
-                }) {
+                Button {
+                    
+                } label: {
                     Image("add")
                 }
             },
             config: .init(isCenterMultiline: true)
         )
         .foregroundColor(.deneysizTextColor)
+    }
+    
+    var FilterOrder: some View {
+        HStack {
+            Button {
+                viewModel.orderButtonTapped()
+            }
+            label: {
+                HStack {
+                    Image("list")
+                    Text("Sirala")
+                        .font(.customFont(size: 17))
+                        .foregroundColor(.orderFilterTextColor)
+                    
+                }
+                .padding(.vertical, 8)
+                .padding(.horizontal, 8)
+                .background(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(Color.orderFilterTextColor, lineWidth: 1)
+                        .background(Color.orderFilterBackground)
+                )
+            }
+        }
+    }
+}
+
+struct CategoryDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .hairDye))
     }
 }

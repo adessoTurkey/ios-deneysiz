@@ -12,12 +12,12 @@ struct BrandListView: View {
     let brands: [Brand]
     
     var body: some View {
-        GeometryReader { geo in
-            VStack(alignment: .leading) {
-                Text(String(format: NSLocalizedString("category-brand-found", comment: ""), brands.count))
-                    .padding(.horizontal, 16)
-                
-                ScrollView(.vertical, showsIndicators: false) {
+        VStack(alignment: .leading) {
+            Text(String(format: NSLocalizedString("category-brand-found", comment: ""), brands.count))
+                .padding(.horizontal, 16)
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                LazyVStack {
                     ForEach(brands, id: \.name) { brand in
                         NavigationLink(
                             destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brand: brand)),
@@ -29,7 +29,6 @@ struct BrandListView: View {
                             .buttonStyle(PlainButtonStyle())
                     }
                 }
-                .frame(maxWidth: geo.size.width)
             }
         }
     }
@@ -66,14 +65,12 @@ private struct BrandCell: View {
     }
 }
 
-struct CategoryDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .hairDye))
-    }
-}
-
 struct BrandListView_Previews: PreviewProvider {
     static var previews: some View {
-        BrandListView(brands: Brand.dummies)
+        Group {
+            CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .hairDye))
+            
+            BrandListView(brands: Brand.dummies)
+        }
     }
 }
