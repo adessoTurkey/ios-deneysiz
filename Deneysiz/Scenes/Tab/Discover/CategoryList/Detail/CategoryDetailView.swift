@@ -33,7 +33,8 @@ struct CategoryDetailView: View {
                 .default(Text("brand-detail-point-asc")) { viewModel.order(.point(.asc)) },
                 .default(Text("brand-detail-point-desc")) { viewModel.order(.point(.desc)) },
                 .default(Text("brand-detail-name-asc")) { viewModel.order(.name(.asc)) },
-                .default(Text("brand-detail-name-desc")) { viewModel.order(.name(.desc)) }
+                .default(Text("brand-detail-name-desc")) { viewModel.order(.name(.desc)) },
+                .cancel()
             ])
         }
         .modifier(
@@ -83,7 +84,7 @@ struct CategoryDetailView: View {
             label: {
                 HStack {
                     Image("list")
-                    Text("Sirala")
+                    Text("brand-detail-order-title")
                         .font(.customFont(size: 17))
                         .foregroundColor(.orderFilterTextColor)
                     

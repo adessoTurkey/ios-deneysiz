@@ -21,7 +21,9 @@ struct BrandDetailView: View {
                 VStack(alignment: .leading) {
                     
                     Certificates
-                    
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 4)
+
                     Details
                         .padding(.top)
                     
