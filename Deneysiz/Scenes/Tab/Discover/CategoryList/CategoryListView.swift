@@ -16,7 +16,7 @@ struct CategoryListView: View {
             NavigationLink(
                 destination: Text("Destination"),
                 label: {
-                    CategoryCell(CategoryEnum.allBrands.categoryModel)
+                    CategoryCell(.allBrands)
                 })
             
             ForEach(
@@ -27,9 +27,11 @@ struct CategoryListView: View {
                         categoryChunk,
                         id: \.rawValue) { category in
                         NavigationLink(
-                            destination: CategoryDetailView(viewModel: container.makeCategoryDetailViewModel(categoryEnum: category)),
+                            destination: CategoryDetailView(
+                                viewModel: container.makeCategoryDetailViewModel(categoryEnum: category)
+                            ),
                             label: {
-                                CategoryCell(category.categoryModel)
+                                CategoryCell(category)
                             })
                             .accentColor(.none)
                     }
@@ -45,8 +47,8 @@ struct CategoryListView: View {
 private struct CategoryCell: View {
     let categoryModel: CategoryEnum.CategoryModel
     
-    init(_ categoryModel: CategoryEnum.CategoryModel) {
-        self.categoryModel = categoryModel
+    init(_ categoryModel: CategoryEnum) {
+        self.categoryModel = categoryModel.categoryModel
     }
     
     var body: some View {

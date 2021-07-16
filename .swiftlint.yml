@@ -28,6 +28,7 @@ disabled_rules:
   - nesting
   - function_parameter_count
   - type_name
+  - cyclomatic_complexity
 
 large_tuple: # warn user when using 3 values in tuple, give error if there are 4
    - 3
@@ -59,11 +60,6 @@ anyobject_protocol:
 conditional_returns_on_newline:
   severity: error
   if_only: true
-
-cyclomatic_complexity:
-  - warning: 10
-  - error: 20
-  - ignores_case_statements: true
 
 discouraged_direct_init:
   severity: error

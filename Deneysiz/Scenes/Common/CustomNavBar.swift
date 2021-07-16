@@ -52,13 +52,13 @@ struct CustomNavBar<Left, Center, Right>: View where Left: View, Center: View, R
     
     var body: some View {
         if self.config.isCenterMultiline {
-            calculated
+            Calculated
         } else {
-            normal
+            Normal
         }
     }
     
-    var calculated: some View {
+    var Calculated: some View {
         ZStack(alignment: self.config.alignment) {
             center()
                 .modifier(FrameModifier(width: self.centerWidth))
@@ -85,7 +85,7 @@ struct CustomNavBar<Left, Center, Right>: View where Left: View, Center: View, R
         }
     }
     
-    var normal: some View {
+    var Normal: some View {
         ZStack(alignment: self.config.alignment) {
             HStack {
                 left()
@@ -137,7 +137,8 @@ struct CustomNavBar_Previews: PreviewProvider {
             .foregroundColor(.deneysizTextColor)
             .padding(.bottom, 24)
             .padding(.top)
-            .padding(.horizontal, 26)            .environment(\.locale, .init(identifier: "tr"))
+            .padding(.horizontal, 26)
+            .environment(\.locale, .init(identifier: "tr"))
             Spacer()
             
         }

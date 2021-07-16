@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct CategoryDetailView: View {
-    @EnvironmentObject var container: DiscoverDependencyContainer
     @StateObject var viewModel: CategoryDetailViewModel
     @Environment(\.presentationMode) var presentationMode
     
     let tracker = InstanceTracker("Categorydetailview")
     var body: some View {
         VStack {
-            navBar
+            NavBar
                 .padding(.bottom, 24)
                 .padding(.top)
                 .padding(.horizontal, 26)
@@ -37,7 +36,7 @@ struct CategoryDetailView: View {
         )
     }
     
-    var navBar: some View {
+    var NavBar: some View {
         CustomNavBar(
             left: {
                 Button(action: {

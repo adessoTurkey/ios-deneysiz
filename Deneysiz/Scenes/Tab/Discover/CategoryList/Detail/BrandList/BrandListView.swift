@@ -10,10 +10,11 @@ import SwiftUI
 struct BrandListView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
     let brands: [Brand]
+    
     var body: some View {
         GeometryReader { geo in
             VStack(alignment: .leading) {
-                Text("\(brands.count) tane bulundu")
+                Text(String(format: NSLocalizedString("category-brand-found", comment: ""), brands.count))
                     .padding(.horizontal, 16)
                 
                 ScrollView(.vertical, showsIndicators: false) {

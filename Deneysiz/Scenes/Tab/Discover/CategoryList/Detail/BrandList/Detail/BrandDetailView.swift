@@ -44,29 +44,61 @@ struct BrandDetailView: View {
         .navigationBarHidden(true)
     }
     
-    var Shops: some View {
-        Section(
-            header: Text("brand-detail-shop")
-                .padding(.top, 32)
-        ) {
-            VStack {
-                ForEach(viewModel.brand.shopPalettes.chunked(into: 3), id: \.self) { row in
-                HStack(spacing: 16) {
-                        ForEach(row) { palette in
-                        Text(palette.name)
-                            .font(.customFont(size: 16, type: .fontMedium))
-                            .foregroundColor(palette.textColor)
-                            .padding(.vertical, 16)
-                            .padding(.horizontal, 8)
-                            .frame(width: 98, height: 52)
-                            .background(
-                                palette.backgroundColor
-                                    .cornerRadius(8)
-                            )
-                    }
-                    }
+    var NavBar: some View {
+        CustomNavBar(
+            left: {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image("back")
                 }
-                .padding(.top, 8)
+            },
+            center: {
+                NavBarCenter
+                    .padding(.top, 42)
+            },
+            right: {
+                Button(action: {
+                }) {
+                    Image("add")
+                }
+            },
+            config: .init(isCenterMultiline: true, alignment: .top)
+        )
+        .foregroundColor(.deneysizTextColor)
+    }
+    
+    var NavBarCenter: some View {
+        VStack(spacing: 16) {
+            VStack(spacing: 8) {
+                Text(viewModel.brand.name ?? "")
+                    .font(.customFont(size: 28, type: .fontBold))
+                    .foregroundColor(.deneysizTextColor)
+                
+                Text(viewModel.brand.parentCompany ?? "")
+                    .font(.customFont(size: 20, type: .fontBold))
+                    .foregroundColor(.deneysizText2Color)
+                
+            }
+            Text(viewModel.brand.pointTitle)
+                .font(.customFont(size: 17))
+                .foregroundColor(.white)
+                .frame(width: 50)
+                .padding(8)
+                .background(viewModel.brand.color.cornerRadius(8))
+        }
+    }
+    
+    var Certificates: some View {
+        HStack {
+            ForEach(viewModel.brand.certificate) { cert in
+                FixedImage(imageName: cert.name ?? "")
+                    .frame(maxWidth: 75, maxHeight: 75)
+                    .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
+                    .opacity(cert.valid == true ? 1 : 0.3)
+                if viewModel.brand.certificate.last != cert {
+                    Spacer(minLength: 9)
+                }
             }
         }
     }
@@ -94,62 +126,30 @@ struct BrandDetailView: View {
             .foregroundColor(.deneysizTextColor)
     }
     
-    var Certificates: some View {
-        HStack {
-            ForEach(viewModel.brand.certificate) { cert in
-                FixedImage(imageName: cert.name ?? "")
-                    .frame(maxWidth: 75, maxHeight: 75)
-                    .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
-                    .opacity(cert.valid == true ? 1 : 0.3)
-                if viewModel.brand.certificate.last != cert {
-                    Spacer(minLength: 9)
+    var Shops: some View {
+        Section(
+            header: Text("brand-detail-shop")
+                .padding(.top, 32)
+        ) {
+            VStack {
+                ForEach(viewModel.brand.shopPalettes.chunked(into: 3), id: \.self) { row in
+                HStack(spacing: 16) {
+                        ForEach(row) { palette in
+                        Text(palette.name)
+                            .font(.customFont(size: 16, type: .fontMedium))
+                            .foregroundColor(palette.textColor)
+                            .padding(.vertical, 16)
+                            .padding(.horizontal, 8)
+                            .frame(width: 98, height: 52)
+                            .background(
+                                palette.backgroundColor
+                                    .cornerRadius(8)
+                            )
+                    }
+                    }
                 }
+                .padding(.top, 8)
             }
-        }
-    }
-    
-    var NavBar: some View {
-        CustomNavBar(
-            left: {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image("back")
-                }
-            },
-            center: {
-                navBarCenter
-                    .padding(.top, 42)
-            },
-            right: {
-                Button(action: {
-                }) {
-                    Image("add")
-                }
-            },
-            config: .init(isCenterMultiline: true, alignment: .top)
-        )
-        .foregroundColor(.deneysizTextColor)
-    }
-    
-    var navBarCenter: some View {
-        VStack(spacing: 16) {
-            VStack(spacing: 8) {
-                Text(viewModel.brand.name ?? "")
-                    .font(.customFont(size: 28, type: .fontBold))
-                    .foregroundColor(.deneysizTextColor)
-                
-                Text(viewModel.brand.parentCompany ?? "")
-                    .font(.customFont(size: 20, type: .fontBold))
-                    .foregroundColor(.deneysizText2Color)
-                
-            }
-            Text(viewModel.brand.pointTitle)
-                .font(.customFont(size: 17))
-                .foregroundColor(.white)
-                .frame(width: 50)
-                .padding(8)
-                .background(viewModel.brand.color.cornerRadius(8))
         }
     }
 }
@@ -160,24 +160,28 @@ private struct HelperButton: View {
     let action: () -> Void
     
     var body: some View {
-        HStack {
+        Button {
+            print("tapped")
+        } label: {
             HStack {
-                image
-                title
-                    .font(.customFont(size: 17))
-                    .foregroundColor(.deneysizTextColor)
+                HStack {
+                    image
+                    title
+                        .font(.customFont(size: 17))
+                        .foregroundColor(.deneysizTextColor)
+                }
+                .padding(.vertical, 16)
+                .padding(.horizontal, 21)
+                
+                Spacer()
             }
-            .padding(.vertical, 16)
-            .padding(.horizontal, 21)
-            
-            Spacer()
+            .frame(height: 58)
+            .background(
+                Color.white
+                    .cornerRadius(8)
+                    .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
+            )
         }
-        .frame(height: 58)
-        .background(
-            Color.white
-                .cornerRadius(8)
-                .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
-        )
     }
     
 }

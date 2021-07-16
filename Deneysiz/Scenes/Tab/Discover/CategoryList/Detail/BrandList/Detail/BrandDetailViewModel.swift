@@ -8,7 +8,16 @@
 import Foundation
 
 final class BrandDetailViewModel: BaseViewModel, ObservableObject {
-
+   
+    struct BrandDetail: Identifiable {
+        var title: String
+        var image: String
+        
+        var id: String {
+            title
+        }
+    }
+    
     let brand: Brand
     @Published var detail: [BrandDetail] = []
     
@@ -29,13 +38,5 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         
         detail.append(contentsOf: [hasVeganProduct, offerInChina, parentCompanySafe])
     }
-    
-    struct BrandDetail: Identifiable {
-        var title: String
-        var image: String
-        
-        var id: String {
-            title
-        }
-    }
+   
 }
