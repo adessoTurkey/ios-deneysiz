@@ -17,7 +17,9 @@ final class ExampleEnvironment: EnvironmentProtocol {
     private init() {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { fatalError() }
         baseURL = url
-        headers = [:]
+        headers = [
+            "Content-type": "application/json; charset=UTF-8"
+        ]
     }
     
 }

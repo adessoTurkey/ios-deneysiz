@@ -7,7 +7,7 @@
 
 import Combine
 
-class CategoryListViewModel: BaseViewModel, ObservableObject {
+final class CategoryListViewModel: BaseViewModel, ObservableObject {
     
     let categoryAPI: CategoryAPI
     @Published var categories: [CategoryEnum] = []
@@ -26,8 +26,4 @@ class CategoryListViewModel: BaseViewModel, ObservableObject {
                 })
             .store(in: &self.cancellables)
     }
-}
-
-class BaseViewModel {
-    var cancellables = Set<AnyCancellable>()
 }

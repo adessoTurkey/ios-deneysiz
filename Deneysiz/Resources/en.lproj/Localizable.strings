@@ -6,7 +6,6 @@
 
 */
 
-
 "hello-world" = "Hello, World!";
 "tab-discover" = "Discover";
 "tab-info" = "Informations";
@@ -27,3 +26,17 @@
 "who_are_we-email_problem_alert_dismiss_text" = "OK";
 "how_to_donate" = "How to donate?";
 "how_to_donate-info_text" = "Deutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.\n\nDeutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.";
+"brand-detail-hasVeganProduct" = "Vegan Ürün";
+"brand-detail-offerInChina" = "Çin'de Satış";
+"brand-detail-parentCompanySafe" = "Çatı Firma Deneysiz";
+"brand-detail-quitFollowing" = "Takibi Bırak";
+"brand-detail-share" = "Paylaş";
+"brand-detail-description" = "Dirk Rossmann’ın %40’ına sahip olan çatı firma A.S. Watson şiketlerinden Chi-Med hayvanlar üzerinde test yapıyor.";
+"brand-detail-shop" = "Hangi mağazalarda bulabilirim?";
+"brand-detail-order-title" = "Sırala";
+"brand-detail-order-subTitle" = "Sırala detay text";
+"brand-detail-point-asc" = "Artan Puan";
+"brand-detail-point-desc" = "Azalan Puan";
+"brand-detail-name-asc" = "İsime göre (A - Z)";
+"brand-detail-name-desc" = "İsime göre (Z - A)";
+"category-brand-found" = "%d tane bulundu";

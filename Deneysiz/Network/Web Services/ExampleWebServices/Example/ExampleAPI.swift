@@ -9,6 +9,7 @@ import Combine
 
 protocol ExampleAPI {
     func test() -> AnyPublisher<[ExampleModel], Error>
+    func postTest(param: ExampleModel) -> AnyPublisher<ExampleModel, Error>
 }
 
 // https://jsonplaceholder.typicode.com/posts

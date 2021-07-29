@@ -27,7 +27,9 @@ class FirstViewModel: BaseViewModel, ObservableObject {
                 receiveCompletion: { err in
                     switch err {
                     case .failure(let err):
-                        print(err)
+                        if let err = err as? URLError, err.code == .notConnectedToInternet {
+                            print(err)
+                        }
                     case .finished:
                         print("finished")
                     }
@@ -35,6 +37,20 @@ class FirstViewModel: BaseViewModel, ObservableObject {
                 receiveValue: { [weak self] in
                     self?.exampleModel = $0
                 })
+            .store(in: &self.cancellables)
+        
+        //        postTest()
+    }
+    
+    func postTest() {
+        realService.postTest(param: ExampleModel(id: 101, userId: 1, title: "fooli", body: "phoeby"))
+            .sink { temp in
+                print(temp)
+            } receiveValue: { exampleModel in
+                if exampleModel.userId == 1 {
+                    print("Post Test Succeed")
+                }
+            }
             .store(in: &self.cancellables)
     }
 }

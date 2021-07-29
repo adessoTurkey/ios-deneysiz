@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CategoryListView: View {
+    @EnvironmentObject var container: DiscoverDependencyContainer
     @ObservedObject var viewModel: CategoryListViewModel
     
     var body: some View {
@@ -15,7 +16,7 @@ struct CategoryListView: View {
             NavigationLink(
                 destination: Text("Destination"),
                 label: {
-                    CategoryCell(CategoryEnum.allBrands.categoryModel)
+                    CategoryCell(.allBrands)
                 })
             
             ForEach(
@@ -26,9 +27,11 @@ struct CategoryListView: View {
                         categoryChunk,
                         id: \.rawValue) { category in
                         NavigationLink(
-                            destination: Text("Destination"),
+                            destination: CategoryDetailView(
+                                viewModel: container.makeCategoryDetailViewModel(categoryEnum: category)
+                            ),
                             label: {
-                                CategoryCell(category.categoryModel)
+                                CategoryCell(category)
                             })
                             .accentColor(.none)
                     }
@@ -44,8 +47,8 @@ struct CategoryListView: View {
 private struct CategoryCell: View {
     let categoryModel: CategoryEnum.CategoryModel
     
-    init(_ categoryModel: CategoryEnum.CategoryModel) {
-        self.categoryModel = categoryModel
+    init(_ categoryModel: CategoryEnum) {
+        self.categoryModel = categoryModel.categoryModel
     }
     
     var body: some View {
@@ -72,5 +75,6 @@ struct CategoryListView_Previews: PreviewProvider {
     static var previews: some View {
         CategoryListView(viewModel: DiscoverDependencyContainer().makeCategoryViewModel())
             .padding(.horizontal, 23)
+            .environmentObject(DiscoverDependencyContainer())
     }
 }
