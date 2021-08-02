@@ -10,7 +10,6 @@ import SwiftUI
 struct DiscoverView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
     var body: some View {
-        NavigationView {
             VStack {
                 CustomNavBar(
                     left: {
@@ -37,8 +36,6 @@ struct DiscoverView: View {
                 CategoryListView(viewModel: container.makeCategoryViewModel())
                     .padding(.horizontal, 23)
             }
-            .navigationBarHidden(true)
-        }
     }
 }
 
