@@ -29,7 +29,8 @@ struct CategoryListView: View {
                         NavigationLink(
                             destination: CategoryDetailView(
                                 viewModel: container.makeCategoryDetailViewModel(categoryEnum: category)
-                            ),
+                            )
+                            .environmentObject(container),
                             label: {
                                 CategoryCell(category)
                             })
