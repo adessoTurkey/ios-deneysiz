@@ -10,7 +10,8 @@ import SwiftUI
 struct BrandDetailView: View {
     @StateObject var viewModel: BrandDetailViewModel
     @Environment(\.presentationMode) var presentationMode
-    
+    @State private var showPopUp = false
+
     var body: some View {
         VStack {
             NavBar
@@ -44,6 +45,13 @@ struct BrandDetailView: View {
         }
         .padding(.horizontal, 24)
         .navigationBarHidden(true)
+        .modifier(
+            PopUpHelper(
+                popUpView: PointDetailAlert(onDismiss: {
+                    showPopUp = false
+                }, config: .dummy),
+                isPresented: showPopUp)
+        )
     }
     
     var NavBar: some View {
@@ -88,6 +96,9 @@ struct BrandDetailView: View {
                 .frame(width: 50)
                 .padding(8)
                 .background(viewModel.brand.color.cornerRadius(8))
+                .onTapGesture {
+                    showPopUp.toggle()
+                }
         }
     }
     
