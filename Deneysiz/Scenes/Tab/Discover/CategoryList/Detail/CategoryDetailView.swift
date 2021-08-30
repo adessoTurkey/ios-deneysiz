@@ -4,7 +4,7 @@
 //
 //  Created by Ogulcan Keskin on 30.06.2021.
 //
-
+//amend
 import SwiftUI
 
 struct CategoryDetailView: View {
@@ -30,7 +30,7 @@ struct CategoryDetailView: View {
         .padding(.top, 0)
         .navigationBarHidden(true)
         .actionSheet(isPresented: $viewModel.showOrderSheet) {
-            ActionSheet(title: Text("brand-detail-order-title"), message: Text("brand-detail-order-subTitle"), buttons: [
+            ActionSheet(title: Text("brand-detail-order-title"), buttons: [
                 .default(Text("brand-detail-point-asc")) { viewModel.order(.point(.asc)) },
                 .default(Text("brand-detail-point-desc")) { viewModel.order(.point(.desc)) },
                 .default(Text("brand-detail-name-asc")) { viewModel.order(.name(.asc)) },
@@ -70,7 +70,7 @@ struct CategoryDetailView: View {
             },
             right: {
                 Button {
-                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: {_ in })
+                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: { installMailApp = !$0 })
                 } label: {
                     Image("add")
                 }

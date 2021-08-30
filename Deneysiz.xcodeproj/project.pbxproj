@@ -36,6 +36,8 @@
 		A508DCB62683733200336A18 /* ExampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508DCB52683733200336A18 /* ExampleService.swift */; };
 		A508DCC4268373B500336A18 /* ExampleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508DCC3268373B500336A18 /* ExampleAPI.swift */; };
 		A508DCCC2683745800336A18 /* ExampleEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508DCCB2683745800336A18 /* ExampleEnvironment.swift */; };
+		A50CB05B26DCE00400259E05 /* CertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CB05A26DCE00400259E05 /* CertificateView.swift */; };
+		A50CB05D26DCE9F700259E05 /* CertificateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CB05C26DCE9F700259E05 /* CertificateViewModel.swift */; };
 		A514220C2668C68E00C047D5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A514220E2668C68E00C047D5 /* Localizable.strings */; };
 		A518C6102673655B00CD964D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A518C60F2673655B00CD964D /* Configuration.swift */; };
 		A51C45A92660CD51003CCC58 /* DashboardTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C45A82660CD51003CCC58 /* DashboardTabView.swift */; };
@@ -141,6 +143,8 @@
 		A508DCB52683733200336A18 /* ExampleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleService.swift; sourceTree = "<group>"; };
 		A508DCC3268373B500336A18 /* ExampleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAPI.swift; sourceTree = "<group>"; };
 		A508DCCB2683745800336A18 /* ExampleEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleEnvironment.swift; sourceTree = "<group>"; };
+		A50CB05A26DCE00400259E05 /* CertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateView.swift; sourceTree = "<group>"; };
+		A50CB05C26DCE9F700259E05 /* CertificateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateViewModel.swift; sourceTree = "<group>"; };
 		A51422032668C66B00C047D5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A514220D2668C68E00C047D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A51422122668C69600C047D5 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -296,6 +300,15 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		A50CB05926DCDFF300259E05 /* Certificate */ = {
+			isa = PBXGroup;
+			children = (
+				A50CB05A26DCE00400259E05 /* CertificateView.swift */,
+				A50CB05C26DCE9F700259E05 /* CertificateViewModel.swift */,
+			);
+			path = Certificate;
+			sourceTree = "<group>";
+		};
 		A518C60C2673653500CD964D /* Configs */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +369,7 @@
 		A52227B1267CDD6000004C1F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A50CB05926DCDFF300259E05 /* Certificate */,
 				98880FB226887E4400D94852 /* WhoAreWe */,
 				A52227B2267CDD6B00004C1F /* CustomNavBar.swift */,
 				A5FBCF08268D8D8B00921791 /* PopUpHelper.swift */,
@@ -825,6 +839,7 @@
 				A52227A5267CDB0500004C1F /* DiscoverView.swift in Sources */,
 				A5A6EA822667CA40008C8B2F /* FacebookAuthService.swift in Sources */,
 				A51C45BC2660DB4F003CCC58 /* FirstDependencyContainer.swift in Sources */,
+				A50CB05D26DCE9F700259E05 /* CertificateViewModel.swift in Sources */,
 				98576D0D2691CDA700C307FA /* DonateView.swift in Sources */,
 				A562BCF6265EE66400BBC6A9 /* AppEnvironment.swift in Sources */,
 				9834C3972691DA230037EC8F /* EmailService.swift in Sources */,
@@ -861,6 +876,7 @@
 				A508DCB62683733200336A18 /* ExampleService.swift in Sources */,
 				A54DBBA1269D8AF00096BBAF /* BrandDetailView.swift in Sources */,
 				A5CC7DB5265DA73D00DD3AA7 /* URLSessionAgent.swift in Sources */,
+				A50CB05B26DCE00400259E05 /* CertificateView.swift in Sources */,
 				98880FB726887F0400D94852 /* SocialMediaButton.swift in Sources */,
 				A52227E5267CEB3800004C1F /* CategoryListView.swift in Sources */,
 				A51C45A92660CD51003CCC58 /* DashboardTabView.swift in Sources */,

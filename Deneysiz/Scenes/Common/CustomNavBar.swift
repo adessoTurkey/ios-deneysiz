@@ -65,7 +65,6 @@ struct CustomNavBar<Left, Center, Right>: View where Left: View, Center: View, R
                 .multilineTextAlignment(.center)
             
             HStack {
-                
                 left()
                     .frame(minWidth: 8)
                 
@@ -103,12 +102,29 @@ struct CustomNavBar<Left, Center, Right>: View where Left: View, Center: View, R
 extension CustomNavBar where Center == EmptyView {
     init(
         @ViewBuilder left: @escaping () -> Left,
-        @ViewBuilder right: @escaping () -> Right
+        @ViewBuilder right: @escaping () -> Right,
+        config: Config = .init()
     ) {
         self.init(
             left: left,
             center: { EmptyView() },
-            right: right
+            right: right,
+            config: config
+        )
+    }
+}
+
+extension CustomNavBar where Right == EmptyView {
+    init(
+        @ViewBuilder left: @escaping () -> Left,
+        @ViewBuilder center: @escaping () -> Center,
+        config: Config = .init()
+    ) {
+        self.init(
+            left: left,
+            center: center,
+            right: { EmptyView() },
+            config: config
         )
     }
 }

@@ -73,9 +73,7 @@ struct BrandDetailView: View {
             },
             right: {
                 Button {
-                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: { canSendMail in
-                        self.installMailApp = !canSendMail
-                    })
+                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: { installMailApp = !$0 })
                 } label: {
                     Image("add")
                 }
@@ -112,10 +110,14 @@ struct BrandDetailView: View {
     var Certificates: some View {
         HStack {
             ForEach(viewModel.brand.certificate) { cert in
-                FixedImage(imageName: cert.name ?? "")
-                    .frame(maxWidth: 75, maxHeight: 75)
-                    .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
-                    .opacity(cert.valid == true ? 1 : 0.3)
+                NavigationLink(
+                    destination: CertificateView(viewModel: .init(certificate: cert)),
+                    label: {
+                        FixedImage(imageName: cert.name ?? "")
+                            .frame(maxWidth: 75, maxHeight: 75)
+                            .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
+                            .opacity(cert.valid == true ? 1 : 0.3)
+                    })
                 if viewModel.brand.certificate.last != cert {
                     Spacer(minLength: 9)
                 }
