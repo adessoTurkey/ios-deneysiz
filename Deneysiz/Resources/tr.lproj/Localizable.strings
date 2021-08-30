@@ -40,3 +40,4 @@
 "brand-detail-name-asc" = "İsime göre (A - Z)";
 "brand-detail-name-desc" = "İsime göre (Z - A)";
 "category-brand-found" = "%d tane bulundu";
+"common-installMailApp" = "Devam edebilmek için lütfen Mail uygulamasını yükleyiniz.";

@@ -19,4 +19,5 @@ extension Color {
     static let orderFilterBackground = Color(CGColor(red: 0.024, green: 0.322, blue: 0.867, alpha: 0.1))
     static let orderFilterTextColor = Color(CGColor(red: 0.024, green: 0.322, blue: 0.867, alpha: 1))
     static let deneysizOrange = Color(CGColor(red: 243/255, green: 71/255, blue: 35/255, alpha: 1))
+    static let deneysizBlueTextColor = Color(CGColor(red: 0.024, green: 0.322, blue: 0.867, alpha: 1))
 }

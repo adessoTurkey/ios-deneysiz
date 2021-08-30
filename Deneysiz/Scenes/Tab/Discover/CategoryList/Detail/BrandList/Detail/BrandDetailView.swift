@@ -11,6 +11,7 @@ struct BrandDetailView: View {
     @StateObject var viewModel: BrandDetailViewModel
     @Environment(\.presentationMode) var presentationMode
     @State private var showPopUp = false
+    @State private var installMailApp = false
 
     var body: some View {
         VStack {
@@ -52,6 +53,9 @@ struct BrandDetailView: View {
                 }, config: .dummy),
                 isPresented: showPopUp)
         )
+        .alert(isPresented: $installMailApp, content: {
+            .init(title: Text("common-installMailApp"))
+        })
     }
     
     var NavBar: some View {
@@ -69,6 +73,9 @@ struct BrandDetailView: View {
             },
             right: {
                 Button {
+                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: { canSendMail in
+                        self.installMailApp = !canSendMail
+                    })
                 } label: {
                     Image("add")
                 }
