@@ -24,7 +24,7 @@ struct MainTabView: View {
                     .environmentObject(DiscoverDependencyContainer())
                     .navigationBarHidden(true)
                 
-                Text("Tab Content 2")
+                InfoView()
                     .tabItem {
                         VStack {
                             Image("rabbit")
@@ -32,6 +32,8 @@ struct MainTabView: View {
                         }
                     }
                     .tag(TabViewEnum.info())
+                    .navigationBarHidden(true)
+
             }
             .accentColor(.orange)
         }
