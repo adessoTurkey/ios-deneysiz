@@ -35,13 +35,17 @@ struct WhoAreWeView: View {
                 Text("who_are_we-info_text")
                     .font(Font.customFont(size: 16, type: .fontRegular))
                     .padding(.horizontal)
-                HStack {
-                    Text("deneysiz.org")
-                        .font(Font.customFont(size: 16, type: .fontRegular))
-                        .foregroundColor(Color("orange"))
-                        .font(.body)
-                    Spacer()
-                }.padding()
+                
+                if let url = URL(string: "https://www.deneysiz.org/") {
+                    HStack {
+                        Link("deneysiz_app_website_link", destination: url)
+                            .font(Font.customFont(size: 16, type: .fontRegular))
+                            .foregroundColor(Color("orange"))
+                            .font(.body)
+                        Spacer()
+                    }.padding()
+                }
+
                 Group {
                     WhoAreWeButton(buttonType: .contactUs)
                     WhoAreWeButton(buttonType: .beVolunteer)

@@ -39,8 +39,6 @@ struct DonateView: View {
                     .padding()
                 BankAccountView(account: .turkishLira)
                     .padding(.vertical)
-                BankAccountView(account: .euro)
-                    .padding(.vertical)
                 
             }.navigationBarHidden(true)
             
