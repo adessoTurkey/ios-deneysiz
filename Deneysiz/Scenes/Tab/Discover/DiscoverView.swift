@@ -14,8 +14,8 @@ struct DiscoverView: View {
                 CustomNavBar(
                     left: {
                         Text("tab-discover")
-                            .font(.title)
-                            .bold()
+                            .font(.customFont(size: 24, type: .fontBold))
+                            .foregroundColor(.deneysizTextColor)
                     },
                     right: {
                         NavigationLink(
@@ -23,7 +23,8 @@ struct DiscoverView: View {
                             label: {
                                     HStack(spacing: 4) {
                                         Text("who-are-we")
-                                            .foregroundColor(.blue)
+                                            .font(.customFont(size: 14, type: .fontMedium))
+                                            .foregroundColor(.deneysizBlueTextColor)
                                         Image("Group")
                                     }
                             })

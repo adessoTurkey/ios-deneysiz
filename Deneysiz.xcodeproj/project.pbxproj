@@ -59,6 +59,9 @@
 		A54DBBA1269D8AF00096BBAF /* BrandDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DBBA0269D8AF00096BBAF /* BrandDetailView.swift */; };
 		A54DBBA3269D8AF80096BBAF /* BrandDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DBBA2269D8AF80096BBAF /* BrandDetailViewModel.swift */; };
 		A54DBBA6269D8B3E0096BBAF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DBBA5269D8B3E0096BBAF /* BaseViewModel.swift */; };
+		A54ED83426CADC3500B4062D /* CustomErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54ED83326CADC3500B4062D /* CustomErrorAlert.swift */; };
+		A54ED83626CAEA6A00B4062D /* PointDetailAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54ED83526CAEA6A00B4062D /* PointDetailAlert.swift */; };
+		A54ED83826CAED8E00B4062D /* BrandPointDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54ED83726CAED8E00B4062D /* BrandPointDetail.swift */; };
 		A562BCF6265EE66400BBC6A9 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BCF5265EE66400BBC6A9 /* AppEnvironment.swift */; };
 		A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BD00265EE7B800BBC6A9 /* Request.swift */; };
 		A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */; };
@@ -165,6 +168,9 @@
 		A54DBBA0269D8AF00096BBAF /* BrandDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailView.swift; sourceTree = "<group>"; };
 		A54DBBA2269D8AF80096BBAF /* BrandDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailViewModel.swift; sourceTree = "<group>"; };
 		A54DBBA5269D8B3E0096BBAF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		A54ED83326CADC3500B4062D /* CustomErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorAlert.swift; sourceTree = "<group>"; };
+		A54ED83526CAEA6A00B4062D /* PointDetailAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailAlert.swift; sourceTree = "<group>"; };
+		A54ED83726CAED8E00B4062D /* BrandPointDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandPointDetail.swift; sourceTree = "<group>"; };
 		A562BCF5265EE66400BBC6A9 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A562BD00265EE7B800BBC6A9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
@@ -355,6 +361,8 @@
 				A5FBCF08268D8D8B00921791 /* PopUpHelper.swift */,
 				A542AC69268FBB8000B725BE /* ActivityIndicator.swift */,
 				A5BAE691269EB0F6002DFFBD /* FixedImage.swift */,
+				A54ED83326CADC3500B4062D /* CustomErrorAlert.swift */,
+				A54ED83526CAEA6A00B4062D /* PointDetailAlert.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -615,6 +623,7 @@
 				A5FBCF04268D8AAD00921791 /* BrandAPI.swift */,
 				A5FBCF06268D8B0500921791 /* FakeBrandService.swift */,
 				A5FBCF00268D811700921791 /* Brand.swift */,
+				A54ED83726CAED8E00B4062D /* BrandPointDetail.swift */,
 			);
 			path = Brand;
 			sourceTree = "<group>";
@@ -807,6 +816,7 @@
 				A5FC0A9B2694F5DE00F0FAD6 /* BrandListView.swift in Sources */,
 				A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */,
 				A5FBCF0D268D910F00921791 /* Logger.swift in Sources */,
+				A54ED83626CAEA6A00B4062D /* PointDetailAlert.swift in Sources */,
 				A5FBCF07268D8B0500921791 /* FakeBrandService.swift in Sources */,
 				A52227B8267CE41D00004C1F /* DiscoverDependencyContainer.swift in Sources */,
 				98619F662694377700E4275E /* BankAccountView.swift in Sources */,
@@ -824,6 +834,7 @@
 				A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */,
 				A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */,
 				A52227BE267CE50500004C1F /* CategoryAPI.swift in Sources */,
+				A54ED83826CAED8E00B4062D /* BrandPointDetail.swift in Sources */,
 				A5829268268CA30B00429A0E /* CategoryDetailView.swift in Sources */,
 				A518C6102673655B00CD964D /* Configuration.swift in Sources */,
 				A508DCC4268373B500336A18 /* ExampleAPI.swift in Sources */,
@@ -836,6 +847,7 @@
 				A54DBBA6269D8B3E0096BBAF /* BaseViewModel.swift in Sources */,
 				A542AC6A268FBB8000B725BE /* ActivityIndicator.swift in Sources */,
 				A51C45B72660DAF0003CCC58 /* FirstViewModel.swift in Sources */,
+				A54ED83426CADC3500B4062D /* CustomErrorAlert.swift in Sources */,
 				98880FB426887E6200D94852 /* WhoAreWeView.swift in Sources */,
 				A5BAE692269EB0F6002DFFBD /* FixedImage.swift in Sources */,
 				A52227EE267CEE3200004C1F /* InstanceTracker.swift in Sources */,

@@ -47,31 +47,14 @@ extension Brand {
 }
 
 extension Brand {
-    
-    private func calculateColor(_ point: Int) -> Color {
-        switch point {
-        case let point where point > 8:
-            return .superHighPointGreen
-        case let point where point > 6:
-            return .highPointGreen
-        case let point where point > 3:
-            return .midPointYellow
-        case let point where point > 2:
-            return .lowPointOrange
-        case let point where point >= 1:
-            return .lowPointRed
-        default:
-            return .black
-        }
-    }
-    
+
     var pointTitle: String {
         "\(point ?? 0)/10"
     }
     
     private mutating func calculatePoint() {
         let randomPoint = randomPoint
-        color = calculateColor(randomPoint)
+        color = .calculateColor(randomPoint)
         point = randomPoint
     }
     
@@ -141,6 +124,25 @@ private enum Shop: String {
             return .init(backgroundColor: .orange, textColor: .white, name: rawValue)
         case .rossman:
             return .init(backgroundColor: .red, textColor: .white, name: rawValue)
+        }
+    }
+}
+
+extension Color {
+    static func calculateColor(_ point: Int) -> Self {
+        switch point {
+        case let point where point > 8:
+            return .superHighPointGreen
+        case let point where point > 6:
+            return .highPointGreen
+        case let point where point > 3:
+            return .midPointYellow
+        case let point where point > 2:
+            return .lowPointOrange
+        case let point where point >= 1:
+            return .lowPointRed
+        default:
+            return .black
         }
     }
 }

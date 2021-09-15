@@ -10,7 +10,8 @@ import SwiftUI
 struct CategoryDetailView: View {
     @StateObject var viewModel: CategoryDetailViewModel
     @Environment(\.presentationMode) var presentationMode
-    
+    @State private var installMailApp = false
+
     let tracker = InstanceTracker("Categorydetailview")
     var body: some View {
         VStack {
@@ -46,6 +47,9 @@ struct CategoryDetailView: View {
                     },
                 isPresented: viewModel.isLoading)
         )
+        .alert(isPresented: $installMailApp, content: {
+            .init(title: Text("common-installMailApp"))
+        })
     }
     
     var NavBar: some View {
@@ -59,14 +63,14 @@ struct CategoryDetailView: View {
             },
             center: {
                 Text(viewModel.categoryEnum.categoryModel.title)
-                    .font(.title)
-                    .bold()
+                    .font(.customFont(size: 24, type: .fontBold))
+                    .foregroundColor(.deneysizTextColor)
                     .lineLimit(2)
                     .multilineTextAlignment(.center)
             },
             right: {
                 Button {
-                    
+                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: {_ in })
                 } label: {
                     Image("add")
                 }
