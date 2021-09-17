@@ -75,9 +75,9 @@ struct WhoAreWeButton: View {
     func buttonAction(for buttonType: WhoAreWeButtonType, completion: @escaping (Bool) -> Void) {
         switch buttonType {
         case .beVolunteer:
-            EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: completion)
+            EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "info@deneyehayir.org", completion: completion)
         case .contactUs:
-            EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: completion)
+            EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "info@deneyehayir.org", completion: completion)
         case .donate:
             isPresented.toggle()
         }
