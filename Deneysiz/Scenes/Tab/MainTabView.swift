@@ -9,35 +9,44 @@ import SwiftUI
 
 struct MainTabView: View {
     @State private var selectedtab = TabViewEnum.discover()
-    
+    @State private var showLottie = true
     var body: some View {
-        NavigationView {
-            TabView(selection: $selectedtab) {
-                DiscoverView()
-                    .tabItem {
-                        VStack {
-                            Image("compass")
-                            Text("tab-discover")
-                        }
-                    }
-                    .tag(TabViewEnum.discover())
-                    .environmentObject(DiscoverDependencyContainer())
-                    .navigationBarHidden(true)
-                
-                InfoView()
-                    .tabItem {
-                        VStack {
-                            Image("rabbit")
-                            Text("tab-info")
-                        }
-                    }
-                    .tag(TabViewEnum.info())
-                    .navigationBarHidden(true)
-
+        if showLottie {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                withAnimation {
+                    showLottie.toggle()
+                }
             }
-            .accentColor(.orange)
+            return LottieRabbit().eraseToAnyView()
+        } else {
+            return NavigationView {
+                TabView(selection: $selectedtab) {
+                    DiscoverView()
+                        .tabItem {
+                            VStack {
+                                Image("compass")
+                                Text("tab-discover")
+                            }
+                        }
+                        .tag(TabViewEnum.discover())
+                        .environmentObject(DiscoverDependencyContainer())
+                        .navigationBarHidden(true)
+                    
+                    InfoView()
+                        .tabItem {
+                            VStack {
+                                Image("rabbit")
+                                Text("tab-info")
+                            }
+                        }
+                        .tag(TabViewEnum.info())
+                        .navigationBarHidden(true)
+                }
+                .accentColor(.orange)
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .eraseToAnyView()
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
