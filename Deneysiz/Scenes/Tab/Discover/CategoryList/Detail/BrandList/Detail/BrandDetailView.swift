@@ -38,7 +38,7 @@ struct BrandDetailView: View {
                     HelperButton(image: Image("send"), title: .init("brand-detail-share"), action: {})
                         .padding(.top, 24)
                     
-                    Shops
+//                    Shops
                     
                 }
             }
