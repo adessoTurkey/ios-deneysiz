@@ -10,33 +10,36 @@ import SwiftUI
 struct DiscoverView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
     var body: some View {
-            VStack {
-                CustomNavBar(
-                    left: {
-                        Text("tab-discover")
-                            .font(.customFont(size: 24, type: .fontBold))
-                            .foregroundColor(.deneysizTextColor)
-                    },
-                    right: {
-                        NavigationLink(
-                            destination: WhoAreWeView(),
-                            label: {
-                                    HStack(spacing: 4) {
-                                        Text("who-are-we")
-                                            .font(.customFont(size: 14, type: .fontMedium))
-                                            .foregroundColor(.deneysizBlueTextColor)
-                                        Image("Group")
-                                    }
-                            })
-                    })
+        VStack(alignment: .leading, spacing: 24) {
+            NavBar
+                .padding(.top)
+                        
+            CategoryListView(viewModel: container.makeCategoryViewModel())
+            
+        }
+        .padding(.horizontal, 24)
+    }
+    
+    var NavBar: some View {
+        CustomNavBar(
+            left: {
+                Text("tab-discover")
+                    .font(.customFont(size: 24, type: .fontBold))
                     .foregroundColor(.deneysizTextColor)
-                    .padding()
-                
-                // TODO: add filter text field
-                
-                CategoryListView(viewModel: container.makeCategoryViewModel())
-                    .padding(.horizontal, 23)
-            }
+            },
+            right: {
+                NavigationLink(
+                    destination: WhoAreWeView(),
+                    label: {
+                        HStack(spacing: 4) {
+                            Text("who-are-we")
+                                .font(.customFont(size: 14, type: .fontMedium))
+                                .foregroundColor(.deneysizBlueTextColor)
+                            Image("Group")
+                        }
+                    })
+            })
+            .foregroundColor(.deneysizTextColor)
     }
 }
 

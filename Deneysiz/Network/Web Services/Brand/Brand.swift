@@ -83,7 +83,7 @@ extension Brand {
 }
 
 // MARK: Certificates
-struct Certificate: Codable, Identifiable, Equatable {
+struct Certificate: Codable, Identifiable, Equatable, Hashable {
     let name: String?
     let valid: Bool?
     

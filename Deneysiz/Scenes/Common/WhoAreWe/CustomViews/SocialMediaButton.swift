@@ -33,17 +33,17 @@ enum SocialMedia {
         
         switch self {
         case .facebook:
-            appURL = URL(string: "fb://profile/adessoturkey")
-            webURL = URL(string: "https://facebook.com/adessoturkey")
+            appURL = URL(string: "fb://profile/deneyehayir")
+            webURL = URL(string: "https://facebook.com/deneyehayir")
         case .instagram:
-            appURL = URL(string: "instagram://user?username=adessoturkey")
-            webURL = URL(string: "https://instagram.com/adessoturkey")
+            appURL = URL(string: "instagram://user?username=deneye_hayir")
+            webURL = URL(string: "https://instagram.com/deneye_hayir")
         case .twitter:
-            appURL = URL(string: "twitter://user?screen_name=adessoturkey")
-            webURL = URL(string: "https://twitter.com/adessoturkey")
+            appURL = URL(string: "twitter://user?screen_name=deneyehayir")
+            webURL = URL(string: "https://twitter.com/deneyehayir")
         case .youtube:
-            appURL = URL(string: "youtube://www.youtube.com/channel/UCAqJjT5M8nWlMx-ARnHvuhg/videos")
-            webURL = URL(string: "https://www.youtube.com/channel/UCAqJjT5M8nWlMx-ARnHvuhg/videos")
+            appURL = URL(string: "youtube://www.youtube.com/user/DeneyeHayir/videos")
+            webURL = URL(string: "https://www.youtube.com/user/DeneyeHayir/videos")
         }
         return (appURL, webURL)
     }

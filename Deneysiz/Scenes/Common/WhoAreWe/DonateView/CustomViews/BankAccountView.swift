@@ -15,7 +15,7 @@ enum BankAccountType {
     var imageName: String {
         switch self {
         case .turkishLira:
-            return "turkishLira"
+            return "turkishlira"
         case .euro:
             return "euro"
         }
