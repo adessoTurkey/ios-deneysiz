@@ -32,7 +32,6 @@ struct DonateView: View {
                 })
                 .padding()
             ScrollView(.vertical, showsIndicators: false) {
-                
                 Text("how_to_donate-info_text")
                     .font(Font.customFont(size: 14, type: .fontRegular))
                     .foregroundColor(Color("donateText"))

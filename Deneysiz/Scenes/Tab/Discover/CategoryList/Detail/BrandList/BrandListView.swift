@@ -15,6 +15,8 @@ struct BrandListView: View {
         VStack(alignment: .leading) {
             Text(String(format: NSLocalizedString("category-brand-found", comment: ""), brands.count))
                 .padding(.horizontal, 16)
+                .font(.customFont(size: 12, type: .fontRegular))
+                .foregroundColor(.deneysizTextColor)
             
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack {
