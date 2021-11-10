@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BrandListView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
-    let brands: [Brand]
+    let brands: [BrandDummy]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -35,7 +35,7 @@ struct BrandListView: View {
 }
 
 private struct BrandCell: View {
-    let brand: Brand
+    let brand: BrandDummy
     
     var body: some View {
         VStack(spacing: 0) {
@@ -70,7 +70,7 @@ struct BrandListView_Previews: PreviewProvider {
         Group {
             CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .hairDye))
             
-            BrandListView(brands: Brand.dummies)
+            BrandListView(brands: BrandDummy.dummies)
         }
     }
 }

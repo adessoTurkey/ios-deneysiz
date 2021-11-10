@@ -13,8 +13,8 @@ struct FakeBrandService {
 }
 
 extension FakeBrandService: BrandAPI {
-    func getBrandsByCategory(category: CategoryEnum) -> AnyPublisher<[Brand], Error> {
-        return Just(Brand.dummies)
+    func getBrandsByCategory(category: CategoryEnum) -> AnyPublisher<[BrandDummy], Error> {
+        return Just(BrandDummy.dummies)
             .setFailureType(to: Error.self)
             .delay(for: 2, scheduler: RunLoop.main)
             .eraseToAnyPublisher()

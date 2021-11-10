@@ -18,10 +18,10 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         }
     }
     
-    let brand: Brand
+    let brand: BrandDummy
     @Published var detail: [BrandDetail] = []
     
-    init(brand: Brand) {
+    init(brand: BrandDummy) {
         self.brand = brand
         super.init()
         evaluateDetail()

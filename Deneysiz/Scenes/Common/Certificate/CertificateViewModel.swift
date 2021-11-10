@@ -8,7 +8,7 @@
 import Combine
 
 class CertificateViewModel: ObservableObject {
-    private let certificate: Certificate
+    private let certificate: CertificateDummy
     
     var name: String {
         certificate.name ?? ""
@@ -22,7 +22,7 @@ class CertificateViewModel: ObservableObject {
         "Lorem ipsum detail blob blob"
     }
     
-    init(certificate: Certificate) {
+    init(certificate: CertificateDummy) {
         self.certificate = certificate
     }
 }

@@ -71,7 +71,7 @@ struct InfoView: View {
     }
     
     var Certificates: some View {
-        ForEach(Certificate.dummies.chunked(into: 2), id: \.self) { certs in
+        ForEach(CertificateDummy.dummies.chunked(into: 2), id: \.self) { certs in
             HStack {
                 ForEach(certs) { cert in
                     NavigationLink(

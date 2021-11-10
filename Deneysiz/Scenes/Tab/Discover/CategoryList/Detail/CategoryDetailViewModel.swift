@@ -19,7 +19,7 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
         }
     }
     
-    @Published var brands: [Brand] = []
+    @Published var brands: [BrandDummy] = []
     @Published var isLoading = true
     @Published var showOrderSheet = false
     

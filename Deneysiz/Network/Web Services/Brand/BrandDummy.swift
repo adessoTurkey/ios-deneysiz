@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct Brand {
+struct BrandDummy {
     var id: UUID?
     var name: String?
     var parentCompany: String?
     var category: Int?
     var shopName: [String] = []
-    var certificate: [Certificate] = []
+    var certificate: [CertificateDummy] = []
     var hasVeganProduct: Bool?
     var parentCompanySafe: Bool?
     var vegan: Bool?
@@ -25,12 +25,12 @@ struct Brand {
     var color: Color!
 }
 
-extension Brand {
+extension BrandDummy {
     init(
         name: String,
         parentCompany: String,
         shopName: [String],
-        certificate: [Certificate],
+        certificate: [CertificateDummy],
         hasVeganProduct: Bool = Bool.random(),
         parentCompanySafe: Bool = Bool.random(),
         offerInChina: Bool = Bool.random()
@@ -46,7 +46,7 @@ extension Brand {
     }
 }
 
-extension Brand {
+extension BrandDummy {
 
     var pointTitle: String {
         "\(point ?? 0)/10"
@@ -59,12 +59,12 @@ extension Brand {
     }
     
     // MARK: MOCK DATA TO BE DELETED
-    static let dummies: [Brand] = [
-        Brand(name: "Hawaiian Tropic", parentCompany: "Rossman", shopName: dummyshop_3, certificate: Certificate.dummies),
-        Brand(name: "Flink & Sauber", parentCompany: "Dirk Rossmann", shopName: dummyshop_6, certificate: Certificate.dummies),
-        Brand(name: "Sunozon", parentCompany: "L’Oréal", shopName: dummyshop_3, certificate: Certificate.dummies),
-        Brand(name: "Diadermine", parentCompany: "Gliss", shopName: dummyshop_3, certificate: Certificate.dummies),
-        Brand(name: "Procsin", parentCompany: "Isana", shopName: dummyshop_6, certificate: Certificate.dummies)
+    static let dummies: [BrandDummy] = [
+        BrandDummy(name: "Hawaiian Tropic", parentCompany: "Rossman", shopName: dummyshop_3, certificate: CertificateDummy.dummies),
+        BrandDummy(name: "Flink & Sauber", parentCompany: "Dirk Rossmann", shopName: dummyshop_6, certificate: CertificateDummy.dummies),
+        BrandDummy(name: "Sunozon", parentCompany: "L’Oréal", shopName: dummyshop_3, certificate: CertificateDummy.dummies),
+        BrandDummy(name: "Diadermine", parentCompany: "Gliss", shopName: dummyshop_3, certificate: CertificateDummy.dummies),
+        BrandDummy(name: "Procsin", parentCompany: "Isana", shopName: dummyshop_6, certificate: CertificateDummy.dummies)
     ]
     
     static let dummyshop_6 = ["rossman", "gratis", "migros", "tossman", "mosman", "fosman"]
@@ -83,7 +83,7 @@ extension Brand {
 }
 
 // MARK: Certificates
-struct Certificate: Codable, Identifiable, Equatable, Hashable {
+struct CertificateDummy: Codable, Identifiable, Equatable, Hashable {
     let name: String?
     let valid: Bool?
     
@@ -92,7 +92,7 @@ struct Certificate: Codable, Identifiable, Equatable, Hashable {
     }
 }
 
-extension Certificate {
+extension CertificateDummy {
     static let leapingBunny: Self = .init(name: "leapingBunny", valid: Bool.random())
     static let sittingBunny: Self = .init(name: "sittingBunny", valid: Bool.random())
     static let flower: Self = .init(name: "flower", valid: Bool.random())

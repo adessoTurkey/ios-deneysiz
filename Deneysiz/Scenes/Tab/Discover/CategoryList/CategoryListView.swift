@@ -46,7 +46,7 @@ struct CategoryListView: View {
 }
 
 private struct CategoryCell: View {
-    let categoryModel: CategoryEnum.CategoryModel
+    let categoryModel: CategoryEnum.CategoryUIModel
     
     init(_ categoryModel: CategoryEnum) {
         self.categoryModel = categoryModel.categoryModel

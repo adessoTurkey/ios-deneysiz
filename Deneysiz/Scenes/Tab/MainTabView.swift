@@ -30,6 +30,7 @@ struct MainTabView: View {
                         }
                         .tag(TabViewEnum.discover())
                         .environmentObject(DiscoverDependencyContainer())
+                        .navigationBarTitle("")
                         .navigationBarHidden(true)
                     
                     InfoView()
@@ -40,6 +41,7 @@ struct MainTabView: View {
                             }
                         }
                         .tag(TabViewEnum.info())
+                        .navigationBarTitle("")
                         .navigationBarHidden(true)
                 }
                 .accentColor(.orange)

@@ -210,7 +210,7 @@ private struct HelperButton: View {
 
 struct BrandDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        guard let brand = Brand.dummies.first else {
+        guard let brand = BrandDummy.dummies.first else {
             return EmptyView().eraseToAnyView()
         }
         return BrandDetailView(

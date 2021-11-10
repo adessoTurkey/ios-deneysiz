@@ -7,27 +7,54 @@
 
 import Foundation
 import SwiftUI
-struct Category: Hashable {
-    let name: String
-    let image: String
+
+struct BrandBase: Codable {
+    let status: Int
+    let brands: [Brand]
+    let message: String
 }
 
-extension Category {
-    static var categories: [Category] = [
-        Category(name: "Makyaj", image: ""),
-        Category(name: "Parfüm", image: ""),
-        Category(name: "Cilt Bakım", image: ""),
-        Category(name: "Tırnak Bakım", image: ""),
-        Category(name: "Saç Bakım", image: ""),
-        Category(name: "Saç Boyaları", image: ""),
-        Category(name: "Güneş Kremleri", image: ""),
-        Category(name: "Vücut Bakım", image: "")
-    ]
+struct Brand: Codable {
+    let id: Int
+    let name: String
+    let parentCompany: ParentCompany
+    let offerInChina: Bool
+    let categoryId: String
+    let certificates: [Certificate]
+    let safe, vegan, veganProduct: Bool
+    let score: Int
+    let description, createdAt: String
+}
+
+struct BrandSearchBase: Codable {
+    let status: Int
+    let brandSearchs: [BrandSearch]
+    let message: String
+}
+
+struct BrandSearch: Codable {
+    let id: Int
+    let name: String
+    let parentCompany: ParentCompany
+    let score: Int
+}
+
+struct Certificate: Codable {
+    let name: String
+    let valid: Bool
+}
+
+struct ParentCompany: Codable {
+    let name: String
+    let safe: Bool
+}
+
+struct Category: Codable {
+    let categoryId: String
 }
 
 enum CategoryEnum: Int, CaseIterable {
-    case allBrands = 0
-    case makeup
+    case makeup = 0
     case perfume
     case skincare
     case nailcare
@@ -35,13 +62,14 @@ enum CategoryEnum: Int, CaseIterable {
     case hairDye
     case sunLotion
     case bodycare
+    case allBrands
 }
 
 extension CategoryEnum {
     
-    typealias CategoryModel = (title: LocalizedStringKey, image: Image)
+    typealias CategoryUIModel = (title: LocalizedStringKey, image: Image)
     
-    var categoryModel: CategoryModel {
+    var categoryModel: CategoryUIModel {
         switch self {
         case .allBrands:
             return (title: LocalizedStringKey("allBrands"), image: Image("allBrands"))
