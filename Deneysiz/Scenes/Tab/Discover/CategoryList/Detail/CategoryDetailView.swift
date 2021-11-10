@@ -88,7 +88,7 @@ struct CategoryDetailView: View {
             label: {
                 HStack {
                     Image("list")
-                    Text("brand-detail-order-title")
+                    Text(viewModel.currentConfig.title)
                         .font(.customFont(size: 17))
                         .foregroundColor(.orderFilterTextColor)
                     
