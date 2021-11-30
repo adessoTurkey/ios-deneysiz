@@ -22,35 +22,47 @@ class FirstViewModel: BaseViewModel, ObservableObject {
     }
     
     func startTest() {
-        realService.test()
+        
+        realService.realRequest()
             .sink(
                 receiveCompletion: { err in
-                    switch err {
-                    case .failure(let err):
-                        if let err = err as? URLError, err.code == .notConnectedToInternet {
-                            print(err)
-                        }
-                    case .finished:
-                        print("finished")
-                    }
+                    print("err, ", err)
                 },
-                receiveValue: { [weak self] in
-                    self?.exampleModel = $0
+                receiveValue: { bool in
+                    print(bool)
                 })
             .store(in: &self.cancellables)
-        
+
+            
+//        realService.test()
+//            .sink(
+//                receiveCompletion: { err in
+//                    switch err {
+//                    case .failure(let err):
+//                        if let err = err as? URLError, err.code == .notConnectedToInternet {
+//                            print(err)
+//                        }
+//                    case .finished:
+//                        print("finished")
+//                    }
+//                },
+//                receiveValue: { [weak self] in
+//                    self?.exampleModel = $0
+//                })
+//            .store(in: &self.cancellables)
+//
         //        postTest()
     }
     
     func postTest() {
-        realService.postTest(param: ExampleModel(id: 101, userId: 1, title: "fooli", body: "phoeby"))
-            .sink { temp in
-                print(temp)
-            } receiveValue: { exampleModel in
-                if exampleModel.userId == 1 {
-                    print("Post Test Succeed")
-                }
-            }
-            .store(in: &self.cancellables)
+//        realService.postTest(param: ExampleModel(id: 101, userId: 1, title: "fooli", body: "phoeby"))
+//            .sink { temp in
+//                print(temp)
+//            } receiveValue: { exampleModel in
+//                if exampleModel.userId == 1 {
+//                    print("Post Test Succeed")
+//                }
+//            }
+//            .store(in: &self.cancellables)
     }
 }

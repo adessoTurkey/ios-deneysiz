@@ -22,9 +22,14 @@ final class URLSessionAgent: BaseServiceProtocol, RequestBuilder {
         let urlRequest = build(request, environment)
         return URLSession.shared
             .dataTaskPublisher(for: urlRequest)
-            .map(\.data)
-            .decode(type: T.self, decoder: decoder)
+            .print()
+            .map { response in
+                print(String(data: response.data, encoding: .utf8))
+                return response.data
+            }
+            .decode(type: BaseResponse<T>.self, decoder: decoder)
             .receive(on: DispatchQueue.main)
+            .map(\.data)
             .eraseToAnyPublisher()
     }
     

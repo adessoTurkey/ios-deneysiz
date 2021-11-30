@@ -10,20 +10,8 @@ import SwiftUI
 
 struct BrandBase: Codable {
     let status: Int
-    let brands: [Brand]
+    let data: [Brand]
     let message: String
-}
-
-struct Brand: Codable {
-    let id: Int
-    let name: String
-    let parentCompany: ParentCompany
-    let offerInChina: Bool
-    let categoryId: String
-    let certificates: [Certificate]
-    let safe, vegan, veganProduct: Bool
-    let score: Int
-    let description, createdAt: String
 }
 
 struct BrandSearchBase: Codable {
@@ -39,9 +27,21 @@ struct BrandSearch: Codable {
     let score: Int
 }
 
-struct Certificate: Codable {
+struct Certificate: Codable, Identifiable, Hashable {
+    var id: String {
+        name
+    }
     let name: String
     let valid: Bool
+}
+
+extension Certificate {
+    static let leapingBunny: Self = .init(name: "leapingBunny", valid: Bool.random())
+    static let sittingBunny: Self = .init(name: "sittingBunny", valid: Bool.random())
+    static let flower: Self = .init(name: "flower", valid: Bool.random())
+    static let crueltyFree: Self = .init(name: "crueltyFree", valid: Bool.random())
+    
+    static let dummies: [Self] = [.leapingBunny, .sittingBunny, .flower, .crueltyFree]
 }
 
 struct ParentCompany: Codable {

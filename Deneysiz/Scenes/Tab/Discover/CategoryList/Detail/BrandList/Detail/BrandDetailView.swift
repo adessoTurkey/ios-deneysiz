@@ -90,7 +90,7 @@ struct BrandDetailView: View {
                     .font(.customFont(size: 28, type: .fontBold))
                     .foregroundColor(.deneysizTextColor)
                 
-                Text(viewModel.brand.parentCompany ?? "")
+                Text(viewModel.brand.parentCompany.name)
                     .font(.customFont(size: 20, type: .fontBold))
                     .foregroundColor(.deneysizText2Color)
                 
@@ -109,7 +109,7 @@ struct BrandDetailView: View {
     
     var Certificates: some View {
         HStack {
-            ForEach(viewModel.brand.certificate) { cert in
+            ForEach(viewModel.brand.certificates) { cert in
                 NavigationLink(
                     destination: CertificateView(viewModel: .init(certificate: cert)),
                     label: {
@@ -118,7 +118,7 @@ struct BrandDetailView: View {
                             .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
                             .opacity(cert.valid == true ? 1 : 0.3)
                     })
-                if viewModel.brand.certificate.last != cert {
+                if viewModel.brand.certificates.last != cert {
                     Spacer(minLength: 9)
                 }
             }
@@ -148,32 +148,32 @@ struct BrandDetailView: View {
             .foregroundColor(.deneysizTextColor)
     }
     
-    var Shops: some View {
-        Section(
-            header: Text("brand-detail-shop")
-                .padding(.top, 32)
-        ) {
-            VStack {
-                ForEach(viewModel.brand.shopPalettes.chunked(into: 3), id: \.self) { row in
-                HStack(spacing: 16) {
-                        ForEach(row) { palette in
-                        Text(palette.name)
-                            .font(.customFont(size: 16, type: .fontMedium))
-                            .foregroundColor(palette.textColor)
-                            .padding(.vertical, 16)
-                            .padding(.horizontal, 8)
-                            .frame(width: 98, height: 52)
-                            .background(
-                                palette.backgroundColor
-                                    .cornerRadius(8)
-                            )
-                    }
-                    }
-                }
-                .padding(.top, 8)
-            }
-        }
-    }
+//    var Shops: some View {
+//        Section(
+//            header: Text("brand-detail-shop")
+//                .padding(.top, 32)
+//        ) {
+//            VStack {
+//                ForEach(viewModel.brand.shopPalettes.chunked(into: 3), id: \.self) { row in
+//                HStack(spacing: 16) {
+//                        ForEach(row) { palette in
+//                        Text(palette.name)
+//                            .font(.customFont(size: 16, type: .fontMedium))
+//                            .foregroundColor(palette.textColor)
+//                            .padding(.vertical, 16)
+//                            .padding(.horizontal, 8)
+//                            .frame(width: 98, height: 52)
+//                            .background(
+//                                palette.backgroundColor
+//                                    .cornerRadius(8)
+//                            )
+//                    }
+//                    }
+//                }
+//                .padding(.top, 8)
+//            }
+//        }
+//    }
 }
 
 private struct HelperButton: View {
@@ -210,11 +210,14 @@ private struct HelperButton: View {
 
 struct BrandDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        guard let brand = BrandDummy.dummies.first else {
-            return EmptyView().eraseToAnyView()
-        }
-        return BrandDetailView(
-            viewModel: DiscoverDependencyContainer()
-                .makeBrandDetailViewModel(brand: brand)).eraseToAnyView()
-        }
+//        guard let brand = BrandDummy.dummies.first else {
+//            return EmptyView().eraseToAnyView()
+//        }
+//        return BrandDetailView(
+//            viewModel: DiscoverDependencyContainer()
+//                .makeBrandDetailViewModel(brand: brand)).eraseToAnyView()
+//        }
+        
+        return EmptyView().eraseToAnyView()
+    }
 }

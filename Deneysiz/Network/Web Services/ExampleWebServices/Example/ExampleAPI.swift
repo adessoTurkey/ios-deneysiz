@@ -10,6 +10,7 @@ import Combine
 protocol ExampleAPI {
     func test() -> AnyPublisher<[ExampleModel], Error>
     func postTest(param: ExampleModel) -> AnyPublisher<ExampleModel, Error>
+    func realRequest() -> AnyPublisher<[Brand], Error>
 }
 
 // https://jsonplaceholder.typicode.com/posts
@@ -20,3 +21,4 @@ struct ExampleModel: Codable {
     let title: String
     let body: String
 }
+

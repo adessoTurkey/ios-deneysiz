@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BrandListView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
-    let brands: [BrandDummy]
+    let brands: [Brand]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -37,7 +37,7 @@ struct BrandListView: View {
 }
 
 private struct BrandCell: View {
-    let brand: BrandDummy
+    let brand: Brand
     
     var body: some View {
         VStack(spacing: 0) {
@@ -46,7 +46,7 @@ private struct BrandCell: View {
                     Text(brand.name ?? "")
                         .font(.customFont(size: 20, type: .fontBold))
                         .foregroundColor(.deneysizTextColor)
-                    Text(brand.parentCompany ?? "")
+                    Text(brand.parentCompany.name)
                         .font(.customFont(size: 17))
                         .foregroundColor(.deneysizText2Color)
                 }
@@ -72,7 +72,7 @@ struct BrandListView_Previews: PreviewProvider {
         Group {
             CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .hairDye))
             
-            BrandListView(brands: BrandDummy.dummies)
+            BrandListView(brands: [])
         }
     }
 }

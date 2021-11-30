@@ -18,10 +18,10 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         }
     }
     
-    let brand: BrandDummy
+    let brand: Brand
     @Published var detail: [BrandDetail] = []
     
-    init(brand: BrandDummy) {
+    init(brand: Brand) {
         self.brand = brand
         super.init()
         evaluateDetail()
@@ -32,9 +32,9 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
             state == true ? "checked" : "none"
         }
         
-        let hasVeganProduct = BrandDetail(title: "brand-detail-hasVeganProduct", image: image(brand.hasVeganProduct))
+        let hasVeganProduct = BrandDetail(title: "brand-detail-hasVeganProduct", image: image(brand.veganProduct))
         let offerInChina = BrandDetail(title: "brand-detail-offerInChina", image: image(brand.offerInChina))
-        let parentCompanySafe = BrandDetail(title: "brand-detail-parentCompanySafe", image: image(brand.parentCompanySafe))
+        let parentCompanySafe = BrandDetail(title: "brand-detail-parentCompanySafe", image: image(brand.safe))
         
         detail.append(contentsOf: [hasVeganProduct, offerInChina, parentCompanySafe])
     }

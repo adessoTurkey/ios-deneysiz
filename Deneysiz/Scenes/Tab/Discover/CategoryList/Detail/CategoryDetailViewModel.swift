@@ -39,7 +39,7 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
         }
     }
     
-    @Published var brands: [BrandDummy] = []
+    @Published var brands: [Brand] = []
     @Published var isLoading = true
     @Published var showOrderSheet = false
     
@@ -58,12 +58,12 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
     
     func getBrands() {
         Logger.shared.log("\(categoryEnum.rawValue)")
-        brandService.getBrandsByCategory(category: categoryEnum)
+        brandService.getBrandsByCategory(payload: .init(categoryId: "\(categoryEnum.rawValue)"))
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { [weak self] in
                     Logger.shared.log("receiveValue")
-                    self?.brands = $0.sorted(by: { $0.point > $1.point })
+                    self?.brands = $0.sorted(by: { $0.score > $1.score })
                     self?.isLoading = false
                 })
             .store(in: &self.cancellables)
@@ -82,16 +82,16 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
         case let .point(order):
             switch order {
             case .asc:
-                brands = brands.sorted(by: { $0.point < $1.point })
+                brands = brands.sorted(by: { $0.score < $1.score })
             case .desc:
-                brands = brands.sorted(by: { $0.point > $1.point })
+                brands = brands.sorted(by: { $0.score > $1.score })
             }
         case let .name(order):
             switch order {
             case .asc:
-                brands = brands.sorted(by: { $0.name ?? "" < $1.name ?? "" })
+                brands = brands.sorted(by: { $0.name < $1.name })
             case .desc:
-                brands = brands.sorted(by: { $0.name ?? "" > $1.name ?? "" })
+                brands = brands.sorted(by: { $0.name > $1.name })
             }
         }
     }

@@ -23,4 +23,15 @@ extension ExampleService: ExampleAPI {
     func postTest(param: ExampleModel) -> AnyPublisher<ExampleModel, Error> {
         service.request(Request(method: .POST, path: "", payload: param), environment: ExampleEnvironment.shared)
     }
+    
+    func realRequest() -> AnyPublisher<[Brand], Error> {
+        service.request(
+            Request(
+                method: .POST,
+                path: "brands/byCategory",
+                payload: SearchBrandByCategoryPayload(categoryId: "0")
+            ),
+            environment: AppEnvironment.shared
+        )
+    }
 }

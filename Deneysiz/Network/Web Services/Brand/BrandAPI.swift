@@ -8,5 +8,5 @@
 import Combine
 
 protocol BrandAPI {
-    func getBrandsByCategory(category: CategoryEnum) -> AnyPublisher<[BrandDummy], Error>
+    func getBrandsByCategory(payload: SearchBrandByCategoryPayload) -> AnyPublisher<[Brand], Error>
 }

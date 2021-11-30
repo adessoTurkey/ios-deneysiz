@@ -13,10 +13,12 @@ final class AppEnvironment: EnvironmentProtocol {
 
     var baseURL: URL
     var headers: Headers?
-
+    
     private init() {
-        guard let url = URL(string: "https://google.com") else { fatalError() }
+        guard let url = URL(string: "http://deneysiz-backend.eu-central-1.elasticbeanstalk.com") else { fatalError() }
         baseURL = url
-        headers = [:]
+        headers = [
+            "Content-type": "application/json; charset=UTF-8"
+        ]
     }
 }

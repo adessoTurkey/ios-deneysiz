@@ -64,6 +64,10 @@
 		A52227E5267CEB3800004C1F /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227E4267CEB3800004C1F /* CategoryListView.swift */; };
 		A52227EE267CEE3200004C1F /* InstanceTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227ED267CEE3200004C1F /* InstanceTracker.swift */; };
 		A52227F3267CEFE300004C1F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227F2267CEFE300004C1F /* Array+Extension.swift */; };
+		A539B68A2756D028002FE847 /* BrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539B6892756D027002FE847 /* BrandService.swift */; };
+		A539B68D2756D5F3002FE847 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539B68C2756D5F3002FE847 /* Brand.swift */; };
+		A539B68F2756D647002FE847 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539B68E2756D647002FE847 /* BaseResponse.swift */; };
+		A539B6912756D66F002FE847 /* SearchBrandByCategoryPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539B6902756D66F002FE847 /* SearchBrandByCategoryPayload.swift */; };
 		A53F552E265EECFA0005AB1C /* FakeAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F552D265EECFA0005AB1C /* FakeAuthService.swift */; };
 		A542AC6A268FBB8000B725BE /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542AC69268FBB8000B725BE /* ActivityIndicator.swift */; };
 		A54DBBA1269D8AF00096BBAF /* BrandDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DBBA0269D8AF00096BBAF /* BrandDetailView.swift */; };
@@ -183,6 +187,10 @@
 		A52227E4267CEB3800004C1F /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		A52227ED267CEE3200004C1F /* InstanceTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceTracker.swift; sourceTree = "<group>"; };
 		A52227F2267CEFE300004C1F /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		A539B6892756D027002FE847 /* BrandService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandService.swift; sourceTree = "<group>"; };
+		A539B68C2756D5F3002FE847 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		A539B68E2756D647002FE847 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		A539B6902756D66F002FE847 /* SearchBrandByCategoryPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBrandByCategoryPayload.swift; sourceTree = "<group>"; };
 		A53F552D265EECFA0005AB1C /* FakeAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthService.swift; sourceTree = "<group>"; };
 		A542AC69268FBB8000B725BE /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		A54DBBA0269D8AF00096BBAF /* BrandDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailView.swift; sourceTree = "<group>"; };
@@ -469,6 +477,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		A539B68B2756D5E2002FE847 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A539B68C2756D5F3002FE847 /* Brand.swift */,
+				A539B6902756D66F002FE847 /* SearchBrandByCategoryPayload.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A54DBB9F269D8AE40096BBAF /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +681,7 @@
 			isa = PBXGroup;
 			children = (
 				A5CC7D74265D983400DD3AA7 /* BaseServiceProtocol.swift */,
+				A539B68E2756D647002FE847 /* BaseResponse.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -700,7 +718,9 @@
 		A5FBCEFF268D810700921791 /* Brand */ = {
 			isa = PBXGroup;
 			children = (
+				A539B68B2756D5E2002FE847 /* Model */,
 				A5FBCF04268D8AAD00921791 /* BrandAPI.swift */,
+				A539B6892756D027002FE847 /* BrandService.swift */,
 				A5FBCF06268D8B0500921791 /* FakeBrandService.swift */,
 				A5FBCF00268D811700921791 /* BrandDummy.swift */,
 				A54ED83726CAED8E00B4062D /* BrandPointDetail.swift */,
@@ -898,6 +918,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A539B6912756D66F002FE847 /* SearchBrandByCategoryPayload.swift in Sources */,
 				A5A6EA8C2667CF64008C8B2F /* RawRepresentable+Extension.swift in Sources */,
 				A5FC0A962694861800F0FAD6 /* Color+Extension.swift in Sources */,
 				A53F552E265EECFA0005AB1C /* FakeAuthService.swift in Sources */,
@@ -908,6 +929,7 @@
 				A54ED83626CAEA6A00B4062D /* PointDetailAlert.swift in Sources */,
 				A5FBCF07268D8B0500921791 /* FakeBrandService.swift in Sources */,
 				A52227B8267CE41D00004C1F /* DiscoverDependencyContainer.swift in Sources */,
+				A539B68D2756D5F3002FE847 /* Brand.swift in Sources */,
 				98619F662694377700E4275E /* BankAccountView.swift in Sources */,
 				98598324268C4C8B007678E8 /* Font+Extension.swift in Sources */,
 				A5FBCF09268D8D8B00921791 /* PopUpHelper.swift in Sources */,
@@ -922,6 +944,7 @@
 				A5FBCF01268D811700921791 /* BrandDummy.swift in Sources */,
 				A52227CC267CE64A00004C1F /* FakeCategoryService.swift in Sources */,
 				A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */,
+				A539B68F2756D647002FE847 /* BaseResponse.swift in Sources */,
 				A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */,
 				A518D6F726FA1B5E0084D8CC /* LottieView.swift in Sources */,
 				A52227BE267CE50500004C1F /* CategoryAPI.swift in Sources */,
@@ -954,6 +977,7 @@
 				A518D70326FA25800084D8CC /* LottieNoData.swift in Sources */,
 				A52227B3267CDD6B00004C1F /* CustomNavBar.swift in Sources */,
 				A508DCB62683733200336A18 /* ExampleService.swift in Sources */,
+				A539B68A2756D028002FE847 /* BrandService.swift in Sources */,
 				A54DBBA1269D8AF00096BBAF /* BrandDetailView.swift in Sources */,
 				A5CC7DB5265DA73D00DD3AA7 /* URLSessionAgent.swift in Sources */,
 				A50CB05B26DCE00400259E05 /* CertificateView.swift in Sources */,
