@@ -36,10 +36,10 @@ struct Certificate: Codable, Identifiable, Hashable {
 }
 
 extension Certificate {
-    static let leapingBunny: Self = .init(name: "leapingBunny", valid: Bool.random())
-    static let sittingBunny: Self = .init(name: "sittingBunny", valid: Bool.random())
-    static let flower: Self = .init(name: "flower", valid: Bool.random())
-    static let crueltyFree: Self = .init(name: "crueltyFree", valid: Bool.random())
+    static let leapingBunny: Self = .init(name: "Beauty Without Bunnies", valid: Bool.random())
+    static let sittingBunny: Self = .init(name: "V-Label", valid: Bool.random())
+    static let flower: Self = .init(name: "Vegan Society", valid: Bool.random())
+    static let crueltyFree: Self = .init(name: "Leaping Bunny", valid: Bool.random())
     
     static let dummies: [Self] = [.leapingBunny, .sittingBunny, .flower, .crueltyFree]
 }

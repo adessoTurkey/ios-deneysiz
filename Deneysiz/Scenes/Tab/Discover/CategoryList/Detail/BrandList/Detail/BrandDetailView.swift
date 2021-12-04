@@ -12,9 +12,9 @@ struct BrandDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showPopUp = false
     @State private var installMailApp = false
-
+    
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             NavBar
                 .padding(.bottom, 24)
                 .padding(.top)
@@ -25,27 +25,33 @@ struct BrandDetailView: View {
                     Certificates
                         .padding(.vertical, 8)
                         .padding(.horizontal, 4)
-
+                    
                     Details
                         .padding(.top)
+                        .padding(.horizontal, 4)
+
                     
                     TextInfo
                         .padding(.top, 16)
                     
-                    HelperButton(image: Image("bookmark2"), title: .init("brand-detail-quitFollowing"), action: {})
-                        .padding(.top, 24)
-                    
-                    HelperButton(image: Image("send"), title: .init("brand-detail-share"), action: {})
-                        .padding(.top, 24)
-                    
-//                    Shops
-                    
+                    LastUpdateText
+                        .padding(.top, 10)
+                                        
                 }
             }
             Spacer()
         }
         .padding(.horizontal, 24)
         .navigationBarHidden(true)
+        .modifier(
+            PopUpHelper(
+                popUpView:
+                    ActivityIndicator(isAnimating: viewModel.isLoading) {
+                        $0.color = .yellow
+                        $0.hidesWhenStopped = false
+                    },
+                isPresented: viewModel.isLoading)
+        )
         .modifier(
             PopUpHelper(
                 popUpView: PointDetailAlert(onDismiss: {
@@ -80,27 +86,27 @@ struct BrandDetailView: View {
             },
             config: .init(isCenterMultiline: true, alignment: .top)
         )
-        .foregroundColor(.deneysizTextColor)
+            .foregroundColor(.deneysizTextColor)
     }
     
     var NavBarCenter: some View {
         VStack(spacing: 16) {
             VStack(spacing: 8) {
-                Text(viewModel.brand.name ?? "")
+                Text(viewModel.brandDetail.name)
                     .font(.customFont(size: 28, type: .fontBold))
                     .foregroundColor(.deneysizTextColor)
                 
-                Text(viewModel.brand.parentCompany.name)
+                Text(viewModel.brandDetail.parentCompanyName)
                     .font(.customFont(size: 20, type: .fontBold))
                     .foregroundColor(.deneysizText2Color)
                 
             }
-            Text(viewModel.brand.pointTitle)
+            Text(viewModel.brandDetail.point)
                 .font(.customFont(size: 17))
                 .foregroundColor(.white)
                 .frame(width: 50)
                 .padding(8)
-                .background(viewModel.brand.color.cornerRadius(8))
+                .background(viewModel.brandDetail.scoreColor.cornerRadius(8))
                 .onTapGesture {
                     showPopUp.toggle()
                 }
@@ -109,16 +115,16 @@ struct BrandDetailView: View {
     
     var Certificates: some View {
         HStack {
-            ForEach(viewModel.brand.certificates) { cert in
+            ForEach(viewModel.brandDetail.certificates) { cert in
                 NavigationLink(
                     destination: CertificateView(viewModel: .init(certificate: cert)),
                     label: {
-                        FixedImage(imageName: cert.name ?? "")
+                        FixedImage(imageName: cert.name)
                             .frame(maxWidth: 75, maxHeight: 75)
                             .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
                             .opacity(cert.valid == true ? 1 : 0.3)
                     })
-                if viewModel.brand.certificates.last != cert {
+                if viewModel.brandDetail.certificates.last != cert {
                     Spacer(minLength: 9)
                 }
             }
@@ -128,16 +134,22 @@ struct BrandDetailView: View {
     var Details: some View {
         VStack(spacing: 16) {
             ForEach(viewModel.detail) { detail in
-                VStack(spacing: 8) {
-                    HStack {
-                        Text(LocalizedStringKey(detail.title))
-                            .font(.customFont(size: 17))
-                            .foregroundColor(.deneysizTextColor)
-                        Spacer()
+                Button(action: {
+                   
+                }, label: {
+                    HStack(spacing: 16) {
                         Image(detail.image)
+                        Text(LocalizedStringKey(detail.title))
+                            .font(Font.customFont(size: 16, type: .fontRegular))
+                        Spacer()
+                        Image("arrowRight")
                     }
-                    Divider()
-                }
+                    .padding()
+                })
+                .foregroundColor(Color.black)
+                .background(Color.white)
+                .cornerRadius(8)
+                .shadow(color: Color("button_shadow"), radius: 10, y: 3)
             }
         }
     }
@@ -148,76 +160,86 @@ struct BrandDetailView: View {
             .foregroundColor(.deneysizTextColor)
     }
     
-//    var Shops: some View {
-//        Section(
-//            header: Text("brand-detail-shop")
-//                .padding(.top, 32)
-//        ) {
-//            VStack {
-//                ForEach(viewModel.brand.shopPalettes.chunked(into: 3), id: \.self) { row in
-//                HStack(spacing: 16) {
-//                        ForEach(row) { palette in
-//                        Text(palette.name)
-//                            .font(.customFont(size: 16, type: .fontMedium))
-//                            .foregroundColor(palette.textColor)
-//                            .padding(.vertical, 16)
-//                            .padding(.horizontal, 8)
-//                            .frame(width: 98, height: 52)
-//                            .background(
-//                                palette.backgroundColor
-//                                    .cornerRadius(8)
-//                            )
-//                    }
-//                    }
-//                }
-//                .padding(.top, 8)
-//            }
-//        }
-//    }
-}
-
-private struct HelperButton: View {
-    let image: Image
-    let title: Text
-    let action: () -> Void
-    
-    var body: some View {
-        Button {
-            print("tapped")
-        } label: {
-            HStack {
-                HStack {
-                    image
-                    title
-                        .font(.customFont(size: 17))
-                        .foregroundColor(.deneysizTextColor)
-                }
-                .padding(.vertical, 16)
-                .padding(.horizontal, 21)
-                
-                Spacer()
-            }
-            .frame(height: 58)
-            .background(
-                Color.white
-                    .cornerRadius(8)
-                    .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
-            )
-        }
+    var LastUpdateText: some View {
+        Text(viewModel.brandDetail.createDate)
+            .font(.customFont(size: 14))
+            .foregroundColor(.deneysizTextColor)
     }
-    
 }
 
 struct BrandDetailView_Previews: PreviewProvider {
     static var previews: some View {
-//        guard let brand = BrandDummy.dummies.first else {
-//            return EmptyView().eraseToAnyView()
-//        }
-//        return BrandDetailView(
-//            viewModel: DiscoverDependencyContainer()
-//                .makeBrandDetailViewModel(brand: brand)).eraseToAnyView()
-//        }
-        
-        return EmptyView().eraseToAnyView()
+        guard let brand = Brand.dummies.first else {
+            return EmptyView().eraseToAnyView()
+        }
+        return BrandDetailView(
+            viewModel: DiscoverDependencyContainer()
+                .makeBrandDetailViewModel(brand: brand)).eraseToAnyView()
     }
 }
+
+/*
+ //MARK: Todo
+
+ private struct HelperButton: View {
+     let image: Image
+     let title: Text
+     let action: () -> Void
+     
+     var body: some View {
+         Button {
+             print("tapped")
+         } label: {
+             HStack {
+                 HStack {
+                     image
+                     title
+                         .font(.customFont(size: 17))
+                         .foregroundColor(.deneysizTextColor)
+                 }
+                 .padding(.vertical, 16)
+                 .padding(.horizontal, 21)
+                 
+                 Spacer()
+             }
+             .frame(height: 58)
+             .background(
+                 Color.white
+                     .cornerRadius(8)
+                     .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
+             )
+         }
+     }
+     
+ }
+ 
+  //    var Shops: some View {
+ //        Section(
+ //            header: Text("brand-detail-shop")
+ //                .padding(.top, 32)
+ //        ) {
+ //            VStack {
+ //                ForEach(viewModel.brand.shopPalettes.chunked(into: 3), id: \.self) { row in
+ //                HStack(spacing: 16) {
+ //                        ForEach(row) { palette in
+ //                        Text(palette.name)
+ //                            .font(.customFont(size: 16, type: .fontMedium))
+ //                            .foregroundColor(palette.textColor)
+ //                            .padding(.vertical, 16)
+ //                            .padding(.horizontal, 8)
+ //                            .frame(width: 98, height: 52)
+ //                            .background(
+ //                                palette.backgroundColor
+ //                                    .cornerRadius(8)
+ //                            )
+ //                    }
+ //                    }
+ //                }
+ //                .padding(.top, 8)
+ //            }
+ //        }
+ //    }
+ 
+ 
+ 
+ */

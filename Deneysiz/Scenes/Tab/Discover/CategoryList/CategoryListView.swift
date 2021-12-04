@@ -14,10 +14,15 @@ struct CategoryListView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             NavigationLink(
-                destination: Text("Destination"),
+                destination:
+                    CategoryDetailView(
+                        viewModel: container.makeCategoryDetailViewModel(categoryEnum: .allBrands)
+                    )
+                .environmentObject(container),
                 label: {
                     CategoryCell(.allBrands)
-                })
+                }
+            )
             
             ForEach(
                 viewModel.categories.chunked(into: 2),

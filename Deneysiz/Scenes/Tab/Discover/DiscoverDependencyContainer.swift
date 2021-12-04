@@ -20,6 +20,6 @@ final class DiscoverDependencyContainer: ObservableObject {
     }
     
     func makeBrandDetailViewModel(brand: Brand) -> BrandDetailViewModel {
-        .init(brand: brand)
+        .init(brand: brand, service: BrandDetailService())
     }
 }

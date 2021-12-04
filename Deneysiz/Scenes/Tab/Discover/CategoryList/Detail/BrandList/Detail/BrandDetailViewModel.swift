@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class BrandDetailViewModel: BaseViewModel, ObservableObject {
    
-    struct BrandDetail: Identifiable {
+    struct Details: Identifiable {
         var title: String
         var image: String
         
@@ -18,25 +19,74 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         }
     }
     
-    let brand: Brand
-    @Published var detail: [BrandDetail] = []
+    struct BrandDetailUIModel {
+        let name: String
+        let parentCompanyName: String
+        let point: String
+        let scoreColor: Color
+        let certificates: [Certificate]
+        let createDate: String
+        
+        init(brandDetail: BrandDetail) {
+            self.name = brandDetail.name
+            self.parentCompanyName = brandDetail.parentCompany.name
+            self.point = brandDetail.pointTitle
+            self.scoreColor = brandDetail.color
+            self.certificates = brandDetail.certificates
+            self.createDate = brandDetail.createdAt
+        }
+        
+        init(name: String, parentCompanyName: String, point: String, scoreColor: Color, certificates: [Certificate], createDate: String) {
+            self.name = name
+            self.parentCompanyName = parentCompanyName
+            self.point = point
+            self.scoreColor = scoreColor
+            self.certificates = certificates
+            self.createDate = createDate
+        }
+        
+        static let empty = BrandDetailUIModel(name: "", parentCompanyName: "", point: "", scoreColor: .gray, certificates: [], createDate: "")
+    }
     
-    init(brand: Brand) {
+    @Published var brandDetail: BrandDetailUIModel = .empty
+    @Published var detail: [Details] = []
+    @Published var isLoading = true
+    
+    private let brand: Brand
+    private let service: BrandDetailAPI
+    
+    init(brand: Brand, service: BrandDetailAPI) {
         self.brand = brand
+        self.service = service
         super.init()
+        getBrandDetail()
         evaluateDetail()
     }
     
+    private func getBrandDetail() {
+        service.getBrandDetail(payload: .init(id: "\(brand.id)"))
+            .sink(receiveCompletion: { completion in
+                
+            }, receiveValue: { [weak self] details in
+                defer {
+                    self?.isLoading = false
+                }
+                guard let first = details.first else { return }
+                self?.brandDetail = BrandDetailUIModel(brandDetail: first)
+            })
+            .store(in: &self.cancellables)
+    }
+    
     private func evaluateDetail() {
-        func image(_ state: Bool?) -> String {
+        func image(_ state: Bool) -> String {
             state == true ? "checked" : "none"
         }
         
-        let hasVeganProduct = BrandDetail(title: "brand-detail-hasVeganProduct", image: image(brand.veganProduct))
-        let offerInChina = BrandDetail(title: "brand-detail-offerInChina", image: image(brand.offerInChina))
-        let parentCompanySafe = BrandDetail(title: "brand-detail-parentCompanySafe", image: image(brand.safe))
+        let hasVeganProduct = Details(title: "brand-detail-hasVeganProduct", image: image(brand.veganProduct))
+        let offerInChina = Details(title: "brand-detail-offerInChina", image: image(brand.offerInChina))
+        let parentCompanySafe = Details(title: "brand-detail-parentCompanySafe", image: image(brand.safe))
         
-        detail.append(contentsOf: [hasVeganProduct, offerInChina, parentCompanySafe])
+        detail = [hasVeganProduct, offerInChina, parentCompanySafe]
     }
    
 }

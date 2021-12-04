@@ -10,3 +10,7 @@ import Combine
 protocol BrandAPI {
     func getBrandsByCategory(payload: SearchBrandByCategoryPayload) -> AnyPublisher<[Brand], Error>
 }
+
+protocol BrandDetailAPI {
+    func getBrandDetail(payload: BrandDetailPayload) -> AnyPublisher<[BrandDetail], Error>
+}
