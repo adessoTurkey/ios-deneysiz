@@ -63,14 +63,19 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
     func getBrands() {
         Logger.shared.log("\(categoryEnum.rawValue)")
         brandService.getBrandsByCategory(payload: .init(categoryId: "\(categoryEnum.rawValue)"))
-            .sink(
-                receiveCompletion: { _ in },
-                receiveValue: { [weak self] in
-                    Logger.shared.log("receiveValue")
-                    self?.brands = $0.sorted(by: { $0.score > $1.score })
-                    self?.isLoading = false
-                })
-            .store(in: &self.cancellables)
+            .sink { [weak self] completion in
+                self?.isLoading = false
+                switch completion {
+                case .failure(_):
+                    self?.onError = true
+                default:
+                    break
+                }
+            } receiveValue: { [weak self] in
+                Logger.shared.log("receiveValue")
+                self?.brands = $0.sorted(by: { $0.score > $1.score })
+            }
+        .store(in: &self.cancellables)
     }
     
     func orderButtonTapped() {

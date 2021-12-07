@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct CustomErrorAlert: Alertable {
-    var onDismiss: (() -> Void)?
     let config: Config
-    
+    var onDismiss: (() -> Void)?
+    var onButtonClick: (() -> Void)?
+
     var body: some View {
         GeometryReader { geo in
             ZStack(alignment: .top) {
@@ -40,7 +41,7 @@ struct CustomErrorAlert: Alertable {
                         .foregroundColor(.deneysizTextColor)
                         .padding(.top, 4)
 
-                    Button(action: { onDismiss?() }, label: {
+                    Button(action: { onButtonClick?() }, label: {
                         Text(config.buttonDescription)
                             .foregroundColor(.white)
                             .padding()

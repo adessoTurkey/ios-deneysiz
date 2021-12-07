@@ -56,6 +56,24 @@ struct BrandDetailView: View {
                 config: .init(backgroundOpacitiy: 0.45)
             )
         )
+        .modifier(
+            PopUpHelper(
+                popUpView: CustomErrorAlert(
+                    config: .noInternet,
+                    onDismiss: {
+                        withAnimation {
+                            viewModel.onError = false
+                        }
+                    },
+                    onButtonClick: {
+                        viewModel.onError = false
+                        viewModel.isLoading = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            viewModel.getBrandDetail()
+                        }
+                    }),
+                isPresented: viewModel.onError)
+        )
         .alert(isPresented: $installMailApp, content: {
             .init(title: Text("common-installMailApp"))
         })

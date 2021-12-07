@@ -29,12 +29,14 @@ struct InfoView: View {
             Curiosities
                 .padding(.top, 32)
             
-            ForEach(details, id: \.self) {
-                getNavigationLink($0, Text($0).eraseToAnyView())
+            ScrollView(.vertical, showsIndicators: false) {
+                ForEach(details, id: \.self) {
+                    getNavigationLink($0, Text($0).eraseToAnyView())
+                }
+                .font(.customFont(size: 17, type: .fontRegular))
+                .foregroundColor(.deneysizTextColor)
+                .padding(.top, 16)
             }
-            .font(.customFont(size: 17, type: .fontRegular))
-            .foregroundColor(.deneysizTextColor)
-            .padding(.top, 16)
 
             Spacer()
         }
@@ -82,11 +84,7 @@ struct InfoView: View {
                                 .shadow(color: Color.certificateShadowTemp, radius: 10, y: 8)
                                 .overlay(
                                     Image("\(cert.id)-rectangle")
-                                        .resizable()
-                                        .frame(width: 72, height: 60)
-                                        .scaledToFit()
                                 )
-                            
                         })
                 }
             }

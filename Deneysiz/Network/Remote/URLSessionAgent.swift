@@ -14,13 +14,20 @@ final class URLSessionAgent: BaseServiceProtocol, RequestBuilder {
     static let shared = URLSessionAgent()
     private var decoder: JSONDecoder
     
+    var urlSession: URLSession = {
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 15.0
+        sessionConfig.timeoutIntervalForResource = 20.0
+        return URLSession(configuration: sessionConfig)
+    }()
+    
     private init(_ decoder: JSONDecoder = JSONDecoder()) {
         self.decoder = decoder
     }
         
     func request<T: Decodable>(_ request: Request, environment: EnvironmentProtocol) -> AnyPublisher<T, Error> {
         let urlRequest = build(request, environment)
-        return URLSession.shared
+        return urlSession
             .dataTaskPublisher(for: urlRequest)
 //            .delay(for: 2, scheduler: RunLoop.main)
             .print()

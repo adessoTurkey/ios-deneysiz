@@ -56,6 +56,6 @@ struct CertificateView: View {
 
 struct CertificateView_Previews: PreviewProvider {
     static var previews: some View {
-        CertificateView(viewModel: .init(certificate: .leapingBunny))
+        CertificateView(viewModel: .init(certificate: .beautyWithoutBunnies))
     }
 }

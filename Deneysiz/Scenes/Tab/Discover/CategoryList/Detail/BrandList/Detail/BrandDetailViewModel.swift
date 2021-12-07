@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 final class BrandDetailViewModel: BaseViewModel, ObservableObject {
-   
+    
     struct Details: Identifiable {
         var title: String
         var image: String
@@ -45,7 +45,7 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
             self.createDate = createDate
         }
         
-        static let empty = BrandDetailUIModel(name: "", parentCompanyName: "", point: "", scoreColor: .gray, certificates: [], createDate: "")
+        static let empty = BrandDetailUIModel(name: "", parentCompanyName: "", point: "", scoreColor: .clear, certificates: [], createDate: "")
     }
     
     @Published var brandDetail: BrandDetailUIModel = .empty
@@ -63,17 +63,22 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         evaluateDetail()
     }
     
-    private func getBrandDetail() {
+    func getBrandDetail() {
         service.getBrandDetail(payload: .init(id: "\(brand.id)"))
-            .sink(receiveCompletion: { _ in
-                
-            }, receiveValue: { [weak self] details in
-                defer {
+            .sink(
+                receiveCompletion: { [weak self] completion in
                     self?.isLoading = false
-                }
-                guard let first = details.first else { return }
-                self?.brandDetail = BrandDetailUIModel(brandDetail: first)
-            })
+                    switch completion {
+                    case .failure(_):
+                        self?.onError = true
+                    default:
+                        break
+                    }
+                    
+                }, receiveValue: { [weak self] details in
+                    guard let first = details.first else { return }
+                    self?.brandDetail = BrandDetailUIModel(brandDetail: first)
+                })
             .store(in: &self.cancellables)
     }
     
@@ -88,5 +93,5 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         
         detail = [hasVeganProduct, offerInChina, parentCompanySafe]
     }
-   
+    
 }

@@ -36,12 +36,12 @@ struct Certificate: Codable, Identifiable, Hashable {
 }
 
 extension Certificate {
-    static let leapingBunny: Self = .init(name: "Beauty Without Bunnies", valid: Bool.random())
-    static let sittingBunny: Self = .init(name: "V-Label", valid: Bool.random())
-    static let flower: Self = .init(name: "Vegan Society", valid: Bool.random())
-    static let crueltyFree: Self = .init(name: "Leaping Bunny", valid: Bool.random())
+    static let leapingBunny: Self = .init(name: "Leaping Bunny", valid: Bool.random())
+    static let vlabel: Self = .init(name: "V-Label", valid: Bool.random())
+    static let beautyWithoutBunnies: Self = .init(name: "Beauty Without Bunnies", valid: Bool.random())
+    static let veganSociety: Self = .init(name: "Vegan Society", valid: Bool.random())
     
-    static let dummies: [Self] = [.leapingBunny, .sittingBunny, .flower, .crueltyFree]
+    static let dummies: [Self] = [.leapingBunny, .vlabel, .beautyWithoutBunnies, .veganSociety]
 }
 
 struct ParentCompany: Codable {

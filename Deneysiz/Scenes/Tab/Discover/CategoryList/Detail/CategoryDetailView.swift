@@ -11,7 +11,7 @@ struct CategoryDetailView: View {
     @StateObject var viewModel: CategoryDetailViewModel
     @Environment(\.presentationMode) var presentationMode
     @State private var installMailApp = false
-
+    
     let tracker = InstanceTracker("Categorydetailview")
     var body: some View {
         VStack {
@@ -40,6 +40,24 @@ struct CategoryDetailView: View {
             PopUpHelper(
                 popUpView: LottieLoading(),
                 isPresented: viewModel.isLoading)
+        )
+        .modifier(
+            PopUpHelper(
+                popUpView: CustomErrorAlert(
+                    config: .noInternet,
+                    onDismiss: {
+                        withAnimation {
+                            viewModel.onError = false
+                        }
+                    },
+                    onButtonClick: {
+                        viewModel.onError = false
+                        viewModel.isLoading = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            viewModel.getBrands()
+                        }
+                    }),
+                isPresented: viewModel.onError)
         )
         .alert(isPresented: $installMailApp, content: {
             .init(title: Text("common-installMailApp"))
@@ -71,7 +89,7 @@ struct CategoryDetailView: View {
             },
             config: .init(isCenterMultiline: true)
         )
-        .foregroundColor(.deneysizTextColor)
+            .foregroundColor(.deneysizTextColor)
     }
     
     var FilterOrder: some View {
@@ -79,22 +97,22 @@ struct CategoryDetailView: View {
             Button {
                 viewModel.orderButtonTapped()
             }
-            label: {
-                HStack {
-                    Image("list")
-                    Text(viewModel.currentConfig.title)
-                        .font(.customFont(size: 17))
-                        .foregroundColor(.orderFilterTextColor)
-                    
-                }
-                .padding(.vertical, 8)
-                .padding(.horizontal, 8)
-                .background(
-                    RoundedRectangle(cornerRadius: 4)
-                        .stroke(Color.orderFilterTextColor, lineWidth: 1)
-                        .background(Color.orderFilterBackground)
-                )
+        label: {
+            HStack {
+                Image("list")
+                Text(viewModel.currentConfig.title)
+                    .font(.customFont(size: 17))
+                    .foregroundColor(.orderFilterTextColor)
+                
             }
+            .padding(.vertical, 8)
+            .padding(.horizontal, 8)
+            .background(
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(Color.orderFilterTextColor, lineWidth: 1)
+                    .background(Color.orderFilterBackground)
+            )
+        }
         }
     }
 }
