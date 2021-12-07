@@ -14,14 +14,18 @@ protocol Alertable: View {
 struct PopUpHelper<T>: ViewModifier where T: Alertable {
     let popUpView: T
     let isPresented: Bool
+    var config: Self.Configuration = .init()
     
     func body(content: Content) -> some View {
         if isPresented {
             return content
                 .overlay(
                     ZStack(alignment: .center) {
-                        Color.black.opacity(0.69)
+                        Color.black.opacity(config.backgroundOpacitiy)
                             .ignoresSafeArea()
+                            .onTapGesture(perform: {
+                                popUpView.onDismiss?()
+                            })
                         popUpView
                     }
                 )
@@ -30,5 +34,11 @@ struct PopUpHelper<T>: ViewModifier where T: Alertable {
             return content
                 .eraseToAnyView()
         }
+    }
+}
+
+extension PopUpHelper {
+    struct Configuration {
+        var backgroundOpacitiy: Double = 0.45
     }
 }

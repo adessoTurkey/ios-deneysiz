@@ -22,6 +22,7 @@ final class URLSessionAgent: BaseServiceProtocol, RequestBuilder {
         let urlRequest = build(request, environment)
         return URLSession.shared
             .dataTaskPublisher(for: urlRequest)
+//            .delay(for: 2, scheduler: RunLoop.main)
             .print()
             .map { response in
                 print(String(data: response.data, encoding: .utf8))

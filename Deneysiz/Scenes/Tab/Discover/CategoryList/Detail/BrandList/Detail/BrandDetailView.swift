@@ -30,7 +30,6 @@ struct BrandDetailView: View {
                         .padding(.top)
                         .padding(.horizontal, 4)
 
-                    
                     TextInfo
                         .padding(.top, 16)
                     
@@ -45,11 +44,7 @@ struct BrandDetailView: View {
         .navigationBarHidden(true)
         .modifier(
             PopUpHelper(
-                popUpView:
-                    ActivityIndicator(isAnimating: viewModel.isLoading) {
-                        $0.color = .yellow
-                        $0.hidesWhenStopped = false
-                    },
+                popUpView: LottieLoading(),
                 isPresented: viewModel.isLoading)
         )
         .modifier(
@@ -57,7 +52,9 @@ struct BrandDetailView: View {
                 popUpView: PointDetailAlert(onDismiss: {
                     showPopUp = false
                 }, config: .dummy),
-                isPresented: showPopUp)
+                isPresented: showPopUp,
+                config: .init(backgroundOpacitiy: 0.45)
+            )
         )
         .alert(isPresented: $installMailApp, content: {
             .init(title: Text("common-installMailApp"))
@@ -161,7 +158,7 @@ struct BrandDetailView: View {
     }
     
     var LastUpdateText: some View {
-        Text(viewModel.brandDetail.createDate)
+        Text(String(format: NSLocalizedString("update-date", comment: ""), viewModel.brandDetail.createDate))
             .font(.customFont(size: 14))
             .foregroundColor(.deneysizTextColor)
     }
@@ -179,7 +176,7 @@ struct BrandDetailView_Previews: PreviewProvider {
 }
 
 /*
- //MARK: Todo
+ // MARK: Todo
 
  private struct HelperButton: View {
      let image: Image

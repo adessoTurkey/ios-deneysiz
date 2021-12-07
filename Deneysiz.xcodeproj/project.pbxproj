@@ -86,6 +86,9 @@
 		A59ED96C26F1B74200E71E7C /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59ED96B26F1B74200E71E7C /* InfoView.swift */; };
 		A5A6EA822667CA40008C8B2F /* FacebookAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A6EA812667CA40008C8B2F /* FacebookAuthService.swift */; };
 		A5A6EA8C2667CF64008C8B2F /* RawRepresentable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A6EA8B2667CF64008C8B2F /* RawRepresentable+Extension.swift */; };
+		A5B2F952275FE8B900826518 /* LottieLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2F951275FE8B900826518 /* LottieLoading.swift */; };
+		A5B2F956275FE99200826518 /* loading-lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B2F955275FE99200826518 /* loading-lottie.json */; };
+		A5B2F958275FED4C00826518 /* OrderPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2F957275FED4C00826518 /* OrderPopUp.swift */; };
 		A5BAE692269EB0F6002DFFBD /* FixedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BAE691269EB0F6002DFFBD /* FixedImage.swift */; };
 		A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */; };
 		A5CC7D29265D8D4F00DD3AA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D28265D8D4F00DD3AA7 /* SceneDelegate.swift */; };
@@ -212,6 +215,9 @@
 		A59ED96B26F1B74200E71E7C /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		A5A6EA812667CA40008C8B2F /* FacebookAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAuthService.swift; sourceTree = "<group>"; };
 		A5A6EA8B2667CF64008C8B2F /* RawRepresentable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RawRepresentable+Extension.swift"; sourceTree = "<group>"; };
+		A5B2F951275FE8B900826518 /* LottieLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoading.swift; sourceTree = "<group>"; };
+		A5B2F955275FE99200826518 /* loading-lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-lottie.json"; sourceTree = "<group>"; };
+		A5B2F957275FED4C00826518 /* OrderPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPopUp.swift; sourceTree = "<group>"; };
 		A5BAE691269EB0F6002DFFBD /* FixedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedImage.swift; sourceTree = "<group>"; };
 		A5CC7D23265D8D4F00DD3AA7 /* Deneysiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deneysiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -355,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				A518D6F626FA1B5E0084D8CC /* LottieView.swift */,
+				A5B2F94E275FE89C00826518 /* Loading */,
 				A518D6FE26FA23DD0084D8CC /* Rabbit */,
 				A518D6FF26FA25530084D8CC /* NoData */,
 				A518D70426FA258C0084D8CC /* Empty */,
@@ -449,6 +456,7 @@
 				A5BAE691269EB0F6002DFFBD /* FixedImage.swift */,
 				A54ED83326CADC3500B4062D /* CustomErrorAlert.swift */,
 				A54ED83526CAEA6A00B4062D /* PointDetailAlert.swift */,
+				A5B2F957275FED4C00826518 /* OrderPopUp.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -578,6 +586,15 @@
 				A5FC0A952694861800F0FAD6 /* Color+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		A5B2F94E275FE89C00826518 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				A5B2F955275FE99200826518 /* loading-lottie.json */,
+				A5B2F951275FE8B900826518 /* LottieLoading.swift */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		A5CC7D1A265D8D4F00DD3AA7 = {
@@ -872,6 +889,7 @@
 				A5CC7D33265D8D5000DD3AA7 /* LaunchScreen.storyboard in Resources */,
 				985AD1252685B990002AC6C9 /* Poppins-Regular.ttf in Resources */,
 				A514220C2668C68E00C047D5 /* Localizable.strings in Resources */,
+				A5B2F956275FE99200826518 /* loading-lottie.json in Resources */,
 				985AD11B2685B990002AC6C9 /* Poppins-ThinItalic.ttf in Resources */,
 				985AD1232685B990002AC6C9 /* Poppins-BlackItalic.ttf in Resources */,
 				985AD12A2685B990002AC6C9 /* Poppins-SemiBold.ttf in Resources */,
@@ -954,6 +972,7 @@
 				A5FBCF01268D811700921791 /* BrandDummy.swift in Sources */,
 				A52227CC267CE64A00004C1F /* FakeCategoryService.swift in Sources */,
 				A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */,
+				A5B2F958275FED4C00826518 /* OrderPopUp.swift in Sources */,
 				A539B68F2756D647002FE847 /* BaseResponse.swift in Sources */,
 				A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */,
 				A518D6F726FA1B5E0084D8CC /* LottieView.swift in Sources */,
@@ -980,6 +999,7 @@
 				A5BAE692269EB0F6002DFFBD /* FixedImage.swift in Sources */,
 				A52227EE267CEE3200004C1F /* InstanceTracker.swift in Sources */,
 				A518D70626FA259C0084D8CC /* LottieEmpty.swift in Sources */,
+				A5B2F952275FE8B900826518 /* LottieLoading.swift in Sources */,
 				A5FBCF03268D8A4000921791 /* CategoryDetailViewModel.swift in Sources */,
 				A54DBBA3269D8AF80096BBAF /* BrandDetailViewModel.swift in Sources */,
 				A508DCCC2683745800336A18 /* ExampleEnvironment.swift in Sources */,

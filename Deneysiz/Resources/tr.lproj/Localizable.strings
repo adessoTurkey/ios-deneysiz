@@ -43,3 +43,5 @@
 "category-brand-found" = "%d tane bulundu";
 "common-installMailApp" = "Devam edebilmek için lütfen Mail uygulamasını yükleyiniz.";
 "info-curious" = "Merak Edilenler";
+"update-date" = "Güncellenme Tarihi: %@";
+"apply" = "Uygula";

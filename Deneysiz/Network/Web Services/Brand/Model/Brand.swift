@@ -32,7 +32,29 @@ extension Brand {
 
 extension Brand {
     static let dummies: [Brand] = [
-        Brand(id: 1, name: "Hawaiian Tropic", parentCompany: .init(name: "Rosmman", safe: true), offerInChina: true, categoryId: "1", certificates: Certificate.dummies, safe: true, vegan: true, veganProduct: true, score: 10, description: "description", createdAt: "10/10/21"),
-        Brand(id: 2, name: "Flink & Sauber", parentCompany: .init(name: "Dirk Rossmann", safe: false), offerInChina: true, categoryId: "2", certificates: Certificate.dummies, safe: true, vegan: true, veganProduct: true, score: 10, description: "description", createdAt: "03/03/21")
+        Brand(
+            id: 1,
+            name: "Hawaiian Tropic",
+            parentCompany: .init(name: "Rosmman", safe: true),
+            offerInChina: true, categoryId: "1", certificates: Certificate.dummies,
+            safe: true,
+            vegan: true,
+            veganProduct: true,
+            score: 10,
+            description: "description",
+            createdAt: "10/10/21"),
+        Brand(
+            id: 2,
+            name: "Flink & Sauber",
+            parentCompany: .init(name: "Dirk Rossmann", safe: false),
+            offerInChina: true,
+            categoryId: "2",
+            certificates: Certificate.dummies,
+            safe: true,
+            vegan: true,
+            veganProduct: true,
+            score: 10,
+            description: "description",
+            createdAt: "03/03/21")
     ]
 }

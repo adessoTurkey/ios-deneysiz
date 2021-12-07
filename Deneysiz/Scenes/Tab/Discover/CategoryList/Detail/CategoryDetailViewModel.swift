@@ -8,36 +8,40 @@
 import Foundation
 import SwiftUI
 
-final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
+enum OrderConfig: Equatable, Identifiable {
+    var id: String {
+        UUID().uuidString
+    }
     
-    enum OrderConfig: Equatable {
-        case point(OrderType)
-        case name(OrderType)
-        
-        enum OrderType: Equatable {
-            case asc
-            case desc
-        }
-        
-        var title: LocalizedStringKey {
-            switch self {
-            case .point(let orderType):
-                switch orderType {
-                case .asc:
-                    return "brand-detail-point-asc"
-                case .desc:
-                    return "brand-detail-point-desc"
-                }
-            case .name(let orderType):
-                switch orderType {
-                case .asc:
-                    return "brand-detail-name-asc"
-                case .desc:
-                    return "brand-detail-name-desc"
-                }
+    case point(OrderType)
+    case name(OrderType)
+    
+    enum OrderType: Equatable {
+        case asc
+        case desc
+    }
+    
+    var title: LocalizedStringKey {
+        switch self {
+        case .point(let orderType):
+            switch orderType {
+            case .asc:
+                return "brand-detail-point-asc"
+            case .desc:
+                return "brand-detail-point-desc"
+            }
+        case .name(let orderType):
+            switch orderType {
+            case .asc:
+                return "brand-detail-name-asc"
+            case .desc:
+                return "brand-detail-name-desc"
             }
         }
     }
+}
+
+final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
     
     @Published var brands: [Brand] = []
     @Published var isLoading = true

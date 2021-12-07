@@ -33,7 +33,6 @@ class FirstViewModel: BaseViewModel, ObservableObject {
                 })
             .store(in: &self.cancellables)
 
-            
 //        realService.test()
 //            .sink(
 //                receiveCompletion: { err in

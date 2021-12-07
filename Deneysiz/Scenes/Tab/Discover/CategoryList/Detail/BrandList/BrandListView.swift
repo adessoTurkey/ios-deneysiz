@@ -43,7 +43,7 @@ private struct BrandCell: View {
         VStack(spacing: 0) {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(brand.name ?? "")
+                    Text(brand.name)
                         .font(.customFont(size: 20, type: .fontBold))
                         .foregroundColor(.deneysizTextColor)
                     Text(brand.parentCompany.name)

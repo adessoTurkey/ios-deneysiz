@@ -65,7 +65,7 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
     
     private func getBrandDetail() {
         service.getBrandDetail(payload: .init(id: "\(brand.id)"))
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { _ in
                 
             }, receiveValue: { [weak self] details in
                 defer {

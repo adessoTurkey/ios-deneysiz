@@ -21,4 +21,3 @@ struct ExampleModel: Codable {
     let title: String
     let body: String
 }
-

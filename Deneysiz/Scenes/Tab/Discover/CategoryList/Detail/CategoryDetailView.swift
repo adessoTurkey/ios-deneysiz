@@ -29,22 +29,16 @@ struct CategoryDetailView: View {
         }
         .padding(.top, 0)
         .navigationBarHidden(true)
-        .actionSheet(isPresented: $viewModel.showOrderSheet) {
-            ActionSheet(title: Text("brand-detail-order-title"), buttons: [
-                .default(Text("brand-detail-point-asc")) { viewModel.order(.point(.asc)) },
-                .default(Text("brand-detail-point-desc")) { viewModel.order(.point(.desc)) },
-                .default(Text("brand-detail-name-asc")) { viewModel.order(.name(.asc)) },
-                .default(Text("brand-detail-name-desc")) { viewModel.order(.name(.desc)) },
-                .cancel()
-            ])
-        }
         .modifier(
             PopUpHelper(
-                popUpView:
-                    ActivityIndicator(isAnimating: viewModel.isLoading) {
-                        $0.color = .yellow
-                        $0.hidesWhenStopped = false
-                    },
+                popUpView: OrderPopUp(viewModel.currentConfig, onUpdate: viewModel.order(_:), onDismiss: {
+                    viewModel.showOrderSheet = false
+                }),
+                isPresented: viewModel.showOrderSheet)
+        )
+        .modifier(
+            PopUpHelper(
+                popUpView: LottieLoading(),
                 isPresented: viewModel.isLoading)
         )
         .alert(isPresented: $installMailApp, content: {
