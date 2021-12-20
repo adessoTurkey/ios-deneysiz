@@ -9,16 +9,16 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Poppins-Regular.ttf</string>
-		<string>Poppins-Bold.ttf</string>
-		<string>Poppins-BoldItalic.ttf</string>
-		<string>Poppins-SemiBold.ttf</string>
-		<string>Poppins-SemiBoldItalic.ttf</string>
-		<string>Poppins-Light.ttf</string>
-		<string>Poppins-LightItalic.ttf</string>
-		<string>Poppins-Black.ttf</string>
-		<string>Poppins-BlackItalic.ttf</string>
-		<string>Poppins-Italic.ttf</string>
+		<string>Mulish-Regular.ttf</string>
+		<string>Mulish-Bold.ttf</string>
+		<string>Mulish-BoldItalic.ttf</string>
+		<string>Mulish-SemiBold.ttf</string>
+		<string>Mulish-SemiBoldItalic.ttf</string>
+		<string>Mulish-Light.ttf</string>
+		<string>Mulish-LightItalic.ttf</string>
+		<string>Mulish-Black.ttf</string>
+		<string>Mulish-BlackItalic.ttf</string>
+		<string>Mulish-Italic.ttf</string>
 	</array>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>

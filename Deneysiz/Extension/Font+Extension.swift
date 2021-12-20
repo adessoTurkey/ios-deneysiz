@@ -11,17 +11,17 @@ extension Font {
     
     private struct FontFamily {
         
-        static let poppinsRegular = "Poppins-Regular"
-        static let poppinsBold = "Poppins-Bold"
-        static let poppinsBoldItalic = "Poppins-BoldItalic"
-        static let poppinsSemiBold = "Poppins-SemiBold"
-        static let poppinsSemiBoldItalic = "Poppins-SemiBoldItalic"
-        static let poppinsLight = "Poppins-Light"
-        static let poppinsLightItalic = "Poppins-LightItalic"
-        static let poppinsBlack = "Poppins-Black"
-        static let poppinsBlackItalic = "Poppins-BlackItalic"
-        static let poppinsItalic = "Poppins-Italic"
-        static let poppinsMedium = "Poppins-Medium"
+        static let mulishRegular = "Mulish-Regular"
+        static let mulishBold = "Mulish-Bold"
+        static let mulishBoldItalic = "Mulish-BoldItalic"
+        static let mulishSemiBold = "Mulish-SemiBold"
+        static let mulishSemiBoldItalic = "Mulish-SemiBoldItalic"
+        static let mulishLight = "Mulish-Light"
+        static let mulishLightItalic = "Mulish-LightItalic"
+        static let mulishBlack = "Mulish-Black"
+        static let mulishBlackItalic = "Mulish-BlackItalic"
+        static let mulishItalic = "Mulish-Italic"
+        static let mulishMedium = "Mulish-Medium"
 
     }
     
@@ -43,27 +43,27 @@ extension Font {
 
         switch type {
         case .fontRegular:
-            return Font.custom(FontFamily.poppinsRegular, size: size)
+            return Font.custom(FontFamily.mulishRegular, size: size)
         case .fontBold:
-            return Font.custom(FontFamily.poppinsBold, size: size)
+            return Font.custom(FontFamily.mulishBold, size: size)
         case .fontBoldItalic:
-            return Font.custom(FontFamily.poppinsBoldItalic, size: size)
+            return Font.custom(FontFamily.mulishBoldItalic, size: size)
         case .fontSemiBold:
-            return Font.custom(FontFamily.poppinsSemiBold, size: size)
+            return Font.custom(FontFamily.mulishSemiBold, size: size)
         case .fontSemiBoldItalic:
-            return Font.custom(FontFamily.poppinsSemiBoldItalic, size: size)
+            return Font.custom(FontFamily.mulishSemiBoldItalic, size: size)
         case .fontLight:
-            return Font.custom(FontFamily.poppinsLight, size: size)
+            return Font.custom(FontFamily.mulishLight, size: size)
         case .fontLightItalic:
-            return Font.custom(FontFamily.poppinsLightItalic, size: size)
+            return Font.custom(FontFamily.mulishLightItalic, size: size)
         case .fontBlack:
-            return Font.custom(FontFamily.poppinsBlack, size: size)
+            return Font.custom(FontFamily.mulishBlack, size: size)
         case .fontBlackItalic:
-            return Font.custom(FontFamily.poppinsBlackItalic, size: size)
+            return Font.custom(FontFamily.mulishBlackItalic, size: size)
         case .fontItalic:
-            return Font.custom(FontFamily.poppinsItalic, size: size)
+            return Font.custom(FontFamily.mulishItalic, size: size)
         case .fontMedium:
-            return Font.custom(FontFamily.poppinsMedium, size: size)
+            return Font.custom(FontFamily.mulishMedium, size: size)
 
         }
         
