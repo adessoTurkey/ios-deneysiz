@@ -42,7 +42,7 @@ enum BankAccountType {
     var IBAN: String {
         switch self {
         case .turkishLira:
-            return "TR 9800 0100 0203 9109 0646 5001"
+            return "TR71 0001 0002 0391 0906 4650 02"
         case .euro:
             return "TR 7100 0100 0203 9109 0646 5002"
         }
@@ -52,7 +52,7 @@ enum BankAccountType {
 struct BankAccountView: View {
     
     var account: BankAccountType
-    var hapticImpact = UIImpactFeedbackGenerator(style: .soft)
+    var hapticImpact = UIImpactFeedbackGenerator(style: .medium)
     
     var body: some View {
         
@@ -87,7 +87,6 @@ struct BankAccountView: View {
             .background(Color("ibanFieldBlue"))
             .cornerRadius(4)
             .padding(.horizontal)
-            Spacer()
         }
         .foregroundColor(Color.black)
         .background(Color("backgroundWhite"))

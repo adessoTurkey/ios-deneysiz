@@ -38,7 +38,26 @@ struct DonateView: View {
                     .padding()
                 BankAccountView(account: .turkishLira)
                     .padding(.vertical)
-                
+                Text("Ya da")
+                    .font(Font.customFont(size: 14, type: .fontRegular))
+                    .foregroundColor(Color("donateText"))
+                        .padding(.vertical, 6)
+                Button(action: {
+                    OpenWebsite.shared.openURL(webURL: URL(string: "https://fonzip.com/dhd/bagis"))
+                }, label: {
+                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
+                        Spacer()
+                        Text("Bağış Yap")
+                            .font(Font.customFont(size: 14, type: .fontRegular))
+                        Spacer()
+                    }) 
+                    .padding()
+                })
+                .background(Color("orange"))
+                .foregroundColor(Color.white)
+                .cornerRadius(8)
+                .padding(.vertical)
+                .padding(.horizontal)
             }.navigationBarHidden(true)
             
         }

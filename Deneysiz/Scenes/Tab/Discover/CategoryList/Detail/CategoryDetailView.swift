@@ -64,7 +64,7 @@ struct CategoryDetailView: View {
             },
             right: {
                 Button {
-                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: { installMailApp = !$0 })
+                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "iletisim@deneyehayir.org", completion: { installMailApp = !$0 })
                 } label: {
                     Image("add")
                 }

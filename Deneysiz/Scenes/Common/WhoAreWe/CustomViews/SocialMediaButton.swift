@@ -56,28 +56,11 @@ struct SocialMediaButton: View {
     var body: some View {
         
         Button(action: {
-            openURL(appURL: socialMedia.url.appURL, webURL: socialMedia.url.webURL)
+            OpenWebsite.shared.openURL(appURL: socialMedia.url.appURL, webURL: socialMedia.url.webURL)
         }) {
             Image(socialMedia.imageName)
                 .resizable()
                 .scaledToFit()
-        }
-    }
-    
-    func openURL(appURL: URL?, webURL: URL?) {
-        
-        if let url = appURL, UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        } else if let url = webURL {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
         }
     }
 }

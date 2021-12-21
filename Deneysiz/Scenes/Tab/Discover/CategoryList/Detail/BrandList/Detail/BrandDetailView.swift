@@ -76,7 +76,7 @@ struct BrandDetailView: View {
             },
             right: {
                 Button {
-                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "asd@gmail.com", completion: { installMailApp = !$0 })
+                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: { installMailApp = !$0 })
                 } label: {
                     Image("add")
                 }

@@ -21,12 +21,12 @@
 "who-are-we" = "Biz Kimiz";
 "who_are_we-title" = "Biz Kimiz?";
 "deneysiz_app_website_link" = "deneysiz.org";
-"who_are_we-info_text" = "Deutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.\n\nDeutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.";
+"who_are_we-info_text" = "Eylül 2019’da tüzel kişilik kazanan Deneye Hayır Derneği, 2014-2019 yılları arasında Deneye Hayır Platformu olarak faaliyet göstermiştir. Platform, 2014 yılında gündeme gelen 5199 sayılı Hayvanları Koruma Kanunu’nun revizyonu sürecinde TBMM’de yapılan görüşmelere aktif katılım sağlamış; toplumun hayvan deneyleri konusunda bilgilendirilmesi ve bilinçlendirilmesi için çalışmalar yapmıştır.\n\nUluslararası İnsancıl Eğitim Ağı (InterNICHE) partner kuruluşu olan dernek, Sabancı Vakfı tarafından düzenlenen Fark Yaratanlar programına aday gösterilerek “Toplumsal Adalet” kategorisinde 2019 yılının “fark yaratanı” seçilmiş ve ayrıca hayvan deneylerine alternatif çalışmalar yürüten bilim insanları ve sivil toplum kuruluşlarını desteklemek amacıyla küresel çapta düzenlenen Lush Prize’da “Toplumsal Farkındalık” ve “Lobicilik” dallarında finale kalan Türkiye’den ilk katılımcı olmuştur.\n\nDerneğin nihai amacı, hayvanlar üzerinde yapılan deneysel amaçlı uygulamaların son bularak, hayvan içermeyen bilimsel yöntemlerin kullanılması için örgütlü bir mücadele yürütmek ve bu geçiş sürecinde de laboratuvarlardaki hayvanların haklarının korunmasıdır.";
 "who_are_we-email_problem_alert_title" = "Hata!";
 "who_are_we-email_problem_alert_text" = "Lütfen cihazınızda mail göndermek için uygun bir e-posta adresi olduğundan emin olun.";
 "who_are_we-email_problem_alert_dismiss_text" = "Tamam";
 "how_to_donate" = "Nasıl Bağış Yaparım?";
-"how_to_donate-info_text" = "Deutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.\n\nDeutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per Freude schöner Götterfunken in mei ullum gloriatur. Id Entschuldigung recteque accommodare sed. Id nec 99 Luftballons argumentum, te melius erroribus.";
+"how_to_donate-info_text" = "Tür ayrımı gözetmeksizin tüm hayvanların şiddet görmeden yaşama hakkını savunan hayvan hakları savunucularıyız ve gerçekleştirmek için yola çıktığımız amaç, sokak-barınak-bakımevlerindeki hayvanlar için çalışan gönüllü ve örgütlerinkinden pek farklı olmasa da yolumuz epey uzun ve zorlu.\n\nDeney laboratuvarları bulunan üniversiteler ve Bakanlıklara bağlı kurumlarla iletişime geçerek mevzuatımızın laboratuvarlardaki hayvanlara tanıdığı hakların çiğnenmemesini talep ediyor, projelerimizi resmî kurumlara duyurmak için çabalıyor, bizzat buralara giderek görüşmeler yapıyor, kitapçıklar bastırıp gönderiyoruz. Evet sokak veya bakımevlerinden zor durumdaki hayvanları kurtararak tedavi ettirmiyoruz, ormanlarda ve kırsal bölgelerde mama dağıtmıyoruz – kısacası alışılan biçimde sahada değiliz, ancak her dernek gibi bizim de çalışma biçimimize özgü giderlerimiz ve bunlar için de desteğe ihtiyacımız var…";
 "brand-detail-hasVeganProduct" = "Vegan Ürün";
 "brand-detail-offerInChina" = "Çin'de Satış";
 "brand-detail-parentCompanySafe" = "Çatı Firma Deneysiz";
@@ -45,4 +45,3 @@
 "info-curious" = "Merak Edilenler";
 "update-date" = "Güncellenme Tarihi: %@";
 "apply" = "Uygula";
-

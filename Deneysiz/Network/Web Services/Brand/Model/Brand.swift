@@ -24,7 +24,7 @@ extension Brand {
     var pointTitle: String {
         "\(score)/10"
     }
-    
+
     var color: Color {
         .calculateColor(score)
     }
