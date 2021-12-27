@@ -6,11 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct BrandPointDetail: Identifiable {
+struct BrandPointDetailUIModel: Identifiable {
     let name, point, state: String
+    let color: Color
     
     var id: String {
         name
+    }
+    
+    var localizedKey: LocalizedStringKey {
+        .init(name)
     }
 }

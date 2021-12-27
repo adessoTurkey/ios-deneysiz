@@ -51,7 +51,7 @@ struct BrandDetailView: View {
             PopUpHelper(
                 popUpView: PointDetailAlert(onDismiss: {
                     showPopUp = false
-                }, config: .dummy),
+                }, config: viewModel.createPointAlertConfig()),
                 isPresented: showPopUp,
                 config: .init(backgroundOpacitiy: 0.45)
             )
@@ -107,21 +107,21 @@ struct BrandDetailView: View {
     var NavBarCenter: some View {
         VStack(spacing: 16) {
             VStack(spacing: 8) {
-                Text(viewModel.brandDetail.name)
+                Text(viewModel.brandDetailUIModel.name)
                     .font(.customFont(size: 28, type: .fontBold))
                     .foregroundColor(.deneysizTextColor)
                 
-                Text(viewModel.brandDetail.parentCompanyName)
+                Text(viewModel.brandDetailUIModel.parentCompanyName)
                     .font(.customFont(size: 20, type: .fontBold))
                     .foregroundColor(.deneysizText2Color)
                 
             }
-            Text(viewModel.brandDetail.point)
+            Text(viewModel.brandDetailUIModel.point)
                 .font(.customFont(size: 17))
                 .foregroundColor(.white)
                 .frame(width: 50)
                 .padding(8)
-                .background(viewModel.brandDetail.scoreColor.cornerRadius(8))
+                .background(viewModel.brandDetailUIModel.scoreColor.cornerRadius(8))
                 .onTapGesture {
                     showPopUp.toggle()
                 }
@@ -130,7 +130,7 @@ struct BrandDetailView: View {
     
     var Certificates: some View {
         HStack {
-            ForEach(viewModel.brandDetail.certificates) { cert in
+            ForEach(viewModel.brandDetailUIModel.certificates) { cert in
                 NavigationLink(
                     destination: CertificateView(viewModel: .init(certificate: cert)),
                     label: {
@@ -139,7 +139,7 @@ struct BrandDetailView: View {
                             .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
                             .opacity(cert.valid == true ? 1 : 0.3)
                     })
-                if viewModel.brandDetail.certificates.last != cert {
+                if viewModel.brandDetailUIModel.certificates.last != cert {
                     Spacer(minLength: 9)
                 }
             }
@@ -176,7 +176,7 @@ struct BrandDetailView: View {
     }
     
     var LastUpdateText: some View {
-        Text(String(format: NSLocalizedString("update-date", comment: ""), viewModel.brandDetail.createDate))
+        Text(String(format: NSLocalizedString("update-date", comment: ""), viewModel.brandDetailUIModel.createDate))
             .font(.customFont(size: 14))
             .foregroundColor(.deneysizTextColor)
     }

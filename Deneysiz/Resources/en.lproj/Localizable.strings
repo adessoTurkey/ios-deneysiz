@@ -27,7 +27,9 @@
 "who_are_we-email_problem_alert_dismiss_text" = "Tamam";
 "how_to_donate" = "Nasıl Bağış Yaparım?";
 "how_to_donate-info_text" = "Tür ayrımı gözetmeksizin tüm hayvanların şiddet görmeden yaşama hakkını savunan hayvan hakları savunucularıyız ve gerçekleştirmek için yola çıktığımız amaç, sokak-barınak-bakımevlerindeki hayvanlar için çalışan gönüllü ve örgütlerinkinden pek farklı olmasa da yolumuz epey uzun ve zorlu.\n\nDeney laboratuvarları bulunan üniversiteler ve Bakanlıklara bağlı kurumlarla iletişime geçerek mevzuatımızın laboratuvarlardaki hayvanlara tanıdığı hakların çiğnenmemesini talep ediyor, projelerimizi resmî kurumlara duyurmak için çabalıyor, bizzat buralara giderek görüşmeler yapıyor, kitapçıklar bastırıp gönderiyoruz. Evet sokak veya bakımevlerinden zor durumdaki hayvanları kurtararak tedavi ettirmiyoruz, ormanlarda ve kırsal bölgelerde mama dağıtmıyoruz – kısacası alışılan biçimde sahada değiliz, ancak her dernek gibi bizim de çalışma biçimimize özgü giderlerimiz ve bunlar için de desteğe ihtiyacımız var…";
-"brand-detail-hasVeganProduct" = "Vegan Ürün";
+"brand-detail-safe" = "Marka Deneysiz";
+"brand-detail-vegan" = "Marka Vegan";
+"brand-detail-hasVeganProduct" = "Vegan Ürün var mı?";
 "brand-detail-offerInChina" = "Çin'de Satış";
 "brand-detail-parentCompanySafe" = "Çatı Firma Deneysiz";
 "brand-detail-quitFollowing" = "Takibi Bırak";

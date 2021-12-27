@@ -11,7 +11,7 @@ import SwiftUI
 struct Brand: Codable {
     let id: Int
     let name: String
-    let parentCompany: ParentCompany
+    let parentCompany: ParentCompany?
     let offerInChina: Bool
     let categoryId: String
     let certificates: [Certificate]

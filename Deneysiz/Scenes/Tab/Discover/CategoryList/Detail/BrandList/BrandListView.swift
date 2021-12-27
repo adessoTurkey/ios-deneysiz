@@ -46,7 +46,7 @@ private struct BrandCell: View {
                     Text(brand.name)
                         .font(.customFont(size: 20, type: .fontBold))
                         .foregroundColor(.deneysizTextColor)
-                    Text(brand.parentCompany.name)
+                    Text(brand.parentCompany?.name ?? "")
                         .font(.customFont(size: 17))
                         .foregroundColor(.deneysizText2Color)
                 }
