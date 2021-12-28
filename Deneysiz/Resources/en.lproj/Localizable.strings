@@ -42,10 +42,11 @@
 "brand-detail-point-desc" = "Azalan Puan";
 "brand-detail-name-asc" = "İsime göre (A - Z)";
 "brand-detail-name-desc" = "İsime göre (Z - A)";
+"brand-detail-inform-feedback" = "yanlış/eksik veri bildir";
 "category-brand-found" = "%d tane bulundu";
 "common-installMailApp" = "Devam edebilmek için lütfen Mail uygulamasını yükleyiniz.";
 "info-curious" = "Merak Edilenler";
 "update-date" = "Güncellenme Tarihi: %@";
 "apply" = "Uygula";
 "refresh" = "Yenile";
-
+"cancel" = "İptal";
