@@ -12,7 +12,8 @@ struct BrandDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showPopUp = false
     @State private var installMailApp = false
-    
+    @State private var showingOptions = false
+
     var body: some View {
         VStack(spacing: 0) {
             NavBar
@@ -68,6 +69,19 @@ struct BrandDetailView: View {
         .alert(isPresented: $installMailApp, content: {
             .init(title: Text("common-installMailApp"))
         })
+        .actionSheet(isPresented: $showingOptions) {
+                        ActionSheet(
+                            title: Text(""),
+                            buttons: [
+                                .default(Text("brand-detail-inform-feedback")) {
+                                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: { installMailApp = !$0 })
+                                },
+                                .default(Text("cancel")) {
+                                    showingOptions = false
+                                }
+                            ]
+                        )
+                    }
     }
     
     private var NavBar: some View {
@@ -85,9 +99,11 @@ struct BrandDetailView: View {
             },
             right: {
                 Button {
-                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: { installMailApp = !$0 })
+                    self.showingOptions = true
                 } label: {
-                    Image("add")
+                    Image(systemName: "exclamationmark.circle")
+                        .font(.customFont(size: 20, type: .fontBold))
+                        .foregroundColor(.deneysizTextColor)
                 }
             },
             config: .init(isCenterMultiline: true, alignment: .top)
