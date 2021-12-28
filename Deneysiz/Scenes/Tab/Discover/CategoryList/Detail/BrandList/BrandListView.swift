@@ -10,6 +10,7 @@ import SwiftUI
 struct BrandListView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
     let brands: [Brand]
+    let onRefresh: () -> Void
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,18 +19,31 @@ struct BrandListView: View {
                 .font(.customFont(size: 12, type: .fontRegular))
                 .foregroundColor(.deneysizTextColor)
             
-            ScrollView(.vertical, showsIndicators: false) {
-                LazyVStack {
-                    ForEach(brands, id: \.name) { brand in
-                        NavigationLink(
-                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brand: brand)),
-                            label: {
-                                BrandCell(brand: brand)
-                                    // To get tap gesture event on Spacer
-                                    .contentShape(Rectangle())
-                            })
-                            .buttonStyle(PlainButtonStyle())
-                    }
+            if #available(iOS 15.0, *) {
+                ScrollRefreshable(localizedKey: "refresh", tintColor: .purple, content: {
+                    BrandListScrollView
+                }) {
+                    await Task.sleep(1_000_000_000)
+                    self.onRefresh()
+                }
+            } else {
+                BrandListScrollView
+            }
+        }
+    }
+    
+    private var BrandListScrollView: some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            LazyVStack {
+                ForEach(brands, id: \.name) { brand in
+                    NavigationLink(
+                        destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brand: brand)),
+                        label: {
+                            BrandCell(brand: brand)
+                            // To get tap gesture event on Spacer
+                                .contentShape(Rectangle())
+                        })
+                        .buttonStyle(PlainButtonStyle())
                 }
             }
         }
@@ -67,12 +81,14 @@ private struct BrandCell: View {
     }
 }
 
+#if DEBUG
 struct BrandListView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .hairDye))
             
-            BrandListView(brands: [])
+            BrandListView(brands: [], onRefresh: {})
         }
     }
 }
+#endif

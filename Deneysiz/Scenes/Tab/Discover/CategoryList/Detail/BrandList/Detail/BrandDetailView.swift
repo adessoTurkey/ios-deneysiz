@@ -19,24 +19,15 @@ struct BrandDetailView: View {
                 .padding(.bottom, 24)
                 .padding(.top)
             
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading) {
-                    
-                    Certificates
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 4)
-                    
-                    Details
-                        .padding(.top)
-                        .padding(.horizontal, 4)
-
-                    TextInfo
-                        .padding(.top, 16)
-                    
-                    LastUpdateText
-                        .padding(.top, 10)
-                                        
+            if #available(iOS 15.0, *) {
+                ScrollRefreshable(localizedKey: "refresh", tintColor: .purple, content: {
+                    BrandDetailScrollView
+                }) {
+                    await Task.sleep(1_000_000_000)
+                    viewModel.getBrandDetail()
                 }
+            } else {
+                BrandDetailScrollView
             }
             Spacer()
         }
@@ -79,7 +70,7 @@ struct BrandDetailView: View {
         })
     }
     
-    var NavBar: some View {
+    private var NavBar: some View {
         CustomNavBar(
             left: {
                 Button {
@@ -104,7 +95,7 @@ struct BrandDetailView: View {
             .foregroundColor(.deneysizTextColor)
     }
     
-    var NavBarCenter: some View {
+    private var NavBarCenter: some View {
         VStack(spacing: 16) {
             VStack(spacing: 8) {
                 Text(viewModel.brandDetailUIModel.name)
@@ -128,7 +119,7 @@ struct BrandDetailView: View {
         }
     }
     
-    var Certificates: some View {
+    private var Certificates: some View {
         HStack {
             ForEach(viewModel.brandDetailUIModel.certificates) { cert in
                 NavigationLink(
@@ -146,7 +137,7 @@ struct BrandDetailView: View {
         }
     }
     
-    var Details: some View {
+    private var Details: some View {
         VStack(spacing: 16) {
             ForEach(viewModel.detail) { detail in
                 Button(action: {
@@ -169,19 +160,40 @@ struct BrandDetailView: View {
         }
     }
     
-    var TextInfo: some View {
+    private var BrandDetailScrollView: some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading) {
+                Certificates
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 4)
+                
+                Details
+                    .padding(.top)
+                    .padding(.horizontal, 4)
+
+                TextInfo
+                    .padding(.top, 16)
+                
+                LastUpdateText
+                    .padding(.top, 10)
+            }
+        }
+    }
+    
+    private var TextInfo: some View {
         Text("brand-detail-description")
             .font(.customFont(size: 17))
             .foregroundColor(.deneysizTextColor)
     }
     
-    var LastUpdateText: some View {
+    private var LastUpdateText: some View {
         Text(String(format: NSLocalizedString("update-date", comment: ""), viewModel.brandDetailUIModel.createDate))
             .font(.customFont(size: 14))
             .foregroundColor(.deneysizTextColor)
     }
 }
 
+#if DEBUG
 struct BrandDetailView_Previews: PreviewProvider {
     static var previews: some View {
         guard let brand = Brand.dummies.first else {
@@ -192,6 +204,7 @@ struct BrandDetailView_Previews: PreviewProvider {
                 .makeBrandDetailViewModel(brand: brand)).eraseToAnyView()
     }
 }
+#endif
 
 /*
  // MARK: Todo

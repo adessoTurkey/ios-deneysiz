@@ -10,6 +10,11 @@ import SwiftUI
 struct MainTabView: View {
     @State private var selectedtab = TabViewEnum.discover()
     @State private var showLottie = true
+    
+    init() {
+        UITabBar.appearance().backgroundColor = .white
+    }
+    
     var body: some View {
         if showLottie {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -52,6 +57,16 @@ struct MainTabView: View {
     }
 }
 
+enum TabViewEnum: String {
+    case discover
+    case info
+    
+    func callAsFunction() -> String {
+        self.rawValue
+    }
+}
+
+#if DEBUG
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabView()
@@ -66,12 +81,4 @@ struct MainTabView_Previews: PreviewProvider {
         
     }
 }
-
-enum TabViewEnum: String {
-    case discover
-    case info
-    
-    func callAsFunction() -> String {
-        self.rawValue
-    }
-}
+#endif

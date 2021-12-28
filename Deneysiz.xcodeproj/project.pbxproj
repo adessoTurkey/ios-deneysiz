@@ -92,6 +92,7 @@
 		A5B2F956275FE99200826518 /* loading-lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B2F955275FE99200826518 /* loading-lottie.json */; };
 		A5B2F958275FED4C00826518 /* OrderPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2F957275FED4C00826518 /* OrderPopUp.swift */; };
 		A5BAE692269EB0F6002DFFBD /* FixedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BAE691269EB0F6002DFFBD /* FixedImage.swift */; };
+		A5C96C0E277B0AC0005976B5 /* ScrollRefreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C96C0D277B0AC0005976B5 /* ScrollRefreshable.swift */; };
 		A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */; };
 		A5CC7D29265D8D4F00DD3AA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D28265D8D4F00DD3AA7 /* SceneDelegate.swift */; };
 		A5CC7D2D265D8D5000DD3AA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5CC7D2C265D8D5000DD3AA7 /* Assets.xcassets */; };
@@ -223,6 +224,7 @@
 		A5B2F955275FE99200826518 /* loading-lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-lottie.json"; sourceTree = "<group>"; };
 		A5B2F957275FED4C00826518 /* OrderPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPopUp.swift; sourceTree = "<group>"; };
 		A5BAE691269EB0F6002DFFBD /* FixedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedImage.swift; sourceTree = "<group>"; };
+		A5C96C0D277B0AC0005976B5 /* ScrollRefreshable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollRefreshable.swift; sourceTree = "<group>"; };
 		A5CC7D23265D8D4F00DD3AA7 /* Deneysiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deneysiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5CC7D28265D8D4F00DD3AA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 				98880FB226887E4400D94852 /* WhoAreWe */,
 				A52227B2267CDD6B00004C1F /* CustomNavBar.swift */,
 				A5FBCF08268D8D8B00921791 /* PopUpHelper.swift */,
+				A5C96C0D277B0AC0005976B5 /* ScrollRefreshable.swift */,
 				A542AC69268FBB8000B725BE /* ActivityIndicator.swift */,
 				A5BAE691269EB0F6002DFFBD /* FixedImage.swift */,
 				A54ED83326CADC3500B4062D /* CustomErrorAlert.swift */,
@@ -956,6 +959,7 @@
 				A5A6EA8C2667CF64008C8B2F /* RawRepresentable+Extension.swift in Sources */,
 				9212E778275C03BB000E9902 /* BrandDetail.swift in Sources */,
 				A5FC0A962694861800F0FAD6 /* Color+Extension.swift in Sources */,
+				A5C96C0E277B0AC0005976B5 /* ScrollRefreshable.swift in Sources */,
 				A53F552E265EECFA0005AB1C /* FakeAuthService.swift in Sources */,
 				A5CC7DBD265DA93C00DD3AA7 /* RequestBuilder.swift in Sources */,
 				A5FC0A9B2694F5DE00F0FAD6 /* BrandListView.swift in Sources */,

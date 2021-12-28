@@ -23,7 +23,7 @@ struct CategoryDetailView: View {
             FilterOrder
                 .padding(.bottom, 16)
             
-            BrandListView(brands: viewModel.brands)
+            BrandListView(brands: viewModel.brands, onRefresh: viewModel.getBrands)
             
             Spacer()
         }
