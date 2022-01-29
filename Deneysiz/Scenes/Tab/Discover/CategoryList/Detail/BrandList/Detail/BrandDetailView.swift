@@ -197,7 +197,7 @@ struct BrandDetailView: View {
     }
     
     private var TextInfo: some View {
-        Text("brand-detail-description")
+        Text(viewModel.brandDetailUIModel.description)
             .font(.customFont(size: 17))
             .foregroundColor(.deneysizTextColor)
     }

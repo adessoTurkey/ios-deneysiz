@@ -25,6 +25,7 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         let point: String
         let scoreColor: Color
         let certificates: [Certificate]
+        let description: String
         let createDate: String
         
         init(brandDetail: BrandDetail) {
@@ -33,19 +34,21 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
             self.point = brandDetail.pointTitle
             self.scoreColor = brandDetail.color
             self.certificates = brandDetail.certificates
+            self.description = brandDetail.description
             self.createDate = brandDetail.createdAt
         }
         
-        init(name: String, parentCompanyName: String, point: String, scoreColor: Color, certificates: [Certificate], createDate: String) {
+        init(name: String, parentCompanyName: String, point: String, scoreColor: Color, certificates: [Certificate], description: String, createDate: String) {
             self.name = name
             self.parentCompanyName = parentCompanyName
             self.point = point
             self.scoreColor = scoreColor
             self.certificates = certificates
             self.createDate = createDate
+            self.description = description
         }
         
-        static let empty = BrandDetailUIModel(name: "", parentCompanyName: "", point: "", scoreColor: .clear, certificates: [], createDate: "")
+        static let empty = BrandDetailUIModel(name: "", parentCompanyName: "", point: "", scoreColor: .clear, certificates: [], description: "", createDate: "")
     }
     
     @Published var brandDetailUIModel: BrandDetailUIModel = .empty
@@ -87,7 +90,7 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
     func createPointAlertConfig() -> PointDetailAlert.Config {
         .init(
             overlayImage: "points",
-            description: "lorem ipsom",
+            description: "",
             point: brandDetail?.score ?? 0,
             details: PointDetailPopUpLogic.makePointDetailUIModel(for: brandDetail)
         )

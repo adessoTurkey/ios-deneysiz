@@ -92,6 +92,7 @@
 		A5B2F956275FE99200826518 /* loading-lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B2F955275FE99200826518 /* loading-lottie.json */; };
 		A5B2F958275FED4C00826518 /* OrderPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2F957275FED4C00826518 /* OrderPopUp.swift */; };
 		A5BAE692269EB0F6002DFFBD /* FixedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BAE691269EB0F6002DFFBD /* FixedImage.swift */; };
+		A5C7114E278DBECD000F803C /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C7114D278DBECD000F803C /* UINavigationController+Extension.swift */; };
 		A5C96C0E277B0AC0005976B5 /* ScrollRefreshable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C96C0D277B0AC0005976B5 /* ScrollRefreshable.swift */; };
 		A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */; };
 		A5CC7D29265D8D4F00DD3AA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D28265D8D4F00DD3AA7 /* SceneDelegate.swift */; };
@@ -224,6 +225,7 @@
 		A5B2F955275FE99200826518 /* loading-lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-lottie.json"; sourceTree = "<group>"; };
 		A5B2F957275FED4C00826518 /* OrderPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPopUp.swift; sourceTree = "<group>"; };
 		A5BAE691269EB0F6002DFFBD /* FixedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedImage.swift; sourceTree = "<group>"; };
+		A5C7114D278DBECD000F803C /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		A5C96C0D277B0AC0005976B5 /* ScrollRefreshable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollRefreshable.swift; sourceTree = "<group>"; };
 		A5CC7D23265D8D4F00DD3AA7 /* Deneysiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deneysiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CC7D26265D8D4F00DD3AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				A5A6EA8B2667CF64008C8B2F /* RawRepresentable+Extension.swift */,
 				98598323268C4C8B007678E8 /* Font+Extension.swift */,
 				A5FC0A952694861800F0FAD6 /* Color+Extension.swift */,
+				A5C7114D278DBECD000F803C /* UINavigationController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -978,6 +981,7 @@
 				A51C45BC2660DB4F003CCC58 /* FirstDependencyContainer.swift in Sources */,
 				A50CB05D26DCE9F700259E05 /* CertificateViewModel.swift in Sources */,
 				98576D0D2691CDA700C307FA /* DonateView.swift in Sources */,
+				A5C7114E278DBECD000F803C /* UINavigationController+Extension.swift in Sources */,
 				A562BCF6265EE66400BBC6A9 /* AppEnvironment.swift in Sources */,
 				9834C3972691DA230037EC8F /* EmailService.swift in Sources */,
 				A51C45C12660DD23003CCC58 /* FirstContainerView.swift in Sources */,
