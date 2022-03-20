@@ -9,13 +9,14 @@ import SwiftUI
 
 struct DiscoverView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 24) {
+        CustomNavBarContainer {
             NavBar
                 .padding(.top)
-                        
-            CategoryListView(viewModel: container.makeCategoryViewModel())
             
+        } content: {
+            CategoryListView(viewModel: container.makeCategoryViewModel())
         }
         .padding(.horizontal, 24)
     }

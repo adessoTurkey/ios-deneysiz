@@ -21,8 +21,7 @@ class CertificateViewModel: ObservableObject {
     }
     
     var image: String {
-        print("\(name)-circle")
-        return "\(name)-circle"
+        "\(name)-circle"
     }
     
     var description: String {

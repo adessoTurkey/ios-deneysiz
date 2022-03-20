@@ -10,43 +10,46 @@ import SwiftUI
 struct CertificateView: View {
     @StateObject var viewModel: CertificateViewModel
     @Environment(\.presentationMode) var presentationMode
-
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        CustomNavBarContainer {
             NavBar
                 .padding(.top)
             
-            Text(viewModel.description)
-                .font(.customFont(size: 14, type: .fontRegular))
-                .foregroundColor(.deneysizTextColor)
-
-            Text("leapingbunny.org")
-                .font(.customFont(size: 14, type: .fontMedium))
-                .foregroundColor(.deneysizOrange)
-            
-            if case let .peta(petacerts) = viewModel.viewType {
-                Text(viewModel.description)
-                    .font(.customFont(size: 20, type: .fontBold))
-                    .foregroundColor(.deneysizTextColor)
-                
+        } content: {
+            VStack(alignment: .leading, spacing: 16) {
                 Text(viewModel.description)
                     .font(.customFont(size: 14, type: .fontRegular))
                     .foregroundColor(.deneysizTextColor)
+
+                Text("leapingbunny.org")
+                    .font(.customFont(size: 14, type: .fontMedium))
+                    .foregroundColor(.deneysizOrange)
                 
-                HStack {
-                    ForEach(petacerts, id: \.self) {
-                        Image($0)
-                            .frame(minWidth: 60, minHeight: 60)
-                    }
+                if case let .peta(petacerts) = viewModel.viewType {
+                    Text(viewModel.description)
+                        .font(.customFont(size: 20, type: .fontBold))
+                        .foregroundColor(.deneysizTextColor)
                     
+                    Text(viewModel.description)
+                        .font(.customFont(size: 14, type: .fontRegular))
+                        .foregroundColor(.deneysizTextColor)
+                    
+                    HStack {
+                        ForEach(petacerts, id: \.self) {
+                            Image($0)
+                                .frame(minWidth: 60, minHeight: 60)
+                        }
+                        
+                    }
                 }
             }
-            Spacer()
+            .alignment(.leading)
+            .spacing(20)
         }
         .padding(.horizontal, 24)
-        .navigationBarHidden(true)
     }
-    
+        
     var NavBar: some View {
         CustomNavBar(
             left: {
@@ -74,6 +77,6 @@ struct CertificateView: View {
 
 struct CertificateView_Previews: PreviewProvider {
     static var previews: some View {
-        CertificateView(viewModel: .init(certificate: .beautyWithoutBunnies))
+        CertificateView(viewModel: .init(certificate: .leapingBunny))
     }
 }

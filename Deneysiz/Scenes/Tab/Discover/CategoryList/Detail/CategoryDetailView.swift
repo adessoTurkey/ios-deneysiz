@@ -13,22 +13,21 @@ struct CategoryDetailView: View {
     @State private var installMailApp = false
     
     let tracker = InstanceTracker("Categorydetailview")
+    
     var body: some View {
-        VStack {
+        CustomNavBarContainer {
             NavBar
-                .padding(.bottom, 24)
                 .padding(.top)
-                .padding(.horizontal, 26)
-            
-            FilterOrder
-                .padding(.bottom, 16)
-            
-            BrandListView(brands: viewModel.brands, onRefresh: viewModel.getBrands)
-            
-            Spacer()
+                .padding(.horizontal, 24)
+        } content: {
+            Group {
+                FilterOrder
+                    .padding(.bottom, 16)
+                
+                BrandListView(brands: viewModel.brands, onRefresh: viewModel.getBrands)
+            }
+            .spacing(40)
         }
-        .padding(.top, 0)
-        .navigationBarHidden(true)
         .modifier(
             PopUpHelper(
                 popUpView: OrderPopUp(viewModel.currentConfig, onUpdate: viewModel.order(_:), onDismiss: {
@@ -62,6 +61,7 @@ struct CategoryDetailView: View {
         .alert(isPresented: $installMailApp, content: {
             .init(title: Text("common-installMailApp"))
         })
+        
     }
     
     var NavBar: some View {

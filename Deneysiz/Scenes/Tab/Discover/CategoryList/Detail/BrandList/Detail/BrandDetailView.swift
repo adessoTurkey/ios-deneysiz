@@ -13,13 +13,13 @@ struct BrandDetailView: View {
     @State private var showPopUp = false
     @State private var installMailApp = false
     @State private var showingOptions = false
-
+    
     var body: some View {
-        VStack(spacing: 0) {
+        CustomNavBarContainer {
             NavBar
-                .padding(.bottom, 24)
                 .padding(.top)
             
+        } content: {
             if #available(iOS 15.0, *) {
                 ScrollRefreshable(localizedKey: "refresh", tintColor: .purple, content: {
                     BrandDetailScrollView
@@ -30,10 +30,8 @@ struct BrandDetailView: View {
             } else {
                 BrandDetailScrollView
             }
-            Spacer()
         }
         .padding(.horizontal, 24)
-        .navigationBarHidden(true)
         .modifier(
             PopUpHelper(
                 popUpView: LottieLoading(),
@@ -70,20 +68,20 @@ struct BrandDetailView: View {
             .init(title: Text("common-installMailApp"))
         })
         .actionSheet(isPresented: $showingOptions) {
-                        ActionSheet(
-                            title: Text(""),
-                            buttons: [
-                                .default(Text("brand-detail-inform-feedback")) {
-                                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: { installMailApp = !$0 })
-                                },
-                                .default(Text("cancel")) {
-                                    showingOptions = false
-                                }
-                            ]
-                        )
+            ActionSheet(
+                title: Text(""),
+                buttons: [
+                    .default(Text("brand-detail-inform-feedback")) {
+                        EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: { installMailApp = !$0 })
+                    },
+                    .default(Text("cancel")) {
+                        showingOptions = false
                     }
+                ]
+            )
+        }
     }
-    
+        
     private var NavBar: some View {
         CustomNavBar(
             left: {
@@ -186,7 +184,7 @@ struct BrandDetailView: View {
                 Details
                     .padding(.top)
                     .padding(.horizontal, 4)
-
+                
                 TextInfo
                     .padding(.top, 16)
                 
@@ -224,40 +222,40 @@ struct BrandDetailView_Previews: PreviewProvider {
 
 /*
  // MARK: Todo
-
+ 
  private struct HelperButton: View {
-     let image: Image
-     let title: Text
-     let action: () -> Void
-     
-     var body: some View {
-         Button {
-             print("tapped")
-         } label: {
-             HStack {
-                 HStack {
-                     image
-                     title
-                         .font(.customFont(size: 17))
-                         .foregroundColor(.deneysizTextColor)
-                 }
-                 .padding(.vertical, 16)
-                 .padding(.horizontal, 21)
-                 
-                 Spacer()
-             }
-             .frame(height: 58)
-             .background(
-                 Color.white
-                     .cornerRadius(8)
-                     .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
-             )
-         }
-     }
-     
+ let image: Image
+ let title: Text
+ let action: () -> Void
+ 
+ var body: some View {
+ Button {
+ print("tapped")
+ } label: {
+ HStack {
+ HStack {
+ image
+ title
+ .font(.customFont(size: 17))
+ .foregroundColor(.deneysizTextColor)
+ }
+ .padding(.vertical, 16)
+ .padding(.horizontal, 21)
+ 
+ Spacer()
+ }
+ .frame(height: 58)
+ .background(
+ Color.white
+ .cornerRadius(8)
+ .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
+ )
+ }
  }
  
-  //    var Shops: some View {
+ }
+ 
+ //    var Shops: some View {
  //        Section(
  //            header: Text("brand-detail-shop")
  //                .padding(.top, 32)

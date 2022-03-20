@@ -55,18 +55,19 @@ struct BankAccountView: View {
     var hapticImpact = UIImpactFeedbackGenerator(style: .medium)
     
     var body: some View {
-        
         VStack {
-            HStack {
-                Image(account.imageName).padding()
-                VStack(alignment: .leading, spacing: nil, content: {
+            HStack(alignment: .top, spacing: 8) {
+                Image(account.imageName)
+                
+                VStack(alignment: .leading, spacing: 4) {
                     Text(account.accountName)
-                        .font(Font.customFont(size: 17, type: .fontRegular))
+                        .font(.customFont(size: 17, type: .fontRegular))
                         .foregroundColor(Color("donateText"))
                     Text(account.branchName)
-                        .font(Font.customFont(size: 12, type: .fontRegular))
+                        .font(.customFont(size: 12, type: .fontRegular))
                         .foregroundColor(Color("gray"))
-                })
+                }
+                
                 Spacer()
             }
             Button(action: {
@@ -75,23 +76,29 @@ struct BankAccountView: View {
             }, label: {
                 HStack {
                     Text(account.IBAN)
-                        .font(Font.customFont(size: 14, type: .fontRegular))
+                        .font(.customFont(size: 14, type: .fontRegular))
                         .foregroundColor(Color("ibanText"))
-                        .padding()
+                        .padding(.horizontal, 8)
                     Spacer()
                     Image("copy")
                         .padding()
                 }
             })
-
             .background(Color("ibanFieldBlue"))
             .cornerRadius(4)
-            .padding(.horizontal)
         }
+        .frame(height: 130)
+        .padding()
         .foregroundColor(Color.black)
         .background(Color("backgroundWhite"))
         .cornerRadius(8)
         .shadow(color: Color("button_shadow"), radius: 10, y: 3)
-        .padding(.horizontal)
+    }
+}
+
+
+struct BankAccount_Previews: PreviewProvider {
+    static var previews: some View {
+        BankAccountView(account: .turkishLira)
     }
 }

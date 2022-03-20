@@ -16,31 +16,33 @@ struct InfoView: View {
     ]
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        CustomNavBarContainer {
             NavBar
                 .padding(.top)
-            
-            TopInfo
-                .padding(.top, 4)
-
-            Certificates
-                .padding(.top, 16)
-            
-            Curiosities
-                .padding(.top, 32)
-            
-            ScrollView(.vertical, showsIndicators: false) {
-                ForEach(details, id: \.self) {
-                    getNavigationLink($0, Text($0).eraseToAnyView())
+        } content: {
+            Group {
+                TopInfo
+                    .padding(.top, 4)
+                
+                Certificates
+                    .padding(.top, 16)
+                
+                Curiosities
+                    .padding(.top, 32)
+                
+                ScrollView(.vertical, showsIndicators: false) {
+                    ForEach(details, id: \.self) {
+                        getNavigationLink($0, Text($0).eraseToAnyView())
+                    }
+                    .font(.customFont(size: 17, type: .fontRegular))
+                    .foregroundColor(.deneysizTextColor)
+                    .padding(.top, 16)
                 }
-                .font(.customFont(size: 17, type: .fontRegular))
-                .foregroundColor(.deneysizTextColor)
-                .padding(.top, 16)
             }
-
-            Spacer()
+            .spacing(12)
         }
         .padding(.horizontal, 24)
+        
         
     }
     
@@ -103,7 +105,7 @@ struct InfoView: View {
                 .foregroundColor(.deneysizTextColor)
         }
     }
-        
+    
     func getNavigationLink(_ text: String, _ destination: AnyView) -> AnyView {
         NavigationLink(
             destination: destination,
@@ -117,7 +119,7 @@ struct InfoView: View {
                             Spacer()
                             Image("arrowRight")
                         }
-                        .padding(.horizontal, 16)
+                            .padding(.horizontal, 16)
                     )
                     .frame(height: 58)
             })
