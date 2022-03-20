@@ -33,7 +33,7 @@ extension Brand {
 extension Brand {
     static let dummies: [Brand] = [
         Brand(
-            id: 1,
+            id: 3,
             name: "Hawaiian Tropic",
             parentCompany: .init(name: "Rosmman", safe: true),
             offerInChina: true, categoryId: "1", certificates: Certificate.dummies,

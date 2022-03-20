@@ -123,15 +123,19 @@ struct BrandDetailView: View {
                     .foregroundColor(.deneysizText2Color)
                 
             }
-            Text(viewModel.brandDetailUIModel.point)
-                .font(.customFont(size: 17))
-                .foregroundColor(.white)
-                .frame(width: 50)
-                .padding(8)
-                .background(viewModel.brandDetailUIModel.scoreColor.cornerRadius(8))
-                .onTapGesture {
-                    showPopUp.toggle()
-                }
+            
+            HStack {
+                Text(viewModel.brandDetailUIModel.point)
+                    .font(.customFont(size: 17))
+                    .foregroundColor(.white)
+                Image("info")
+            }
+            .frame(width: 75)
+            .padding(8)
+            .background(viewModel.brandDetailUIModel.scoreColor.cornerRadius(8))
+            .onTapGesture {
+                showPopUp.toggle()
+            }
         }
     }
     
@@ -156,18 +160,14 @@ struct BrandDetailView: View {
     private var Details: some View {
         VStack(spacing: 16) {
             ForEach(viewModel.detail) { detail in
-                Button(action: {
-                   
-                }, label: {
-                    HStack(spacing: 16) {
-                        Image(detail.image)
-                        Text(LocalizedStringKey(detail.title))
-                            .font(Font.customFont(size: 16, type: .fontRegular))
-                        Spacer()
-                        Image("arrowRight")
-                    }
-                    .padding()
-                })
+                HStack(spacing: 16) {
+                    Image(detail.image)
+                    Text(LocalizedStringKey(detail.title))
+                        .font(Font.customFont(size: 16, type: .fontRegular))
+                    Spacer()
+                    Image("arrowRight")
+                }
+                .padding()
                 .foregroundColor(Color.black)
                 .background(Color.white)
                 .cornerRadius(8)

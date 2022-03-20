@@ -74,13 +74,13 @@ extension CustomErrorAlert.Config {
     static let noInternet: CustomErrorAlert.Config = .init(
         overlayImage: "wi-fi",
         title: "Internet Yok",
-        description: "Deutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, argumentum, te melius erroribus.",
+        description: "Şu anda internet bağlantınızla ilgili bir sorun yaşanıyor.",
         buttonDescription: "Tekrar Dene")
     
     static let operationFail: CustomErrorAlert.Config = .init(
         overlayImage: "smartphone",
         title: "İşlem Hatası",
-        description: "Deutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, argumentum, te melius erroribus.",
+        description: "Lütfen daha sonra tekrar deneyin.",
         buttonDescription: "Tekrar Dene")
 }
 

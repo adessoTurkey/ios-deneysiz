@@ -24,6 +24,23 @@ struct CertificateView: View {
                 .font(.customFont(size: 14, type: .fontMedium))
                 .foregroundColor(.deneysizOrange)
             
+            if case let .peta(petacerts) = viewModel.viewType {
+                Text(viewModel.description)
+                    .font(.customFont(size: 20, type: .fontBold))
+                    .foregroundColor(.deneysizTextColor)
+                
+                Text(viewModel.description)
+                    .font(.customFont(size: 14, type: .fontRegular))
+                    .foregroundColor(.deneysizTextColor)
+                
+                HStack {
+                    ForEach(petacerts, id: \.self) {
+                        Image($0)
+                            .frame(minWidth: 60, minHeight: 60)
+                    }
+                    
+                }
+            }
             Spacer()
         }
         .padding(.horizontal, 24)
@@ -40,13 +57,14 @@ struct CertificateView: View {
                 }
             },
             center: {
-                VStack(spacing: 0) {
+                VStack(spacing: -8) {
                     Image(viewModel.image)
-                        .offset(y: -16)
+                        
                     Text(viewModel.name)
                         .font(.customFont(size: 20, type: .fontBold))
                         .foregroundColor(.deneysizTextColor)
                 }
+                .offset(y: -16)
             },
             config: .init(alignment: .top)
         )
