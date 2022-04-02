@@ -163,7 +163,6 @@ struct BrandDetailView: View {
                     Text(LocalizedStringKey(detail.title))
                         .font(Font.customFont(size: 16, type: .fontRegular))
                     Spacer()
-                    Image("arrowRight")
                 }
                 .padding()
                 .foregroundColor(Color.black)

@@ -45,8 +45,8 @@ extension Certificate {
 }
 
 struct ParentCompany: Codable {
-    let name: String
-    let safe: Bool
+    let name: String?
+    let safe: Bool?
 }
 
 struct Category: Codable {
