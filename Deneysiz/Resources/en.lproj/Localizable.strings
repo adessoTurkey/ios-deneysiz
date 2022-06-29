@@ -50,3 +50,31 @@
 "apply" = "Uygula";
 "refresh" = "Yenile";
 "cancel" = "İptal";
+
+
+"leaping_bunny.description" = "1996 yılında 7 örgütün oluşturduğu CCIC (Kozmetik Ürünlerinde Müşteri Bilgilendirme Koalisyonu), Avusturya, Belçika, Finlandiya, Kanada, Fransa, İtalya, Hollanda, İspanya, İsveç, İsviçre, Birleşik Krallık ve ABD’nin de tanıdığı bir standart getirerek, kozmetik ürünlerini hayvanlarda test etmeyen firmalar için ürün ambalajlarında “sıçrayan tavşan” ikonu ile bilgilendirmeyi başlattı. Bu ikona sahip firma/ürünler, hayvanlar üzerinde test yapmadığı gibi, hayvanlar üzerinde test edilmiş içerikleri de satın almadıklarını beyan etmiş oluyorlar ve her yıl düzenlenen raporla yenilenen bir kontrat ile ikon kullanımlarını devam ettirebiliyorlar.
+
+Sıkı denetimleri ve uluslararası geçerliliği ile en güvenilir kabul edilen CCIC “Leaping Bunny” ikonu diğer ikonlardan farklı olarak, yasanın kapsamadığı kozmetik dışındaki ürünler de dahil olmak üzere, markanın satış yaptığı (Çin anakara da dahil) hiçbir ülkede ürün ve içeriklerini hayvanlar üzerinde test etmediğini ifade ediyor. Ayrıca markanın çalıştığı laboratuvar ve tedarikçilerden de belirli belgeleri imzalamaları isteniyor. ";
+"v_label.description" = "Bir İsviçre kuruluşu olan V-Label GmbH tarafından 1996 yılında kurulmuş olan V-Label, uluslararası geçerliliği olan bir sertifikalandırma markasıdır ve Avrupa Vejetaryen Birliği’nin teşviki ile ortaya çıkmıştır. Türkiye’deki yürütücülüğünü Vegan Derneği yapmaktadır.
+
+V-Label’in vegan ve vejetaryen olmak üzere iki ayrı tescil etiketi bulunur, vejetaryen olarak kabul edilen ürünler hayvan veya parçalarını içermemelidir. Vegan ürünlerde ise hayvansal kaynaklı madde ve bileşikler de bulunmamalıdır. Ek kriter olarak ise GDO içerdiği beyan edilen ürünlere ve kafes sistemiyle barındırılan tavuklardan elde edilen yumurtaları içeren ürünlere lisans verilmez. Ambalajlarında hayvansal kaynaklı maddeler içeren ürünlere lisans verilebilir ancak bu maddelerin kullanılmaması tavsiye edilir. V-Label etiketi taşıyan ürünlerin hayvanlar üzerinde test edilmesi ya da ettirilmesine izin verilmez. Kriterlere uygunluk her yıl kontrol edilerek sertifika yenilenir.";
+"beauty_without_bunnies.description" = "PeTA onaylı logoları kullanabilmek için hem bileşen hem de nihai ürünlerin geliştirme aşamasında, hiçbir koşulda hayvanlar üzerinde testler yapmamayı, yaptırmamayı taahhüt etmek gerekir. Firmalar tarafından kullanılan birçok bileşen geçmişte hayvanlar üzerinde test edilmişse de “onaylı” olduktan itibaren katı bir deneysizlik taahhüdünü şart koşuluyor.
+
+Sertifikalandırmada iki ayrı seçenek var:
+
+animal test–free: kendilerinin ve tedarikçilerinin dünyanın herhangi bir yerinde içerikleri, formülasyonları veya bitmiş ürünleri için hayvanlar üzerinde herhangi bir test yapmadıklarını veya bunlara izin vermediklerini ve asla yapmayacaklarını doğrulayan şirket ve markalar
+
+animal test–free and vegan: yukarıdakiyle aynı gereksinimleri karşılamaya ek olarak, TÜM ÜRÜN YELPAZESİNDE hayvanlardan elde edilmiş bir içerik (bal, balmumu, karmin vb.) de yer almayan şirket ve markalar
+
+AB'deki etiketleme yasaları dünyanın diğer bölgelerindekilerden farklı olduğundan, ürünlerini AB'nin parçası olan ülkelerde satan şirketler için bu logolar kullanılmaktadır:";
+"vegan_society.description" = "Vegan Trademark, dünya çapında en çok tanınan sembol, 79 ülkede 54 binden fazla üründe bulunuyor ve güncelliğini koruması için her yıl yenileniyor.
+
+Ürün bazında verilen bu logoya sahip olmak için ürünlerde hiçbir hayvansal içerik veya türevinin olmaması ve ürünün geliştirme ya da üretim aşamalarının herhangi birinde hayvanlar üzerinde test yapılmamış olması gerekiyor.
+
+Üretim hattında vegan olmayan kaynaklardan çapraz bulaşma riskinin ortadan kaldırılması için tüm makul ve pratik adımların atılması bekleniyor. Ürünlerde GDO’ya izin verildiği gibi, hayvan genleri içermesine izin verilmiyor.";
+
+
+"leaping_bunny.website_url" = "https://www.leapingbunny.org/";
+"v_label.website_url" = "https://www.v-label.eu/tr";
+"beauty_without_bunnies.website_url" = "https://crueltyfree.peta.org/";
+"vegan_society.website_url" = "https://www.vegansociety.com/the-vegan-trademark";

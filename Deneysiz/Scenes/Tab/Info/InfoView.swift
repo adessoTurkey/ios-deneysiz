@@ -10,9 +10,10 @@ import SwiftUI
 struct InfoView: View {
     
     private let details: [String] = [
-        "Deneysiz Markalar",
+        "Çin'de Satış ve Üretim",
+        "Hayvan Deneyleri- Genel Bilgiler",
         "Vegan Ürünler",
-        "Çin’de Satış"
+        "Puanlama Sistemi"
     ]
     
     var body: some View {
@@ -42,8 +43,6 @@ struct InfoView: View {
             .spacing(12)
         }
         .padding(.horizontal, 24)
-        
-        
     }
     
     var NavBar: some View {

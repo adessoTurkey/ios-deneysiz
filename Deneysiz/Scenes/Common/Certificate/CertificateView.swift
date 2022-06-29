@@ -22,7 +22,7 @@ struct CertificateView: View {
                     .font(.customFont(size: 14, type: .fontRegular))
                     .foregroundColor(.deneysizTextColor)
 
-                Text("leapingbunny.org")
+                Text(viewModel.websiteUrl)
                     .font(.customFont(size: 14, type: .fontMedium))
                     .foregroundColor(.deneysizOrange)
                 
@@ -63,7 +63,7 @@ struct CertificateView: View {
                 VStack(spacing: -8) {
                     Image(viewModel.image)
                         
-                    Text(viewModel.name)
+                    Text(viewModel.title)
                         .font(.customFont(size: 20, type: .fontBold))
                         .foregroundColor(.deneysizTextColor)
                 }

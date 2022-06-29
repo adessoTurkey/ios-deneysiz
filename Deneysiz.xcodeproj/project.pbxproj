@@ -222,7 +222,7 @@
 		A562BD00265EE7B800BBC6A9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		A5829267268CA30B00429A0E /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
-		A59ED96B26F1B74200E71E7C /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		A59ED96B26F1B74200E71E7C /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = InfoView.swift; sourceTree = "<group>"; };
 		A5A6EA812667CA40008C8B2F /* FacebookAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAuthService.swift; sourceTree = "<group>"; };
 		A5A6EA8B2667CF64008C8B2F /* RawRepresentable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RawRepresentable+Extension.swift"; sourceTree = "<group>"; };
 		A5B2F951275FE8B900826518 /* LottieLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoading.swift; sourceTree = "<group>"; };

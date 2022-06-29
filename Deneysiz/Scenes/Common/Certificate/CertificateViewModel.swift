@@ -6,6 +6,7 @@
 //
 
 import Combine
+import SwiftUI
 
 class CertificateViewModel: ObservableObject {
     
@@ -24,8 +25,49 @@ class CertificateViewModel: ObservableObject {
         "\(name)-circle"
     }
     
-    var description: String {
-        "Lorem ipsum detail blob blob"
+    var title: String {
+        switch certificate {
+        case .leapingBunny:
+            return "LEAPING BUNNY (CCIC)"
+        case .vlabel:
+            return "V-LABEL"
+        case .beautyWithoutBunnies:
+            return "BEAUTY WITHOUT BUNNIES (PeTA)"
+        case .veganSociety:
+            return "SUNFLOWER (Vegan Society)"
+        default:
+            return ""
+        }
+    }
+    
+    var description: LocalizedStringKey {
+        switch certificate {
+        case .leapingBunny:
+            return LocalizedStringKey("leaping_bunny.description")
+        case .vlabel:
+            return LocalizedStringKey("v_label.description")
+        case .beautyWithoutBunnies:
+            return LocalizedStringKey("beauty_without_bunnies.description")
+        case .veganSociety:
+            return LocalizedStringKey("vegan_society.description")
+        default:
+            return ""
+        }
+    }
+    
+    var websiteUrl: LocalizedStringKey {
+        switch certificate {
+        case .leapingBunny:
+            return LocalizedStringKey("leaping_bunny.website_url")
+        case .vlabel:
+            return LocalizedStringKey("v_label.website_url")
+        case .beautyWithoutBunnies:
+            return LocalizedStringKey("beauty_without_bunnies.website_url")
+        case .veganSociety:
+            return LocalizedStringKey("vegan_society.website_url")
+        default:
+            return ""
+        }
     }
     
     var viewType: ViewType
