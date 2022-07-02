@@ -13,7 +13,7 @@ struct Brand: Codable {
     let name: String
     let parentCompany: ParentCompany?
     let offerInChina: Bool
-    let categoryId: String
+    let categoryId: [String]
     let certificates: [Certificate]
     let safe, vegan, veganProduct: Bool
     let score: Int
@@ -36,7 +36,7 @@ extension Brand {
             id: 3,
             name: "Hawaiian Tropic",
             parentCompany: .init(name: "Rosmman", safe: true),
-            offerInChina: true, categoryId: "1", certificates: Certificate.dummies,
+            offerInChina: true, categoryId: ["1", "2"], certificates: Certificate.dummies,
             safe: true,
             vegan: true,
             veganProduct: true,
@@ -48,7 +48,7 @@ extension Brand {
             name: "Flink & Sauber",
             parentCompany: .init(name: "Dirk Rossmann", safe: false),
             offerInChina: true,
-            categoryId: "2",
+            categoryId: ["1", "2"],
             certificates: Certificate.dummies,
             safe: true,
             vegan: true,

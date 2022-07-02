@@ -13,7 +13,7 @@ struct BrandDetail: Codable {
     let name: String
     let parentCompany: ParentCompany?
     let offerInChina: Bool
-    let categoryId: String
+    let categoryId: [String]
     let certificates: [Certificate]
     let safe, vegan, veganProduct: Bool
     let score: Int
