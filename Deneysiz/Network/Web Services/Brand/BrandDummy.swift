@@ -131,9 +131,9 @@ private enum Shop: String {
 extension Color {
     static func calculateColor(_ point: Int) -> Self {
         switch point {
-        case let point where point > 8:
+        case let point where point >= 8:
             return .superHighPointGreen
-        case let point where point > 6:
+        case let point where point >= 6:
             return .highPointGreen
         case let point where point > 3:
             return .midPointYellow

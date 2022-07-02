@@ -10,6 +10,7 @@
 		9212E776275C03A5000E9902 /* BrandDetailPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212E775275C03A5000E9902 /* BrandDetailPayload.swift */; };
 		9212E778275C03BB000E9902 /* BrandDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212E777275C03BB000E9902 /* BrandDetail.swift */; };
 		9212E77A275C03EE000E9902 /* BrandDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212E779275C03EE000E9902 /* BrandDetailService.swift */; };
+		92A6F36E2870F5AC004F5C73 /* InfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6F36D2870F5AC004F5C73 /* InfoDetailView.swift */; };
 		92E3C6E327E7AF0900951146 /* CustomNavBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3C6E227E7AF0900951146 /* CustomNavBarContainer.swift */; };
 		92E3C6E627E7CDD300951146 /* PreferenceKeyBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3C6E527E7CDD300951146 /* PreferenceKeyBase.swift */; };
 		98143D8C2767814E00A51D6F /* Mulish-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98143D782767814E00A51D6F /* Mulish-LightItalic.ttf */; };
@@ -142,6 +143,7 @@
 		9212E775275C03A5000E9902 /* BrandDetailPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailPayload.swift; sourceTree = "<group>"; };
 		9212E777275C03BB000E9902 /* BrandDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetail.swift; sourceTree = "<group>"; };
 		9212E779275C03EE000E9902 /* BrandDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailService.swift; sourceTree = "<group>"; };
+		92A6F36D2870F5AC004F5C73 /* InfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailView.swift; sourceTree = "<group>"; };
 		92E3C6E227E7AF0900951146 /* CustomNavBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainer.swift; sourceTree = "<group>"; };
 		92E3C6E527E7CDD300951146 /* PreferenceKeyBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeyBase.swift; sourceTree = "<group>"; };
 		98143D782767814E00A51D6F /* Mulish-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				A59ED96B26F1B74200E71E7C /* InfoView.swift */,
+				92A6F36D2870F5AC004F5C73 /* InfoDetailView.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1021,6 +1024,7 @@
 				A59ED96C26F1B74200E71E7C /* InfoView.swift in Sources */,
 				A52227D5267CE79700004C1F /* CategoryListViewModel.swift in Sources */,
 				A5CC7D75265D983400DD3AA7 /* BaseServiceProtocol.swift in Sources */,
+				92A6F36E2870F5AC004F5C73 /* InfoDetailView.swift in Sources */,
 				A54DBBA6269D8B3E0096BBAF /* BaseViewModel.swift in Sources */,
 				A542AC6A268FBB8000B725BE /* ActivityIndicator.swift in Sources */,
 				92E3C6E627E7CDD300951146 /* PreferenceKeyBase.swift in Sources */,
@@ -1236,6 +1240,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Deneysiz/Preview Content\"";
 				DEVELOPMENT_TEAM = B9YVSAL4BY;
 				ENABLE_PREVIEWS = YES;
@@ -1259,6 +1264,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Deneysiz/Preview Content\"";
 				DEVELOPMENT_TEAM = B9YVSAL4BY;
 				ENABLE_PREVIEWS = YES;

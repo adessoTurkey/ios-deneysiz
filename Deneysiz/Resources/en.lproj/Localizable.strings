@@ -8,19 +8,49 @@
 
 "hello-world" = "Merhaba Dunya";
 "tab-discover" = "Keşfet";
-"tab-info" = "Biliyor Musun?";
+"tab-info" = "Bilgiler";
+
 "allBrands" = "Bütün\nMarkalar";
 "makeup" = "Makyaj";
-"perfume" = "Parfüm ve Deodorant";
-"skincare" = "Cilt Bakımı";
-"nailcare" = "Tırnak Bakımı";
-"haircare" = "Saç Bakımı";
-"hairDye" = "Saç Boyaları";
-"sunLotion" = "Güneş Kremleri";
-"bodycare" = "Vücut Bakımı";
+"haircare" = "Saç Bakım";
+"skincare" = "Cilt ve Yüz Bakım";
+"perfume" = "Deodorant ve Parfüm";
+"personalHygiene" = "Kişisel Hijyen ve Bakım";
+"dentalcare" = "Ağız ve Diş Bakım";
+"mombabycare" = "Anne ve Bebek Bakım";
+"homecare" = "Ev Bakım";
+
+"sellInChina-title" = "Çin'de Satış ve Üretim";
+"animalLab-title" = "Hayvan Deneyleri- Genel Bilgiler";
+"veganProducts-title" = "Vegan Ürünler";
+"pointInfo-title" = "Puanlama Sistemi";
+"sellInChina-description" = "2014 yılında kadar, Çin (anakarada) satıla sunulacak yerli ve ithal kozmetik ürünlerinin hayvanlar üzerinde test edilmesi yasal bir zorunluluktu. Firmalar bu testleri kendileri yapmasalar bile hükumete ait laboratuvarlarda bu testler yapılmadan ürünler raflara konulamıyordu.  2014 yılında bir değişiklik yapılarak, ülke içinde (onaylanmış güvenli içerik listesi ile) üretilen ürünler için hayvan testi zorunluluğu kalktı ancak yurt dışından ithal edilen ürünler için bu zorunluluk devam etti.\n
+Hayvan testi zorunluluğu sadece anakarada fiziksel olarak satılacak (online satışlar muaf) ve Hong Kong dışındaki yerlerden ülkeye ithal edilen ürünler için geçerliydi. Ayrıca havaalanlarında satışa sunulan ürünler de hayvan testi zorunluluğundan muaftı.\n
+Çin Gıda ve İlaç Dairesi 2017’de bazı düzenlemeler yaptı ve ertesi yıl, Leaping Bunny’nin girişimiyle, ithal ürünlerin satış öncesi ve sonrasında hayvan testlerinden muaf tutulması için yerel olarak üretileceği bir pilot çalışma başlatıldı.\n
+2019’da Çin Medikal Ürün Dairesi, kozmetik ürün içeriklerinin hayvansız alternatif bilimsel yöntemlerle test edilebilmesi için dokuz yeni yöntemi onayladı ve ayrıca teknik güvenlik standardı olarak üç yeni yöntem de 2020’de yürürlüğe girdi. Her bir ürünün kontrolü için ortalama 70 hayvanın öldürüldüğü kozmetik ürünlerin hem satış öncesi hem de satış sonrası testlerinde, hayvanların kullanılmadığı bu alternatif yöntemlerin geçerliliğinin tanınması büyük bir adım oldu.";
+"animalLab-description" = "Hayvan deneyleri, insan harici hayvanlar üzerinde deneysel ve bilimsel amaçlarla yapılan uygulamalardır. Her yıl dünyada 100 milyonun üzerinde hayvan deneylerde kullanılır.\n
+Dünyadaki bilinen milyonlarca hayvan türünden, deneylerde en sık kullanılan 9 hayvan türü; fare, sıçan, tavşan, balık, kedi, köpek, maymun, kobay (ginepig) ve hamster’dır.\n
+Hayvanlar sadece ilaç ya da aşı geliştirmek için değil, aklımıza gelen her alanda ve her şekilde laboratuvarlarda birer denek olmakta ve öldürülmektedirler. Tükettiğimiz gıdalardan cep telefonumuza, bindiğimiz araçların güvenlik testlerinden uçakların jet yakıtlarına kadar insanın kullanımındaki hemen her şey, insan sağlığına olumsuz etkilerini ölçmek amacıyla öncelikle hayvanlar üzerinde test edilirler.\n
+Ülkemizde de hayvanlar üzerinde deneyler yapılmaktadır ve bu amaç için kurulmuş 120’nin üzerinde deney merkezi vardır. Türkiye’de her yıl ortalama 260 bin hayvan deneylerde kullanılır.\n
+Hayvan deneylerinin insan sağlığı için güvenilir bir test metodu olmadığını savunan bilim insanlarının sayısı her geçen gün hızla artmakta, hatta bu bilim insanları hayvanların kullanılmadığı alternatif bilimsel yöntemlerin her alanda genişletilmesi ve kullanımının artması için örgütler kurmakta, eğitici kurs, seminerler vermekte ve bilimsel yayınlar yapmaktadırlar.\n
+Hayvan deneylerinin etik boyutu ise son birkaç yüzyıldır önemli bir tartışma alanı olmuş, tüm canlıların doğuştan ve eşit şekilde sahip olduğu yaşam hakkını ihlâl eden bu uygulamaların bir an önce son bulması gerektiğinden hareketle birçok ülke, bir takım yasal değişiklikler yaparak kısıtlamalara gitmiştir.\n
+Hayvan deneyleriyle ilgili daha detaylı bilgi için web sitemizi inceleyebilir ya da “Hayvan Deneyleri: Hayvanlar bizim için mi var?” adlı kitabı okuyabilirsiniz.";
+"veganProducts-description" = "Vegan ürün nedir?
+Vegan ürün, içeriğinde direkt ya da dolaylı yoldan hayvanlardan elde edilen herhangi bir içerik (bal, balmumu, karmin, lanolin vb.) barındırmayan üründür.\n
+Vegan Ürünler Aynı Zamanda Deneysiz midir?\n
+Bir üründe hayvan kaynaklı içeriklerin olmaması onun hayvanlar üzerinde test edilmediği anlamına gelmez. Bunun yanında, ürün ambalajlarında vegan ibaresinin kötüye kullanımına da rastlayabiliyoruz. Bu yüzden hem deneysizliği hem de hayvan kaynaklı içerik barındırmadığını garantileyen bir sertifikalandırma programına dahil olmuş ürünlerin tercih edilmesi daha doğru olacaktır.\n
+Vegan Ürünler Zulümsüz müdür?\n
+Bir ürüne \"zulümsüz\" diyebilmemiz için hem vegan hem de herhangi bir aşamada hayvanlar üzerinde test edilmemiş olması gerekir. Ana konusu hayvan deneyi olmayan sertifikalandırmalardan sadece The Vegan Society, Vegetarian Society ve V-Label, logo kullanımına izin verdiği ürünlerin aynı zamanda hayvanlar üzerinde test edilmediğini garanti eder.
+";
+"pointInfo-description" = "Deneysiz App’in puanlama sistemi; markaların çatı firmalarını, Çin’de satış yapıp yapmadıklarını ve yapıyorlar ise deney yapıp yapmadıklarını, ürünlerinin içeriklerinin tamamının ya da bir kısmının %100 bitkisel olup olmadığını baz alarak hesaplanan, objektif bir puanlama sistemidir. Araştırmanın yapıldığı tarihteki güncel verilere, markaların beyanına ve çeşitli kurumların sertifikalarına dayalı olarak yapılan puanlamada yalnızca deneysiz markalar puanlanmıştır.\n
+10 puan üzerinden yapılan puanlamada:\n
+Marka Deneysiz olduğu için (4)dört puan alır.\n
+Eğer Çatı Markası varsa ve o marka da deney yapmıyor ise (3) puan daha alır.\n
+Çin’de satış yapmak için deney yapmıyor ise (1) bir puan, bitkisel içerikli ürün gamı varsa (1)bir puan ve ürünlerinin tamamı vegan ise (1) puan daha alır.";
+
 "who-are-we" = "Biz Kimiz";
 "who_are_we-title" = "Biz Kimiz?";
-"deneysiz_app_website_link" = "deneysiz.org";
+"deneysiz_app_website_link" = "deneyehayir.org";
 "who_are_we-info_text" = "Eylül 2019’da tüzel kişilik kazanan Deneye Hayır Derneği, 2014-2019 yılları arasında Deneye Hayır Platformu olarak faaliyet göstermiştir. Platform, 2014 yılında gündeme gelen 5199 sayılı Hayvanları Koruma Kanunu’nun revizyonu sürecinde TBMM’de yapılan görüşmelere aktif katılım sağlamış; toplumun hayvan deneyleri konusunda bilgilendirilmesi ve bilinçlendirilmesi için çalışmalar yapmıştır.\n\nUluslararası İnsancıl Eğitim Ağı (InterNICHE) partner kuruluşu olan dernek, Sabancı Vakfı tarafından düzenlenen Fark Yaratanlar programına aday gösterilerek “Toplumsal Adalet” kategorisinde 2019 yılının “fark yaratanı” seçilmiş ve ayrıca hayvan deneylerine alternatif çalışmalar yürüten bilim insanları ve sivil toplum kuruluşlarını desteklemek amacıyla küresel çapta düzenlenen Lush Prize’da “Toplumsal Farkındalık” ve “Lobicilik” dallarında finale kalan Türkiye’den ilk katılımcı olmuştur.\n\nDerneğin nihai amacı, hayvanlar üzerinde yapılan deneysel amaçlı uygulamaların son bularak, hayvan içermeyen bilimsel yöntemlerin kullanılması için örgütlü bir mücadele yürütmek ve bu geçiş sürecinde de laboratuvarlardaki hayvanların haklarının korunmasıdır.";
 "who_are_we-email_problem_alert_title" = "Hata!";
 "who_are_we-email_problem_alert_text" = "Lütfen cihazınızda mail göndermek için uygun bir e-posta adresi olduğundan emin olun.";

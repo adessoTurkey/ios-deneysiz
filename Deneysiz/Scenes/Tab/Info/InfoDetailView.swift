@@ -1,0 +1,51 @@
+//
+//  DetailView.swift
+//  Deneysiz
+//
+//  Created by ogulcan keskin on 2.07.2022.
+//
+
+import SwiftUI
+
+struct InfoDetailView: View {
+    @Environment(\.presentationMode) var presentationMode
+    let titleKey: String
+    let descriptionKey: String
+    
+    var body: some View {
+        CustomNavBarContainer {
+            NavBar
+        } content: {
+            ScrollView(.vertical, showsIndicators: false) {
+                Text(LocalizedStringKey(descriptionKey))
+                    .font(.customFont(size: 14, type: .fontRegular))
+                    .foregroundColor(.deneysizTextColor)
+                    .padding(.horizontal)
+            }
+        }
+    }
+    
+    private var NavBar: some View {
+        CustomNavBar(
+            left: {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Image("back")
+                })
+            },
+            center: {
+                Text(LocalizedStringKey(titleKey))
+                    .font(.title)
+                    .bold()
+            })
+            .foregroundColor(.deneysizTextColor)
+            .padding()
+    }
+}
+
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        InfoDetailView(titleKey: InfoView.Detail.sellInChina.title, descriptionKey: InfoView.Detail.sellInChina.description)
+    }
+}

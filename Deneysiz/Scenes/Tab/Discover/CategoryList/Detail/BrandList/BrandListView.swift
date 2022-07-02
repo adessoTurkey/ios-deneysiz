@@ -18,12 +18,13 @@ struct BrandListView: View {
                 .padding(.horizontal, 16)
                 .font(.customFont(size: 12, type: .fontRegular))
                 .foregroundColor(.deneysizTextColor)
+                .opacity(showBrandCount ? 1 : 0)
             
             if #available(iOS 15.0, *) {
-                ScrollRefreshable(localizedKey: "refresh", tintColor: .purple, content: {
+                ScrollRefreshable(localizedKey: "", content: {
                     BrandListScrollView
                 }) {
-                    await Task.sleep(1_000_000_000)
+                    try? await Task.sleep(nanoseconds: 1_000_000_000)
                     self.onRefresh()
                 }
             } else {
@@ -47,6 +48,10 @@ struct BrandListView: View {
                 }
             }
         }
+    }
+    
+    private var showBrandCount: Bool {
+        !brands.isEmpty
     }
 }
 
@@ -85,7 +90,7 @@ private struct BrandCell: View {
 struct BrandListView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .hairDye))
+            CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .haircare))
             
             BrandListView(brands: [], onRefresh: {})
         }

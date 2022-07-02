@@ -63,12 +63,20 @@ private struct CategoryCell: View {
                 .resizable()
                 .scaledToFit()
                 .overlay(
-                    LinearGradient(gradient: Gradient(colors: [.black, .white]), startPoint: .leading, endPoint: .trailing)
-                        .opacity(0.1)
+                    LinearGradient(
+                        gradient: Gradient(colors: [
+                            .black.opacity(0.7),
+                            .black.opacity(0.3),
+                            .gray.opacity(0.3)
+                        ]),
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
                         .cornerRadius(10)
                 )
             
             Text(categoryModel.title)
+                .multilineTextAlignment(.leading)
                 .font(Font.customFont(size: 20, type: .fontBold))
                 .foregroundColor(Color("textForegroundWhite"))
                 .padding()

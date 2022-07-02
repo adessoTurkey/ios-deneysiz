@@ -28,20 +28,31 @@ struct BrandSearch: Codable {
 }
 
 struct Certificate: Codable, Identifiable, Hashable {
+    let name: String
+    let valid: Bool
+    
     var id: String {
         name
     }
-    let name: String
-    let valid: Bool
+    var certType: CertificateType? {
+        CertificateType(rawValue: name)
+    }
+}
+
+enum CertificateType: String {
+    case leapingBunny = "Leaping Bunny"
+    case vlabel = "V-Label"
+    case beautyWithoutBunnies = "Beauty Without Bunnies"
+    case veganSociety = "Vegan Society"
 }
 
 extension Certificate {
-    static let leapingBunny: Self = .init(name: "Leaping Bunny", valid: Bool.random())
-    static let vlabel: Self = .init(name: "V-Label", valid: Bool.random())
-    static let beautyWithoutBunnies: Self = .init(name: "Beauty Without Bunnies", valid: Bool.random())
-    static let veganSociety: Self = .init(name: "Vegan Society", valid: Bool.random())
+    static let leapingBunnyCert: Self = .init(name: "Leaping Bunny", valid: Bool.random())
+    static let vlabelCert: Self = .init(name: "V-Label", valid: Bool.random())
+    static let beautyWithoutBunniesCert: Self = .init(name: "Beauty Without Bunnies", valid: Bool.random())
+    static let veganSocietyCert: Self = .init(name: "Vegan Society", valid: Bool.random())
     
-    static let dummies: [Self] = [.leapingBunny, .vlabel, .beautyWithoutBunnies, .veganSociety]
+    static let dummies: [Self] = [.leapingBunnyCert, .vlabelCert, .beautyWithoutBunniesCert, .veganSocietyCert]
 }
 
 struct ParentCompany: Codable {
@@ -55,13 +66,13 @@ struct Category: Codable {
 
 enum CategoryEnum: Int, CaseIterable {
     case makeup = 0
-    case perfume
-    case skincare
-    case nailcare
     case haircare
-    case hairDye
-    case sunLotion
-    case bodycare
+    case skincare
+    case perfume
+    case personalHygiene
+    case dentalcare
+    case mombabycare
+    case homecare
     case allBrands
 }
 
@@ -75,20 +86,20 @@ extension CategoryEnum {
             return (title: LocalizedStringKey("allBrands"), image: Image("allBrands"))
         case .makeup:
             return (title: LocalizedStringKey("makeup"), image: Image("makeup"))
-        case .perfume:
-            return (title: LocalizedStringKey("perfume"), image: Image("perfume"))
-        case .skincare:
-            return (title: LocalizedStringKey("skincare"), image: Image("skincare"))
-        case .nailcare:
-            return (title: LocalizedStringKey("nailcare"), image: Image("mombaby"))
         case .haircare:
             return (title: LocalizedStringKey("haircare"), image: Image("haircare"))
-        case .hairDye:
-            return (title: LocalizedStringKey("hairDye"), image: Image("personalHygiene"))
-        case .sunLotion:
-            return (title: LocalizedStringKey("sunLotion"), image: Image("personalHygiene"))
-        case .bodycare:
-            return (title: LocalizedStringKey("bodycare"), image: Image("oralcare"))
+        case .skincare:
+            return (title: LocalizedStringKey("skincare"), image: Image("skincare"))
+        case .perfume:
+            return (title: LocalizedStringKey("perfume"), image: Image("perfume"))
+        case .personalHygiene:
+            return (title: LocalizedStringKey("personalHygiene"), image: Image("personalHygiene"))
+        case .dentalcare:
+            return (title: LocalizedStringKey("dentalcare"), image: Image("dentalcare"))
+        case .mombabycare:
+            return (title: LocalizedStringKey("mombabycare"), image: Image("mombabycare"))
+        case .homecare:
+            return (title: LocalizedStringKey("homecare"), image: Image("homecare"))
         }
     }
 }

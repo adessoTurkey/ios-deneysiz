@@ -29,7 +29,7 @@ struct MainTabView: View {
                     DiscoverView()
                         .tabItem {
                             VStack {
-                                Image("compass")
+                                Image("discover")
                                 Text("tab-discover")
                             }
                         }

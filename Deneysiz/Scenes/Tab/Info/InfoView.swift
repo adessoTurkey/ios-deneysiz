@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct InfoView: View {
-    
-    private let details: [String] = [
-        "Çin'de Satış ve Üretim",
-        "Hayvan Deneyleri- Genel Bilgiler",
-        "Vegan Ürünler",
-        "Puanlama Sistemi"
-    ]
+    enum Detail: String, CaseIterable {
+        case sellInChina
+        case animalLab
+        case veganProducts
+        case pointInfo
+        
+        var title: String {
+            "\(rawValue)-title"
+        }
+        
+        var description: String {
+            "\(rawValue)-description"
+        }
+    }
     
     var body: some View {
         CustomNavBarContainer {
@@ -32,8 +39,25 @@ struct InfoView: View {
                     .padding(.top, 32)
                 
                 ScrollView(.vertical, showsIndicators: false) {
-                    ForEach(details, id: \.self) {
-                        getNavigationLink($0, Text($0).eraseToAnyView())
+                    ForEach(Detail.allCases, id: \.self) { enumCase in
+                        NavigationLink(
+                            destination: {
+                                InfoDetailView(titleKey: enumCase.title, descriptionKey: enumCase.description)
+                            },
+                            label: {
+                                RoundedRectangle(cornerRadius: 8.0)
+                                    .foregroundColor(Color.certificateRectangleBackground)
+                                    .shadow(color: Color.certificateShadowTemp, radius: 10, y: 8)
+                                    .overlay(
+                                        HStack {
+                                            Text(LocalizedStringKey(enumCase.title))
+                                            Spacer()
+                                            Image("arrowRight")
+                                        }
+                                            .padding(.horizontal, 16)
+                                    )
+                                    .frame(height: 58)
+                            })
                     }
                     .font(.customFont(size: 17, type: .fontRegular))
                     .foregroundColor(.deneysizTextColor)
@@ -103,26 +127,6 @@ struct InfoView: View {
                 .font(.customFont(size: 14, type: .fontRegular))
                 .foregroundColor(.deneysizTextColor)
         }
-    }
-    
-    func getNavigationLink(_ text: String, _ destination: AnyView) -> AnyView {
-        NavigationLink(
-            destination: destination,
-            label: {
-                RoundedRectangle(cornerRadius: 8.0)
-                    .foregroundColor(Color.certificateRectangleBackground)
-                    .shadow(color: Color.certificateShadowTemp, radius: 10, y: 8)
-                    .overlay(
-                        HStack {
-                            Text(text)
-                            Spacer()
-                            Image("arrowRight")
-                        }
-                            .padding(.horizontal, 16)
-                    )
-                    .frame(height: 58)
-            })
-            .eraseToAnyView()
     }
 }
 

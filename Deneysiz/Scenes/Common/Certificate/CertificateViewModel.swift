@@ -15,6 +15,10 @@ class CertificateViewModel: ObservableObject {
         case nonPeta
     }
     
+    enum CertType {
+        
+    }
+    
     private let certificate: Certificate
     
     var name: String {
@@ -26,7 +30,7 @@ class CertificateViewModel: ObservableObject {
     }
     
     var title: String {
-        switch certificate {
+        switch certificate.certType {
         case .leapingBunny:
             return "LEAPING BUNNY (CCIC)"
         case .vlabel:
@@ -35,13 +39,13 @@ class CertificateViewModel: ObservableObject {
             return "BEAUTY WITHOUT BUNNIES (PeTA)"
         case .veganSociety:
             return "SUNFLOWER (Vegan Society)"
-        default:
+        case .none:
             return ""
         }
     }
     
     var description: LocalizedStringKey {
-        switch certificate {
+        switch certificate.certType {
         case .leapingBunny:
             return LocalizedStringKey("leaping_bunny.description")
         case .vlabel:
@@ -50,13 +54,13 @@ class CertificateViewModel: ObservableObject {
             return LocalizedStringKey("beauty_without_bunnies.description")
         case .veganSociety:
             return LocalizedStringKey("vegan_society.description")
-        default:
+        case .none:
             return ""
         }
     }
     
     var websiteUrl: LocalizedStringKey {
-        switch certificate {
+        switch certificate.certType {
         case .leapingBunny:
             return LocalizedStringKey("leaping_bunny.website_url")
         case .vlabel:
@@ -65,7 +69,7 @@ class CertificateViewModel: ObservableObject {
             return LocalizedStringKey("beauty_without_bunnies.website_url")
         case .veganSociety:
             return LocalizedStringKey("vegan_society.website_url")
-        default:
+        case .none:
             return ""
         }
     }

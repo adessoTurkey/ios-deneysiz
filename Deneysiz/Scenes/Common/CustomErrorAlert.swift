@@ -17,15 +17,9 @@ struct CustomErrorAlert: Alertable {
             ZStack(alignment: .top) {
                 
                 ZStack {
-                    Image("error-circle")
+                    Image(config.overlayImage)
                         .resizable()
                         .frame(width: 96, height: 96)
-                        .overlay(
-                            Image(config.overlayImage)
-                                .resizable()
-                                .offset(y: -4)
-                                .scaleEffect(0.5)
-                        )
                 }
                 .offset(y: -(96 / 2))
                 .zIndex(1.0)
@@ -73,9 +67,9 @@ extension CustomErrorAlert {
 extension CustomErrorAlert.Config {
     static let noInternet: CustomErrorAlert.Config = .init(
         overlayImage: "wi-fi",
-        title: "Internet Yok",
-        description: "Şu anda internet bağlantınızla ilgili bir sorun yaşanıyor.",
-        buttonDescription: "Tekrar Dene")
+        title: "Üzgünüz",
+        description: "Şu anda işleminiz gerçekleştirilemiyor. Lütfen daha sonra tekrar deneyiniz.",
+        buttonDescription: "Tekrar Deneyin")
     
     static let operationFail: CustomErrorAlert.Config = .init(
         overlayImage: "smartphone",

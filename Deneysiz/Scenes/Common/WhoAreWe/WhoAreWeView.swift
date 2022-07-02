@@ -20,7 +20,7 @@ struct WhoAreWeView: View {
                     .font(.customFont(size: 16, type: .fontRegular))
                     .padding(.horizontal)
                 
-                if let url = URL(string: "https://www.deneysiz.org/") {
+                if let url = URL(string: "https://www.deneyehayir.org/") {
                     HStack {
                         Link("deneysiz_app_website_link", destination: url)
                             .font(.customFont(size: 16, type: .fontRegular))

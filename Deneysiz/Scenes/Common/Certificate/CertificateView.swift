@@ -40,7 +40,6 @@ struct CertificateView: View {
                             Image($0)
                                 .frame(minWidth: 60, minHeight: 60)
                         }
-                        
                     }
                 }
             }
@@ -77,6 +76,6 @@ struct CertificateView: View {
 
 struct CertificateView_Previews: PreviewProvider {
     static var previews: some View {
-        CertificateView(viewModel: .init(certificate: .leapingBunny))
+        CertificateView(viewModel: .init(certificate: .leapingBunnyCert))
     }
 }

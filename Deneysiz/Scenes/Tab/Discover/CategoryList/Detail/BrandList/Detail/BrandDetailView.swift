@@ -21,10 +21,10 @@ struct BrandDetailView: View {
             
         } content: {
             if #available(iOS 15.0, *) {
-                ScrollRefreshable(localizedKey: "refresh", tintColor: .purple, content: {
+                ScrollRefreshable(localizedKey: "", content: {
                     BrandDetailScrollView
                 }) {
-                    await Task.sleep(1_000_000_000)
+                    try? await Task.sleep(nanoseconds: 1_000_000_000)
                     viewModel.getBrandDetail()
                 }
             } else {
@@ -67,19 +67,12 @@ struct BrandDetailView: View {
         .alert(isPresented: $installMailApp, content: {
             .init(title: Text("common-installMailApp"))
         })
-        .actionSheet(isPresented: $showingOptions) {
-            ActionSheet(
-                title: Text(""),
-                buttons: [
-                    .default(Text("brand-detail-inform-feedback")) {
-                        EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: { installMailApp = !$0 })
-                    },
-                    .default(Text("cancel")) {
-                        showingOptions = false
-                    }
-                ]
+        .modifier(
+            ActionModifier(
+                showingOptions: $showingOptions,
+                installMailApp: $installMailApp
             )
-        }
+        )
     }
         
     private var NavBar: some View {
@@ -99,7 +92,7 @@ struct BrandDetailView: View {
                 Button {
                     self.showingOptions = true
                 } label: {
-                    Image(systemName: "exclamationmark.circle")
+                    Image("alert-circle")
                         .font(.customFont(size: 20, type: .fontBold))
                         .foregroundColor(.deneysizTextColor)
                 }
@@ -127,6 +120,7 @@ struct BrandDetailView: View {
                     .font(.customFont(size: 17))
                     .foregroundColor(.white)
                 Image("info")
+                    .foregroundColor(.white)
             }
             .frame(width: 75)
             .padding(8)
@@ -203,6 +197,41 @@ struct BrandDetailView: View {
         Text(String(format: NSLocalizedString("update-date", comment: ""), viewModel.brandDetailUIModel.createDate))
             .font(.customFont(size: 14))
             .foregroundColor(.deneysizTextColor)
+    }
+}
+
+private struct ActionModifier: ViewModifier {
+    
+    @Binding var showingOptions: Bool
+    @Binding var installMailApp: Bool
+
+    var completion: (() -> Void)?
+    
+    func body(content: Content) -> some View {
+        if #available(iOS 15.0, *) {
+            content
+                .confirmationDialog("", isPresented: $showingOptions, titleVisibility: .hidden) {
+                    Button("brand-detail-inform-feedback") {
+                        EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: {
+                            installMailApp = !$0
+                        })
+                    }
+                }
+        } else {
+            content
+                .actionSheet(isPresented: $showingOptions) {
+                    ActionSheet(
+                        title: Text(""),
+                        buttons: [
+                            .default(Text("brand-detail-inform-feedback")) {
+                                EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: {
+                                    installMailApp = !$0
+                                })
+                            }
+                        ]
+                    )
+                }
+        }
     }
 }
 

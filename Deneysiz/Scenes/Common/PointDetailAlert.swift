@@ -15,15 +15,9 @@ struct PointDetailAlert: Alertable {
             ZStack(alignment: .top) {
                 
                 ZStack {
-                    Image("error-circle")
+                    Image(config.overlayImage)
                         .resizable()
                         .frame(width: 96, height: 96)
-                        .overlay(
-                            Image(config.overlayImage)
-                                .resizable()
-                                .offset(y: -4)
-                                .scaleEffect(0.5)
-                        )
                 }
                 .offset(y: -(96 / 2))
                 .zIndex(1.0)
@@ -35,7 +29,7 @@ struct PointDetailAlert: Alertable {
                         Button(action: {
                             onDismiss?()
                         }, label: {
-                            Image("x")
+                            Image("dismiss")
                         })
                     }
                     .padding(.horizontal, 22)

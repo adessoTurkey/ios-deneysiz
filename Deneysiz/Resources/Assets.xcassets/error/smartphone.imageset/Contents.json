@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "smartphone 1.png",
+      "filename" : "Group 11.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Group 11@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Group 11@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

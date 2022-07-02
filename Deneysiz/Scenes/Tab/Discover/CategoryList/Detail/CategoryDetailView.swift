@@ -119,6 +119,6 @@ struct CategoryDetailView: View {
 
 struct CategoryDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .hairDye))
+        CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .haircare))
     }
 }

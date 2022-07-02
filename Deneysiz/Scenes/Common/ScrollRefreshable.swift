@@ -6,7 +6,7 @@ struct ScrollRefreshable<Content: View>: View {
     var content: Content
     var onRefresh: () async -> Void
     
-    init(localizedKey: String? = nil, title: String? = nil, tintColor: Color, @ViewBuilder content: @escaping () -> Content, onRefresh: @escaping () async -> Void) {
+    init(localizedKey: String? = nil, title: String? = nil, @ViewBuilder content: @escaping () -> Content, onRefresh: @escaping () async -> Void) {
         let attributedTitle: String
         if let title = title {
             attributedTitle = title
@@ -19,7 +19,6 @@ struct ScrollRefreshable<Content: View>: View {
         self.onRefresh = onRefresh
         // Modifying Refresh Control...
         UIRefreshControl.appearance().attributedTitle = NSAttributedString(string: attributedTitle)
-        UIRefreshControl.appearance().tintColor = UIColor(tintColor)
     }
     
     var body: some View {
