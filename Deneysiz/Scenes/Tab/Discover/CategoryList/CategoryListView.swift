@@ -27,7 +27,7 @@ struct CategoryListView: View {
             ForEach(
                 viewModel.categories.chunked(into: 2),
                 id: \.self) { categoryChunk in
-                HStack(spacing: 16) {
+                    HStack(alignment: .top, spacing: 16) {
                     ForEach(
                         categoryChunk,
                         id: \.rawValue) { category in
