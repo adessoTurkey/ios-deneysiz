@@ -107,8 +107,8 @@ extension PointDetailAlert.Config {
         description: "lorem ipsum dior miorlorem ipsum dior miorlorem ipsum dior miorlorem ipsum dior miorlorem ipsum dior miorlorem ipsum dior mior", point: 9,
         details: [
             .init(name: "Marka Deneysizasflkajwfklawnflkawfkalw;ngawklgnawklgnalkgnawkgjnawgkjanwgkagnwljga", point: "4", state: "Evet", color: .green),
-            .init(name: "Çatı Marka Deneysiz", point: "3", state: "Hayir", color: .green),
-            .init(name: "Marka Vegan", point: "3", state: "Hayir", color: .green),
+            .init(name: "Çatı Marka Deneysiz", point: "3", state: "Hayır", color: .green),
+            .init(name: "Marka Vegan", point: "3", state: "Hayır", color: .green),
             .init(name: "Çin’de Satış", point: "1", state: "Evet", color: .green)
         ])
 }

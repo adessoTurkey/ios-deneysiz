@@ -10,14 +10,14 @@ import SwiftUI
 enum WhoAreWeButtonType {
     
     case contactUs
-    case beVolunteer
+    case support
     case donate
     
     var imageName: String {
         switch self {
         case .contactUs:
             return "mail"
-        case .beVolunteer:
+        case .support:
             return "users"
         case .donate:
             return "heart"
@@ -28,8 +28,8 @@ enum WhoAreWeButtonType {
         switch self {
         case .contactUs:
             return "Bizimle İletişime Geç"
-        case .beVolunteer:
-            return "Gönüllümüz Ol!"
+        case .support:
+            return "Destek Ol"
         case .donate:
             return "Bağış Yap"
         }
@@ -74,9 +74,11 @@ struct WhoAreWeButton: View {
     
     func buttonAction(for buttonType: WhoAreWeButtonType, completion: @escaping (Bool) -> Void) {
         switch buttonType {
-        case .beVolunteer:
+        case .support:
+            // TODO: Support screen
             EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "iletisim@deneyehayir.org", completion: completion)
         case .contactUs:
+            // TODO: Update Email subject body mailto
             EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "iletisim@deneyehayir.org", completion: completion)
         case .donate:
             isPresented.toggle()

@@ -7,9 +7,9 @@
 */
 
 "hello-world" = "Merhaba Dunya";
-"tab-discover" = "Keşfet";
+"discover" = "Keşfet";
 "tab-info" = "Bilgiler";
-
+"do_you_know" = "Biliyor Musun";
 "allBrands" = "Bütün\nMarkalar";
 "makeup" = "Makyaj";
 "haircare" = "Saç Bakım";
@@ -73,6 +73,7 @@ Eğer Çatı Markası varsa ve o marka da deney yapmıyor ise (3) puan daha alı
 "brand-detail-name-asc" = "İsime göre (A - Z)";
 "brand-detail-name-desc" = "İsime göre (Z - A)";
 "brand-detail-inform-feedback" = "yanlış/eksik veri bildir";
+"category_detail.suggest_new_brand" = "Yeni marka öner";
 "category-brand-found" = "%d tane bulundu";
 "common-installMailApp" = "Devam edebilmek için lütfen Mail uygulamasını yükleyiniz.";
 "info-curious" = "Merak Edilenler";
@@ -92,11 +93,11 @@ V-Label’in vegan ve vejetaryen olmak üzere iki ayrı tescil etiketi bulunur, 
 
 Sertifikalandırmada iki ayrı seçenek var:
 
-animal test–free: kendilerinin ve tedarikçilerinin dünyanın herhangi bir yerinde içerikleri, formülasyonları veya bitmiş ürünleri için hayvanlar üzerinde herhangi bir test yapmadıklarını veya bunlara izin vermediklerini ve asla yapmayacaklarını doğrulayan şirket ve markalar
+**animal test–free:** kendilerinin ve tedarikçilerinin dünyanın herhangi bir yerinde içerikleri, formülasyonları veya bitmiş ürünleri için hayvanlar üzerinde herhangi bir test yapmadıklarını veya bunlara izin vermediklerini ve asla yapmayacaklarını doğrulayan şirket ve markalar
 
-animal test–free and vegan: yukarıdakiyle aynı gereksinimleri karşılamaya ek olarak, TÜM ÜRÜN YELPAZESİNDE hayvanlardan elde edilmiş bir içerik (bal, balmumu, karmin vb.) de yer almayan şirket ve markalar
-
-AB'deki etiketleme yasaları dünyanın diğer bölgelerindekilerden farklı olduğundan, ürünlerini AB'nin parçası olan ülkelerde satan şirketler için bu logolar kullanılmaktadır:";
+**animal test–free and vegan:** yukarıdakiyle aynı gereksinimleri karşılamaya ek olarak, TÜM ÜRÜN YELPAZESİNDE hayvanlardan elde edilmiş bir içerik (bal, balmumu, karmin vb.) de yer almayan şirket ve markalar";
+"beauty_without_bunnies.inner_title" = "Diğer PeTA Logoları";
+"beauty_without_bunnies.logos" = "AB'deki etiketleme yasaları dünyanın diğer bölgelerindekilerden farklı olduğundan, ürünlerini AB'nin parçası olan ülkelerde satan şirketler için bu logolar kullanılmaktadır:";
 "vegan_society.description" = "Vegan Trademark, dünya çapında en çok tanınan sembol, 79 ülkede 54 binden fazla üründe bulunuyor ve güncelliğini koruması için her yıl yenileniyor.
 
 Ürün bazında verilen bu logoya sahip olmak için ürünlerde hiçbir hayvansal içerik veya türevinin olmaması ve ürünün geliştirme ya da üretim aşamalarının herhangi birinde hayvanlar üzerinde test yapılmamış olması gerekiyor.

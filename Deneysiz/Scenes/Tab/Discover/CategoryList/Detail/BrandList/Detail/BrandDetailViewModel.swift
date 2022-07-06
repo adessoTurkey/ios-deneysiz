@@ -98,7 +98,7 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
     
     private func evaluateDetail() {
         func image(_ state: Bool) -> String {
-            state == true ? "checked" : "none"
+            state == true ? "statusYes" : "statusNo"
         }
         
         let hasVeganProduct = Details(title: "brand-detail-hasVeganProduct", image: image(brand.veganProduct))
@@ -107,7 +107,6 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         
         detail = [hasVeganProduct, offerInChina, parentCompanySafe]
     }
-    
 }
 
 struct PointDetailPopUpLogic {
@@ -141,7 +140,7 @@ struct PointDetailPopUpLogic {
             condition: detail.safe,
             point: ("4", "0"),
             pointSum: "4",
-            title: ("Evet", "Hayir"),
+            title: ("Evet", "Hayır"),
             color: (.superHighPointGreen, .lowPointRed))
         
         let parentSafe = make(
@@ -149,7 +148,7 @@ struct PointDetailPopUpLogic {
             condition: detail.parentCompany?.safe,
             point: ("3", "0"),
             pointSum: "3",
-            title: ("Evet", "Hayir"),
+            title: ("Evet", "Hayır"),
             color: (.superHighPointGreen, .lowPointRed))
         
         let offerChina = make(
@@ -157,7 +156,7 @@ struct PointDetailPopUpLogic {
             condition: detail.offerInChina,
             point: ("0", "1"),
             pointSum: "1",
-            title: ("Evet", "Hayir"),
+            title: ("Evet", "Hayır"),
             color: (.lowPointRed, .superHighPointGreen))
         
         let vegan = make(
@@ -165,7 +164,7 @@ struct PointDetailPopUpLogic {
             condition: detail.vegan,
             point: ("1", "0"),
             pointSum: "1",
-            title: ("Evet", "Hayir"),
+            title: ("Evet", "Hayır"),
             color: (.superHighPointGreen, .lowPointRed))
         
         let veganProduct = make(
@@ -173,7 +172,7 @@ struct PointDetailPopUpLogic {
             condition: detail.veganProduct,
             point: ("1", "0"),
             pointSum: "1",
-            title: ("Evet", "Hayir"),
+            title: ("Evet", "Hayır"),
             color: (.superHighPointGreen, .lowPointRed))
        
         return [brandSafe, parentSafe, offerChina, vegan, veganProduct]

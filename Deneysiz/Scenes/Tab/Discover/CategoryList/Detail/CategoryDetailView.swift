@@ -11,6 +11,7 @@ struct CategoryDetailView: View {
     @StateObject var viewModel: CategoryDetailViewModel
     @Environment(\.presentationMode) var presentationMode
     @State private var installMailApp = false
+    @State private var showingOptions = false
     
     let tracker = InstanceTracker("Categorydetailview")
     
@@ -60,7 +61,12 @@ struct CategoryDetailView: View {
         )
         .alert(isPresented: $installMailApp, content: {
             .init(title: Text("common-installMailApp"))
-        })
+        }).modifier(
+            ActionModifier(
+                showingOptions: $showingOptions,
+                installMailApp: $installMailApp
+            )
+        )
         
     }
     
@@ -82,7 +88,7 @@ struct CategoryDetailView: View {
             },
             right: {
                 Button {
-                    EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "iletisim@deneyehayir.org", completion: { installMailApp = !$0 })
+                    self.showingOptions = true
                 } label: {
                     Image("add")
                 }
@@ -120,5 +126,42 @@ struct CategoryDetailView: View {
 struct CategoryDetailView_Previews: PreviewProvider {
     static var previews: some View {
         CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .haircare))
+    }
+}
+
+private struct ActionModifier: ViewModifier {
+    
+    @Binding var showingOptions: Bool
+    @Binding var installMailApp: Bool
+
+    var completion: (() -> Void)?
+    
+    func body(content: Content) -> some View {
+        if #available(iOS 15.0, *) {
+            content
+                .confirmationDialog("", isPresented: $showingOptions, titleVisibility: .hidden) {
+                    Button("category_detail.suggest_new_brand") {
+                        // TODO: Update Email subject body mailto
+                        EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: {
+                            installMailApp = !$0
+                        })
+                    }
+                }
+        } else {
+            content
+                .actionSheet(isPresented: $showingOptions) {
+                    ActionSheet(
+                        title: Text(""),
+                        buttons: [
+                            .default(Text("category_detail.suggest_new_brand")) {
+                                // TODO: Update Email subject body mailto
+                                EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: {
+                                    installMailApp = !$0
+                                })
+                            }
+                        ]
+                    )
+                }
+        }
     }
 }

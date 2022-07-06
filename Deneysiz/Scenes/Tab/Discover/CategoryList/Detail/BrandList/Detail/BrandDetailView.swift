@@ -212,6 +212,7 @@ private struct ActionModifier: ViewModifier {
             content
                 .confirmationDialog("", isPresented: $showingOptions, titleVisibility: .hidden) {
                     Button("brand-detail-inform-feedback") {
+                        // TODO: Update Email subject body mailto
                         EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: {
                             installMailApp = !$0
                         })
@@ -224,6 +225,7 @@ private struct ActionModifier: ViewModifier {
                         title: Text(""),
                         buttons: [
                             .default(Text("brand-detail-inform-feedback")) {
+                                // TODO: Update Email subject body mailto
                                 EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: {
                                     installMailApp = !$0
                                 })

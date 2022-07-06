@@ -19,7 +19,7 @@ class CertificateViewModel: ObservableObject {
         
     }
     
-    private let certificate: Certificate
+    let certificate: Certificate
     
     var name: String {
         certificate.name
@@ -78,6 +78,6 @@ class CertificateViewModel: ObservableObject {
     
     init(certificate: Certificate) {
         self.certificate = certificate
-        self.viewType = certificate.name.contains("Beauty Without Bunnies") ? .peta(["petacert", "petacert1", "petacert2", "petacert3", "petacert4"]) : .nonPeta
+        self.viewType = certificate.name.contains("Beauty Without Bunnies") ? .peta(["petacert", "petacert1", "petacert2", "petacert3"]) : .nonPeta
     }
 }

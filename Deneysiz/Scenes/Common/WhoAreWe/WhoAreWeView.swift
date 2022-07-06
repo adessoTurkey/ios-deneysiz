@@ -17,13 +17,13 @@ struct WhoAreWeView: View {
         } content: {
             ScrollView(.vertical, showsIndicators: false) {
                 Text("who_are_we-info_text")
-                    .font(.customFont(size: 16, type: .fontRegular))
+                    .font(.customFont(size: 14, type: .fontRegular))
                     .padding(.horizontal)
                 
                 if let url = URL(string: "https://www.deneyehayir.org/") {
                     HStack {
                         Link("deneysiz_app_website_link", destination: url)
-                            .font(.customFont(size: 16, type: .fontRegular))
+                            .font(.customFont(size: 14, type: .fontRegular))
                             .foregroundColor(Color("orange"))
                             .font(.body)
                         Spacer()
@@ -33,13 +33,13 @@ struct WhoAreWeView: View {
                 
                 Group {
                     WhoAreWeButton(buttonType: .contactUs)
-                    WhoAreWeButton(buttonType: .beVolunteer)
+                    WhoAreWeButton(buttonType: .support)
                     WhoAreWeButton(buttonType: .donate)
                 }
                 
                 HStack {
                     Text("who_are_we-title")
-                        .font(.customFont(size: 16, type: .fontRegular))
+                        .font(.customFont(size: 14, type: .fontRegular))
                     Spacer()
                 }.padding()
                 
@@ -49,7 +49,7 @@ struct WhoAreWeView: View {
                     SocialMediaButton(socialMedia: .youtube)
                     SocialMediaButton(socialMedia: .facebook)
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 24)
                 Spacer()
             }
         }

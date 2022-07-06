@@ -24,7 +24,7 @@ struct DiscoverView: View {
     var NavBar: some View {
         CustomNavBar(
             left: {
-                Text("tab-discover")
+                Text("discover")
                     .font(.customFont(size: 24, type: .fontBold))
                     .foregroundColor(.deneysizTextColor)
             },
