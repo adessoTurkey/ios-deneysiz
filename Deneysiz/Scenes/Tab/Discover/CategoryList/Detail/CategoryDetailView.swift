@@ -32,14 +32,16 @@ struct CategoryDetailView: View {
         .modifier(
             PopUpHelper(
                 popUpView: OrderPopUp(viewModel.currentConfig, onUpdate: viewModel.order(_:), onDismiss: {
-                    viewModel.showOrderSheet = false
+                    withAnimation {
+                        viewModel.showOrderSheet = false
+                    }
                 }),
-                isPresented: viewModel.showOrderSheet)
+                isPresented: $viewModel.showOrderSheet)
         )
         .modifier(
             PopUpHelper(
                 popUpView: LottieLoading(),
-                isPresented: viewModel.isLoading)
+                isPresented: $viewModel.isLoading)
         )
         .modifier(
             PopUpHelper(
@@ -51,17 +53,20 @@ struct CategoryDetailView: View {
                         }
                     },
                     onButtonClick: {
-                        viewModel.onError = false
-                        viewModel.isLoading = true
+                        withAnimation {
+                            viewModel.onError = false
+                            viewModel.isLoading = true
+                        }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             viewModel.getBrands()
                         }
                     }),
-                isPresented: viewModel.onError)
+                isPresented: $viewModel.onError)
         )
         .alert(isPresented: $installMailApp, content: {
             .init(title: Text("common-installMailApp"))
-        }).modifier(
+        })
+        .modifier(
             ActionModifier(
                 showingOptions: $showingOptions,
                 installMailApp: $installMailApp
@@ -130,11 +135,8 @@ struct CategoryDetailView_Previews: PreviewProvider {
 }
 
 private struct ActionModifier: ViewModifier {
-    
     @Binding var showingOptions: Bool
     @Binding var installMailApp: Bool
-
-    var completion: (() -> Void)?
     
     func body(content: Content) -> some View {
         if #available(iOS 15.0, *) {
@@ -142,9 +144,9 @@ private struct ActionModifier: ViewModifier {
                 .confirmationDialog("", isPresented: $showingOptions, titleVisibility: .hidden) {
                     Button("category_detail.suggest_new_brand") {
                         // TODO: Update Email subject body mailto
-                        EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: {
+                        EmailService.shared.sendEmail {
                             installMailApp = !$0
-                        })
+                        }
                     }
                 }
         } else {
@@ -155,9 +157,9 @@ private struct ActionModifier: ViewModifier {
                         buttons: [
                             .default(Text("category_detail.suggest_new_brand")) {
                                 // TODO: Update Email subject body mailto
-                                EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: {
+                                EmailService.shared.sendEmail {
                                     installMailApp = !$0
-                                })
+                                }
                             }
                         ]
                     )

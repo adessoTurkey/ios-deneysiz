@@ -29,11 +29,9 @@ final class URLSessionAgent: BaseServiceProtocol, RequestBuilder {
         let urlRequest = build(request, environment)
         return urlSession
             .dataTaskPublisher(for: urlRequest)
-//            .delay(for: 2, scheduler: RunLoop.main)
-            .print()
-            .map { response in
-                print(String(data: response.data, encoding: .utf8))
-                return response.data
+            .map {
+                print(String(data: $0.data, encoding: .utf8))
+                return $0.data
             }
             .decode(type: BaseResponse<T>.self, decoder: decoder)
             .receive(on: DispatchQueue.main)

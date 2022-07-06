@@ -79,7 +79,9 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
     }
     
     func orderButtonTapped() {
-        showOrderSheet = true
+        withAnimation {
+            showOrderSheet = true
+        }
     }
     
     func order(_ newConfig: OrderConfig) {

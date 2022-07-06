@@ -76,10 +76,10 @@ struct WhoAreWeButton: View {
         switch buttonType {
         case .support:
             // TODO: Support screen
-            EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "iletisim@deneyehayir.org", completion: completion)
+            EmailService.shared.sendEmail(mailTo: "iletisim@deneyehayir.org", completion: completion)
         case .contactUs:
             // TODO: Update Email subject body mailto
-            EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "iletisim@deneyehayir.org", completion: completion)
+            EmailService.shared.sendEmail(mailTo: "iletisim@deneyehayir.org", completion: completion)
         case .donate:
             isPresented.toggle()
         }

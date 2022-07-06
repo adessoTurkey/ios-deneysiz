@@ -13,7 +13,6 @@ struct PointDetailAlert: Alertable {
     var body: some View {
         GeometryReader { geo in
             ZStack(alignment: .top) {
-                
                 ZStack {
                     Image(config.overlayImage)
                         .resizable()
@@ -23,7 +22,6 @@ struct PointDetailAlert: Alertable {
                 .zIndex(1.0)
                 
                 VStack(spacing: 0) {
-                    
                     HStack {
                         Spacer()
                         Button(action: {

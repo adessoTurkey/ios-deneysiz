@@ -13,7 +13,7 @@ protocol Alertable: View {
 
 struct PopUpHelper<T>: ViewModifier where T: Alertable {
     let popUpView: T
-    let isPresented: Bool
+    @Binding var isPresented: Bool
     var config: Self.Configuration = .init()
     
     func body(content: Content) -> some View {
@@ -29,6 +29,7 @@ struct PopUpHelper<T>: ViewModifier where T: Alertable {
                         popUpView
                     }
                 )
+                .animation(.default)
                 .eraseToAnyView()
         } else {
             return content

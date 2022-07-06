@@ -35,14 +35,16 @@ struct BrandDetailView: View {
         .modifier(
             PopUpHelper(
                 popUpView: LottieLoading(),
-                isPresented: viewModel.isLoading)
+                isPresented: $viewModel.isLoading)
         )
         .modifier(
             PopUpHelper(
                 popUpView: PointDetailAlert(onDismiss: {
-                    showPopUp = false
+                    withAnimation {
+                        showPopUp = false
+                    }
                 }, config: viewModel.createPointAlertConfig()),
-                isPresented: showPopUp,
+                isPresented: $showPopUp,
                 config: .init(backgroundOpacitiy: 0.45)
             )
         )
@@ -56,13 +58,15 @@ struct BrandDetailView: View {
                         }
                     },
                     onButtonClick: {
-                        viewModel.onError = false
-                        viewModel.isLoading = true
+                        withAnimation {
+                            viewModel.onError = false
+                            viewModel.isLoading = true
+                        }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             viewModel.getBrandDetail()
                         }
                     }),
-                isPresented: viewModel.onError)
+                isPresented: $viewModel.onError)
         )
         .alert(isPresented: $installMailApp, content: {
             .init(title: Text("common-installMailApp"))
@@ -114,7 +118,6 @@ struct BrandDetailView: View {
                     .foregroundColor(.deneysizText2Color)
                 
             }
-            
             HStack {
                 Text(viewModel.brandDetailUIModel.point)
                     .font(.customFont(size: 17))
@@ -126,7 +129,9 @@ struct BrandDetailView: View {
             .padding(8)
             .background(viewModel.brandDetailUIModel.scoreColor.cornerRadius(8))
             .onTapGesture {
-                showPopUp.toggle()
+                withAnimation {
+                    showPopUp.toggle()
+                }
             }
         }
     }
@@ -201,11 +206,8 @@ struct BrandDetailView: View {
 }
 
 private struct ActionModifier: ViewModifier {
-    
     @Binding var showingOptions: Bool
     @Binding var installMailApp: Bool
-
-    var completion: (() -> Void)?
     
     func body(content: Content) -> some View {
         if #available(iOS 15.0, *) {
@@ -213,9 +215,9 @@ private struct ActionModifier: ViewModifier {
                 .confirmationDialog("", isPresented: $showingOptions, titleVisibility: .hidden) {
                     Button("brand-detail-inform-feedback") {
                         // TODO: Update Email subject body mailto
-                        EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: {
+                        EmailService.shared.sendEmail {
                             installMailApp = !$0
-                        })
+                        }
                     }
                 }
         } else {
@@ -226,9 +228,9 @@ private struct ActionModifier: ViewModifier {
                         buttons: [
                             .default(Text("brand-detail-inform-feedback")) {
                                 // TODO: Update Email subject body mailto
-                                EmailService.shared.sendEmail(subject: "hello", body: "this is body", mailTo: "installMailApp", completion: {
+                                EmailService.shared.sendEmail {
                                     installMailApp = !$0
-                                })
+                                }
                             }
                         ]
                     )

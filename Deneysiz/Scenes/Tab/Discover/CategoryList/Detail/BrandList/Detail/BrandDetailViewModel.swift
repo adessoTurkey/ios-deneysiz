@@ -102,8 +102,11 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         }
         
         let hasVeganProduct = Details(title: "brand-detail-hasVeganProduct", image: image(brand.veganProduct))
-        let offerInChina = Details(title: "brand-detail-offerInChina", image: image(brand.offerInChina))
-        let parentCompanySafe = Details(title: "brand-detail-parentCompanySafe", image: image(brand.parentCompany?.safe ?? false))
+        
+        let offerInChina = Details(title: "brand-detail-offerInChina", image: image(!brand.offerInChina))
+        
+        // cati firma null ise "Cati Firma Deneysiz" yesil tik goster.
+        let parentCompanySafe = Details(title: "brand-detail-parentCompanySafe", image: image(brand.parentCompany?.safe ?? true))
         
         detail = [hasVeganProduct, offerInChina, parentCompanySafe]
     }

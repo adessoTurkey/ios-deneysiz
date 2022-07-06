@@ -8,10 +8,12 @@
 import Foundation
 import MessageUI
 
-class EmailService: NSObject, MFMailComposeViewControllerDelegate {
+final class EmailService: NSObject, MFMailComposeViewControllerDelegate {
     public static let shared = EmailService()
     
-    func sendEmail(subject: String, body: String, mailTo: String, completion: @escaping (Bool) -> Void) {
+    private override init() { }
+    
+    func sendEmail(subject: String = "hello", body: String = "this is body", mailTo: String = "installMailApp", completion: @escaping (Bool) -> Void) {
         if MFMailComposeViewController.canSendMail() {
             let picker = MFMailComposeViewController()
             picker.setSubject(subject)
