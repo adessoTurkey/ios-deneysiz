@@ -72,7 +72,7 @@ struct InfoView: View {
     var NavBar: some View {
         CustomNavBar(
             left: {
-                Text("tab-info")
+                Text("do_you_know.question_mark")
                     .font(.customFont(size: 24, type: .fontBold))
                     .foregroundColor(.deneysizTextColor)
             },
@@ -92,7 +92,7 @@ struct InfoView: View {
     }
     
     var TopInfo: some View {
-        Text("Deutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus")
+        Text("do_you_know.top_info")
             .font(.customFont(size: 14, type: .fontRegular))
             .foregroundColor(.deneysizTextColor)
     }
@@ -118,12 +118,12 @@ struct InfoView: View {
     }
     
     var Curiosities: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 12) {
             Text("info-curious")
                 .font(.customFont(size: 20, type: .fontBold))
                 .foregroundColor(.deneysizTextColor)
             
-            Text("Deutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per")
+            Text("do_you_know.curiosities_description")
                 .font(.customFont(size: 14, type: .fontRegular))
                 .foregroundColor(.deneysizTextColor)
         }

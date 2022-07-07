@@ -61,9 +61,9 @@ struct WhoAreWeButton: View {
             .padding()
         })
         .alert(isPresented: $showEmailProblemAlert) {
-            Alert(title: Text("who_are_we-email_problem_alert_title"),
-                  message: Text("who_are_we-email_problem_alert_text"),
-                  dismissButton: .default(Text("who_are_we-email_problem_alert_dismiss_text")))
+            Alert(title: Text("error"),
+                  message: Text("common-installMailApp"),
+                  dismissButton: .default(Text("OK")))
         }
         .fullScreenCover(isPresented: $isDonateViewPresented, content: DonateView.init)
         .fullScreenCover(isPresented: $isSupportViewPresented, content: SupportView.init)
@@ -79,8 +79,7 @@ struct WhoAreWeButton: View {
         case .support:
             isSupportViewPresented.toggle()
         case .contactUs:
-            // TODO: Update Email subject body mailto
-            EmailService.shared.sendEmail(mailTo: "iletisim@deneyehayir.org", completion: completion)
+            EmailService.shared.sendEmail(subject: "who_are_we.email_subject", completion: completion)
         case .donate:
             isDonateViewPresented.toggle()
         }

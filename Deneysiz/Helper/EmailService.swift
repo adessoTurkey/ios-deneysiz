@@ -13,20 +13,13 @@ final class EmailService: NSObject, MFMailComposeViewControllerDelegate {
     
     private override init() { }
     
-    func sendEmail(subject: String = "hello", body: String = "this is body", mailTo: String = "installMailApp", completion: @escaping (Bool) -> Void) {
-        if MFMailComposeViewController.canSendMail() {
-            let picker = MFMailComposeViewController()
-            picker.setSubject(subject)
-            picker.setMessageBody(body, isHTML: true)
-            picker.setToRecipients([mailTo])
-            picker.mailComposeDelegate = self
-            
-            UIApplication.shared.windows.first?.rootViewController?.present(picker, animated: true, completion: nil)
+    func sendEmail(subject: String = "", body: String = "", mailTo: String = "info@deneyehayir.org", completion: @escaping (Bool) -> Void) {
+
+        let mailTo = "mailto:\(mailTo)?subject=\(subject)&body=\(body)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        if let to = mailTo, let mailtoUrl = URL(string: to), UIApplication.shared.canOpenURL(mailtoUrl) {
+            UIApplication.shared.open(mailtoUrl, options: [:])
+        } else {
+            completion(false)
         }
-        completion(MFMailComposeViewController.canSendMail())
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
     }
 }

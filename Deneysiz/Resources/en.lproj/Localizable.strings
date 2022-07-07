@@ -8,8 +8,8 @@
 
 "hello-world" = "Merhaba Dunya";
 "discover" = "Keşfet";
-"tab-info" = "Bilgiler";
 "do_you_know" = "Biliyor Musun";
+"do_you_know.question_mark" = "Biliyor Musun?";
 "allBrands" = "Bütün\nMarkalar";
 "makeup" = "Makyaj";
 "haircare" = "Saç Bakım";
@@ -24,6 +24,9 @@
 "animalLab-title" = "Hayvan Deneyleri- Genel Bilgiler";
 "veganProducts-title" = "Vegan Ürünler";
 "pointInfo-title" = "Puanlama Sistemi";
+
+"error" = "Hata!";
+"OK" = "Tamam";
 
 "sellInChina-description" = "2014 yılında kadar, Çin (anakarada) satıla sunulacak yerli ve ithal kozmetik ürünlerinin hayvanlar üzerinde test edilmesi yasal bir zorunluluktu. Firmalar bu testleri kendileri yapmasalar bile hükumete ait laboratuvarlarda bu testler yapılmadan ürünler raflara konulamıyordu.  2014 yılında bir değişiklik yapılarak, ülke içinde (onaylanmış güvenli içerik listesi ile) üretilen ürünler için hayvan testi zorunluluğu kalktı ancak yurt dışından ithal edilen ürünler için bu zorunluluk devam etti.\n
 Hayvan testi zorunluluğu sadece anakarada fiziksel olarak satılacak (online satışlar muaf) ve Hong Kong dışındaki yerlerden ülkeye ithal edilen ürünler için geçerliydi. Ayrıca havaalanlarında satışa sunulan ürünler de hayvan testi zorunluluğundan muaftı.\n
@@ -65,9 +68,7 @@ Bize destek olmanın birden çok yolu var…";
 
 "deneysiz_app_website_link" = "deneyehayir.org";
 "who_are_we-info_text" = "Eylül 2019’da tüzel kişilik kazanan Deneye Hayır Derneği, 2014-2019 yılları arasında Deneye Hayır Platformu olarak faaliyet göstermiştir. Platform, 2014 yılında gündeme gelen 5199 sayılı Hayvanları Koruma Kanunu’nun revizyonu sürecinde TBMM’de yapılan görüşmelere aktif katılım sağlamış; toplumun hayvan deneyleri konusunda bilgilendirilmesi ve bilinçlendirilmesi için çalışmalar yapmıştır.\n\nUluslararası İnsancıl Eğitim Ağı (InterNICHE) partner kuruluşu olan dernek, Sabancı Vakfı tarafından düzenlenen Fark Yaratanlar programına aday gösterilerek “Toplumsal Adalet” kategorisinde 2019 yılının “fark yaratanı” seçilmiş ve ayrıca hayvan deneylerine alternatif çalışmalar yürüten bilim insanları ve sivil toplum kuruluşlarını desteklemek amacıyla küresel çapta düzenlenen Lush Prize’da “Toplumsal Farkındalık” ve “Lobicilik” dallarında finale kalan Türkiye’den ilk katılımcı olmuştur.\n\nDerneğin nihai amacı, hayvanlar üzerinde yapılan deneysel amaçlı uygulamaların son bularak, hayvan içermeyen bilimsel yöntemlerin kullanılması için örgütlü bir mücadele yürütmek ve bu geçiş sürecinde de laboratuvarlardaki hayvanların haklarının korunmasıdır.";
-"who_are_we-email_problem_alert_title" = "Hata!";
-"who_are_we-email_problem_alert_text" = "Lütfen cihazınızda mail göndermek için uygun bir e-posta adresi olduğundan emin olun.";
-"who_are_we-email_problem_alert_dismiss_text" = "Tamam";
+
 "how_to_donate" = "Nasıl Bağış Yaparım?";
 "how_to_donate-info_text" = "Tür ayrımı gözetmeksizin tüm hayvanların şiddet görmeden yaşama hakkını savunan hayvan hakları savunucularıyız ve gerçekleştirmek için yola çıktığımız amaç, sokak-barınak-bakımevlerindeki hayvanlar için çalışan gönüllü ve örgütlerinkinden pek farklı olmasa da yolumuz epey uzun ve zorlu.\n\nDeney laboratuvarları bulunan üniversiteler ve Bakanlıklara bağlı kurumlarla iletişime geçerek mevzuatımızın laboratuvarlardaki hayvanlara tanıdığı hakların çiğnenmemesini talep ediyor, projelerimizi resmî kurumlara duyurmak için çabalıyor, bizzat buralara giderek görüşmeler yapıyor, kitapçıklar bastırıp gönderiyoruz. Evet sokak veya bakımevlerinden zor durumdaki hayvanları kurtararak tedavi ettirmiyoruz, ormanlarda ve kırsal bölgelerde mama dağıtmıyoruz – kısacası alışılan biçimde sahada değiliz, ancak her dernek gibi bizim de çalışma biçimimize özgü giderlerimiz ve bunlar için de desteğe ihtiyacımız var…";
 "brand-detail-safe" = "Marka Deneysiz";
@@ -88,7 +89,7 @@ Bize destek olmanın birden çok yolu var…";
 "brand-detail-inform-feedback" = "yanlış/eksik veri bildir";
 "category_detail.suggest_new_brand" = "Yeni marka öner";
 "category-brand-found" = "%d tane bulundu";
-"common-installMailApp" = "Devam edebilmek için lütfen Mail uygulamasını yükleyiniz.";
+"common-installMailApp" = "Devam edebilmeniz için cihazınızda bir Mail uygulaması yüklü olmalıdır.";
 "info-curious" = "Merak Edilenler";
 "update-date" = "Güncellenme Tarihi: %@";
 "apply" = "Uygula";
@@ -122,3 +123,9 @@ Sertifikalandırmada iki ayrı seçenek var:
 "v_label.website_url" = "https://www.v-label.eu/tr";
 "beauty_without_bunnies.website_url" = "https://crueltyfree.peta.org/";
 "vegan_society.website_url" = "https://www.vegansociety.com/the-vegan-trademark";
+
+"do_you_know.top_info" = "Ambalajlarında aşağıda gördüğün logolardan biri ya da birkaçının bulunduğu ürünler, elindeki ürünün hayvanlar üzerinde test edilmediğini garantiler.";
+"do_you_know.curiosities_description" = "Bize sıkça sorulan soruların cevaplarını aşağıda listeledik. Detaylı bilgiler için burayı okumanızı öneririz.";
+"category_detail.email_subject" = "Yeni Marka Önermek İstiyorum";
+"who_are_we.email_subject" = "Deneysiz App hk.";
+"brand_detail.email_subject" = "Yanlış/eksik veri bildir";

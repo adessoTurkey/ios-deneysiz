@@ -69,7 +69,9 @@ struct BrandDetailView: View {
                 isPresented: $viewModel.onError)
         )
         .alert(isPresented: $installMailApp, content: {
-            .init(title: Text("common-installMailApp"))
+            Alert(title: Text("error"),
+                  message: Text("common-installMailApp"),
+                  dismissButton: .default(Text("OK")))
         })
         .modifier(
             ActionModifier(
@@ -214,10 +216,9 @@ private struct ActionModifier: ViewModifier {
             content
                 .confirmationDialog("", isPresented: $showingOptions, titleVisibility: .hidden) {
                     Button("brand-detail-inform-feedback") {
-                        // TODO: Update Email subject body mailto
-                        EmailService.shared.sendEmail {
+                        EmailService.shared.sendEmail(subject: "brand_detail.email_subject", completion: {
                             installMailApp = !$0
-                        }
+                        })
                     }
                 }
         } else {
@@ -227,10 +228,9 @@ private struct ActionModifier: ViewModifier {
                         title: Text(""),
                         buttons: [
                             .default(Text("brand-detail-inform-feedback")) {
-                                // TODO: Update Email subject body mailto
-                                EmailService.shared.sendEmail {
+                                EmailService.shared.sendEmail(subject: "brand_detail.email_subject", completion: {
                                     installMailApp = !$0
-                                }
+                                })
                             }
                         ]
                     )

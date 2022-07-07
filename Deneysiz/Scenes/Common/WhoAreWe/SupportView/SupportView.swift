@@ -24,7 +24,7 @@ struct SupportView: View {
                 
                 VStack(spacing: 16) {
                     
-                    CollapsibleView (
+                    CollapsibleView(
                         label: { Text("support.share_title")
                                 .font(.customFont(size: 16, type: .fontSemiBold))
                             .foregroundColor(Color("donateText")) },
