@@ -34,6 +34,8 @@
 		98143D9E2767814E00A51D6F /* Mulish-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98143D8A2767814E00A51D6F /* Mulish-SemiBold.ttf */; };
 		98143D9F2767814E00A51D6F /* Mulish-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98143D8B2767814E00A51D6F /* Mulish-BoldItalic.ttf */; };
 		9834C3972691DA230037EC8F /* EmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9834C3962691DA230037EC8F /* EmailService.swift */; };
+		98448A6728762DF300AB7C8A /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98448A6628762DF300AB7C8A /* SupportView.swift */; };
+		98448A6A287633D600AB7C8A /* CollapsibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98448A69287633D600AB7C8A /* CollapsibleView.swift */; };
 		98576D0D2691CDA700C307FA /* DonateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98576D0C2691CDA700C307FA /* DonateView.swift */; };
 		98598324268C4C8B007678E8 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98598323268C4C8B007678E8 /* Font+Extension.swift */; };
 		98619F662694377700E4275E /* BankAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98619F652694377700E4275E /* BankAccountView.swift */; };
@@ -167,6 +169,8 @@
 		98143D8A2767814E00A51D6F /* Mulish-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-SemiBold.ttf"; sourceTree = "<group>"; };
 		98143D8B2767814E00A51D6F /* Mulish-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-BoldItalic.ttf"; sourceTree = "<group>"; };
 		9834C3962691DA230037EC8F /* EmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailService.swift; sourceTree = "<group>"; };
+		98448A6628762DF300AB7C8A /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
+		98448A69287633D600AB7C8A /* CollapsibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleView.swift; sourceTree = "<group>"; };
 		98576D0C2691CDA700C307FA /* DonateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateView.swift; sourceTree = "<group>"; };
 		98598323268C4C8B007678E8 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		98619F652694377700E4275E /* BankAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountView.swift; sourceTree = "<group>"; };
@@ -325,6 +329,23 @@
 			path = Mulish;
 			sourceTree = "<group>";
 		};
+		98448A6528762DDB00AB7C8A /* SupportView */ = {
+			isa = PBXGroup;
+			children = (
+				98448A68287633BD00AB7C8A /* CustomView */,
+				98448A6628762DF300AB7C8A /* SupportView.swift */,
+			);
+			path = SupportView;
+			sourceTree = "<group>";
+		};
+		98448A68287633BD00AB7C8A /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				98448A69287633D600AB7C8A /* CollapsibleView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		98619F632694375A00E4275E /* DonateView */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +366,7 @@
 		98880FB226887E4400D94852 /* WhoAreWe */ = {
 			isa = PBXGroup;
 			children = (
+				98448A6528762DDB00AB7C8A /* SupportView */,
 				98619F632694375A00E4275E /* DonateView */,
 				98880FB326887E6200D94852 /* WhoAreWeView.swift */,
 				98880FB526887EE900D94852 /* CustomViews */,
@@ -996,6 +1018,7 @@
 				A52227A5267CDB0500004C1F /* DiscoverView.swift in Sources */,
 				A5A6EA822667CA40008C8B2F /* FacebookAuthService.swift in Sources */,
 				A51C45BC2660DB4F003CCC58 /* FirstDependencyContainer.swift in Sources */,
+				98448A6A287633D600AB7C8A /* CollapsibleView.swift in Sources */,
 				A50CB05D26DCE9F700259E05 /* CertificateViewModel.swift in Sources */,
 				98576D0D2691CDA700C307FA /* DonateView.swift in Sources */,
 				A5C7114E278DBECD000F803C /* UINavigationController+Extension.swift in Sources */,
@@ -1043,6 +1066,7 @@
 				A5CC7D8F265DA18800DD3AA7 /* HTTPMethod.swift in Sources */,
 				A52227F3267CEFE300004C1F /* Array+Extension.swift in Sources */,
 				A518D70326FA25800084D8CC /* LottieNoData.swift in Sources */,
+				98448A6728762DF300AB7C8A /* SupportView.swift in Sources */,
 				A52227B3267CDD6B00004C1F /* CustomNavBar.swift in Sources */,
 				A508DCB62683733200336A18 /* ExampleService.swift in Sources */,
 				A539B68A2756D028002FE847 /* BrandService.swift in Sources */,

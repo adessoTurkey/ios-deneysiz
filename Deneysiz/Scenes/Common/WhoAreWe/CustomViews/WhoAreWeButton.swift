@@ -39,8 +39,9 @@ enum WhoAreWeButtonType {
 struct WhoAreWeButton: View {
     
     var buttonType: WhoAreWeButtonType
-    @State private var isPresented = false
+    @State private var isDonateViewPresented = false
     @State private var showEmailProblemAlert = false
+    @State private var isSupportViewPresented = false
 
     var body: some View {
         
@@ -64,7 +65,8 @@ struct WhoAreWeButton: View {
                   message: Text("who_are_we-email_problem_alert_text"),
                   dismissButton: .default(Text("who_are_we-email_problem_alert_dismiss_text")))
         }
-        .fullScreenCover(isPresented: $isPresented, content: DonateView.init)
+        .fullScreenCover(isPresented: $isDonateViewPresented, content: DonateView.init)
+        .fullScreenCover(isPresented: $isSupportViewPresented, content: SupportView.init)
         .foregroundColor(Color.black)
         .background(Color.white)
         .cornerRadius(8)
@@ -75,13 +77,12 @@ struct WhoAreWeButton: View {
     func buttonAction(for buttonType: WhoAreWeButtonType, completion: @escaping (Bool) -> Void) {
         switch buttonType {
         case .support:
-            // TODO: Support screen
-            EmailService.shared.sendEmail(mailTo: "iletisim@deneyehayir.org", completion: completion)
+            isSupportViewPresented.toggle()
         case .contactUs:
             // TODO: Update Email subject body mailto
             EmailService.shared.sendEmail(mailTo: "iletisim@deneyehayir.org", completion: completion)
         case .donate:
-            isPresented.toggle()
+            isDonateViewPresented.toggle()
         }
     }
 }

@@ -54,6 +54,15 @@ Eğer Çatı Markası varsa ve o marka da deney yapmıyor ise (3) puan daha alı
 
 "who-are-we" = "Biz Kimiz";
 "who_are_we-title" = "Biz Kimiz?";
+"support.title" = "Nasıl Destek Olurum?";
+"support.info_text" = "Deney laboratuvarlarındaki hayvanların haklarını korumak ve uzun vadede hayvan deneylerinin son bulmasını sağlayacak her türlü savunuculuk faaliyetini yürütmek üzere ülkemizde kurulmuş ilk ve tek derneğiz. Yaşam hakkına saygı duyan kişiler olarak, beş yüz yıl öncesinin deney pratiklerini reddediyor ve bizim iyiliğimiz için kimsenin zarar görmediği ürünlerin yer aldığı bir yaşam talep ediyoruz.
+
+Bize destek olmanın birden çok yolu var…";
+"support.share_title" = "Mesajları yaymamıza yardımcı olabilirsiniz";
+"support.share_description" = "Derneğimizin sosyal medya hesaplarını takip ederek ve gönderilerimizi kendi hesaplarınızdan paylaşarak, daha çok kişiye ulaşmamızı sağlayabilirsiniz.";
+"support.donate_title" = "Bağışçımız olabilirsiniz";
+"support.donate_description" = "Derneğimize tek seferlik bağış yapabilir ya da düzenli bağışçımız olabilirsiniz. Bunun için bağış yap sayfasına göz atmanızı istiyoruz.";
+
 "deneysiz_app_website_link" = "deneyehayir.org";
 "who_are_we-info_text" = "Eylül 2019’da tüzel kişilik kazanan Deneye Hayır Derneği, 2014-2019 yılları arasında Deneye Hayır Platformu olarak faaliyet göstermiştir. Platform, 2014 yılında gündeme gelen 5199 sayılı Hayvanları Koruma Kanunu’nun revizyonu sürecinde TBMM’de yapılan görüşmelere aktif katılım sağlamış; toplumun hayvan deneyleri konusunda bilgilendirilmesi ve bilinçlendirilmesi için çalışmalar yapmıştır.\n\nUluslararası İnsancıl Eğitim Ağı (InterNICHE) partner kuruluşu olan dernek, Sabancı Vakfı tarafından düzenlenen Fark Yaratanlar programına aday gösterilerek “Toplumsal Adalet” kategorisinde 2019 yılının “fark yaratanı” seçilmiş ve ayrıca hayvan deneylerine alternatif çalışmalar yürüten bilim insanları ve sivil toplum kuruluşlarını desteklemek amacıyla küresel çapta düzenlenen Lush Prize’da “Toplumsal Farkındalık” ve “Lobicilik” dallarında finale kalan Türkiye’den ilk katılımcı olmuştur.\n\nDerneğin nihai amacı, hayvanlar üzerinde yapılan deneysel amaçlı uygulamaların son bularak, hayvan içermeyen bilimsel yöntemlerin kullanılması için örgütlü bir mücadele yürütmek ve bu geçiş sürecinde de laboratuvarlardaki hayvanların haklarının korunmasıdır.";
 "who_are_we-email_problem_alert_title" = "Hata!";
