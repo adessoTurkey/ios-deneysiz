@@ -73,7 +73,6 @@ struct DonateView: View {
     }
 }
 
-
 struct DonateView_Previews: PreviewProvider {
     static var previews: some View {
         DonateView()

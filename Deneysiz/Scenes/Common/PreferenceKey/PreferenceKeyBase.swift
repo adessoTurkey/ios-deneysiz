@@ -40,7 +40,3 @@ public extension FloatPreferenceKey {
         .zero
     }
 }
-
-
-
-

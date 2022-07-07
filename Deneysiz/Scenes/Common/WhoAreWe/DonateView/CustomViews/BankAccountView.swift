@@ -96,7 +96,6 @@ struct BankAccountView: View {
     }
 }
 
-
 struct BankAccount_Previews: PreviewProvider {
     static var previews: some View {
         BankAccountView(account: .turkishLira)

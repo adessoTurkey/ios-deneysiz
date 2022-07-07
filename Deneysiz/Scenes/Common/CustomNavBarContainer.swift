@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-fileprivate struct SpacingSizeKey: FloatPreferenceKey {
+private struct SpacingSizeKey: FloatPreferenceKey {
     static var defaultValue: CGFloat {
         32
     }
 }
 
-fileprivate struct HorizontalAlignmentKey: HorizontalAlignmentPreferenceKey {
+private struct HorizontalAlignmentKey: HorizontalAlignmentPreferenceKey {
     static var defaultValue: HorizontalAlignment {
         .center
     }
@@ -25,7 +25,7 @@ struct CustomNavBarContainer<NavBar: View, Content: View>: View {
     
     let navbar: NavBar
     let content: Content
-    init(
+    init (
         @ViewBuilder navbar: @escaping () -> NavBar,
         @ViewBuilder content: @escaping () -> Content
     ) {
