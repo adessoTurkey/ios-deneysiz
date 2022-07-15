@@ -18,6 +18,7 @@ struct WhoAreWeView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 Text("who_are_we-info_text")
                     .font(.customFont(size: 14, type: .fontRegular))
+                    .foregroundColor(Color("donateText"))
                     .padding(.horizontal)
                 
                 if let url = URL(string: "https://www.deneyehayir.org/") {
@@ -52,6 +53,7 @@ struct WhoAreWeView: View {
                 .padding(.horizontal, 24)
                 Spacer()
             }
+            .navBarTopSpacing(30)
         }
     }
     
@@ -72,7 +74,8 @@ struct WhoAreWeView: View {
             right: {
             })
             .foregroundColor(.deneysizTextColor)
-            .padding()
+            .padding(.horizontal)
+            .padding(.top)
     }
 }
 

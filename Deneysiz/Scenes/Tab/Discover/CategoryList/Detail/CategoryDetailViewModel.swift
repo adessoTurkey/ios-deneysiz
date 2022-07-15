@@ -44,36 +44,45 @@ enum OrderConfig: Equatable, Identifiable {
 final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
 
     @Published var brands: [Brand] = []
-    @Published var isLoading = true
+    @Published var isLoading: Bool = false
     @Published var showOrderSheet = false
-    
+    @Published var showPointsPopUp = false
+    @Published var showNoDataLottie = false
+
+    var savedPointPopUpConfig: PointDetailAlert.Config = .dummy
+    var errorType: CustomErrorAlert.Config  = .operationFail
+
     let brandService: BrandAPI
     let categoryEnum: CategoryEnum
     
     var currentConfig: OrderConfig = .point(.desc)
-    private let tracker = InstanceTracker()
-    
+
     init(categoryEnum: CategoryEnum, brandService: BrandAPI) {
         self.categoryEnum = categoryEnum
         self.brandService = brandService
         super.init()
-        getBrands()
     }
     
     func getBrands() {
-        Logger.shared.log("\(categoryEnum.rawValue)")
+        isLoading = true
         brandService.getBrandsByCategory(payload: .init(categoryId: "\(categoryEnum.rawValue)"))
             .sink { [weak self] completion in
                 self?.isLoading = false
                 switch completion {
-                case .failure(_):
+                case .failure(let error):
+                    let error = error as NSError
+                    if error.code == -1009 {
+                        self?.errorType = .noInternet
+                    } else {
+                        self?.errorType = .operationFail
+                    }
                     self?.onError = true
                 default:
                     break
                 }
-            } receiveValue: { [weak self] in
-                Logger.shared.log("receiveValue")
-                self?.brands = $0.sorted(by: { $0.score > $1.score })
+            } receiveValue: { [weak self] brands in
+                self?.showNoDataLottie = brands.isEmpty
+                self?.brands = brands.sorted(by: { $0.score > $1.score })
             }
         .store(in: &self.cancellables)
     }
@@ -105,5 +114,15 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
                 brands = brands.sorted(by: { $0.name > $1.name })
             }
         }
+    }
+
+    func createPointAlertConfig(brand: Brand?) {
+        self.savedPointPopUpConfig = .init(
+            overlayImage: "points",
+            description: "brand-detail-points-alert-description",
+            point: brand?.score ?? 0,
+            details: PointDetailPopUpLogic.makePointDetailUIModel(for: brand)
+        )
+        self.showPointsPopUp = true
     }
 }

@@ -27,15 +27,19 @@ struct BrandDetailView: View {
                     try? await Task.sleep(nanoseconds: 1_000_000_000)
                     viewModel.getBrandDetail()
                 }
+                .navBarTopSpacing(32)
             } else {
                 BrandDetailScrollView
+                    .navBarTopSpacing(32)
             }
         }
         .padding(.horizontal, 24)
         .modifier(
             PopUpHelper(
                 popUpView: LottieLoading(),
-                isPresented: $viewModel.isLoading)
+                isPresented: $viewModel.isLoading,
+                config: .init(backgroundOpacitiy: 0)
+            )
         )
         .modifier(
             PopUpHelper(
@@ -80,7 +84,7 @@ struct BrandDetailView: View {
             )
         )
     }
-        
+
     private var NavBar: some View {
         CustomNavBar(
             left: {
@@ -105,7 +109,7 @@ struct BrandDetailView: View {
             },
             config: .init(isCenterMultiline: true, alignment: .top)
         )
-            .foregroundColor(.deneysizTextColor)
+        .foregroundColor(.deneysizTextColor)
     }
     
     private var NavBarCenter: some View {

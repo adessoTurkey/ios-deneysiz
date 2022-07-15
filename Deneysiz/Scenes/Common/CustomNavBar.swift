@@ -7,23 +7,6 @@
 
 import SwiftUI
 
-private struct FrameModifier: ViewModifier {
-    let width: CGFloat
-    
-    func body(content: Content) -> some View {
-        if width == 0 {
-            return
-                content
-                .eraseToAnyView()
-        } else {
-            return
-                content
-                .frame(maxWidth: width)
-                .eraseToAnyView()
-        }
-    }
-}
-
 extension CustomNavBar {
     struct Config {
         var isCenterMultiline: Bool = false
@@ -38,7 +21,8 @@ struct CustomNavBar<Left, Center, Right>: View where Left: View, Center: View, R
     let config: Config
     
     @State private var centerWidth: CGFloat = 0
-    
+    @State private var centerPosition: Anchor<CGRect>?
+
     init(
         @ViewBuilder left: @escaping () -> Left,
         @ViewBuilder center: @escaping () -> Center,
@@ -61,27 +45,35 @@ struct CustomNavBar<Left, Center, Right>: View where Left: View, Center: View, R
     var Calculated: some View {
         ZStack(alignment: self.config.alignment) {
             center()
-                .modifier(FrameModifier(width: self.centerWidth))
                 .multilineTextAlignment(.center)
-            
-            HStack {
+                .opacity(0)
+
+            HStack(spacing: 8) {
                 left()
                     .frame(minWidth: 8)
                 
-                Spacer()
-                    .overlay(
-                        GeometryReader { middle -> Color in
-                            DispatchQueue.main.async {
-                                self.centerWidth = middle.size.width
-                            }
-                            return Color.clear
-                        }
-                    )
+                Color.clear
+                    .frame(height: 10)
+                    .anchorPreference(
+                        key: BoundsPreferenceKey.self,
+                        value: .bounds
+                    ) { $0 }
                 
                 right()
                     .frame(minWidth: 8)
             }
         }
+        .overlayPreferenceValue(BoundsPreferenceKey.self) { preferences in
+                GeometryReader { geometry in
+                    preferences.map { val in
+                        // val: Anchor<CGRect>
+                        center()                                            .multilineTextAlignment(.center)
+                            .frame(width: geometry[val].width)
+                            .offset(x: geometry[val].minX)
+                    }
+            }
+        }
+
     }
     
     var Normal: some View {
@@ -141,12 +133,10 @@ struct CustomNavBar_Previews: PreviewProvider {
                     }
                 },
                 center: {
-                    Text("perfume")
+                    Text(LocalizedStringKey(InfoView.Detail.animalLab.title))
                         .font(.title)
                         .bold()
-                },
-                right: {
-                    Text("who-are-we")
+
                 },
                 config: .init(isCenterMultiline: true)
             )
@@ -154,9 +144,22 @@ struct CustomNavBar_Previews: PreviewProvider {
             .padding(.bottom, 24)
             .padding(.top)
             .padding(.horizontal, 26)
-            .environment(\.locale, .init(identifier: "tr"))
+            .environment(\.locale, .init(identifier: "en"))
             Spacer()
             
         }
+    }
+}
+
+struct BoundsPreferenceKey: PreferenceKey {
+    typealias Value = Anchor<CGRect>?
+
+    static var defaultValue: Value = nil
+
+    static func reduce(
+        value: inout Value,
+        nextValue: () -> Value
+    ) {
+        value = nextValue()
     }
 }

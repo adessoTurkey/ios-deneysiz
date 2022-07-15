@@ -67,8 +67,8 @@ extension CustomErrorAlert {
 extension CustomErrorAlert.Config {
     static let noInternet: CustomErrorAlert.Config = .init(
         overlayImage: "wi-fi",
-        title: "Üzgünüz",
-        description: "Şu anda işleminiz gerçekleştirilemiyor. Lütfen daha sonra tekrar deneyiniz.",
+        title: "İnternet yok",
+        description: "Lütfen internet bağlantınızı kontrol ederek tekrar deneyiniz.",
         buttonDescription: "Tekrar Deneyin")
     
     static let operationFail: CustomErrorAlert.Config = .init(

@@ -33,7 +33,7 @@ struct PointDetailAlert: Alertable {
                     .padding(.horizontal, 22)
                     createPointCapsule(config.point)
                     
-                    Text(config.description)
+                    Text(LocalizedStringKey(config.description))
                         .multilineTextAlignment(.center)
                         .font(.customFont(size: 14))
                         .foregroundColor(.deneysizTextColor)
@@ -98,7 +98,6 @@ extension PointDetailAlert {
     }
 }
 
-#if DEBUG
 extension PointDetailAlert.Config {
     static let dummy: PointDetailAlert.Config = .init(
         overlayImage: "points",
@@ -116,4 +115,3 @@ struct PointDetailAlert_Previews: PreviewProvider {
         PointDetailAlert(config: .dummy)
     }
 }
-#endif

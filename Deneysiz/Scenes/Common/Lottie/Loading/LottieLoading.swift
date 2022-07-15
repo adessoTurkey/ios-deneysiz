@@ -13,6 +13,8 @@ struct LottieLoading: View, Alertable {
     
     var body: some View {
         ZStack {
+            Color.clear
+                .ignoresSafeArea()
             LottieView(name: "loading-lottie", loopMode: .loop)
                 .frame(width: 135, height: 178)
         }

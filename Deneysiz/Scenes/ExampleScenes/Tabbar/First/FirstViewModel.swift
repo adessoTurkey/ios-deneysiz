@@ -14,7 +14,6 @@ class FirstViewModel: BaseViewModel, ObservableObject {
     @Published var exampleModel: [ExampleModel] = []
     
     init(firstService: AuthAPI, realService: ExampleAPI) {
-        print("FirstViewModel init")
         self.firstService = firstService
         self.realService = realService
         super.init()
@@ -26,10 +25,8 @@ class FirstViewModel: BaseViewModel, ObservableObject {
         realService.realRequest()
             .sink(
                 receiveCompletion: { err in
-                    print("err, ", err)
                 },
                 receiveValue: { bool in
-                    print(bool)
                 })
             .store(in: &self.cancellables)
 

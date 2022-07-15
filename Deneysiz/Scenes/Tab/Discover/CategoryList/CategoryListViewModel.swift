@@ -11,7 +11,6 @@ final class CategoryListViewModel: BaseViewModel, ObservableObject {
     
     let categoryAPI: CategoryAPI
     @Published var categories: [CategoryEnum] = []
-    private let tracker = InstanceTracker()
     
     init(categoryAPI: CategoryAPI) {
         self.categoryAPI = categoryAPI

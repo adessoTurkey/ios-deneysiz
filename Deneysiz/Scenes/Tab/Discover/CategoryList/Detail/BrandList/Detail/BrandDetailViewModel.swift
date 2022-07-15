@@ -54,7 +54,7 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
     @Published var brandDetailUIModel: BrandDetailUIModel = .empty
     @Published var detail: [Details] = []
     @Published var isLoading = true
-    
+
     private let brand: Brand
     private let service: BrandDetailAPI
     private var brandDetail: BrandDetail?
@@ -90,7 +90,7 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
     func createPointAlertConfig() -> PointDetailAlert.Config {
         .init(
             overlayImage: "points",
-            description: "",
+            description: "brand-detail-points-alert-description",
             point: brandDetail?.score ?? 0,
             details: PointDetailPopUpLogic.makePointDetailUIModel(for: brandDetail)
         )
@@ -156,11 +156,11 @@ struct PointDetailPopUpLogic {
         
         let offerChina = make(
             name: "brand-detail-offerInChina",
-            condition: detail.offerInChina,
-            point: ("0", "1"),
+            condition: !detail.offerInChina,
+            point: ("1", "0"),
             pointSum: "1",
             title: ("Evet", "Hayır"),
-            color: (.lowPointRed, .superHighPointGreen))
+            color: (.superHighPointGreen, .lowPointRed))
         
         let vegan = make(
             name: "brand-detail-vegan",
@@ -178,6 +178,54 @@ struct PointDetailPopUpLogic {
             title: ("Evet", "Hayır"),
             color: (.superHighPointGreen, .lowPointRed))
        
+        return [brandSafe, parentSafe, offerChina, vegan, veganProduct]
+    }
+
+    static func makePointDetailUIModel(for brand: Brand?) -> [BrandPointDetailUIModel] {
+        guard let detail = brand else {
+            return []
+        }
+
+        let brandSafe = make(
+            name: "brand-detail-safe",
+            condition: detail.safe,
+            point: ("4", "0"),
+            pointSum: "4",
+            title: ("Evet", "Hayır"),
+            color: (.superHighPointGreen, .lowPointRed))
+
+        let parentSafe = make(
+            name: "brand-detail-parentCompanySafe",
+            condition: detail.parentCompany?.safe,
+            point: ("3", "0"),
+            pointSum: "3",
+            title: ("Evet", "Hayır"),
+            color: (.superHighPointGreen, .lowPointRed))
+
+        let offerChina = make(
+            name: "brand-detail-offerInChina",
+            condition: !detail.offerInChina,
+            point: ("1", "0"),
+            pointSum: "1",
+            title: ("Evet", "Hayır"),
+            color: (.superHighPointGreen, .lowPointRed))
+
+        let vegan = make(
+            name: "brand-detail-vegan",
+            condition: detail.vegan,
+            point: ("1", "0"),
+            pointSum: "1",
+            title: ("Evet", "Hayır"),
+            color: (.superHighPointGreen, .lowPointRed))
+
+        let veganProduct = make(
+            name: "brand-detail-hasVeganProduct",
+            condition: detail.veganProduct,
+            point: ("1", "0"),
+            pointSum: "1",
+            title: ("Evet", "Hayır"),
+            color: (.superHighPointGreen, .lowPointRed))
+
         return [brandSafe, parentSafe, offerChina, vegan, veganProduct]
     }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 private struct SpacingSizeKey: FloatPreferenceKey {
     static var defaultValue: CGFloat {
-        32
+        20
     }
 }
 
@@ -20,7 +20,7 @@ private struct HorizontalAlignmentKey: HorizontalAlignmentPreferenceKey {
 }
 
 struct CustomNavBarContainer<NavBar: View, Content: View>: View {
-    @State private var spacing: CGFloat = 32
+    @State private var spacing: CGFloat = 20
     @State private var horizontalAlignment: HorizontalAlignment = .center
     
     let navbar: NavBar
@@ -79,7 +79,7 @@ struct CustomNavBarContainer_Previews: PreviewProvider {
                 Text("Blop")
                     .foregroundColor(.black)
             }
-            .spacing(30)
+            .navBarTopSpacing(0)
         }
         
     }
@@ -87,11 +87,11 @@ struct CustomNavBarContainer_Previews: PreviewProvider {
 
 // MARK: Add keys
 extension View {
-    func spacing(_ value: CGFloat) -> some View {
+    func navBarTopSpacing(_ value: CGFloat) -> some View {
         preference(key: SpacingSizeKey.self, value: value)
     }
     
-    func alignment(_ value: HorizontalAlignment) -> some View {
+    func navBarAlignment(_ value: HorizontalAlignment) -> some View {
         preference(key: HorizontalAlignmentKey.self, value: value)
     }
 }

@@ -51,6 +51,7 @@ struct InfoView: View {
                                     .overlay(
                                         HStack {
                                             Text(LocalizedStringKey(enumCase.title))
+                                                .multilineTextAlignment(.leading)
                                             Spacer()
                                             Image("arrowRight")
                                         }
@@ -64,7 +65,7 @@ struct InfoView: View {
                     .padding(.top, 16)
                 }
             }
-            .spacing(12)
+            .navBarTopSpacing(12)
         }
         .padding(.horizontal, 24)
     }

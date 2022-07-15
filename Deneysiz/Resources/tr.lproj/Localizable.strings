@@ -52,8 +52,8 @@ Bir ürüne \"zulümsüz\" diyebilmemiz için hem vegan hem de herhangi bir aşa
 "pointInfo-description" = "Deneysiz App’in puanlama sistemi; markaların çatı firmalarını, Çin’de satış yapıp yapmadıklarını ve yapıyorlar ise deney yapıp yapmadıklarını, ürünlerinin içeriklerinin tamamının ya da bir kısmının %100 bitkisel olup olmadığını baz alarak hesaplanan, objektif bir puanlama sistemidir. Araştırmanın yapıldığı tarihteki güncel verilere, markaların beyanına ve çeşitli kurumların sertifikalarına dayalı olarak yapılan puanlamada yalnızca deneysiz markalar puanlanmıştır.\n
 10 puan üzerinden yapılan puanlamada:\n
 Marka Deneysiz olduğu için (4)dört puan alır.\n
-Eğer Çatı Markası varsa ve o marka da deney yapmıyor ise (3) puan daha alır.\n
-Çin’de satış yapmak için deney yapmıyor ise (1) bir puan, bitkisel içerikli ürün gamı varsa (1)bir puan ve ürünlerinin tamamı vegan ise (1) puan daha alır.";
+Eğer Çatı Markası varsa ve o marka da deney yapmıyor ise (3) üç puan daha alır.\n
+Çin’de satış yapmak için deney yapmıyor ise (1) bir puan, bitkisel içerikli ürün gamı varsa (1)bir puan ve ürünlerinin tamamı vegan ise (1) bir puan daha alır.";
 
 "who-are-we" = "Biz Kimiz";
 "who_are_we-title" = "Biz Kimiz?";
@@ -86,7 +86,7 @@ Bize destek olmanın birden çok yolu var…";
 "brand-detail-point-desc" = "Azalan Puan";
 "brand-detail-name-asc" = "İsime göre (A - Z)";
 "brand-detail-name-desc" = "İsime göre (Z - A)";
-"brand-detail-inform-feedback" = "yanlış/eksik veri bildir";
+"brand-detail-inform-feedback" = "Yanlış/eksik veri bildir";
 "category_detail.suggest_new_brand" = "Yeni marka öner";
 "category-brand-found" = "%d tane bulundu";
 "common-installMailApp" = "Devam edebilmeniz için cihazınızda bir Mail uygulaması yüklü olmalıdır.";
@@ -95,6 +95,7 @@ Bize destek olmanın birden çok yolu var…";
 "apply" = "Uygula";
 "refresh" = "Yenile";
 "cancel" = "İptal";
+"brand-detail-points-alert-description" = "Puanlama sistemi aşağıdaki metrikler baz alınarak oluşturulmuştur.";
 
 
 "leaping_bunny.description" = "1996 yılında 7 örgütün oluşturduğu CCIC (Kozmetik Ürünlerinde Müşteri Bilgilendirme Koalisyonu), Avusturya, Belçika, Finlandiya, Kanada, Fransa, İtalya, Hollanda, İspanya, İsveç, İsviçre, Birleşik Krallık ve ABD’nin de tanıdığı bir standart getirerek, kozmetik ürünlerini hayvanlarda test etmeyen firmalar için ürün ambalajlarında “sıçrayan tavşan” ikonu ile bilgilendirmeyi başlattı. Bu ikona sahip firma/ürünler, hayvanlar üzerinde test yapmadığı gibi, hayvanlar üzerinde test edilmiş içerikleri de satın almadıklarını beyan etmiş oluyorlar ve her yıl düzenlenen raporla yenilenen bir kontrat ile ikon kullanımlarını devam ettirebiliyorlar.

@@ -11,6 +11,7 @@ struct BrandListView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
     let brands: [Brand]
     let onRefresh: () -> Void
+    let onPointClick: (Brand?) -> Void
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -40,7 +41,7 @@ struct BrandListView: View {
                     NavigationLink(
                         destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brand: brand)),
                         label: {
-                            BrandCell(brand: brand)
+                            BrandCell(brand: brand, onPointClick: onPointClick)
                             // To get tap gesture event on Spacer
                                 .contentShape(Rectangle())
                         })
@@ -57,7 +58,8 @@ struct BrandListView: View {
 
 private struct BrandCell: View {
     let brand: Brand
-    
+    let onPointClick: (Brand?) -> Void
+
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .top) {
@@ -78,6 +80,9 @@ private struct BrandCell: View {
                     .frame(width: 50)
                     .padding(8)
                     .background(brand.color.cornerRadius(8))
+                    .onTapGesture {
+                        onPointClick(brand)
+                    }
             }
             .padding(16)
             
@@ -92,7 +97,9 @@ struct BrandListView_Previews: PreviewProvider {
         Group {
             CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .haircare))
             
-            BrandListView(brands: [], onRefresh: {})
+            BrandListView(brands: [], onRefresh: {}) { _ in
+
+            }
         }
     }
 }

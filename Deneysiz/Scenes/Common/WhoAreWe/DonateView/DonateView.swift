@@ -47,7 +47,7 @@ struct DonateView: View {
                 .padding(.vertical)
                 .padding(.horizontal)
             }
-            .spacing(20)
+            .navBarTopSpacing(20)
         }
     }
     

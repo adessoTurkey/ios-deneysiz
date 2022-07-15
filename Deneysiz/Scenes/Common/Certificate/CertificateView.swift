@@ -14,21 +14,28 @@ struct CertificateView: View {
     var body: some View {
         CustomNavBarContainer {
             NavBar
-                .padding(.top)
-            
+
         } content: {
             ScrollView(.vertical, showsIndicators: false) {
                 Text(viewModel.description)
                     .font(.customFont(size: 14, type: .fontRegular))
                     .foregroundColor(.deneysizTextColor)
-                    .padding()
+                    .padding(.horizontal)
 
                 HStack {
-                    Text(viewModel.websiteUrl)
-                        .font(.customFont(size: 14, type: .fontMedium))
-                        .foregroundColor(Color("orange"))
+                    if #available(iOS 15.0, *) {
+                        Text(viewModel.websiteUrl)
+                            .font(.customFont(size: 14, type: .fontMedium))
+                            .tint(.deneysizOrange)
+                            .padding(.top)
+                    } else {
+                        Text(viewModel.websiteUrl)
+                            .font(.customFont(size: 14, type: .fontMedium))
+                            .padding(.top)
+                    }
                     Spacer()
-                }.padding(.horizontal)
+                }
+                .padding(.horizontal)
                 
                 if case let .peta(petacerts) = viewModel.viewType {
                     HStack {
@@ -36,7 +43,8 @@ struct CertificateView: View {
                             .font(.customFont(size: 20, type: .fontBold))
                             .foregroundColor(.deneysizTextColor)
                         Spacer()
-                    }.padding()
+                    }
+                    .padding()
 
                     Text("beauty_without_bunnies.logos")
                         .font(.customFont(size: 14, type: .fontRegular))
@@ -46,11 +54,13 @@ struct CertificateView: View {
                         ForEach(petacerts, id: \.self) {
                             Image($0)
                                 .frame(width: 60, height: 60)
-                        }.spacing(8)
+                        }
                         Spacer()
-                    }.padding()
+                    }
+                    .padding()
                 }
             }
+            .navBarTopSpacing(16)
         }
     }
         
@@ -65,18 +75,11 @@ struct CertificateView: View {
             },
             center: {
                 VStack(spacing: -8) {
-                    switch viewModel.certificate.certType {
-                    case .vlabel, .beautyWithoutBunnies:
-                        HStack {
-                            Image(viewModel.image)
-                            Image(viewModel.image)
+                    HStack(alignment: .top) {
+                        ForEach(viewModel.headerImage, id: \.self) { image in
+                            Image(image)
                         }
-                    case .veganSociety, .leapingBunny:
-                        Image(viewModel.image)
-                    case .none:
-                        Spacer()
                     }
-                    
                     Text(viewModel.title)
                         .font(.customFont(size: 20, type: .fontBold))
                         .foregroundColor(.deneysizTextColor)
@@ -86,12 +89,13 @@ struct CertificateView: View {
             config: .init(alignment: .top)
         )
         .foregroundColor(.deneysizTextColor)
-        .padding()
+        .padding(.horizontal)
+        .padding(.top)
     }
 }
 
 struct CertificateView_Previews: PreviewProvider {
     static var previews: some View {
-        CertificateView(viewModel: .init(certificate: .leapingBunnyCert))
+        CertificateView(viewModel: .init(certificate: .vlabelCert))
     }
 }

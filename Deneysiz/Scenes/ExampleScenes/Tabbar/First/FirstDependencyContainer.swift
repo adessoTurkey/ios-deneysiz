@@ -9,7 +9,7 @@ import Foundation
 
 class FirstDependencyContainer: ObservableObject {
     
-    init() { print("FirstDependencyContainer init") }
+    init() { }
     
     func makeFirstViewModel() -> FirstViewModel {
         let service: AuthAPI

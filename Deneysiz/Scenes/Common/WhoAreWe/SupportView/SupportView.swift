@@ -23,11 +23,12 @@ struct SupportView: View {
                     .padding(.horizontal, 24)
                 
                 VStack(spacing: 16) {
-                    
                     CollapsibleView(
-                        label: { Text("support.share_title")
-                                .font(.customFont(size: 16, type: .fontSemiBold))
-                            .foregroundColor(Color("donateText")) },
+                        label: {
+                            Text("support.share_title")
+                                .font(.customFont(size: 16, type: .fontBold))
+                                .foregroundColor(Color("donateText"))
+                        },
                         content: {
                             VStack {
                                 Text("support.share_description")
@@ -46,9 +47,11 @@ struct SupportView: View {
                     )
                     
                     CollapsibleView (
-                        label: { Text("support.donate_title")
-                                .font(.customFont(size: 16, type: .fontSemiBold))
-                            .foregroundColor(Color("donateText")) },
+                        label: {
+                            Text("support.donate_title")
+                                .font(.customFont(size: 16, type: .fontBold))
+                                .foregroundColor(Color("donateText"))
+                        },
                         content: {
                             HStack {
                                 Text("support.donate_description")
@@ -63,7 +66,7 @@ struct SupportView: View {
                 .padding(.horizontal, 24)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .spacing(20)
+            .navBarTopSpacing(20)
         }
     }
     

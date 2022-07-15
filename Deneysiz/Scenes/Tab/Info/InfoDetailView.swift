@@ -17,11 +17,20 @@ struct InfoDetailView: View {
             NavBar
         } content: {
             ScrollView(.vertical, showsIndicators: false) {
-                Text(LocalizedStringKey(descriptionKey))
-                    .font(.customFont(size: 14, type: .fontRegular))
-                    .foregroundColor(.deneysizTextColor)
-                    .padding(.horizontal)
+                if #available(iOS 15.0, *) {
+                    Text(LocalizedStringKey(descriptionKey))
+                        .font(.customFont(size: 14, type: .fontRegular))
+                        .foregroundColor(.deneysizTextColor)
+                        .padding(.horizontal)
+                        .tint(.deneysizOrange)
+                } else {
+                    Text(LocalizedStringKey(descriptionKey))
+                        .font(.customFont(size: 14, type: .fontRegular))
+                        .foregroundColor(.deneysizTextColor)
+                        .padding(.horizontal)
+                }
             }
+            .navBarTopSpacing(20)
         }
     }
     
@@ -38,14 +47,16 @@ struct InfoDetailView: View {
                 Text(LocalizedStringKey(titleKey))
                     .font(.title)
                     .bold()
-            })
+            },
+            config: .init(isCenterMultiline: true))
             .foregroundColor(.deneysizTextColor)
-            .padding()
+            .padding(.horizontal)
+            .padding(.top)
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoDetailView(titleKey: InfoView.Detail.sellInChina.title, descriptionKey: InfoView.Detail.sellInChina.description)
+        InfoDetailView(titleKey: InfoView.Detail.animalLab.title, descriptionKey: InfoView.Detail.sellInChina.description)
     }
 }

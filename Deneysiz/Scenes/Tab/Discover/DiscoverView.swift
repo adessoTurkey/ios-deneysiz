@@ -17,6 +17,7 @@ struct DiscoverView: View {
             
         } content: {
             CategoryListView(viewModel: container.makeCategoryViewModel())
+                .navBarTopSpacing(32)
         }
         .padding(.horizontal, 24)
     }

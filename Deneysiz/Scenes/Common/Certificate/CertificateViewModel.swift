@@ -24,6 +24,17 @@ class CertificateViewModel: ObservableObject {
     var name: String {
         certificate.name
     }
+
+    var headerImage: [String] {
+        switch certificate.certType {
+        case .vlabel, .beautyWithoutBunnies:
+            return (0...1).map { index in
+                "\(self.name)-\(index)-circle"
+            }
+        default:
+            return ["\(name)-circle"]
+        }
+    }
     
     var image: String {
         "\(name)-circle"

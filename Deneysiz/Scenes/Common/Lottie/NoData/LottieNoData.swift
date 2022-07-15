@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct LottieNoData: View {
+struct LottieNoData: View, Alertable {
+    var onDismiss: (() -> Void)?
+
     var body: some View {
         LottieView(name: "noData", loopMode: .loop)
-            .frame(width: 250, height: 250)
+            .frame(width: 175, height: 175)
     }
 }
 

@@ -13,8 +13,6 @@ struct CategoryDetailView: View {
     @State private var installMailApp = false
     @State private var showingOptions = false
     
-    let tracker = InstanceTracker("Categorydetailview")
-    
     var body: some View {
         CustomNavBarContainer {
             NavBar
@@ -24,10 +22,15 @@ struct CategoryDetailView: View {
             Group {
                 FilterOrder
                     .padding(.bottom, 16)
+                    .disabled(viewModel.showNoDataLottie)
                 
-                BrandListView(brands: viewModel.brands, onRefresh: viewModel.getBrands)
+                BrandListView(
+                    brands: viewModel.brands,
+                    onRefresh: viewModel.getBrands) { [viewModel] brand in
+                        viewModel.createPointAlertConfig(brand: brand)
+                    }
             }
-            .spacing(40)
+            .navBarTopSpacing(40)
         }
         .modifier(
             PopUpHelper(
@@ -41,7 +44,16 @@ struct CategoryDetailView: View {
         .modifier(
             PopUpHelper(
                 popUpView: LottieLoading(),
-                isPresented: $viewModel.isLoading)
+                isPresented: $viewModel.isLoading,
+                config: .init(backgroundOpacitiy: 0)
+            )
+        )
+        .modifier(
+            PopUpHelper(
+                popUpView: LottieNoData(),
+                isPresented: $viewModel.showNoDataLottie,
+                config: .init(backgroundOpacitiy: 0)
+            )
         )
         .modifier(
             PopUpHelper(
@@ -74,6 +86,20 @@ struct CategoryDetailView: View {
                 installMailApp: $installMailApp
             )
         )
+        .modifier(
+            PopUpHelper(
+                popUpView: PointDetailAlert(onDismiss: {
+                    withAnimation {
+                        viewModel.showPointsPopUp = false
+                    }
+                }, config: viewModel.savedPointPopUpConfig),
+                isPresented: $viewModel.showPointsPopUp,
+                config: .init(backgroundOpacitiy: 0.45)
+            )
+        )
+        .onAppear(perform: {
+            viewModel.getBrands()
+        })
         
     }
     
