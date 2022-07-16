@@ -15,7 +15,7 @@ final class AppEnvironment: EnvironmentProtocol {
     var headers: Headers?
     
     private init() {
-        guard let url = URL(string: "http://deneysiz-backend.eu-central-1.elasticbeanstalk.com") else { fatalError() }
+        guard let url = URL(string: "http://deneysiz-backend-prod.eu-central-1.elasticbeanstalk.com") else { fatalError() }
         baseURL = url
         headers = [
             "Content-type": "application/json; charset=UTF-8"
