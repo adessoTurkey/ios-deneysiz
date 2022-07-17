@@ -61,6 +61,7 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
         self.categoryEnum = categoryEnum
         self.brandService = brandService
         super.init()
+        self.getBrands()
     }
     
     func getBrands() {

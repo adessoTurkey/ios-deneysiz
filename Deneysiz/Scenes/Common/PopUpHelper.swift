@@ -17,25 +17,25 @@ struct PopUpHelper<T>: ViewModifier where T: Alertable {
     var config: Self.Configuration = .init()
     
     func body(content: Content) -> some View {
-        if isPresented {
             return content
-                .overlay(
-                    ZStack(alignment: .center) {
-                        Color.black.opacity(config.backgroundOpacitiy)
-                            .ignoresSafeArea()
-                            .onTapGesture(perform: {
-                                popUpView.onDismiss?()
-                            })
-                        popUpView
-                    }
-                )
+                .animation(isPresented ? .default : nil)
+                .overlay(secretOverlay)
                 .animation(.default)
                 .eraseToAnyView()
-        } else {
-            return content
-                .eraseToAnyView()
-        }
     }
+
+    @ViewBuilder private var secretOverlay: some View {
+           if isPresented {
+               ZStack(alignment: .center) {
+                   Color.black.opacity(config.backgroundOpacitiy)
+                       .ignoresSafeArea()
+                       .onTapGesture(perform: {
+                           popUpView.onDismiss?()
+                       })
+                   popUpView
+               }
+           }
+       }
 }
 
 extension PopUpHelper {

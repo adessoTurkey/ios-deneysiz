@@ -20,38 +20,10 @@ struct BrandDetailView: View {
                 .padding(.top)
             
         } content: {
-            if #available(iOS 15.0, *) {
-                ScrollRefreshable(localizedKey: "", content: {
-                    BrandDetailScrollView
-                }) {
-                    try? await Task.sleep(nanoseconds: 1_000_000_000)
-                    viewModel.getBrandDetail()
-                }
-                .navBarTopSpacing(32)
-            } else {
                 BrandDetailScrollView
                     .navBarTopSpacing(32)
-            }
         }
         .padding(.horizontal, 24)
-        .modifier(
-            PopUpHelper(
-                popUpView: LottieLoading(),
-                isPresented: $viewModel.isLoading,
-                config: .init(backgroundOpacitiy: 0)
-            )
-        )
-        .modifier(
-            PopUpHelper(
-                popUpView: PointDetailAlert(onDismiss: {
-                    withAnimation {
-                        showPopUp = false
-                    }
-                }, config: viewModel.createPointAlertConfig()),
-                isPresented: $showPopUp,
-                config: .init(backgroundOpacitiy: 0.45)
-            )
-        )
         .modifier(
             PopUpHelper(
                 popUpView: CustomErrorAlert(
@@ -71,6 +43,24 @@ struct BrandDetailView: View {
                         }
                     }),
                 isPresented: $viewModel.onError)
+        )
+        .modifier(
+            PopUpHelper(
+                popUpView: PointDetailAlert(onDismiss: {
+                    withAnimation {
+                        showPopUp = false
+                    }
+                }, config: viewModel.createPointAlertConfig()),
+                isPresented: $showPopUp,
+                config: .init(backgroundOpacitiy: 0.45)
+            )
+        )
+        .modifier(
+            PopUpHelper(
+                popUpView: LottieLoading(),
+                isPresented: $viewModel.isLoading,
+                config: .init(backgroundOpacitiy: 0)
+            )
         )
         .alert(isPresented: $installMailApp, content: {
             Alert(title: Text("error"),

@@ -53,7 +53,7 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
     
     @Published var brandDetailUIModel: BrandDetailUIModel = .empty
     @Published var detail: [Details] = []
-    @Published var isLoading = true
+    @Published var isLoading = false
 
     private let brand: Brand
     private let service: BrandDetailAPI
@@ -68,6 +68,7 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
     }
     
     func getBrandDetail() {
+        isLoading = true
         service.getBrandDetail(payload: .init(id: "\(brand.id)"))
             .sink(
                 receiveCompletion: { [weak self] completion in

@@ -9,10 +9,9 @@ import SwiftUI
 
 struct BrandListView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
-    let brands: [Brand]
-    let onRefresh: () -> Void
+    @Binding var brands: [Brand]
     let onPointClick: (Brand?) -> Void
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text(String(format: NSLocalizedString("category-brand-found", comment: ""), brands.count))
@@ -21,31 +20,38 @@ struct BrandListView: View {
                 .foregroundColor(.deneysizTextColor)
                 .opacity(showBrandCount ? 1 : 0)
             
-            if #available(iOS 15.0, *) {
-                ScrollRefreshable(localizedKey: "", content: {
-                    BrandListScrollView
-                }) {
-                    try? await Task.sleep(nanoseconds: 1_000_000_000)
-                    self.onRefresh()
-                }
-            } else {
+//            if #available(iOS 15.0, *) {
+//                ScrollRefreshable(localizedKey: "", content: {
+//                    BrandListScrollView
+//                }) {
+//                    try? await Task.sleep(nanoseconds: 1_000_000_000)
+//                    self.onRefresh()
+//                }
+//            } else {
                 BrandListScrollView
-            }
+//            }
         }
     }
     
     private var BrandListScrollView: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            LazyVStack {
-                ForEach(brands, id: \.name) { brand in
-                    NavigationLink(
-                        destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brand: brand)),
-                        label: {
-                            BrandCell(brand: brand, onPointClick: onPointClick)
-                            // To get tap gesture event on Spacer
-                                .contentShape(Rectangle())
-                        })
+        ScrollViewReader { reader in
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    ForEach(brands, id: \.name) { brand in
+                        NavigationLink(
+                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brand: brand)),
+                            label: {
+                                BrandCell(brand: brand, onPointClick: onPointClick)
+                                // To get tap gesture event on Spacer
+                                    .contentShape(Rectangle())
+                            })
                         .buttonStyle(PlainButtonStyle())
+                    }
+                }
+            }
+            .onChange(of: brands) { newValue in
+                if let name = newValue.first?.name {
+                    reader.scrollTo(name)
                 }
             }
         }
@@ -97,9 +103,6 @@ struct BrandListView_Previews: PreviewProvider {
         Group {
             CategoryDetailView(viewModel: DiscoverDependencyContainer().makeCategoryDetailViewModel(categoryEnum: .haircare))
             
-            BrandListView(brands: [], onRefresh: {}) { _ in
-
-            }
         }
     }
 }

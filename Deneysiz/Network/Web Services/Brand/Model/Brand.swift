@@ -58,3 +58,9 @@ extension Brand {
             createdAt: "03/03/21")
     ]
 }
+
+extension Brand: Equatable {
+    static func == (lhs: Brand, rhs: Brand) -> Bool {
+        lhs.id == rhs.id
+    }
+}

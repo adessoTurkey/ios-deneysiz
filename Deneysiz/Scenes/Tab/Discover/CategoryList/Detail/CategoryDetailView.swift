@@ -23,12 +23,13 @@ struct CategoryDetailView: View {
                 FilterOrder
                     .padding(.bottom, 16)
                     .disabled(viewModel.showNoDataLottie)
-                
-                BrandListView(
-                    brands: viewModel.brands,
-                    onRefresh: viewModel.getBrands) { [viewModel] brand in
-                        viewModel.createPointAlertConfig(brand: brand)
+                    .onTapGesture {
+
                     }
+                
+                BrandListView(brands: $viewModel.brands) { [viewModel] brand in
+                    viewModel.createPointAlertConfig(brand: brand)
+                }
             }
             .navBarTopSpacing(40)
         }
@@ -97,10 +98,6 @@ struct CategoryDetailView: View {
                 config: .init(backgroundOpacitiy: 0.45)
             )
         )
-        .onAppear(perform: {
-            viewModel.getBrands()
-        })
-        
     }
     
     var NavBar: some View {
