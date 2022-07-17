@@ -60,7 +60,7 @@ Eğer Çatı Markası varsa ve o marka da deney yapmıyor ise (3) üç puan daha
 "who-are-we" = "Biz Kimiz";
 "who_are_we-title" = "Biz Kimiz?";
 "support.title" = "Nasıl Destek Olurum?";
-"support.info_text" = "Deney laboratuvarlarındaki hayvanların haklarını korumak ve uzun vadede hayvan deneylerinin son bulmasını sağlayacak her türlü savunuculuk faaliyetini yürütmek üzere ülkemizde kurulmuş ilk ve tek derneğiz. Yaşam hakkına saygı duyan kişiler olarak, beş yüz yıl öncesinin deney pratiklerini reddediyor ve bizim iyiliğimiz için kimsenin zarar görmediği ürünlerin yer aldığı bir yaşam talep ediyoruz.
+"support.info_text" = "Deney laboratuvarlarındaki hayvanların haklarını korumak ve uzun vadede hayvan deneylerinin son bulmasını sağlayacak her türlü savunuculuk faaliyetini yürütmek üzere ülkemizde kurulmuş ilk ve tek derneğiz. Yaşam hakkına saygı duyan kişiler olarak, beş yüz yıl öncesinin deney pratiklerini reddediyor ve bizim iyiliğimiz için hiçbir canlının zarar görmediği ürünlerin yer aldığı bir yaşam talep ediyoruz.
 
 Bize destek olmanın birden çok yolu var…";
 "support.share_title" = "Mesajları yaymamıza yardımcı olabilirsiniz";
@@ -75,7 +75,7 @@ Bize destek olmanın birden çok yolu var…";
 "how_to_donate-info_text" = "Tür ayrımı gözetmeksizin tüm hayvanların şiddet görmeden yaşama hakkını savunan hayvan hakları savunucularıyız ve gerçekleştirmek için yola çıktığımız amaç, sokak-barınak-bakımevlerindeki hayvanlar için çalışan gönüllü ve örgütlerinkinden pek farklı olmasa da yolumuz epey uzun ve zorlu.\n\nDeney laboratuvarları bulunan üniversiteler ve Bakanlıklara bağlı kurumlarla iletişime geçerek mevzuatımızın laboratuvarlardaki hayvanlara tanıdığı hakların çiğnenmemesini talep ediyor, projelerimizi resmî kurumlara duyurmak için çabalıyor, bizzat buralara giderek görüşmeler yapıyor, kitapçıklar bastırıp gönderiyoruz. Evet sokak veya bakımevlerinden zor durumdaki hayvanları kurtararak tedavi ettirmiyoruz, ormanlarda ve kırsal bölgelerde mama dağıtmıyoruz – kısacası alışılan biçimde sahada değiliz, ancak her dernek gibi bizim de çalışma biçimimize özgü giderlerimiz ve bunlar için de desteğe ihtiyacımız var…";
 "brand-detail-safe" = "Marka Deneysiz";
 "brand-detail-vegan" = "Marka Vegan";
-"brand-detail-hasVeganProduct" = "Vegan Ürün var mı?";
+"brand-detail-hasVeganProduct" = "Vegan Ürün Var Mı?";
 "brand-detail-offerInChina" = "Çin'de Satış Yapmıyor";
 "brand-detail-parentCompanySafe" = "Çatı Firma Deneysiz";
 "brand-detail-quitFollowing" = "Takibi Bırak";

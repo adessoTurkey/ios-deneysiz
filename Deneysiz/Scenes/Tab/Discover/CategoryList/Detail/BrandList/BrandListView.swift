@@ -20,16 +20,7 @@ struct BrandListView: View {
                 .foregroundColor(.deneysizTextColor)
                 .opacity(showBrandCount ? 1 : 0)
             
-//            if #available(iOS 15.0, *) {
-//                ScrollRefreshable(localizedKey: "", content: {
-//                    BrandListScrollView
-//                }) {
-//                    try? await Task.sleep(nanoseconds: 1_000_000_000)
-//                    self.onRefresh()
-//                }
-//            } else {
                 BrandListScrollView
-//            }
         }
     }
     

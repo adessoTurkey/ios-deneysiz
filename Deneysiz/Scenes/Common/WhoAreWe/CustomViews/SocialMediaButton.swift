@@ -33,7 +33,7 @@ enum SocialMedia {
         
         switch self {
         case .facebook:
-            appURL = URL(string: "fb://profile/deneyehayir")
+            appURL = URL(string: "fb://profile?id=deneyehayir")
             webURL = URL(string: "https://facebook.com/deneyehayir")
         case .instagram:
             appURL = URL(string: "instagram://user?username=deneye_hayir")
