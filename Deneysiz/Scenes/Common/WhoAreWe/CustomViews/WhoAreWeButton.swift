@@ -79,7 +79,7 @@ struct WhoAreWeButton: View {
         case .support:
             isSupportViewPresented.toggle()
         case .contactUs:
-            EmailService.shared.sendEmail(subject: "who_are_we.email_subject", completion: completion)
+            EmailService.shared.sendEmail(subject: NSLocalizedString("who_are_we.email_subject", comment: ""), completion: completion)
         case .donate:
             isDonateViewPresented.toggle()
         }

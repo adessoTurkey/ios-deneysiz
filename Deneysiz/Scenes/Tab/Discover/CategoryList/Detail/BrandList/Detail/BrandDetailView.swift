@@ -210,7 +210,7 @@ private struct ActionModifier: ViewModifier {
             content
                 .confirmationDialog("", isPresented: $showingOptions, titleVisibility: .hidden) {
                     Button("brand-detail-inform-feedback") {
-                        EmailService.shared.sendEmail(subject: "brand_detail.email_subject", completion: {
+                        EmailService.shared.sendEmail(subject: NSLocalizedString("brand_detail.email_subject", comment: ""), completion: {
                             installMailApp = !$0
                         })
                     }
@@ -222,7 +222,7 @@ private struct ActionModifier: ViewModifier {
                         title: Text(""),
                         buttons: [
                             .default(Text("brand-detail-inform-feedback")) {
-                                EmailService.shared.sendEmail(subject: "brand_detail.email_subject", completion: {
+                                EmailService.shared.sendEmail(subject: NSLocalizedString("brand_detail.email_subject", comment: ""), completion: {
                                     installMailApp = !$0
                                 })
                             }

@@ -168,7 +168,7 @@ private struct ActionModifier: ViewModifier {
             content
                 .confirmationDialog("", isPresented: $showingOptions, titleVisibility: .hidden) {
                     Button("category_detail.suggest_new_brand") {
-                        EmailService.shared.sendEmail(subject: "category_detail.email_subject", completion: {
+                        EmailService.shared.sendEmail(subject: NSLocalizedString("category_detail.email_subject", comment: ""), completion: {
                             installMailApp = !$0
                         })
                     }
@@ -180,7 +180,7 @@ private struct ActionModifier: ViewModifier {
                         title: Text(""),
                         buttons: [
                             .default(Text("category_detail.suggest_new_brand")) {
-                                EmailService.shared.sendEmail(subject: "category_detail.email_subject", completion: {
+                                EmailService.shared.sendEmail(subject: NSLocalizedString("category_detail.email_subject", comment: ""), completion: {
                                     installMailApp = !$0
                                 })
                             }
