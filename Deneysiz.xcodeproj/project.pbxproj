@@ -13,6 +13,7 @@
 		92A6F36E2870F5AC004F5C73 /* InfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6F36D2870F5AC004F5C73 /* InfoDetailView.swift */; };
 		92E3C6E327E7AF0900951146 /* CustomNavBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3C6E227E7AF0900951146 /* CustomNavBarContainer.swift */; };
 		92E3C6E627E7CDD300951146 /* PreferenceKeyBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3C6E527E7CDD300951146 /* PreferenceKeyBase.swift */; };
+		92E45BBC2885F6C400845D22 /* BannerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45BBB2885F6C400845D22 /* BannerModifier.swift */; };
 		98143D8C2767814E00A51D6F /* Mulish-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98143D782767814E00A51D6F /* Mulish-LightItalic.ttf */; };
 		98143D8D2767814E00A51D6F /* Mulish-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98143D792767814E00A51D6F /* Mulish-ExtraBoldItalic.ttf */; };
 		98143D8E2767814E00A51D6F /* Mulish-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98143D7A2767814E00A51D6F /* Mulish-Italic.ttf */; };
@@ -148,6 +149,7 @@
 		92A6F36D2870F5AC004F5C73 /* InfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailView.swift; sourceTree = "<group>"; };
 		92E3C6E227E7AF0900951146 /* CustomNavBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainer.swift; sourceTree = "<group>"; };
 		92E3C6E527E7CDD300951146 /* PreferenceKeyBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeyBase.swift; sourceTree = "<group>"; };
+		92E45BBB2885F6C400845D22 /* BannerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModifier.swift; sourceTree = "<group>"; };
 		98143D782767814E00A51D6F /* Mulish-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-LightItalic.ttf"; sourceTree = "<group>"; };
 		98143D792767814E00A51D6F /* Mulish-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		98143D7A2767814E00A51D6F /* Mulish-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Italic.ttf"; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 				A54ED83326CADC3500B4062D /* CustomErrorAlert.swift */,
 				A54ED83526CAEA6A00B4062D /* PointDetailAlert.swift */,
 				A5B2F957275FED4C00826518 /* OrderPopUp.swift */,
+				92E45BBB2885F6C400845D22 /* BannerModifier.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1080,6 +1083,7 @@
 				A51C45B22660D615003CCC58 /* FirstView.swift in Sources */,
 				A5222799267CD81600004C1F /* MainTabView.swift in Sources */,
 				A5CC7DC3265DAA9D00DD3AA7 /* AuthService.swift in Sources */,
+				92E45BBC2885F6C400845D22 /* BannerModifier.swift in Sources */,
 				98880FBA26887F6500D94852 /* WhoAreWeButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

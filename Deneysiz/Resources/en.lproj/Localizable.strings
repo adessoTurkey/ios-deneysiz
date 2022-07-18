@@ -132,3 +132,4 @@ Sertifikalandırmada iki ayrı seçenek var:
 "category_detail.email_subject" = "Yeni Marka Önermek İstiyorum";
 "who_are_we.email_subject" = "Deneysiz App hk.";
 "brand_detail.email_subject" = "Yanlış/eksik veri bildir";
+"iban_copy_message" = "IBAN kopyalandı";

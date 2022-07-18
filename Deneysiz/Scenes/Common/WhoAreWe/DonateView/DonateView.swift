@@ -9,12 +9,12 @@ import SwiftUI
 
 struct DonateView: View {
     @Environment(\.presentationMode) var presentationMode
-    
+    @State var showBanner = false
+
     var body: some View {
         CustomNavBarContainer {
             NavBar
                 .padding(.horizontal, 24)
-            
         } content: {
             ScrollView(.vertical, showsIndicators: false) {
                 Text("how_to_donate-info_text")
@@ -22,7 +22,7 @@ struct DonateView: View {
                     .foregroundColor(Color("donateText"))
                     .padding(.horizontal, 24)
                 
-                BankAccountView(account: .turkishLira)
+                BankAccountView(account: .turkishLira, showBanner: $showBanner)
                     .padding()
                 
                 Text("Ya da")
@@ -49,6 +49,7 @@ struct DonateView: View {
             }
             .navBarTopSpacing(20)
         }
+        .banner(data: .constant(.init(title: NSLocalizedString("iban_copy_message", comment: ""))), isPresented: $showBanner)
     }
     
     private var NavBar: some View {

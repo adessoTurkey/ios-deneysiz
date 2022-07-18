@@ -53,7 +53,8 @@ struct BankAccountView: View {
     
     var account: BankAccountType
     var hapticImpact = UIImpactFeedbackGenerator(style: .medium)
-    
+    @Binding var showBanner: Bool
+
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 8) {
@@ -73,6 +74,7 @@ struct BankAccountView: View {
             Button(action: {
                 UIPasteboard.general.string = account.IBAN
                 hapticImpact.impactOccurred()
+                showBanner = true
             }, label: {
                 HStack {
                     Text(account.IBAN)
@@ -98,6 +100,6 @@ struct BankAccountView: View {
 
 struct BankAccount_Previews: PreviewProvider {
     static var previews: some View {
-        BankAccountView(account: .turkishLira)
+        BankAccountView(account: .turkishLira, showBanner: .constant(false))
     }
 }
