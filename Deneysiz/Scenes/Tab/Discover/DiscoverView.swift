@@ -9,6 +9,9 @@ import SwiftUI
 
 struct DiscoverView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
+   
+    // For fixing navigation link stuck error. add tag & selection
+    @State private var detailSelection: String?
     
     var body: some View {
         CustomNavBarContainer {
@@ -32,6 +35,8 @@ struct DiscoverView: View {
             right: {
                 NavigationLink(
                     destination: WhoAreWeView(),
+                    tag: "who-are-we",
+                    selection: $detailSelection,
                     label: {
                         HStack(spacing: 4) {
                             Text("who-are-we")

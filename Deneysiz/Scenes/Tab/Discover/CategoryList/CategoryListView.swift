@@ -9,7 +9,10 @@ import SwiftUI
 
 struct CategoryListView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
-    @ObservedObject var viewModel: CategoryListViewModel
+    @StateObject var viewModel: CategoryListViewModel
+    
+    // For fixing navigation link stuck error. add tag & selection
+    @State private var categorySelection: Int?
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -18,7 +21,9 @@ struct CategoryListView: View {
                     CategoryDetailView(
                         viewModel: container.makeCategoryDetailViewModel(categoryEnum: .allBrands)
                     )
-                .environmentObject(container),
+                    .environmentObject(container),
+                tag: CategoryEnum.allBrands.rawValue,
+                selection: $categorySelection,
                 label: {
                     CategoryCell(.allBrands)
                 }
@@ -28,25 +33,24 @@ struct CategoryListView: View {
                 viewModel.categories.chunked(into: 2),
                 id: \.self) { categoryChunk in
                     HStack(alignment: .top, spacing: 16) {
-                    ForEach(
-                        categoryChunk,
-                        id: \.rawValue) { category in
-                        NavigationLink(
-                            destination: CategoryDetailView(
-                                viewModel: container.makeCategoryDetailViewModel(categoryEnum: category)
-                            )
-                            .environmentObject(container),
-                            label: {
-                                CategoryCell(category)
-                            })
-                            .accentColor(.none)
+                        ForEach(
+                            categoryChunk,
+                            id: \.rawValue) { category in
+                                NavigationLink(
+                                    destination: CategoryDetailView(
+                                        viewModel: container.makeCategoryDetailViewModel(categoryEnum: category)
+                                    )
+                                    .environmentObject(container),
+                                    tag: category.rawValue,
+                                    selection: $categorySelection,
+                                    label: {
+                                        CategoryCell(category)
+                                    })
+                                .accentColor(.none)
+                            }
                     }
                 }
-            }
         }
-        .onAppear(perform: {
-            viewModel.getCategories()
-        })
     }
 }
 
@@ -72,7 +76,7 @@ private struct CategoryCell: View {
                         startPoint: .leading,
                         endPoint: .trailing
                     )
-                        .cornerRadius(10)
+                    .cornerRadius(10)
                 )
             
             Text(categoryModel.title)

@@ -8,12 +8,13 @@
 import Combine
 
 final class CategoryListViewModel: BaseViewModel, ObservableObject {
-    
     let categoryAPI: CategoryAPI
     @Published var categories: [CategoryEnum] = []
     
     init(categoryAPI: CategoryAPI) {
         self.categoryAPI = categoryAPI
+        super.init()
+        self.getCategories()
     }
     
     func getCategories() {

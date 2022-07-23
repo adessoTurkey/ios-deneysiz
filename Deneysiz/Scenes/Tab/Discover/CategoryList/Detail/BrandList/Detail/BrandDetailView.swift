@@ -14,6 +14,9 @@ struct BrandDetailView: View {
     @State private var installMailApp = false
     @State private var showingOptions = false
     
+    // For fixing navigation link stuck error. add tag & selection
+    @State private var certSelection: String?
+    
     var body: some View {
         CustomNavBarContainer {
             NavBar
@@ -137,12 +140,15 @@ struct BrandDetailView: View {
             ForEach(viewModel.brandDetailUIModel.certificates) { cert in
                 NavigationLink(
                     destination: CertificateView(viewModel: .init(certificate: cert)),
+                    tag: cert.id,
+                    selection: $certSelection,
                     label: {
                         FixedImage(imageName: cert.name)
                             .frame(maxWidth: 75, maxHeight: 75)
                             .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
                             .opacity(cert.valid == true ? 1 : 0.3)
-                    })
+                    }
+                )
                 if viewModel.brandDetailUIModel.certificates.last != cert {
                     Spacer(minLength: 9)
                 }

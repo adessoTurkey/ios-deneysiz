@@ -22,6 +22,8 @@ struct InfoView: View {
             "\(rawValue)-description"
         }
     }
+    // For fixing navigation link stuck error. add tag & selection
+    @State private var infoViewNavigationSelection: String?
     
     var body: some View {
         CustomNavBarContainer {
@@ -38,32 +40,8 @@ struct InfoView: View {
                 Curiosities
                     .padding(.top, 32)
                 
-                ScrollView(.vertical, showsIndicators: false) {
-                    ForEach(Detail.allCases, id: \.self) { enumCase in
-                        NavigationLink(
-                            destination: {
-                                InfoDetailView(titleKey: enumCase.title, descriptionKey: enumCase.description)
-                            },
-                            label: {
-                                RoundedRectangle(cornerRadius: 8.0)
-                                    .foregroundColor(Color.certificateRectangleBackground)
-                                    .shadow(color: Color.certificateShadowTemp, radius: 10, y: 8)
-                                    .overlay(
-                                        HStack {
-                                            Text(LocalizedStringKey(enumCase.title))
-                                                .multilineTextAlignment(.leading)
-                                            Spacer()
-                                            Image("arrowRight")
-                                        }
-                                            .padding(.horizontal, 16)
-                                    )
-                                    .frame(height: 58)
-                            })
-                    }
-                    .font(.customFont(size: 17, type: .fontRegular))
-                    .foregroundColor(.deneysizTextColor)
+                AdditionalInfos
                     .padding(.top, 16)
-                }
             }
             .navBarTopSpacing(12)
         }
@@ -80,6 +58,8 @@ struct InfoView: View {
             right: {
                 NavigationLink(
                     destination: WhoAreWeView(),
+                    tag: "who-are-we",
+                    selection: $infoViewNavigationSelection,
                     label: {
                         HStack(spacing: 4) {
                             Text("who-are-we")
@@ -89,7 +69,7 @@ struct InfoView: View {
                         }
                     })
             })
-            .foregroundColor(.deneysizTextColor)
+        .foregroundColor(.deneysizTextColor)
     }
     
     var TopInfo: some View {
@@ -97,19 +77,21 @@ struct InfoView: View {
             .font(.customFont(size: 14, type: .fontRegular))
             .foregroundColor(.deneysizTextColor)
     }
-    
+
     var Certificates: some View {
         ForEach(Certificate.dummies.chunked(into: 2), id: \.self) { certs in
             HStack {
                 ForEach(certs) { cert in
                     NavigationLink(
                         destination: CertificateView(viewModel: .init(certificate: cert)),
+                        tag: cert.id,
+                        selection: $infoViewNavigationSelection,
                         label: {
                             RoundedRectangle(cornerRadius: 8.0)
                                 .foregroundColor(Color.certificateRectangleBackground)
                                 .shadow(color: Color.certificateShadowTemp, radius: 10, y: 8)
                                 .overlay(
-                                    Image("\(cert.id)-rectangle")
+                                    Image("\(cert.name)-rectangle")
                                 )
                         })
                 }
@@ -127,6 +109,36 @@ struct InfoView: View {
             Text("do_you_know.curiosities_description")
                 .font(.customFont(size: 14, type: .fontRegular))
                 .foregroundColor(.deneysizTextColor)
+        }
+    }
+    
+    var AdditionalInfos: some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            ForEach(Detail.allCases, id: \.self) { enumCase in
+                NavigationLink(
+                    destination:
+                        InfoDetailView(titleKey: enumCase.title, descriptionKey: enumCase.description),
+                    tag: enumCase.title,
+                    selection: $infoViewNavigationSelection,
+                    label: {
+                        RoundedRectangle(cornerRadius: 8.0)
+                            .foregroundColor(Color.certificateRectangleBackground)
+                            .shadow(color: Color.certificateShadowTemp, radius: 10, y: 8)
+                            .overlay(
+                                HStack {
+                                    Text(LocalizedStringKey(enumCase.title))
+                                        .multilineTextAlignment(.leading)
+                                    Spacer()
+                                    Image("arrowRight")
+                                }
+                                    .padding(.horizontal, 16)
+                            )
+                            .frame(height: 58)
+                    }
+                )
+            }
+            .font(.customFont(size: 17, type: .fontRegular))
+            .foregroundColor(.deneysizTextColor)
         }
     }
 }

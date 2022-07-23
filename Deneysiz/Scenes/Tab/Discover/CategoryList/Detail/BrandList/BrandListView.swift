@@ -11,7 +11,10 @@ struct BrandListView: View {
     @EnvironmentObject var container: DiscoverDependencyContainer
     @Binding var brands: [Brand]
     let onPointClick: (Brand?) -> Void
-
+    
+    // For fixing navigation link stuck error. add tag & selection
+    @State private var brandSelection: Int?
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(String(format: NSLocalizedString("category-brand-found", comment: ""), brands.count))
@@ -31,11 +34,14 @@ struct BrandListView: View {
                     ForEach(brands, id: \.name) { brand in
                         NavigationLink(
                             destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brand: brand)),
+                            tag: brand.id,
+                            selection: $brandSelection,
                             label: {
                                 BrandCell(brand: brand, onPointClick: onPointClick)
                                 // To get tap gesture event on Spacer
                                     .contentShape(Rectangle())
-                            })
+                            }
+                        )
                         .buttonStyle(PlainButtonStyle())
                     }
                 }

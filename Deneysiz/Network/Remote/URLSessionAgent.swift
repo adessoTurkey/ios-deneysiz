@@ -30,7 +30,7 @@ final class URLSessionAgent: BaseServiceProtocol, RequestBuilder {
         return urlSession
             .dataTaskPublisher(for: urlRequest)
             .map {
-                print(String(data: $0.data, encoding: .utf8))
+//                print(String(data: $0.data, encoding: .utf8))
                 return $0.data
             }
             .decode(type: BaseResponse<T>.self, decoder: decoder)
