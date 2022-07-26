@@ -34,6 +34,7 @@ struct SupportView: View {
                                 Text("support.share_description")
                                     .font(.customFont(size: 14, type: .fontRegular))
                                     .foregroundColor(Color("gray"))
+                                    .fixedSize(horizontal: false, vertical: true)
                                     .padding(6)
                                 
                                 HStack(spacing: 16) {
@@ -46,7 +47,7 @@ struct SupportView: View {
                         }
                     )
                     
-                    CollapsibleView (
+                    CollapsibleView(
                         label: {
                             Text("support.donate_title")
                                 .font(.customFont(size: 16, type: .fontBold))
