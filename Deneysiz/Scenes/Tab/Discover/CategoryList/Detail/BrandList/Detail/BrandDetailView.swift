@@ -227,6 +227,7 @@ private struct ActionModifier: ViewModifier {
                     ActionSheet(
                         title: Text(""),
                         buttons: [
+                            .cancel(Text("İptal")),
                             .default(Text("brand-detail-inform-feedback")) {
                                 EmailService.shared.sendEmail(subject: NSLocalizedString("brand_detail.email_subject", comment: ""), completion: {
                                     installMailApp = !$0
