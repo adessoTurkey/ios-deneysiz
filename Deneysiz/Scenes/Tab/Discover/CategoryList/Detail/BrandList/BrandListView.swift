@@ -42,7 +42,6 @@ struct BrandListView: View {
                                     .contentShape(Rectangle())
                             }
                         )
-                        .buttonStyle(PlainButtonStyle())
                     }
                 }
             }
