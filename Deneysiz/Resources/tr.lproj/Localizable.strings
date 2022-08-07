@@ -21,7 +21,7 @@
 "homecare" = "Ev Bakım";
 
 "sellInChina-title" = "Çin'de Satış ve Üretim";
-"animalLab-title" = "Hayvan Deneyleri- Genel Bilgiler";
+"animalLab-title" = "Hayvan Deneyleri - Genel Bilgiler";
 "veganProducts-title" = "Vegan Ürünler";
 "pointInfo-title" = "Puanlama Sistemi";
 
@@ -41,11 +41,13 @@ Hayvan deneylerinin insan sağlığı için güvenilir bir test metodu olmadığ
 Hayvan deneylerinin etik boyutu ise son birkaç yüzyıldır önemli bir tartışma alanı olmuş, tüm canlıların doğuştan ve eşit şekilde sahip olduğu yaşam hakkını ihlâl eden bu uygulamaların bir an önce son bulması gerektiğinden hareketle birçok ülke, bir takım yasal değişiklikler yaparak kısıtlamalara gitmiştir.\n
 Hayvan deneyleriyle ilgili daha detaylı bilgi için [web sitemizi inceleyebilir](https://deneyehayir.org) ya da [“Hayvan Deneyleri: Hayvanlar bizim için mi var?”](https://yeniinsanyayinevi.com/kitaplarimiz/hayvan-deneyleri/?v=29b90007cbf9) adlı kitabı okuyabilirsiniz.";
 
-"veganProducts-description" = "Vegan ürün nedir?
-Vegan ürün, içeriğinde direkt ya da dolaylı yoldan hayvanlardan elde edilen herhangi bir içerik (bal, balmumu, karmin, lanolin vb.) barındırmayan üründür.\n
-Vegan Ürünler Aynı Zamanda Deneysiz midir?\n
-Bir üründe hayvan kaynaklı içeriklerin olmaması onun hayvanlar üzerinde test edilmediği anlamına gelmez. Bunun yanında, ürün ambalajlarında vegan ibaresinin kötüye kullanımına da rastlayabiliyoruz. Bu yüzden hem deneysizliği hem de hayvan kaynaklı içerik barındırmadığını garantileyen bir sertifikalandırma programına dahil olmuş ürünlerin tercih edilmesi daha doğru olacaktır.\n
-Vegan Ürünler Zulümsüz müdür?\n
+"veganProducts-description" = "**Vegan ürün nedir?**
+Vegan ürün, içeriğinde direkt ya da dolaylı yoldan hayvanlardan elde edilen herhangi bir içerik (bal, balmumu, karmin, lanolin vb.) barındırmayan üründür.
+
+**Vegan Ürünler Aynı Zamanda Deneysiz midir?**
+Bir üründe hayvan kaynaklı içeriklerin olmaması onun hayvanlar üzerinde test edilmediği anlamına gelmez. Bunun yanında, ürün ambalajlarında vegan ibaresinin kötüye kullanımına da rastlayabiliyoruz. Bu yüzden hem deneysizliği hem de hayvan kaynaklı içerik barındırmadığını garantileyen bir sertifikalandırma programına dahil olmuş ürünlerin tercih edilmesi daha doğru olacaktır.
+
+**Vegan Ürünler Zulümsüz müdür?**
 Bir ürüne \"zulümsüz\" diyebilmemiz için hem vegan hem de herhangi bir aşamada hayvanlar üzerinde test edilmemiş olması gerekir. Ana konusu hayvan deneyi olmayan sertifikalandırmalardan sadece The Vegan Society, Vegetarian Society ve V-Label, logo kullanımına izin verdiği ürünlerin aynı zamanda hayvanlar üzerinde test edilmediğini garanti eder.
 ";
 
