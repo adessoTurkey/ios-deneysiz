@@ -10,13 +10,24 @@ import SwiftUI
 
 struct LottieRabbit: View {
     var body: some View {
-        ZStack {
-        
+        ZStack(alignment: .center) {
             Color.rabbitLottieBackground
                 .ignoresSafeArea()
             
-            LottieView(name: "rabbit", loopMode: .loop)
-                .frame(width: 135, height: 178)
+            Image("Splash")
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
+                .opacity(0)
+            
+            VStack(spacing: 10) {
+                LottieView(name: "rabbit", loopMode: .loop)
+                    .offset(x: 5, y: -5)
+                    .scaleEffect(1.1)
+                
+                Image("Deneysiz")
+                    .frame(height: 45)
+            }
+            .frame(width: 135, height: 177)
         }
     }
 }
