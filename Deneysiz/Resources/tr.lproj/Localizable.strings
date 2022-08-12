@@ -7,6 +7,8 @@
 */
 
 "hello-world" = "Merhaba Dunya";
+"search-title" = "Deneysiz";
+"search" = "Marka Ara";
 "discover" = "Keşfet";
 "do_you_know" = "Biliyor Musun";
 "do_you_know.question_mark" = "Biliyor Musun?";

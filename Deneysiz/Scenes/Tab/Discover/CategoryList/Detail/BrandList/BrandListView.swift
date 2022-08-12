@@ -22,8 +22,8 @@ struct BrandListView: View {
                 .font(.customFont(size: 12, type: .fontRegular))
                 .foregroundColor(.deneysizTextColor)
                 .opacity(showBrandCount ? 1 : 0)
-            
-                BrandListScrollView
+
+            BrandListScrollView
         }
     }
     

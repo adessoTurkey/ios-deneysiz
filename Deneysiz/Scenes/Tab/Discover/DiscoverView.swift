@@ -41,9 +41,9 @@ struct DiscoverView: View {
                         HStack(spacing: 4) {
                             Text("who-are-we")
                                 .font(.customFont(size: 14, type: .fontMedium))
-                                .foregroundColor(.deneysizBlueTextColor)
                             Image("Group")
                         }
+                        .foregroundColor(.deneysizBlueTextColor)
                     })
             })
             .foregroundColor(.deneysizTextColor)

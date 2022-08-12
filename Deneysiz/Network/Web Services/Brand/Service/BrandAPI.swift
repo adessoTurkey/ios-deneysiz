@@ -8,7 +8,7 @@
 import Combine
 
 protocol BrandAPI {
-    func getBrandsByCategory(payload: SearchBrandByCategoryPayload) -> AnyPublisher<[Brand], Error>
+    func getBrandsByCategory(payload: BrandByCategoryPayload) -> AnyPublisher<[Brand], Error>
 }
 
 protocol BrandDetailAPI {

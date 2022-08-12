@@ -8,39 +8,6 @@
 import Foundation
 import SwiftUI
 
-enum OrderConfig: Equatable, Identifiable {
-    var id: String {
-        UUID().uuidString
-    }
-    
-    case point(OrderType)
-    case name(OrderType)
-    
-    enum OrderType: Equatable {
-        case asc
-        case desc
-    }
-    
-    var title: LocalizedStringKey {
-        switch self {
-        case .point(let orderType):
-            switch orderType {
-            case .asc:
-                return "brand-detail-point-asc"
-            case .desc:
-                return "brand-detail-point-desc"
-            }
-        case .name(let orderType):
-            switch orderType {
-            case .asc:
-                return "brand-detail-name-asc"
-            case .desc:
-                return "brand-detail-name-desc"
-            }
-        }
-    }
-}
-
 final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
 
     @Published var brands: [Brand] = []
@@ -49,13 +16,12 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
     @Published var showPointsPopUp = false
     @Published var showNoDataLottie = false
 
+    let categoryEnum: CategoryEnum
     var savedPointPopUpConfig: PointDetailAlert.Config = .dummy
     var errorType: CustomErrorAlert.Config  = .operationFail
-
-    let brandService: BrandAPI
-    let categoryEnum: CategoryEnum
-    
     var currentConfig: OrderConfig = .point(.desc)
+
+    private let brandService: BrandAPI
 
     init(categoryEnum: CategoryEnum, brandService: BrandAPI) {
         self.categoryEnum = categoryEnum
@@ -125,5 +91,38 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
             details: PointDetailPopUpLogic.makePointDetailUIModel(for: brand)
         )
         self.showPointsPopUp = true
+    }
+}
+
+enum OrderConfig: Equatable, Identifiable {
+    var id: String {
+        UUID().uuidString
+    }
+
+    case point(OrderType)
+    case name(OrderType)
+
+    enum OrderType: Equatable {
+        case asc
+        case desc
+    }
+
+    var title: LocalizedStringKey {
+        switch self {
+        case .point(let orderType):
+            switch orderType {
+            case .asc:
+                return "brand-detail-point-asc"
+            case .desc:
+                return "brand-detail-point-desc"
+            }
+        case .name(let orderType):
+            switch orderType {
+            case .asc:
+                return "brand-detail-name-asc"
+            case .desc:
+                return "brand-detail-name-desc"
+            }
+        }
     }
 }

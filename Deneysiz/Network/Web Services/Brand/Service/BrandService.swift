@@ -17,7 +17,7 @@ struct BrandService {
 }
 
 extension BrandService: BrandAPI {
-    func getBrandsByCategory(payload: SearchBrandByCategoryPayload) -> AnyPublisher<[Brand], Error> {
+    func getBrandsByCategory(payload: BrandByCategoryPayload) -> AnyPublisher<[Brand], Error> {
         service.request(
             Request(
                 method: .POST,

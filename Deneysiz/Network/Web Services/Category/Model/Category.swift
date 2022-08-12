@@ -20,46 +20,6 @@ struct BrandSearchBase: Codable {
     let message: String
 }
 
-struct BrandSearch: Codable {
-    let id: Int
-    let name: String
-    let parentCompany: ParentCompany
-    let score: Int
-}
-
-struct Certificate: Codable, Identifiable, Hashable {
-    let name: String
-    let valid: Bool
-    
-    var id: String {
-        name
-    }
-    var certType: CertificateType? {
-        CertificateType(rawValue: name)
-    }
-}
-
-enum CertificateType: String {
-    case leapingBunny = "Leaping Bunny"
-    case vlabel = "V-Label"
-    case beautyWithoutBunnies = "Beauty Without Bunnies"
-    case veganSociety = "Vegan Society"
-}
-
-extension Certificate {
-    static let leapingBunnyCert: Self = .init(name: "Leaping Bunny", valid: Bool.random())
-    static let vlabelCert: Self = .init(name: "V-Label", valid: Bool.random())
-    static let beautyWithoutBunniesCert: Self = .init(name: "Beauty Without Bunnies", valid: Bool.random())
-    static let veganSocietyCert: Self = .init(name: "Vegan Society", valid: Bool.random())
-    
-    static let dummies: [Self] = [.leapingBunnyCert, .vlabelCert, .beautyWithoutBunniesCert, .veganSocietyCert]
-}
-
-struct ParentCompany: Codable {
-    let name: String?
-    let safe: Bool?
-}
-
 struct Category: Codable {
     let categoryId: String
 }

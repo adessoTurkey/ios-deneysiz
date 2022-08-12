@@ -29,7 +29,7 @@ extension ExampleService: ExampleAPI {
             Request(
                 method: .POST,
                 path: "brands/byCategory",
-                payload: SearchBrandByCategoryPayload(categoryId: "0")
+                payload: BrandByCategoryPayload(categoryId: "0")
             ),
             environment: AppEnvironment.shared
         )
