@@ -8,110 +8,138 @@
 import SwiftUI
 
 struct SearchBrandView: View {
+
+    @StateObject var viewModel: SearchViewModel
     // for sticky header view
-    @State var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
-    @State var show = false
-    @State var isSearching = false
+    @State private var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
+    @State private var show = false
+    @State private var isSearching = false
+
     // For fixing navigation link stuck error. add tag & selection
     @State private var infoViewNavigationSelection: String?
-    
+    @State private var brandSelection: Int?
+
     var body: some View {
-        
         ZStack {
-            ScrollView(.vertical, showsIndicators: false, content: {
-                VStack {
-                    if !isSearching {
-                        GeometryReader { g in
-                            
-                            Image("searchRabbit")
-                                .resizable()
-                            // fixing the view to the top will give strechy effect
-                            
-                                .offset(y: g.frame(in: .global).minY > 0 ?
-                                        -g.frame(in: .global).minY : 0)
-                            // increasing height by drag amount
-                                .frame(height: g.frame(in: .global).minY > 0 ?
-                                       UIScreen.main.bounds.width * 1.17 + g.frame(in: .global).minY :
-                                        UIScreen.main.bounds.width * 1.17)
-                                .onReceive(self.time) { _ in
-                                    let y = g.frame(in: .global).minY
-                                    
-                                    withAnimation {
-                                        self.show = -y > (UIScreen.main.bounds.width * 1.17) - 50
+            GeometryReader { geometry in
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(alignment: .leading) {
+                        if !isSearching {
+                            GeometryReader { geometry in
+                                Image("searchRabbit")
+                                    .resizable()
+                                // fixing the view to the top will give strechy effect
+                                    .offset(y: geometry.frame(in: .global).minY > 0 ? -geometry.frame(in: .global).minY : 0)
+                                // increasing height by drag amount
+                                    .frame(
+                                        height: geometry.frame(in: .global).minY > 0 ?
+                                        geometry.size.width * 1.17 + geometry.frame(in: .global).minY :
+                                            geometry.size.width * 1.17)
+                                    .onReceive(self.time) { _ in
+                                        let y = geometry.frame(in: .global).minY
+                                        withAnimation {
+                                            self.show = -y > (geometry.size.width * 1.17) - 50
+                                        }
                                     }
-                                }
+                            }
+                            // fixing default height
+                            .frame(height: geometry.size.width * 1.17)
                         }
-                        // fixing default height
-                        .frame(height: UIScreen.main.bounds.width * 1.17)
-                        
+
+                        SearchView(isSearching: $isSearching, searchText: $viewModel.searchText)
+                            .padding(.top, isSearching ?  geometry.safeAreaInsets.top : 40)
+                            .padding(.horizontal, 24)
+
+                        if isSearching {
+                            VStack(alignment: .leading) {
+                                Text(String(format: NSLocalizedString("category-brand-found", comment: ""), viewModel.brands.count))
+                                    .padding(.horizontal, 16)
+                                    .font(.customFont(size: 12, type: .fontRegular))
+                                    .foregroundColor(.deneysizTextColor)
+                                    .opacity(showBrandCount ? 1 : 0)
+
+                                BrandListView
+                            }
+                            .padding(.top, 24)
+                        }
                     }
-                    VStack {
-                        SearchView(searching: $isSearching)
-                    }
-                    .padding(.horizontal)
                 }
-            })
                 .edgesIgnoringSafeArea(.top)
+            }
 
             if !isSearching {
                 VStack {
-                    
-                CustomNavBar(
-                    left: {
-                        Text("Deneysiz")
-                            .font(.customFont(size: 24, type: .fontBold))
-                            .foregroundColor(.white)
-                    },
-                    right: {
-                        NavigationLink(
-                            destination: WhoAreWeView(),
-                            tag: "who-are-we",
-                            selection: $infoViewNavigationSelection,
-                            label: {
-                                HStack(spacing: 4) {
-                                    Text("who-are-we")
-                                        .font(.customFont(size: 14, type: .fontMedium))
-                                        .foregroundColor(.white)
-                                    Image("whiteInfo")
-                                }
-                            })
-                    })
+                    NavBar
+                        .padding(.top, 24)
+                        .padding(.horizontal, 24)
                     Spacer()
                 }
-                .padding(.top, 24)
-                .padding(.horizontal, 24)
             }
-            
         }
-        
-        if self.show {
-            SearchView(searching: $isSearching)
-        }
+    }
+
+    var NavBar: some View {
+        CustomNavBar(
+            left: {
+                Text("Deneysiz")
+                    .font(.customFont(size: 24, type: .fontBold))
+            },
+            right: {
+                NavigationLink(
+                    destination: WhoAreWeView(),
+                    tag: "who-are-we",
+                    selection: $infoViewNavigationSelection,
+                    label: {
+                        HStack(spacing: 4) {
+                            Text("who-are-we")
+                                .font(.customFont(size: 14, type: .fontMedium))
+                            Image("whiteInfo")
+                        }
+                    })
+            })
+        .foregroundColor(.white)
+    }
+
+    private var BrandListView: some View {
+            ForEach(viewModel.brands, id: \.name) { brand in
+                NavigationLink(
+                    destination: Text("as"),
+                    tag: brand.id,
+                    selection: $brandSelection,
+                    label: {
+                        BrandSearchCell(brandSearch: brand)
+                        // To get tap gesture event on Spacer
+                            .contentShape(Rectangle())
+                    }
+                )
+            }
+    }
+
+    private var showBrandCount: Bool {
+        !viewModel.brands.isEmpty
     }
 }
 
 struct SearchBrandView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBrandView()
+        SearchBrandView(viewModel: .init(searchBrandService: BrandSearchService()))
     }
 }
 
 struct SearchView: View {
     
-    @Binding var searching: Bool
-    @State var searchText = ""
+    @Binding var isSearching: Bool
+    @Binding var searchText: String
     
     var body: some View {
-        
-        VStack(alignment: .leading) {
-            SearchBar(searchText: $searchText, isSearching: $searching)
-            if !searching {
+        VStack(alignment: .leading, spacing: 16) {
+            SearchBar(searchText: $searchText, isSearching: $isSearching)
+            if !isSearching {
                 Text("search_view.description")
-                    .padding(16)
+                    .font(.customFont(size: 14, type: .fontRegular))
+                    .foregroundColor(.deneysizTextColor)
             }
         }
-        .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top == 0 ? 15 :
-                    (UIApplication.shared.windows.first?.safeAreaInsets.top) ?? 0 + 5)
     }
     
 }
@@ -122,53 +150,37 @@ struct SearchBar: View {
     
     var body: some View {
         HStack {
-            
-            TextField("", text: $searchText)
-                .placeholder(when: searchText.isEmpty) {
-                    Text("search-for-brand").foregroundColor(.black)
-                }
-                .padding(8)
-                .padding(.horizontal, 25)
-                .background(Color.textFieldBackground)
-                .foregroundColor(Color.black)
-                .cornerRadius(10)
-                .overlay(
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(Color.deneysizText2Color)
-                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, 8)
-                        
-                        //                        if isEditing {
-                        //                            Button(action: {
-                        //                                withAnimation {
-                        //                                    self.isEditing = false
-                        //                                    self.text = ""
-                        //                                    dismissKeyboard()
-                        //                                }
-                        //                            }) {
-                        //                                Image(systemName: "multiply.circle.fill")
-                        //                                    .foregroundColor(.gray)
-                        //                                    .padding(.trailing, 8)
-                        //                            }
-                        //                        }
+            HStack(spacing: 8) {
+                Image(systemName: "magnifyingglass")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor(.secondary)
+                TextField("", text: $searchText)
+                    .placeholder(when: searchText.isEmpty) {
+                        Text("search-for-brand")
+                            .foregroundColor(.black)
                     }
-                )
-                .padding(.horizontal, 10)
-                .onTapGesture {
-                    withAnimation {
-                        self.isSearching = true
+                    .disableAutocorrection(true)
+                    .onTapGesture {
+                        withAnimation {
+                            isSearching = true
+                        }
                     }
-                }
+            }
+            .padding(8)
+            .frame(height: 36)
+            .background(Color.textFieldBackground)
+            .cornerRadius(10)
+
             if isSearching {
-                Button(action: {
+                Button {
                     withAnimation {
-                        self.isSearching = false
-                        self.searchText = ""
+                        searchText = ""
+                        isSearching = false
                         dismissKeyboard()
                     }
-                }) {
+                } label: {
                     Text("give-up")
+
                 }
                 .padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
@@ -177,6 +189,38 @@ struct SearchBar: View {
         }
     }
 }
+
+private struct BrandSearchCell: View {
+    let brandSearch: BrandSearch
+
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(brandSearch.name)
+                        .font(.customFont(size: 20, type: .fontBold))
+                        .foregroundColor(.deneysizTextColor)
+                    Text(brandSearch.parentCompany.name ?? "")
+                        .font(.customFont(size: 17))
+                        .foregroundColor(.deneysizText2Color)
+                }
+
+                Spacer()
+
+                Text(brandSearch.pointTitle)
+                    .font(.customFont(size: 17))
+                    .foregroundColor(.white)
+                    .frame(width: 50)
+                    .padding(8)
+                    .background(brandSearch.color.cornerRadius(8))
+            }
+            .padding(16)
+
+            Divider()
+        }
+    }
+}
+
 
 extension View {
     func dismissKeyboard() {

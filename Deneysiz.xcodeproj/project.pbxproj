@@ -7,9 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9212E776275C03A5000E9902 /* BrandDetailPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212E775275C03A5000E9902 /* BrandDetailPayload.swift */; };
-		9212E778275C03BB000E9902 /* BrandDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212E777275C03BB000E9902 /* BrandDetail.swift */; };
-		9212E77A275C03EE000E9902 /* BrandDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212E779275C03EE000E9902 /* BrandDetailService.swift */; };
+		9299AAB128A9828900FD6DB6 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA8B28A9828900FD6DB6 /* AuthAPI.swift */; };
+		9299AAB228A9828900FD6DB6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA8C28A9828900FD6DB6 /* AuthService.swift */; };
+		9299AAB328A9828900FD6DB6 /* FacebookAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA8D28A9828900FD6DB6 /* FacebookAuthService.swift */; };
+		9299AAB428A9828900FD6DB6 /* FakeAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA8E28A9828900FD6DB6 /* FakeAuthService.swift */; };
+		9299AAB528A9828900FD6DB6 /* ExampleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA9028A9828900FD6DB6 /* ExampleAPI.swift */; };
+		9299AAB628A9828900FD6DB6 /* ExampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA9128A9828900FD6DB6 /* ExampleService.swift */; };
+		9299AAB728A9828900FD6DB6 /* BrandSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA9528A9828900FD6DB6 /* BrandSearch.swift */; };
+		9299AAB828A9828900FD6DB6 /* SearchBrandPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA9728A9828900FD6DB6 /* SearchBrandPayload.swift */; };
+		9299AAB928A9828900FD6DB6 /* BrandSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA9928A9828900FD6DB6 /* BrandSearchAPI.swift */; };
+		9299AABA28A9828900FD6DB6 /* BrandSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA9A28A9828900FD6DB6 /* BrandSearchService.swift */; };
+		9299AABB28A9828900FD6DB6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA9D28A9828900FD6DB6 /* Category.swift */; };
+		9299AABC28A9828900FD6DB6 /* FakeCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AA9F28A9828900FD6DB6 /* FakeCategoryService.swift */; };
+		9299AABD28A9828900FD6DB6 /* CategoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAA028A9828900FD6DB6 /* CategoryAPI.swift */; };
+		9299AABE28A9828900FD6DB6 /* ParentCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAA428A9828900FD6DB6 /* ParentCompany.swift */; };
+		9299AABF28A9828900FD6DB6 /* Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAA528A9828900FD6DB6 /* Certificate.swift */; };
+		9299AAC028A9828900FD6DB6 /* BrandDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAA628A9828900FD6DB6 /* BrandDetail.swift */; };
+		9299AAC128A9828900FD6DB6 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAA728A9828900FD6DB6 /* Brand.swift */; };
+		9299AAC228A9828900FD6DB6 /* BrandByCategoryPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAA928A9828900FD6DB6 /* BrandByCategoryPayload.swift */; };
+		9299AAC328A9828900FD6DB6 /* BrandDetailPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAAA28A9828900FD6DB6 /* BrandDetailPayload.swift */; };
+		9299AAC428A9828900FD6DB6 /* BrandDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAAB28A9828900FD6DB6 /* BrandDummy.swift */; };
+		9299AAC528A9828900FD6DB6 /* BrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAAD28A9828900FD6DB6 /* BrandService.swift */; };
+		9299AAC628A9828900FD6DB6 /* BrandAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAAE28A9828900FD6DB6 /* BrandAPI.swift */; };
+		9299AAC728A9828900FD6DB6 /* BrandDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAAF28A9828900FD6DB6 /* BrandDetailService.swift */; };
+		9299AAC828A9828900FD6DB6 /* FakeBrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAB028A9828900FD6DB6 /* FakeBrandService.swift */; };
+		9299AACA28A982B400FD6DB6 /* BrandPointDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAC928A982B400FD6DB6 /* BrandPointDetailUIModel.swift */; };
+		9299AACE28A982C200FD6DB6 /* SearchBrandViewContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AACB28A982C100FD6DB6 /* SearchBrandViewContainerView.swift */; };
+		9299AACF28A982C200FD6DB6 /* SearchBrandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AACC28A982C200FD6DB6 /* SearchBrandViewModel.swift */; };
+		9299AAD028A982C200FD6DB6 /* SearchBrandDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AACD28A982C200FD6DB6 /* SearchBrandDependencyContainer.swift */; };
 		92A6F36E2870F5AC004F5C73 /* InfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6F36D2870F5AC004F5C73 /* InfoDetailView.swift */; };
 		92E3C6E327E7AF0900951146 /* CustomNavBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3C6E227E7AF0900951146 /* CustomNavBarContainer.swift */; };
 		92E3C6E627E7CDD300951146 /* PreferenceKeyBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3C6E527E7CDD300951146 /* PreferenceKeyBase.swift */; };
@@ -45,8 +70,6 @@
 		98880FB726887F0400D94852 /* SocialMediaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98880FB626887F0400D94852 /* SocialMediaButton.swift */; };
 		98880FBA26887F6500D94852 /* WhoAreWeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98880FB926887F6500D94852 /* WhoAreWeButton.swift */; };
 		98AD7F2C2770F22C009F04A6 /* OpenWebsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD7F2B2770F22C009F04A6 /* OpenWebsite.swift */; };
-		A508DCB62683733200336A18 /* ExampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508DCB52683733200336A18 /* ExampleService.swift */; };
-		A508DCC4268373B500336A18 /* ExampleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508DCC3268373B500336A18 /* ExampleAPI.swift */; };
 		A508DCCC2683745800336A18 /* ExampleEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508DCCB2683745800336A18 /* ExampleEnvironment.swift */; };
 		A50CB05B26DCE00400259E05 /* CertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CB05A26DCE00400259E05 /* CertificateView.swift */; };
 		A50CB05D26DCE9F700259E05 /* CertificateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CB05C26DCE9F700259E05 /* CertificateViewModel.swift */; };
@@ -69,31 +92,21 @@
 		A52227A5267CDB0500004C1F /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227A4267CDB0500004C1F /* DiscoverView.swift */; };
 		A52227B3267CDD6B00004C1F /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227B2267CDD6B00004C1F /* CustomNavBar.swift */; };
 		A52227B8267CE41D00004C1F /* DiscoverDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227B7267CE41D00004C1F /* DiscoverDependencyContainer.swift */; };
-		A52227BE267CE50500004C1F /* CategoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227BD267CE50500004C1F /* CategoryAPI.swift */; };
-		A52227C7267CE5D700004C1F /* CategoryDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227C6267CE5D700004C1F /* CategoryDummy.swift */; };
-		A52227CC267CE64A00004C1F /* FakeCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227CB267CE64A00004C1F /* FakeCategoryService.swift */; };
 		A52227D5267CE79700004C1F /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227D4267CE79700004C1F /* CategoryListViewModel.swift */; };
 		A52227E5267CEB3800004C1F /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227E4267CEB3800004C1F /* CategoryListView.swift */; };
 		A52227EE267CEE3200004C1F /* InstanceTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227ED267CEE3200004C1F /* InstanceTracker.swift */; };
 		A52227F3267CEFE300004C1F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52227F2267CEFE300004C1F /* Array+Extension.swift */; };
-		A539B68A2756D028002FE847 /* BrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539B6892756D027002FE847 /* BrandService.swift */; };
-		A539B68D2756D5F3002FE847 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539B68C2756D5F3002FE847 /* Brand.swift */; };
 		A539B68F2756D647002FE847 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539B68E2756D647002FE847 /* BaseResponse.swift */; };
-		A539B6912756D66F002FE847 /* SearchBrandByCategoryPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539B6902756D66F002FE847 /* SearchBrandByCategoryPayload.swift */; };
-		A53F552E265EECFA0005AB1C /* FakeAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F552D265EECFA0005AB1C /* FakeAuthService.swift */; };
 		A542AC6A268FBB8000B725BE /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A542AC69268FBB8000B725BE /* ActivityIndicator.swift */; };
 		A54DBBA1269D8AF00096BBAF /* BrandDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DBBA0269D8AF00096BBAF /* BrandDetailView.swift */; };
 		A54DBBA3269D8AF80096BBAF /* BrandDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DBBA2269D8AF80096BBAF /* BrandDetailViewModel.swift */; };
 		A54DBBA6269D8B3E0096BBAF /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54DBBA5269D8B3E0096BBAF /* BaseViewModel.swift */; };
 		A54ED83426CADC3500B4062D /* CustomErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54ED83326CADC3500B4062D /* CustomErrorAlert.swift */; };
 		A54ED83626CAEA6A00B4062D /* PointDetailAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54ED83526CAEA6A00B4062D /* PointDetailAlert.swift */; };
-		A54ED83826CAED8E00B4062D /* BrandPointDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54ED83726CAED8E00B4062D /* BrandPointDetailUIModel.swift */; };
 		A562BCF6265EE66400BBC6A9 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BCF5265EE66400BBC6A9 /* AppEnvironment.swift */; };
 		A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BD00265EE7B800BBC6A9 /* Request.swift */; };
-		A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */; };
 		A5829268268CA30B00429A0E /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5829267268CA30B00429A0E /* CategoryDetailView.swift */; };
 		A59ED96C26F1B74200E71E7C /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59ED96B26F1B74200E71E7C /* InfoView.swift */; };
-		A5A6EA822667CA40008C8B2F /* FacebookAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A6EA812667CA40008C8B2F /* FacebookAuthService.swift */; };
 		A5A6EA8C2667CF64008C8B2F /* RawRepresentable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A6EA8B2667CF64008C8B2F /* RawRepresentable+Extension.swift */; };
 		A5B2F952275FE8B900826518 /* LottieLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B2F951275FE8B900826518 /* LottieLoading.swift */; };
 		A5B2F956275FE99200826518 /* loading-lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = A5B2F955275FE99200826518 /* loading-lottie.json */; };
@@ -114,11 +127,7 @@
 		A5CC7D94265DA1BA00DD3AA7 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7D93265DA1BA00DD3AA7 /* APIError.swift */; };
 		A5CC7DB5265DA73D00DD3AA7 /* URLSessionAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DB4265DA73D00DD3AA7 /* URLSessionAgent.swift */; };
 		A5CC7DBD265DA93C00DD3AA7 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DBC265DA93C00DD3AA7 /* RequestBuilder.swift */; };
-		A5CC7DC3265DAA9D00DD3AA7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DC2265DAA9D00DD3AA7 /* AuthService.swift */; };
-		A5FBCF01268D811700921791 /* BrandDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBCF00268D811700921791 /* BrandDummy.swift */; };
 		A5FBCF03268D8A4000921791 /* CategoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBCF02268D8A4000921791 /* CategoryDetailViewModel.swift */; };
-		A5FBCF05268D8AAD00921791 /* BrandAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBCF04268D8AAD00921791 /* BrandAPI.swift */; };
-		A5FBCF07268D8B0500921791 /* FakeBrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBCF06268D8B0500921791 /* FakeBrandService.swift */; };
 		A5FBCF09268D8D8B00921791 /* PopUpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBCF08268D8D8B00921791 /* PopUpHelper.swift */; };
 		A5FBCF0D268D910F00921791 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBCF0C268D910F00921791 /* Logger.swift */; };
 		A5FBCF0F268DA1C000921791 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBCF0E268DA1C000921791 /* View+Extension.swift */; };
@@ -144,9 +153,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9212E775275C03A5000E9902 /* BrandDetailPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailPayload.swift; sourceTree = "<group>"; };
-		9212E777275C03BB000E9902 /* BrandDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetail.swift; sourceTree = "<group>"; };
-		9212E779275C03EE000E9902 /* BrandDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailService.swift; sourceTree = "<group>"; };
+		9299AA8B28A9828900FD6DB6 /* AuthAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		9299AA8C28A9828900FD6DB6 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		9299AA8D28A9828900FD6DB6 /* FacebookAuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookAuthService.swift; sourceTree = "<group>"; };
+		9299AA8E28A9828900FD6DB6 /* FakeAuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeAuthService.swift; sourceTree = "<group>"; };
+		9299AA9028A9828900FD6DB6 /* ExampleAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleAPI.swift; sourceTree = "<group>"; };
+		9299AA9128A9828900FD6DB6 /* ExampleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleService.swift; sourceTree = "<group>"; };
+		9299AA9528A9828900FD6DB6 /* BrandSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSearch.swift; sourceTree = "<group>"; };
+		9299AA9728A9828900FD6DB6 /* SearchBrandPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBrandPayload.swift; sourceTree = "<group>"; };
+		9299AA9928A9828900FD6DB6 /* BrandSearchAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSearchAPI.swift; sourceTree = "<group>"; };
+		9299AA9A28A9828900FD6DB6 /* BrandSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSearchService.swift; sourceTree = "<group>"; };
+		9299AA9D28A9828900FD6DB6 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9299AA9F28A9828900FD6DB6 /* FakeCategoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeCategoryService.swift; sourceTree = "<group>"; };
+		9299AAA028A9828900FD6DB6 /* CategoryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryAPI.swift; sourceTree = "<group>"; };
+		9299AAA428A9828900FD6DB6 /* ParentCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentCompany.swift; sourceTree = "<group>"; };
+		9299AAA528A9828900FD6DB6 /* Certificate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Certificate.swift; sourceTree = "<group>"; };
+		9299AAA628A9828900FD6DB6 /* BrandDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandDetail.swift; sourceTree = "<group>"; };
+		9299AAA728A9828900FD6DB6 /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		9299AAA928A9828900FD6DB6 /* BrandByCategoryPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandByCategoryPayload.swift; sourceTree = "<group>"; };
+		9299AAAA28A9828900FD6DB6 /* BrandDetailPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandDetailPayload.swift; sourceTree = "<group>"; };
+		9299AAAB28A9828900FD6DB6 /* BrandDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandDummy.swift; sourceTree = "<group>"; };
+		9299AAAD28A9828900FD6DB6 /* BrandService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandService.swift; sourceTree = "<group>"; };
+		9299AAAE28A9828900FD6DB6 /* BrandAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandAPI.swift; sourceTree = "<group>"; };
+		9299AAAF28A9828900FD6DB6 /* BrandDetailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandDetailService.swift; sourceTree = "<group>"; };
+		9299AAB028A9828900FD6DB6 /* FakeBrandService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeBrandService.swift; sourceTree = "<group>"; };
+		9299AAC928A982B400FD6DB6 /* BrandPointDetailUIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandPointDetailUIModel.swift; sourceTree = "<group>"; };
+		9299AACB28A982C100FD6DB6 /* SearchBrandViewContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBrandViewContainerView.swift; sourceTree = "<group>"; };
+		9299AACC28A982C200FD6DB6 /* SearchBrandViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBrandViewModel.swift; sourceTree = "<group>"; };
+		9299AACD28A982C200FD6DB6 /* SearchBrandDependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBrandDependencyContainer.swift; sourceTree = "<group>"; };
 		92A6F36D2870F5AC004F5C73 /* InfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailView.swift; sourceTree = "<group>"; };
 		92E3C6E227E7AF0900951146 /* CustomNavBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainer.swift; sourceTree = "<group>"; };
 		92E3C6E527E7CDD300951146 /* PreferenceKeyBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeyBase.swift; sourceTree = "<group>"; };
@@ -182,8 +216,6 @@
 		98880FB626887F0400D94852 /* SocialMediaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaButton.swift; sourceTree = "<group>"; };
 		98880FB926887F6500D94852 /* WhoAreWeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoAreWeButton.swift; sourceTree = "<group>"; };
 		98AD7F2B2770F22C009F04A6 /* OpenWebsite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWebsite.swift; sourceTree = "<group>"; };
-		A508DCB52683733200336A18 /* ExampleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleService.swift; sourceTree = "<group>"; };
-		A508DCC3268373B500336A18 /* ExampleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAPI.swift; sourceTree = "<group>"; };
 		A508DCCB2683745800336A18 /* ExampleEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleEnvironment.swift; sourceTree = "<group>"; };
 		A50CB05A26DCE00400259E05 /* CertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateView.swift; sourceTree = "<group>"; };
 		A50CB05C26DCE9F700259E05 /* CertificateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateViewModel.swift; sourceTree = "<group>"; };
@@ -209,31 +241,21 @@
 		A52227A4267CDB0500004C1F /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		A52227B2267CDD6B00004C1F /* CustomNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		A52227B7267CE41D00004C1F /* DiscoverDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDependencyContainer.swift; sourceTree = "<group>"; };
-		A52227BD267CE50500004C1F /* CategoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAPI.swift; sourceTree = "<group>"; };
-		A52227C6267CE5D700004C1F /* CategoryDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDummy.swift; sourceTree = "<group>"; };
-		A52227CB267CE64A00004C1F /* FakeCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCategoryService.swift; sourceTree = "<group>"; };
 		A52227D4267CE79700004C1F /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
 		A52227E4267CEB3800004C1F /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		A52227ED267CEE3200004C1F /* InstanceTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceTracker.swift; sourceTree = "<group>"; };
 		A52227F2267CEFE300004C1F /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
-		A539B6892756D027002FE847 /* BrandService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandService.swift; sourceTree = "<group>"; };
-		A539B68C2756D5F3002FE847 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		A539B68E2756D647002FE847 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
-		A539B6902756D66F002FE847 /* SearchBrandByCategoryPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBrandByCategoryPayload.swift; sourceTree = "<group>"; };
-		A53F552D265EECFA0005AB1C /* FakeAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthService.swift; sourceTree = "<group>"; };
 		A542AC69268FBB8000B725BE /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		A54DBBA0269D8AF00096BBAF /* BrandDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailView.swift; sourceTree = "<group>"; };
 		A54DBBA2269D8AF80096BBAF /* BrandDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDetailViewModel.swift; sourceTree = "<group>"; };
 		A54DBBA5269D8B3E0096BBAF /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		A54ED83326CADC3500B4062D /* CustomErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrorAlert.swift; sourceTree = "<group>"; };
 		A54ED83526CAEA6A00B4062D /* PointDetailAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointDetailAlert.swift; sourceTree = "<group>"; };
-		A54ED83726CAED8E00B4062D /* BrandPointDetailUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandPointDetailUIModel.swift; sourceTree = "<group>"; };
 		A562BCF5265EE66400BBC6A9 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A562BD00265EE7B800BBC6A9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		A5829267268CA30B00429A0E /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
 		A59ED96B26F1B74200E71E7C /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = InfoView.swift; sourceTree = "<group>"; };
-		A5A6EA812667CA40008C8B2F /* FacebookAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAuthService.swift; sourceTree = "<group>"; };
 		A5A6EA8B2667CF64008C8B2F /* RawRepresentable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RawRepresentable+Extension.swift"; sourceTree = "<group>"; };
 		A5B2F951275FE8B900826518 /* LottieLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoading.swift; sourceTree = "<group>"; };
 		A5B2F955275FE99200826518 /* loading-lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-lottie.json"; sourceTree = "<group>"; };
@@ -260,11 +282,7 @@
 		A5CC7D93265DA1BA00DD3AA7 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		A5CC7DB4265DA73D00DD3AA7 /* URLSessionAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionAgent.swift; sourceTree = "<group>"; };
 		A5CC7DBC265DA93C00DD3AA7 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
-		A5CC7DC2265DAA9D00DD3AA7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		A5FBCF00268D811700921791 /* BrandDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandDummy.swift; sourceTree = "<group>"; };
 		A5FBCF02268D8A4000921791 /* CategoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailViewModel.swift; sourceTree = "<group>"; };
-		A5FBCF04268D8AAD00921791 /* BrandAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandAPI.swift; sourceTree = "<group>"; };
-		A5FBCF06268D8B0500921791 /* FakeBrandService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeBrandService.swift; sourceTree = "<group>"; };
 		A5FBCF08268D8D8B00921791 /* PopUpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpHelper.swift; sourceTree = "<group>"; };
 		A5FBCF0C268D910F00921791 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		A5FBCF0E268DA1C000921791 /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -298,6 +316,158 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9299AA8928A9828900FD6DB6 /* ExampleWebServices */ = {
+			isa = PBXGroup;
+			children = (
+				9299AA8A28A9828900FD6DB6 /* Auth */,
+				9299AA8F28A9828900FD6DB6 /* Example */,
+			);
+			name = ExampleWebServices;
+			path = "../../../../ios-deneysiz 2/Deneysiz/Network/Web Services/ExampleWebServices";
+			sourceTree = "<group>";
+		};
+		9299AA8A28A9828900FD6DB6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9299AA8B28A9828900FD6DB6 /* AuthAPI.swift */,
+				9299AA8C28A9828900FD6DB6 /* AuthService.swift */,
+				9299AA8D28A9828900FD6DB6 /* FacebookAuthService.swift */,
+				9299AA8E28A9828900FD6DB6 /* FakeAuthService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		9299AA8F28A9828900FD6DB6 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				9299AA9028A9828900FD6DB6 /* ExampleAPI.swift */,
+				9299AA9128A9828900FD6DB6 /* ExampleService.swift */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		9299AA9228A9828900FD6DB6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9299AA9328A9828900FD6DB6 /* Model */,
+				9299AA9828A9828900FD6DB6 /* Service */,
+			);
+			name = Search;
+			path = "../../../../ios-deneysiz 2/Deneysiz/Network/Web Services/Search";
+			sourceTree = "<group>";
+		};
+		9299AA9328A9828900FD6DB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9299AA9428A9828900FD6DB6 /* Response */,
+				9299AA9628A9828900FD6DB6 /* Payload */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9299AA9428A9828900FD6DB6 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				9299AA9528A9828900FD6DB6 /* BrandSearch.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		9299AA9628A9828900FD6DB6 /* Payload */ = {
+			isa = PBXGroup;
+			children = (
+				9299AA9728A9828900FD6DB6 /* SearchBrandPayload.swift */,
+			);
+			path = Payload;
+			sourceTree = "<group>";
+		};
+		9299AA9828A9828900FD6DB6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9299AA9928A9828900FD6DB6 /* BrandSearchAPI.swift */,
+				9299AA9A28A9828900FD6DB6 /* BrandSearchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9299AA9B28A9828900FD6DB6 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				9299AA9C28A9828900FD6DB6 /* Model */,
+				9299AA9E28A9828900FD6DB6 /* Service */,
+			);
+			name = Category;
+			path = "../../../../ios-deneysiz 2/Deneysiz/Network/Web Services/Category";
+			sourceTree = "<group>";
+		};
+		9299AA9C28A9828900FD6DB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9299AA9D28A9828900FD6DB6 /* Category.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9299AA9E28A9828900FD6DB6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9299AA9F28A9828900FD6DB6 /* FakeCategoryService.swift */,
+				9299AAA028A9828900FD6DB6 /* CategoryAPI.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9299AAA128A9828900FD6DB6 /* Brand */ = {
+			isa = PBXGroup;
+			children = (
+				9299AAA228A9828900FD6DB6 /* Model */,
+				9299AAAC28A9828900FD6DB6 /* Service */,
+			);
+			name = Brand;
+			path = "../../../../ios-deneysiz 2/Deneysiz/Network/Web Services/Brand";
+			sourceTree = "<group>";
+		};
+		9299AAA228A9828900FD6DB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9299AAA328A9828900FD6DB6 /* Response */,
+				9299AAA828A9828900FD6DB6 /* Payload */,
+				9299AAAB28A9828900FD6DB6 /* BrandDummy.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9299AAA328A9828900FD6DB6 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				9299AAA428A9828900FD6DB6 /* ParentCompany.swift */,
+				9299AAA528A9828900FD6DB6 /* Certificate.swift */,
+				9299AAA628A9828900FD6DB6 /* BrandDetail.swift */,
+				9299AAA728A9828900FD6DB6 /* Brand.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		9299AAA828A9828900FD6DB6 /* Payload */ = {
+			isa = PBXGroup;
+			children = (
+				9299AAA928A9828900FD6DB6 /* BrandByCategoryPayload.swift */,
+				9299AAAA28A9828900FD6DB6 /* BrandDetailPayload.swift */,
+			);
+			path = Payload;
+			sourceTree = "<group>";
+		};
+		9299AAAC28A9828900FD6DB6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9299AAAD28A9828900FD6DB6 /* BrandService.swift */,
+				9299AAAE28A9828900FD6DB6 /* BrandAPI.swift */,
+				9299AAAF28A9828900FD6DB6 /* BrandDetailService.swift */,
+				9299AAB028A9828900FD6DB6 /* FakeBrandService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		92E3C6E427E7CDC200951146 /* PreferenceKey */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +507,9 @@
 			isa = PBXGroup;
 			children = (
 				982CC4A428A7E3D7000770CA /* SearchBrandView.swift */,
+				9299AACB28A982C100FD6DB6 /* SearchBrandViewContainerView.swift */,
+				9299AACD28A982C200FD6DB6 /* SearchBrandDependencyContainer.swift */,
+				9299AACC28A982C200FD6DB6 /* SearchBrandViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -523,16 +696,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		A52227BC267CE4F400004C1F /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				A52227BD267CE50500004C1F /* CategoryAPI.swift */,
-				A52227CB267CE64A00004C1F /* FakeCategoryService.swift */,
-				A52227C6267CE5D700004C1F /* CategoryDummy.swift */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
 		A52227D3267CE78700004C1F /* CategoryList */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,22 +717,12 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		A539B68B2756D5E2002FE847 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A539B68C2756D5F3002FE847 /* Brand.swift */,
-				9212E777275C03BB000E9902 /* BrandDetail.swift */,
-				9212E775275C03A5000E9902 /* BrandDetailPayload.swift */,
-				A539B6902756D66F002FE847 /* SearchBrandByCategoryPayload.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		A54DBB9F269D8AE40096BBAF /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				A54DBBA0269D8AF00096BBAF /* BrandDetailView.swift */,
 				A54DBBA2269D8AF80096BBAF /* BrandDetailViewModel.swift */,
+				9299AAC928A982B400FD6DB6 /* BrandPointDetailUIModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -592,26 +745,6 @@
 			path = Environment;
 			sourceTree = "<group>";
 		};
-		A562BD0E265EE8F400BBC6A9 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				A562BD0F265EE90A00BBC6A9 /* AuthAPI.swift */,
-				A5CC7DC2265DAA9D00DD3AA7 /* AuthService.swift */,
-				A5A6EA812667CA40008C8B2F /* FacebookAuthService.swift */,
-				A53F552D265EECFA0005AB1C /* FakeAuthService.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		A56839EA2660E18900718E9F /* ExampleWebServices */ = {
-			isa = PBXGroup;
-			children = (
-				A59ACB0D268372A8004494A8 /* Example */,
-				A562BD0E265EE8F400BBC6A9 /* Auth */,
-			);
-			path = ExampleWebServices;
-			sourceTree = "<group>";
-		};
 		A5829266268CA2FF00429A0E /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,15 +753,6 @@
 				A5FBCF02268D8A4000921791 /* CategoryDetailViewModel.swift */,
 			);
 			path = Detail;
-			sourceTree = "<group>";
-		};
-		A59ACB0D268372A8004494A8 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				A508DCB52683733200336A18 /* ExampleService.swift */,
-				A508DCC3268373B500336A18 /* ExampleAPI.swift */,
-			);
-			path = Example;
 			sourceTree = "<group>";
 		};
 		A59ED96A26F1B70A00E71E7C /* Info */ = {
@@ -798,25 +922,12 @@
 		A5CC7DC1265DAA8C00DD3AA7 /* Web Services */ = {
 			isa = PBXGroup;
 			children = (
-				A5FBCEFF268D810700921791 /* Brand */,
-				A52227BC267CE4F400004C1F /* Category */,
-				A56839EA2660E18900718E9F /* ExampleWebServices */,
+				9299AAA128A9828900FD6DB6 /* Brand */,
+				9299AA9B28A9828900FD6DB6 /* Category */,
+				9299AA8928A9828900FD6DB6 /* ExampleWebServices */,
+				9299AA9228A9828900FD6DB6 /* Search */,
 			);
 			path = "Web Services";
-			sourceTree = "<group>";
-		};
-		A5FBCEFF268D810700921791 /* Brand */ = {
-			isa = PBXGroup;
-			children = (
-				A539B68B2756D5E2002FE847 /* Model */,
-				A5FBCF04268D8AAD00921791 /* BrandAPI.swift */,
-				A539B6892756D027002FE847 /* BrandService.swift */,
-				9212E779275C03EE000E9902 /* BrandDetailService.swift */,
-				A5FBCF06268D8B0500921791 /* FakeBrandService.swift */,
-				A5FBCF00268D811700921791 /* BrandDummy.swift */,
-				A54ED83726CAED8E00B4062D /* BrandPointDetailUIModel.swift */,
-			);
-			path = Brand;
 			sourceTree = "<group>";
 		};
 		A5FC0A992694F5CF00F0FAD6 /* BrandList */ = {
@@ -1011,62 +1122,72 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A539B6912756D66F002FE847 /* SearchBrandByCategoryPayload.swift in Sources */,
 				A5A6EA8C2667CF64008C8B2F /* RawRepresentable+Extension.swift in Sources */,
-				9212E778275C03BB000E9902 /* BrandDetail.swift in Sources */,
 				A5FC0A962694861800F0FAD6 /* Color+Extension.swift in Sources */,
 				A5C96C0E277B0AC0005976B5 /* ScrollRefreshable.swift in Sources */,
-				A53F552E265EECFA0005AB1C /* FakeAuthService.swift in Sources */,
 				A5CC7DBD265DA93C00DD3AA7 /* RequestBuilder.swift in Sources */,
+				9299AABA28A9828900FD6DB6 /* BrandSearchService.swift in Sources */,
+				9299AAD028A982C200FD6DB6 /* SearchBrandDependencyContainer.swift in Sources */,
 				A5FC0A9B2694F5DE00F0FAD6 /* BrandListView.swift in Sources */,
 				98AD7F2C2770F22C009F04A6 /* OpenWebsite.swift in Sources */,
 				A562BD01265EE7B800BBC6A9 /* Request.swift in Sources */,
 				A5FBCF0D268D910F00921791 /* Logger.swift in Sources */,
+				9299AAC628A9828900FD6DB6 /* BrandAPI.swift in Sources */,
+				9299AAB828A9828900FD6DB6 /* SearchBrandPayload.swift in Sources */,
+				9299AABC28A9828900FD6DB6 /* FakeCategoryService.swift in Sources */,
 				A54ED83626CAEA6A00B4062D /* PointDetailAlert.swift in Sources */,
-				A5FBCF07268D8B0500921791 /* FakeBrandService.swift in Sources */,
 				A52227B8267CE41D00004C1F /* DiscoverDependencyContainer.swift in Sources */,
-				A539B68D2756D5F3002FE847 /* Brand.swift in Sources */,
 				98619F662694377700E4275E /* BankAccountView.swift in Sources */,
 				98598324268C4C8B007678E8 /* Font+Extension.swift in Sources */,
 				A5FBCF09268D8D8B00921791 /* PopUpHelper.swift in Sources */,
 				A52227A5267CDB0500004C1F /* DiscoverView.swift in Sources */,
-				A5A6EA822667CA40008C8B2F /* FacebookAuthService.swift in Sources */,
 				A51C45BC2660DB4F003CCC58 /* FirstDependencyContainer.swift in Sources */,
+				9299AAB428A9828900FD6DB6 /* FakeAuthService.swift in Sources */,
+				9299AAC328A9828900FD6DB6 /* BrandDetailPayload.swift in Sources */,
+				9299AABE28A9828900FD6DB6 /* ParentCompany.swift in Sources */,
+				9299AAC828A9828900FD6DB6 /* FakeBrandService.swift in Sources */,
+				9299AAC028A9828900FD6DB6 /* BrandDetail.swift in Sources */,
 				98448A6A287633D600AB7C8A /* CollapsibleView.swift in Sources */,
+				9299AABF28A9828900FD6DB6 /* Certificate.swift in Sources */,
+				9299AAB928A9828900FD6DB6 /* BrandSearchAPI.swift in Sources */,
+				9299AACA28A982B400FD6DB6 /* BrandPointDetailUIModel.swift in Sources */,
+				9299AACF28A982C200FD6DB6 /* SearchBrandViewModel.swift in Sources */,
+				9299AAB528A9828900FD6DB6 /* ExampleAPI.swift in Sources */,
+				9299AAC128A9828900FD6DB6 /* Brand.swift in Sources */,
 				A50CB05D26DCE9F700259E05 /* CertificateViewModel.swift in Sources */,
 				98576D0D2691CDA700C307FA /* DonateView.swift in Sources */,
 				A5C7114E278DBECD000F803C /* UINavigationController+Extension.swift in Sources */,
 				A562BCF6265EE66400BBC6A9 /* AppEnvironment.swift in Sources */,
+				9299AAB128A9828900FD6DB6 /* AuthAPI.swift in Sources */,
 				9834C3972691DA230037EC8F /* EmailService.swift in Sources */,
 				A51C45C12660DD23003CCC58 /* FirstContainerView.swift in Sources */,
-				A5FBCF01268D811700921791 /* BrandDummy.swift in Sources */,
-				A52227CC267CE64A00004C1F /* FakeCategoryService.swift in Sources */,
-				A562BD10265EE90A00BBC6A9 /* AuthAPI.swift in Sources */,
+				9299AAC428A9828900FD6DB6 /* BrandDummy.swift in Sources */,
+				9299AAB328A9828900FD6DB6 /* FacebookAuthService.swift in Sources */,
 				A5B2F958275FED4C00826518 /* OrderPopUp.swift in Sources */,
+				9299AAB228A9828900FD6DB6 /* AuthService.swift in Sources */,
 				A539B68F2756D647002FE847 /* BaseResponse.swift in Sources */,
+				9299AAB628A9828900FD6DB6 /* ExampleService.swift in Sources */,
 				A5CC7D27265D8D4F00DD3AA7 /* AppDelegate.swift in Sources */,
 				A518D6F726FA1B5E0084D8CC /* LottieView.swift in Sources */,
-				9212E776275C03A5000E9902 /* BrandDetailPayload.swift in Sources */,
-				A52227BE267CE50500004C1F /* CategoryAPI.swift in Sources */,
-				A54ED83826CAED8E00B4062D /* BrandPointDetailUIModel.swift in Sources */,
-				9212E77A275C03EE000E9902 /* BrandDetailService.swift in Sources */,
+				9299AABB28A9828900FD6DB6 /* Category.swift in Sources */,
 				A5829268268CA30B00429A0E /* CategoryDetailView.swift in Sources */,
 				A518D6FB26FA1BE00084D8CC /* LottieRabbit.swift in Sources */,
 				A518C6102673655B00CD964D /* Configuration.swift in Sources */,
-				A508DCC4268373B500336A18 /* ExampleAPI.swift in Sources */,
-				A5FBCF05268D8AAD00921791 /* BrandAPI.swift in Sources */,
 				A5CC7D80265D9DDE00DD3AA7 /* EnvironmentProtocol.swift in Sources */,
+				9299AAC728A9828900FD6DB6 /* BrandDetailService.swift in Sources */,
 				A5CC7D29265D8D4F00DD3AA7 /* SceneDelegate.swift in Sources */,
 				982CC4A528A7E3D7000770CA /* SearchBrandView.swift in Sources */,
 				A5CC7D94265DA1BA00DD3AA7 /* APIError.swift in Sources */,
 				A59ED96C26F1B74200E71E7C /* InfoView.swift in Sources */,
 				A52227D5267CE79700004C1F /* CategoryListViewModel.swift in Sources */,
+				9299AAC228A9828900FD6DB6 /* BrandByCategoryPayload.swift in Sources */,
 				A5CC7D75265D983400DD3AA7 /* BaseServiceProtocol.swift in Sources */,
 				92A6F36E2870F5AC004F5C73 /* InfoDetailView.swift in Sources */,
 				A54DBBA6269D8B3E0096BBAF /* BaseViewModel.swift in Sources */,
 				A542AC6A268FBB8000B725BE /* ActivityIndicator.swift in Sources */,
 				92E3C6E627E7CDD300951146 /* PreferenceKeyBase.swift in Sources */,
 				A51C45B72660DAF0003CCC58 /* FirstViewModel.swift in Sources */,
+				9299AABD28A9828900FD6DB6 /* CategoryAPI.swift in Sources */,
 				A54ED83426CADC3500B4062D /* CustomErrorAlert.swift in Sources */,
 				98880FB426887E6200D94852 /* WhoAreWeView.swift in Sources */,
 				A5BAE692269EB0F6002DFFBD /* FixedImage.swift in Sources */,
@@ -1074,6 +1195,7 @@
 				A518D70626FA259C0084D8CC /* LottieEmpty.swift in Sources */,
 				A5B2F952275FE8B900826518 /* LottieLoading.swift in Sources */,
 				A5FBCF03268D8A4000921791 /* CategoryDetailViewModel.swift in Sources */,
+				9299AACE28A982C200FD6DB6 /* SearchBrandViewContainerView.swift in Sources */,
 				A54DBBA3269D8AF80096BBAF /* BrandDetailViewModel.swift in Sources */,
 				A508DCCC2683745800336A18 /* ExampleEnvironment.swift in Sources */,
 				A5FBCF0F268DA1C000921791 /* View+Extension.swift in Sources */,
@@ -1081,20 +1203,18 @@
 				A5CC7D8F265DA18800DD3AA7 /* HTTPMethod.swift in Sources */,
 				A52227F3267CEFE300004C1F /* Array+Extension.swift in Sources */,
 				A518D70326FA25800084D8CC /* LottieNoData.swift in Sources */,
+				9299AAB728A9828900FD6DB6 /* BrandSearch.swift in Sources */,
 				98448A6728762DF300AB7C8A /* SupportView.swift in Sources */,
 				A52227B3267CDD6B00004C1F /* CustomNavBar.swift in Sources */,
-				A508DCB62683733200336A18 /* ExampleService.swift in Sources */,
-				A539B68A2756D028002FE847 /* BrandService.swift in Sources */,
 				A54DBBA1269D8AF00096BBAF /* BrandDetailView.swift in Sources */,
 				A5CC7DB5265DA73D00DD3AA7 /* URLSessionAgent.swift in Sources */,
 				A50CB05B26DCE00400259E05 /* CertificateView.swift in Sources */,
 				98880FB726887F0400D94852 /* SocialMediaButton.swift in Sources */,
 				A52227E5267CEB3800004C1F /* CategoryListView.swift in Sources */,
 				A51C45A92660CD51003CCC58 /* DashboardTabView.swift in Sources */,
-				A52227C7267CE5D700004C1F /* CategoryDummy.swift in Sources */,
 				A51C45B22660D615003CCC58 /* FirstView.swift in Sources */,
 				A5222799267CD81600004C1F /* MainTabView.swift in Sources */,
-				A5CC7DC3265DAA9D00DD3AA7 /* AuthService.swift in Sources */,
+				9299AAC528A9828900FD6DB6 /* BrandService.swift in Sources */,
 				92E45BBC2885F6C400845D22 /* BannerModifier.swift in Sources */,
 				98880FBA26887F6500D94852 /* WhoAreWeButton.swift in Sources */,
 			);
