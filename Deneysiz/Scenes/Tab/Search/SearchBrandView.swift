@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchBrandView: View {
 
-    @StateObject var viewModel: SearchViewModel
+    @StateObject var viewModel: SearchBrandViewModel
     // for sticky header view
     @State private var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State private var show = false

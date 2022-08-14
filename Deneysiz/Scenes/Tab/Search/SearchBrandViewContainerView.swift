@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct SearchContainerView: View {
-    @EnvironmentObject var container: SearchDependencyContainer
+struct SearchBrandViewContainerView: View {
+    @EnvironmentObject var container: SearchBrandDependencyContainer
 
     var body: some View {
         SearchBrandView(viewModel: container.makeSearchViewModel())
@@ -17,6 +17,6 @@ struct SearchContainerView: View {
 
 struct SearchContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchContainerView()
+        SearchBrandViewContainerView()
     }
 }

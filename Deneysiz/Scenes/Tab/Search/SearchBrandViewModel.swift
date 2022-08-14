@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class SearchViewModel: BaseViewModel, ObservableObject {
+final class SearchBrandViewModel: BaseViewModel, ObservableObject {
 
     @Published var searchText = ""
     @Published var brands = [BrandSearch]()

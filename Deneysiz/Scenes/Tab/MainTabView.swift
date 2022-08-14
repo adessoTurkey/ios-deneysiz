@@ -26,7 +26,7 @@ struct MainTabView: View {
         } else {
             return NavigationView {
                 TabView(selection: $selectedtab) {
-                    SearchContainerView()
+                    SearchBrandViewContainerView()
                         .tabItem {
                             VStack {
                                 Image("tabBarSearch")
@@ -34,7 +34,7 @@ struct MainTabView: View {
                             }
                         }
                         .tag(TabViewEnum.search())
-                        .environmentObject(SearchDependencyContainer())
+                        .environmentObject(SearchBrandDependencyContainer())
                         .navigationBarTitle("")
                         .navigationBarHidden(true)
                     

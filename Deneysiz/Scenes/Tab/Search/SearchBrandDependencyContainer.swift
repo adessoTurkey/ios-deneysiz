@@ -7,11 +7,11 @@
 
 import Foundation
 
-final class SearchDependencyContainer: ObservableObject {
+final class SearchBrandDependencyContainer: ObservableObject {
     
-    func makeSearchViewModel() -> SearchViewModel {
+    func makeSearchViewModel() -> SearchBrandViewModel {
         let searchBrandService = BrandSearchService()
-        let viewModel = SearchViewModel(searchBrandService: searchBrandService)
+        let viewModel = SearchBrandViewModel(searchBrandService: searchBrandService)
         return viewModel
     }
 }
