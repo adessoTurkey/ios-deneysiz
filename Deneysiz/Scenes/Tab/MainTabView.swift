@@ -48,7 +48,7 @@ struct MainTabView: View {
                         .environmentObject(DiscoverDependencyContainer())
                         .navigationBarTitle("")
                         .navigationBarHidden(true)
-                    
+
                     InfoView()
                         .tabItem {
                             VStack {
@@ -63,6 +63,7 @@ struct MainTabView: View {
                 .accentColor(.orange)
             }
             .navigationViewStyle(StackNavigationViewStyle())
+            .buttonStyle(.plain)
             .eraseToAnyView()
         }
     }

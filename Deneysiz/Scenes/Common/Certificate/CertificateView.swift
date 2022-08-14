@@ -14,56 +14,58 @@ struct CertificateView: View {
     var body: some View {
         CustomNavBarContainer {
             NavBar
-
         } content: {
             ScrollView(.vertical, showsIndicators: false) {
-                Text(viewModel.description)
-                    .font(.customFont(size: 14, type: .fontRegular))
-                    .foregroundColor(.deneysizTextColor)
-                    .padding(.horizontal)
-
-                HStack {
-                    if #available(iOS 15.0, *) {
-                        Text(viewModel.websiteUrl)
-                            .font(.customFont(size: 14, type: .fontMedium))
-                            .tint(.deneysizOrange)
-                            .padding(.top)
-                    } else {
-                        Text(viewModel.websiteUrl)
-                            .font(.customFont(size: 14, type: .fontMedium))
-                            .padding(.top)
-                    }
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                if case let .peta(petacerts) = viewModel.viewType {
-                    HStack {
-                        Text("beauty_without_bunnies.inner_title")
-                            .font(.customFont(size: 20, type: .fontBold))
-                            .foregroundColor(.deneysizTextColor)
-                        Spacer()
-                    }
-                    .padding()
-
-                    Text("beauty_without_bunnies.logos")
+                VStack(alignment: .leading) {
+                    Text(viewModel.description)
                         .font(.customFont(size: 14, type: .fontRegular))
                         .foregroundColor(.deneysizTextColor)
-                    
+
                     HStack {
-                        ForEach(petacerts, id: \.self) {
-                            Image($0)
-                                .frame(width: 60, height: 60)
+                        if #available(iOS 15.0, *) {
+                            Text(viewModel.websiteUrl)
+                                .font(.customFont(size: 14, type: .fontMedium))
+                                .tint(.deneysizOrange)
+                                .padding(.top)
+                        } else {
+                            Text(viewModel.websiteUrl)
+                                .font(.customFont(size: 14, type: .fontMedium))
+                                .padding(.top)
                         }
                         Spacer()
                     }
-                    .padding()
+
+                    if case let .peta(petacerts) = viewModel.viewType {
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                Text("beauty_without_bunnies.inner_title")
+                                    .font(.customFont(size: 20, type: .fontBold))
+                                    .foregroundColor(.deneysizTextColor)
+                                Spacer()
+                            }
+
+                            Text("beauty_without_bunnies.logos")
+                                .font(.customFont(size: 14, type: .fontRegular))
+                                .foregroundColor(.deneysizTextColor)
+
+                            HStack {
+                                ForEach(petacerts, id: \.self) {
+                                    Image($0)
+                                        .frame(width: 60, height: 60)
+                                }
+                                Spacer()
+                            }
+                            .padding(.top, 8)
+                        }
+                        .padding(.top, 32)
+                    }
                 }
+                .padding(.horizontal)
             }
             .navBarTopSpacing(16)
         }
     }
-        
+
     var NavBar: some View {
         CustomNavBar(
             left: {
@@ -96,6 +98,6 @@ struct CertificateView: View {
 
 struct CertificateView_Previews: PreviewProvider {
     static var previews: some View {
-        CertificateView(viewModel: .init(certificate: .vlabelCert))
+        CertificateView(viewModel: .init(certificate: .beautyWithoutBunniesCert))
     }
 }

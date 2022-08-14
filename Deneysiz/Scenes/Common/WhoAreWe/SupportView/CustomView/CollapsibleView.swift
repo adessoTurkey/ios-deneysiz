@@ -26,8 +26,6 @@ struct CollapsibleView<Content: View>: View {
                     .padding(.bottom, 1)
                 }
             )
-                .buttonStyle(PlainButtonStyle())
-            
             VStack {
                 self.content()
             }

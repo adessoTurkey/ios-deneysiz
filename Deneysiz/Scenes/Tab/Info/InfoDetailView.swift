@@ -20,9 +20,9 @@ struct InfoDetailView: View {
                 if #available(iOS 15.0, *) {
                     Text(LocalizedStringKey(descriptionKey))
                         .font(.customFont(size: 14, type: .fontRegular))
+                        .tint(.deneysizOrange)
                         .foregroundColor(.deneysizTextColor)
                         .padding(.horizontal)
-                        .tint(.deneysizOrange)
                 } else {
                     Text(LocalizedStringKey(descriptionKey))
                         .font(.customFont(size: 14, type: .fontRegular))
