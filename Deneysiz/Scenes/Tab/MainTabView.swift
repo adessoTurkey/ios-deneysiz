@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State private var selectedtab = TabViewEnum.discover()
+    @State private var selectedtab = TabViewEnum.search()
     @State private var showLottie = true
     
     init() {
@@ -26,6 +26,17 @@ struct MainTabView: View {
         } else {
             return NavigationView {
                 TabView(selection: $selectedtab) {
+                    SearchBrandView()
+                        .tabItem {
+                            VStack {
+                                Image("tabBarSearch")
+                                Text("search-for-brand")
+                            }
+                        }
+                        .tag(TabViewEnum.search())
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true)
+                    
                     DiscoverView()
                         .tabItem {
                             VStack {
@@ -58,6 +69,7 @@ struct MainTabView: View {
 }
 
 enum TabViewEnum: String {
+    case search
     case discover
     case info
     

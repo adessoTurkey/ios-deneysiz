@@ -24,9 +24,9 @@ class FirstViewModel: BaseViewModel, ObservableObject {
         
         realService.realRequest()
             .sink(
-                receiveCompletion: { err in
+                receiveCompletion: { _ in
                 },
-                receiveValue: { bool in
+                receiveValue: { _ in
                 })
             .store(in: &self.cancellables)
 

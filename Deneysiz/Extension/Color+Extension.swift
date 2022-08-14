@@ -24,4 +24,6 @@ extension Color {
     static let deneysizBlueTextColor = Color(CGColor(red: 0.024, green: 0.322, blue: 0.867, alpha: 1))
     static let certificateRectangleBackground = Color(CGColor(red: 0.988, green: 0.988, blue: 0.988, alpha: 1))    
     static let rabbitLottieBackground = Color(#colorLiteral(red: 0.9524493814, green: 0.2772477269, blue: 0.1385871172, alpha: 1).cgColor)
+    static let textFieldBackground = Color(CGColor(red: 0.925, green: 0.941, blue: 0.945, alpha: 1))
+
 }

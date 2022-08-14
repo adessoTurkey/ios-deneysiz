@@ -25,6 +25,7 @@ struct CustomNavBarContainer<NavBar: View, Content: View>: View {
     
     let navbar: NavBar
     let content: Content
+    
     init (
         @ViewBuilder navbar: @escaping () -> NavBar,
         @ViewBuilder content: @escaping () -> Content

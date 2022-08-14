@@ -37,7 +37,7 @@ struct BrandListView: View {
                             tag: brand.id,
                             selection: $brandSelection,
                             label: {
-                                BrandCell(brand: brand, onPointClick: onPointClick)
+                                BrandCell(brand: brand/*, onPointClick: onPointClick*/)
                                 // To get tap gesture event on Spacer
                                     .contentShape(Rectangle())
                             }
@@ -59,11 +59,11 @@ struct BrandListView: View {
     }
 }
 
-private struct BrandCell: View {
+public struct BrandCell: View {
     let brand: Brand
-    let onPointClick: (Brand?) -> Void
+//    let onPointClick: (Brand?) -> Void
 
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
@@ -83,9 +83,9 @@ private struct BrandCell: View {
                     .frame(width: 50)
                     .padding(8)
                     .background(brand.color.cornerRadius(8))
-                    .onTapGesture {
-                        onPointClick(brand)
-                    }
+//                    .onTapGesture {
+//                        onPointClick(brand)
+//                    }
             }
             .padding(16)
             

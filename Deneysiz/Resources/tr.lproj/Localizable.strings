@@ -8,6 +8,7 @@
 
 "hello-world" = "Merhaba Dunya";
 "discover" = "Keşfet";
+"search-for-brand" = "Marka Ara";
 "do_you_know" = "Biliyor Musun";
 "do_you_know.question_mark" = "Biliyor Musun?";
 "allBrands" = "Bütün\nMarkalar";
@@ -131,3 +132,5 @@ Sertifikalandırmada iki ayrı seçenek var:
 "who_are_we.email_subject" = "Deneysiz App hk.";
 "brand_detail.email_subject" = "Yanlış/eksik veri bildir";
 "iban_copy_message" = "IBAN kopyalandı";
+"give-up" = "Vazgeç";
+"search_view.description" = "Deutsches Ipsum Dolor quo lucilius Freude schöner Götterfunken at, adhuc laboramus sadipscing per";
