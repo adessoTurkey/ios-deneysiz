@@ -30,7 +30,7 @@ struct MainTabView: View {
                         .tabItem {
                             VStack {
                                 Image("tabBarSearch")
-                                Text("search-for-brand")
+                                Text("search")
                             }
                         }
                         .tag(TabViewEnum.search())

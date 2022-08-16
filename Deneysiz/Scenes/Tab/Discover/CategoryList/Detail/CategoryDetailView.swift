@@ -45,7 +45,7 @@ struct CategoryDetailView: View {
         .modifier(
             PopUpHelper(
                 popUpView: LottieLoading(),
-                isPresented: $viewModel.isLoading,
+                isPresented: .constant(viewModel.viewState == .loading),
                 config: .init(backgroundOpacitiy: 0)
             )
         )
@@ -68,7 +68,6 @@ struct CategoryDetailView: View {
                     onButtonClick: {
                         withAnimation {
                             viewModel.onError = false
-                            viewModel.isLoading = true
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             viewModel.getBrands()

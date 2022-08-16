@@ -44,7 +44,6 @@ enum OrderConfig: Equatable, Identifiable {
 final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
 
     @Published var brands: [Brand] = []
-    @Published var isLoading: Bool = false
     @Published var showOrderSheet = false
     @Published var showPointsPopUp = false
     @Published var showNoDataLottie = false
@@ -65,12 +64,12 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
     }
     
     func getBrands() {
-        isLoading = true
+        viewState = .loading
         brandService.getBrandsByCategory(payload: .init(categoryId: "\(categoryEnum.rawValue)"))
             .sink { [weak self] completion in
-                self?.isLoading = false
                 switch completion {
                 case .failure(let error):
+                    self?.viewState = .error
                     let error = error as NSError
                     if error.code == -1009 {
                         self?.errorType = .noInternet
@@ -82,6 +81,7 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
                     break
                 }
             } receiveValue: { [weak self] brands in
+                self?.viewState = .loaded
                 self?.showNoDataLottie = brands.isEmpty
                 self?.brands = brands.sorted(by: { $0.score > $1.score })
             }
@@ -122,7 +122,7 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
             overlayImage: "points",
             description: "brand-detail-points-alert-description",
             point: brand?.score ?? 0,
-            details: PointDetailPopUpLogic.makePointDetailUIModel(for: brand)
+            details: PointDetailPopUpLogic.makePointDetailUIModel(brand: brand)
         )
         self.showPointsPopUp = true
     }

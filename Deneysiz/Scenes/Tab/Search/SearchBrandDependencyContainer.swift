@@ -14,4 +14,8 @@ final class SearchBrandDependencyContainer: ObservableObject {
         let viewModel = SearchBrandViewModel(searchBrandService: searchBrandService)
         return viewModel
     }
+
+    func makeBrandDetailViewModel(brandID: Int) -> BrandDetailViewModel {
+        .init(brandID: brandID, service: BrandDetailService())
+    }
 }

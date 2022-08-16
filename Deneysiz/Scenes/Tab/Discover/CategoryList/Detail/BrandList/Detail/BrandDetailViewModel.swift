@@ -53,14 +53,13 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
     
     @Published var brandDetailUIModel: BrandDetailUIModel = .empty
     @Published var detail: [Details] = []
-    @Published var isLoading = false
 
-    private let brand: Brand
+    private let brandID: Int
     private let service: BrandDetailAPI
     private var brandDetail: BrandDetail?
 
-    init(brand: Brand, service: BrandDetailAPI) {
-        self.brand = brand
+    init(brandID: Int, service: BrandDetailAPI) {
+        self.brandID = brandID
         self.service = service
         super.init()
         getBrandDetail()
@@ -68,13 +67,13 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
     }
     
     func getBrandDetail() {
-        isLoading = true
-        service.getBrandDetail(payload: .init(id: "\(brand.id)"))
+        viewState = .loading
+        service.getBrandDetail(payload: .init(id: "\(brandID)"))
             .sink(
                 receiveCompletion: { [weak self] completion in
-                    self?.isLoading = false
                     switch completion {
                     case .failure(_):
+                        self?.viewState = .error
                         self?.onError = true
                     default:
                         break
@@ -82,8 +81,10 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
                     
                 }, receiveValue: { [weak self] details in
                     guard let first = details.first else { return }
+                    self?.viewState = .loaded
                     self?.brandDetail = first
                     self?.brandDetailUIModel = BrandDetailUIModel(brandDetail: first)
+                    self?.evaluateDetail()
                 })
             .store(in: &self.cancellables)
     }
@@ -93,7 +94,7 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
             overlayImage: "points",
             description: "brand-detail-points-alert-description",
             point: brandDetail?.score ?? 0,
-            details: PointDetailPopUpLogic.makePointDetailUIModel(for: brandDetail)
+            details: PointDetailPopUpLogic.makePointDetailUIModel(detail: brandDetail)
         )
     }
     
@@ -101,13 +102,15 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         func image(_ state: Bool) -> String {
             state == true ? "statusYes" : "statusNo"
         }
+
+        guard let brandDetail = brandDetail else { return }
+
+        let hasVeganProduct = Details(title: "brand-detail-hasVeganProduct", image: image(brandDetail.veganProduct))
         
-        let hasVeganProduct = Details(title: "brand-detail-hasVeganProduct", image: image(brand.veganProduct))
-        
-        let offerInChina = Details(title: "brand-detail-offerInChina", image: image(!brand.offerInChina))
+        let offerInChina = Details(title: "brand-detail-offerInChina", image: image(!brandDetail.offerInChina))
         
         // cati firma null ise "Cati Firma Deneysiz" yesil tik goster.
-        let parentCompanySafe = Details(title: "brand-detail-parentCompanySafe", image: image(brand.parentCompany?.safe ?? true))
+        let parentCompanySafe = Details(title: "brand-detail-parentCompanySafe", image: image(brandDetail.parentCompany?.safe ?? true))
         
         detail = [hasVeganProduct, offerInChina, parentCompanySafe]
     }
@@ -134,14 +137,33 @@ struct PointDetailPopUpLogic {
         return .init(name: name, point: point, state: state, color: color)
     }
     
-    static func makePointDetailUIModel(for detail: BrandDetail?) -> [BrandPointDetailUIModel] {
-        guard let detail = detail else {
+    static func makePointDetailUIModel(brand: Brand? = nil, detail: BrandDetail? = nil) -> [BrandPointDetailUIModel] {
+
+        let isSafe: Bool
+        let isParentSafe: Bool?
+        let isOfferInChina: Bool
+        let isVegan: Bool
+        let isVeganProduct: Bool
+
+        if let brand = brand {
+            isSafe = brand.safe
+            isParentSafe = brand.parentCompany?.safe
+            isOfferInChina = brand.offerInChina
+            isVegan = brand.vegan
+            isVeganProduct = brand.veganProduct
+        } else if let detail = detail {
+            isSafe = detail.safe
+            isParentSafe = detail.parentCompany?.safe
+            isOfferInChina = detail.offerInChina
+            isVegan = detail.vegan
+            isVeganProduct = detail.veganProduct
+        } else {
             return []
         }
 
         let brandSafe = make(
             name: "brand-detail-safe",
-            condition: detail.safe,
+            condition: isSafe,
             point: ("4", "0"),
             pointSum: "4",
             title: ("Evet", "Hayır"),
@@ -149,7 +171,7 @@ struct PointDetailPopUpLogic {
         
         let parentSafe = make(
             name: "brand-detail-parentCompanySafe",
-            condition: detail.parentCompany?.safe,
+            condition: isParentSafe,
             point: ("3", "0"),
             pointSum: "3",
             title: ("Evet", "Hayır"),
@@ -157,7 +179,7 @@ struct PointDetailPopUpLogic {
         
         let offerChina = make(
             name: "brand-detail-offerInChina",
-            condition: !detail.offerInChina,
+            condition: !isOfferInChina,
             point: ("1", "0"),
             pointSum: "1",
             title: ("Evet", "Hayır"),
@@ -165,7 +187,7 @@ struct PointDetailPopUpLogic {
         
         let vegan = make(
             name: "brand-detail-vegan",
-            condition: detail.vegan,
+            condition: isVegan,
             point: ("1", "0"),
             pointSum: "1",
             title: ("Evet", "Hayır"),
@@ -173,7 +195,7 @@ struct PointDetailPopUpLogic {
         
         let veganProduct = make(
             name: "brand-detail-hasVeganProduct",
-            condition: detail.veganProduct,
+            condition: isVeganProduct,
             point: ("1", "0"),
             pointSum: "1",
             title: ("Evet", "Hayır"),
@@ -181,53 +203,4 @@ struct PointDetailPopUpLogic {
        
         return [brandSafe, parentSafe, offerChina, vegan, veganProduct]
     }
-
-    static func makePointDetailUIModel(for brand: Brand?) -> [BrandPointDetailUIModel] {
-        guard let detail = brand else {
-            return []
-        }
-
-        let brandSafe = make(
-            name: "brand-detail-safe",
-            condition: detail.safe,
-            point: ("4", "0"),
-            pointSum: "4",
-            title: ("Evet", "Hayır"),
-            color: (.superHighPointGreen, .lowPointRed))
-
-        let parentSafe = make(
-            name: "brand-detail-parentCompanySafe",
-            condition: detail.parentCompany?.safe,
-            point: ("3", "0"),
-            pointSum: "3",
-            title: ("Evet", "Hayır"),
-            color: (.superHighPointGreen, .lowPointRed))
-
-        let offerChina = make(
-            name: "brand-detail-offerInChina",
-            condition: !detail.offerInChina,
-            point: ("1", "0"),
-            pointSum: "1",
-            title: ("Evet", "Hayır"),
-            color: (.superHighPointGreen, .lowPointRed))
-
-        let vegan = make(
-            name: "brand-detail-vegan",
-            condition: detail.vegan,
-            point: ("1", "0"),
-            pointSum: "1",
-            title: ("Evet", "Hayır"),
-            color: (.superHighPointGreen, .lowPointRed))
-
-        let veganProduct = make(
-            name: "brand-detail-hasVeganProduct",
-            condition: detail.veganProduct,
-            point: ("1", "0"),
-            pointSum: "1",
-            title: ("Evet", "Hayır"),
-            color: (.superHighPointGreen, .lowPointRed))
-
-        return [brandSafe, parentSafe, offerChina, vegan, veganProduct]
-    }
-
 }

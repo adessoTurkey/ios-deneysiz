@@ -25,6 +25,7 @@ struct BrandDetailView: View {
         } content: {
                 BrandDetailScrollView
                     .navBarTopSpacing(32)
+                    .opacity(viewModel.viewState == .loaded ? 1 : 0)
         }
         .padding(.horizontal, 24)
         .modifier(
@@ -39,7 +40,6 @@ struct BrandDetailView: View {
                     onButtonClick: {
                         withAnimation {
                             viewModel.onError = false
-                            viewModel.isLoading = true
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             viewModel.getBrandDetail()
@@ -61,7 +61,7 @@ struct BrandDetailView: View {
         .modifier(
             PopUpHelper(
                 popUpView: LottieLoading(),
-                isPresented: $viewModel.isLoading,
+                isPresented: .constant(viewModel.viewState == .loading),
                 config: .init(backgroundOpacitiy: 0)
             )
         )
@@ -248,7 +248,7 @@ struct BrandDetailView_Previews: PreviewProvider {
         }
         return BrandDetailView(
             viewModel: DiscoverDependencyContainer()
-                .makeBrandDetailViewModel(brand: brand)).eraseToAnyView()
+                .makeBrandDetailViewModel(brandID: brand.id)).eraseToAnyView()
     }
 }
 #endif

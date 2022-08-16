@@ -33,11 +33,11 @@ struct BrandListView: View {
                 VStack {
                     ForEach(brands, id: \.name) { brand in
                         NavigationLink(
-                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brand: brand)),
+                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
                             tag: brand.id,
                             selection: $brandSelection,
                             label: {
-                                BrandCell(brand: brand/*, onPointClick: onPointClick*/)
+                                BrandCell(brand: brand, onPointClick: onPointClick)
                                 // To get tap gesture event on Spacer
                                     .contentShape(Rectangle())
                             }
@@ -58,9 +58,9 @@ struct BrandListView: View {
     }
 }
 
-public struct BrandCell: View {
+private struct BrandCell: View {
     let brand: Brand
-//    let onPointClick: (Brand?) -> Void
+    let onPointClick: (Brand?) -> Void
 
     public var body: some View {
         VStack(spacing: 0) {
@@ -82,9 +82,9 @@ public struct BrandCell: View {
                     .frame(width: 50)
                     .padding(8)
                     .background(brand.color.cornerRadius(8))
-//                    .onTapGesture {
-//                        onPointClick(brand)
-//                    }
+                    .onTapGesture {
+                        onPointClick(brand)
+                    }
             }
             .padding(16)
             

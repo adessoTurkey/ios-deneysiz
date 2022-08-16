@@ -8,7 +8,8 @@
 
 "hello-world" = "Merhaba Dunya";
 "discover" = "Keşfet";
-"search-for-brand" = "Marka Ara";
+"search" = "Marka Ara";
+"search-for-brand" = "Marka ya da Çatı Marka Ara";
 "do_you_know" = "Biliyor Musun";
 "do_you_know.question_mark" = "Biliyor Musun?";
 "allBrands" = "Bütün\nMarkalar";

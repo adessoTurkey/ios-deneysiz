@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchBrandView: View {
 
+    @EnvironmentObject var container: SearchBrandDependencyContainer
     @StateObject var viewModel: SearchBrandViewModel
     // for sticky header view
     @State private var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
@@ -46,24 +47,16 @@ struct SearchBrandView: View {
                             .frame(height: geometry.size.width * 1.17)
                         }
 
-                        SearchView(isSearching: $isSearching, searchText: $viewModel.searchText)
+                        SearchBar(searchText: $viewModel.searchText, isSearching: $isSearching)
                             .padding(.top, isSearching ?  geometry.safeAreaInsets.top : 40)
                             .padding(.horizontal, 24)
-
-                        if isSearching {
-                            VStack(alignment: .leading) {
-                                Text(String(format: NSLocalizedString("category-brand-found", comment: ""), viewModel.brands.count))
-                                    .padding(.horizontal, 16)
-                                    .font(.customFont(size: 12, type: .fontRegular))
-                                    .foregroundColor(.deneysizTextColor)
-                                    .opacity(showBrandCount ? 1 : 0)
-
-                                BrandListView
-                            }
-                            .padding(.top, 24)
-                        }
+                            .anchorPreference(
+                                key: BoundsPreferenceKey.self,
+                                value: .bounds
+                            ) { $0 }
                     }
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .edgesIgnoringSafeArea(.top)
             }
 
@@ -73,6 +66,17 @@ struct SearchBrandView: View {
                         .padding(.top, 24)
                         .padding(.horizontal, 24)
                     Spacer()
+                }
+            }
+        }
+        .overlayPreferenceValue(BoundsPreferenceKey.self) { preferences in
+            GeometryReader { geometry in
+                if isSearching {
+                    preferences.map { val in
+                        BrandListScrollView
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(.top, geometry[val].maxY + 24)
+                    }
                 }
             }
         }
@@ -100,19 +104,31 @@ struct SearchBrandView: View {
         .foregroundColor(.white)
     }
 
-    private var BrandListView: some View {
-            ForEach(viewModel.brands, id: \.name) { brand in
-                NavigationLink(
-                    destination: Text("as"),
-                    tag: brand.id,
-                    selection: $brandSelection,
-                    label: {
-                        BrandSearchCell(brandSearch: brand)
-                        // To get tap gesture event on Spacer
-                            .contentShape(Rectangle())
+    private var BrandListScrollView: some View {
+        VStack(alignment: .leading) {
+            Text(String(format: NSLocalizedString("category-brand-found", comment: ""), viewModel.brands.count))
+                .padding(.horizontal, 16)
+                .font(.customFont(size: 12, type: .fontRegular))
+                .foregroundColor(.deneysizTextColor)
+                .opacity(showBrandCount ? 1 : 0)
+
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    ForEach(viewModel.brands, id: \.name) { brand in
+                        NavigationLink(
+                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
+                            tag: brand.id,
+                            selection: $brandSelection,
+                            label: {
+                                BrandSearchCell(brandSearch: brand)
+                                // To get tap gesture event on Spacer
+                                    .contentShape(Rectangle())
+                            }
+                        )
                     }
-                )
+                }
             }
+        }
     }
 
     private var showBrandCount: Bool {
@@ -126,24 +142,6 @@ struct SearchBrandView_Previews: PreviewProvider {
     }
 }
 
-struct SearchView: View {
-    
-    @Binding var isSearching: Bool
-    @Binding var searchText: String
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            SearchBar(searchText: $searchText, isSearching: $isSearching)
-            if !isSearching {
-                Text("search_view.description")
-                    .font(.customFont(size: 14, type: .fontRegular))
-                    .foregroundColor(.deneysizTextColor)
-            }
-        }
-    }
-    
-}
-
 struct SearchBar: View {
     @Binding var searchText: String
     @Binding var isSearching: Bool
@@ -154,17 +152,23 @@ struct SearchBar: View {
                 Image(systemName: "magnifyingglass")
                     .font(.system(size: 15, weight: .bold))
                     .foregroundColor(.secondary)
-                TextField("", text: $searchText)
-                    .placeholder(when: searchText.isEmpty) {
-                        Text("search-for-brand")
-                            .foregroundColor(.black)
-                    }
-                    .disableAutocorrection(true)
-                    .onTapGesture {
+                TextField("search-for-brand", text: $searchText, onEditingChanged: { editing in
+                    if editing {
                         withAnimation {
                             isSearching = true
                         }
                     }
+                })
+                .disableAutocorrection(true)
+                if !searchText.isEmpty {
+                Spacer()
+                Image(systemName: "multiply.circle.fill")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundColor(.secondary)
+                    .onTapGesture {
+                        searchText = ""
+                    }
+                }
             }
             .padding(8)
             .frame(height: 36)
