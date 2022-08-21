@@ -8,21 +8,23 @@
 import SwiftUI
 
 struct SearchBrandView: View {
-
+    
     @EnvironmentObject var container: SearchBrandDependencyContainer
     @StateObject var viewModel: SearchBrandViewModel
     // for sticky header view
     @State private var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State private var show = false
     @State private var isSearching = false
-
+    
     // For fixing navigation link stuck error. add tag & selection
     @State private var infoViewNavigationSelection: String?
     @State private var brandSelection: Int?
-
+    
+    private let multiplier: CGFloat = 0.65
+    
     var body: some View {
         ZStack {
-            GeometryReader { geometry in
+            GeometryReader { outerGeometry in
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading) {
                         if !isSearching {
@@ -34,21 +36,21 @@ struct SearchBrandView: View {
                                 // increasing height by drag amount
                                     .frame(
                                         height: geometry.frame(in: .global).minY > 0 ?
-                                        geometry.size.width * 1.17 + geometry.frame(in: .global).minY :
-                                            geometry.size.width * 1.17)
+                                        outerGeometry.size.height * multiplier + geometry.frame(in: .global).minY :
+                                            outerGeometry.size.height * multiplier)
                                     .onReceive(self.time) { _ in
                                         let y = geometry.frame(in: .global).minY
                                         withAnimation {
-                                            self.show = -y > (geometry.size.width * 1.17) - 50
+                                            self.show = -y > (outerGeometry.size.height * multiplier) - 50
                                         }
                                     }
                             }
                             // fixing default height
-                            .frame(height: geometry.size.width * 1.17)
+                            .frame(height: outerGeometry.size.height * multiplier)
                         }
-
+                        
                         SearchBar(searchText: $viewModel.searchText, isSearching: $isSearching)
-                            .padding(.top, isSearching ?  geometry.safeAreaInsets.top : 40)
+                            .padding(.top, isSearching ?  outerGeometry.safeAreaInsets.top : 40)
                             .padding(.horizontal, 24)
                             .anchorPreference(
                                 key: BoundsPreferenceKey.self,
@@ -59,7 +61,7 @@ struct SearchBrandView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .edgesIgnoringSafeArea(.top)
             }
-
+            
             if !isSearching {
                 VStack {
                     NavBar
@@ -81,7 +83,7 @@ struct SearchBrandView: View {
             }
         }
     }
-
+    
     var NavBar: some View {
         CustomNavBar(
             left: {
@@ -103,7 +105,7 @@ struct SearchBrandView: View {
             })
         .foregroundColor(.white)
     }
-
+    
     private var BrandListScrollView: some View {
         VStack(alignment: .leading) {
             Text(String(format: NSLocalizedString("category-brand-found", comment: ""), viewModel.brands.count))
@@ -111,7 +113,7 @@ struct SearchBrandView: View {
                 .font(.customFont(size: 12, type: .fontRegular))
                 .foregroundColor(.deneysizTextColor)
                 .opacity(showBrandCount ? 1 : 0)
-
+            
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
                     ForEach(viewModel.brands, id: \.name) { brand in
@@ -130,7 +132,7 @@ struct SearchBrandView: View {
             }
         }
     }
-
+    
     private var showBrandCount: Bool {
         !viewModel.brands.isEmpty
     }
@@ -161,20 +163,20 @@ struct SearchBar: View {
                 })
                 .disableAutocorrection(true)
                 if !searchText.isEmpty {
-                Spacer()
-                Image(systemName: "multiply.circle.fill")
-                    .font(.system(size: 15, weight: .bold))
-                    .foregroundColor(.secondary)
-                    .onTapGesture {
-                        searchText = ""
-                    }
+                    Spacer()
+                    Image(systemName: "multiply.circle.fill")
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundColor(.secondary)
+                        .onTapGesture {
+                            searchText = ""
+                        }
                 }
             }
             .padding(8)
             .frame(height: 36)
             .background(Color.textFieldBackground)
             .cornerRadius(10)
-
+            
             if isSearching {
                 Button {
                     withAnimation {
@@ -184,7 +186,7 @@ struct SearchBar: View {
                     }
                 } label: {
                     Text("give-up")
-
+                    
                 }
                 .padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
@@ -196,7 +198,7 @@ struct SearchBar: View {
 
 private struct BrandSearchCell: View {
     let brandSearch: BrandSearch
-
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .top) {
@@ -208,9 +210,9 @@ private struct BrandSearchCell: View {
                         .font(.customFont(size: 17))
                         .foregroundColor(.deneysizText2Color)
                 }
-
+                
                 Spacer()
-
+                
                 Text(brandSearch.pointTitle)
                     .font(.customFont(size: 17))
                     .foregroundColor(.white)
@@ -219,15 +221,8 @@ private struct BrandSearchCell: View {
                     .background(brandSearch.color.cornerRadius(8))
             }
             .padding(16)
-
+            
             Divider()
         }
-    }
-}
-
-
-extension View {
-    func dismissKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

@@ -70,12 +70,15 @@ struct BrandDetailView: View {
                   message: Text("common-installMailApp"),
                   dismissButton: .default(Text("OK")))
         })
-        .modifier(
-            ActionModifier(
-                showingOptions: $showingOptions,
-                installMailApp: $installMailApp
-            )
-        )
+        .if(UIDevice.isIPhone == true, transform: { view in
+            view
+                .modifier(
+                    ActionModifier(
+                        showingOptions: $showingOptions,
+                        installMailApp: $installMailApp
+                    )
+                )
+        })
     }
 
     private var NavBar: some View {
@@ -99,6 +102,15 @@ struct BrandDetailView: View {
                         .font(.customFont(size: 20, type: .fontBold))
                         .foregroundColor(.deneysizTextColor)
                 }
+                .if(UIDevice.isIPad == true, transform: { view in
+                    view
+                        .modifier(
+                            ActionModifier(
+                                showingOptions: $showingOptions,
+                                installMailApp: $installMailApp
+                            )
+                        )
+                })
             },
             config: .init(isCenterMultiline: true, alignment: .top)
         )

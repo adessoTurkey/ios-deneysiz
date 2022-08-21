@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		923BE92828B287AE0018B4AC /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923BE92728B287AE0018B4AC /* UIDevice+Extension.swift */; };
 		9299AACA28A982B400FD6DB6 /* BrandPointDetailUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AAC928A982B400FD6DB6 /* BrandPointDetailUIModel.swift */; };
 		9299AACE28A982C200FD6DB6 /* SearchBrandViewContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AACB28A982C100FD6DB6 /* SearchBrandViewContainerView.swift */; };
 		9299AACF28A982C200FD6DB6 /* SearchBrandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AACC28A982C200FD6DB6 /* SearchBrandViewModel.swift */; };
@@ -153,6 +154,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		923BE92728B287AE0018B4AC /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		9299AAC928A982B400FD6DB6 /* BrandPointDetailUIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandPointDetailUIModel.swift; sourceTree = "<group>"; };
 		9299AACB28A982C100FD6DB6 /* SearchBrandViewContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBrandViewContainerView.swift; sourceTree = "<group>"; };
 		9299AACC28A982C200FD6DB6 /* SearchBrandViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBrandViewModel.swift; sourceTree = "<group>"; };
@@ -769,6 +771,7 @@
 				98598323268C4C8B007678E8 /* Font+Extension.swift */,
 				A5FC0A952694861800F0FAD6 /* Color+Extension.swift */,
 				A5C7114D278DBECD000F803C /* UINavigationController+Extension.swift */,
+				923BE92728B287AE0018B4AC /* UIDevice+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1147,6 +1150,7 @@
 				9834C3972691DA230037EC8F /* EmailService.swift in Sources */,
 				92AAD21D28AA170F005B1458 /* AuthService.swift in Sources */,
 				A51C45C12660DD23003CCC58 /* FirstContainerView.swift in Sources */,
+				923BE92828B287AE0018B4AC /* UIDevice+Extension.swift in Sources */,
 				92AAD22628AA170F005B1458 /* SearchBrandPayload.swift in Sources */,
 				92AAD1FB28AA16E5005B1458 /* BrandDetail.swift in Sources */,
 				A5B2F958275FED4C00826518 /* OrderPopUp.swift in Sources */,
