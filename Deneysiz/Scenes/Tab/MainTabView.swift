@@ -60,6 +60,17 @@ struct MainTabView: View {
                         .tag(TabViewEnum.info())
                         .navigationBarTitle("")
                         .navigationBarHidden(true)
+                    
+                    FollowingView()
+                        .tabItem {
+                            VStack {
+                                Image("tabBarFollowing")
+                                Text("following")
+                            }
+                        }
+                        .tag(TabViewEnum.following())
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true)
                 }
                 .accentColor(.orange)
             }
@@ -74,6 +85,7 @@ enum TabViewEnum: String {
     case search
     case discover
     case info
+    case following
     
     func callAsFunction() -> String {
         self.rawValue
