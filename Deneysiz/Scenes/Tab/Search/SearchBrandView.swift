@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct SearchBrandView: View {
-
+    
     @EnvironmentObject var container: SearchBrandDependencyContainer
     @StateObject var viewModel: SearchBrandViewModel
     // for sticky header view
     @State private var time = Timer.publish(every: 0.1, on: .current, in: .tracking).autoconnect()
     @State private var show = false
     @State private var isSearching = false
-
+    
     // For fixing navigation link stuck error. add tag & selection
     @State private var infoViewNavigationSelection: String?
     @State private var brandSelection: Int?
-
+    @State private var installMailApp = false
+    
     var body: some View {
         ZStack {
             GeometryReader { geometry in
@@ -46,9 +47,9 @@ struct SearchBrandView: View {
                             // fixing default height
                             .frame(height: geometry.size.width * 1.17)
                         }
-
+                        
                         SearchBar(searchText: $viewModel.searchText, isSearching: $isSearching)
-                            .padding(.top, isSearching ?  geometry.safeAreaInsets.top : 40)
+                            .padding(.top, isSearching ? geometry.safeAreaInsets.top : 40)
                             .padding(.horizontal, 24)
                             .anchorPreference(
                                 key: BoundsPreferenceKey.self,
@@ -59,7 +60,7 @@ struct SearchBrandView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .edgesIgnoringSafeArea(.top)
             }
-
+            
             if !isSearching {
                 VStack {
                     NavBar
@@ -81,7 +82,47 @@ struct SearchBrandView: View {
             }
         }
     }
-
+    
+    var NoDataView: some View {
+        VStack {
+            LottieNoData()
+            Text("Oops")
+                .font(.customFont(size: 20, type: .fontBold))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 24)
+            Text("Aradığın marka bulunamadı. Uygulamada görmek istediğin marka için bizimle iletişime geçebilirsin.")
+                .font(.customFont(size: 20, type: .fontRegular))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 24)
+                .padding(.vertical, 8)
+            Button {
+                EmailService.shared.sendEmail(subject: NSLocalizedString("category_detail.email_subject", comment: ""), completion: {
+                    installMailApp = !$0
+                })
+            } label: {
+                HStack {
+                    Spacer()
+                    Text("category_detail.suggest_new_brand")
+                        .font(.customFont(size: 14, type: .fontRegular))
+                    Spacer()
+                }
+                .padding()
+            }
+            .background(Color("orange"))
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            .padding(.vertical)
+            .padding(.horizontal)
+            Spacer()
+        }
+        .padding(24)
+        .alert(isPresented: $installMailApp, content: {
+            Alert(title: Text("error"),
+                  message: Text("common-installMailApp"),
+                  dismissButton: .default(Text("OK")))
+        })
+    }
+    
     var NavBar: some View {
         CustomNavBar(
             left: {
@@ -101,36 +142,41 @@ struct SearchBrandView: View {
                         }
                     })
             })
-        .foregroundColor(.white)
+            .foregroundColor(.white)
     }
-
+    
     private var BrandListScrollView: some View {
         VStack(alignment: .leading) {
-            Text(String(format: NSLocalizedString("category-brand-found", comment: ""), viewModel.brands.count))
-                .padding(.horizontal, 16)
-                .font(.customFont(size: 12, type: .fontRegular))
-                .foregroundColor(.deneysizTextColor)
-                .opacity(showBrandCount ? 1 : 0)
-
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack {
-                    ForEach(viewModel.brands, id: \.name) { brand in
-                        NavigationLink(
-                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
-                            tag: brand.id,
-                            selection: $brandSelection,
-                            label: {
-                                BrandSearchCell(brandSearch: brand)
-                                // To get tap gesture event on Spacer
-                                    .contentShape(Rectangle())
-                            }
-                        )
+            
+            if !viewModel.searchText.isEmpty && viewModel.brands.isEmpty {
+                NoDataView
+            } else {
+                Text(String(format: NSLocalizedString("category-brand-found", comment: ""), viewModel.brands.count))
+                    .padding(.horizontal, 16)
+                    .font(.customFont(size: 12, type: .fontRegular))
+                    .foregroundColor(.deneysizTextColor)
+                    .opacity(showBrandCount ? 1 : 0)
+                
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack {
+                        ForEach(viewModel.brands, id: \.name) { brand in
+                            NavigationLink(
+                                destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
+                                tag: brand.id,
+                                selection: $brandSelection,
+                                label: {
+                                    BrandSearchCell(brandSearch: brand)
+                                    // To get tap gesture event on Spacer
+                                        .contentShape(Rectangle())
+                                }
+                            )
+                        }
                     }
                 }
             }
         }
     }
-
+    
     private var showBrandCount: Bool {
         !viewModel.brands.isEmpty
     }
@@ -159,22 +205,22 @@ struct SearchBar: View {
                         }
                     }
                 })
-                .disableAutocorrection(true)
+                    .disableAutocorrection(true)
                 if !searchText.isEmpty {
-                Spacer()
-                Image(systemName: "multiply.circle.fill")
-                    .font(.system(size: 15, weight: .bold))
-                    .foregroundColor(.secondary)
-                    .onTapGesture {
-                        searchText = ""
-                    }
+                    Spacer()
+                    Image(systemName: "multiply.circle.fill")
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundColor(.secondary)
+                        .onTapGesture {
+                            searchText = ""
+                        }
                 }
             }
             .padding(8)
             .frame(height: 36)
             .background(Color.textFieldBackground)
             .cornerRadius(10)
-
+            
             if isSearching {
                 Button {
                     withAnimation {
@@ -184,7 +230,7 @@ struct SearchBar: View {
                     }
                 } label: {
                     Text("give-up")
-
+                    
                 }
                 .padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
@@ -196,7 +242,7 @@ struct SearchBar: View {
 
 private struct BrandSearchCell: View {
     let brandSearch: BrandSearch
-
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .top) {
@@ -208,9 +254,9 @@ private struct BrandSearchCell: View {
                         .font(.customFont(size: 17))
                         .foregroundColor(.deneysizText2Color)
                 }
-
+                
                 Spacer()
-
+                
                 Text(brandSearch.pointTitle)
                     .font(.customFont(size: 17))
                     .foregroundColor(.white)
@@ -219,12 +265,11 @@ private struct BrandSearchCell: View {
                     .background(brandSearch.color.cornerRadius(8))
             }
             .padding(16)
-
+            
             Divider()
         }
     }
 }
-
 
 extension View {
     func dismissKeyboard() {
