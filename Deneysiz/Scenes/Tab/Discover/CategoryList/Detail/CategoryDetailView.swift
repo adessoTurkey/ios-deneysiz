@@ -80,12 +80,15 @@ struct CategoryDetailView: View {
                   message: Text("common-installMailApp"),
                   dismissButton: .default(Text("OK")))
         })
-        .modifier(
-            ActionModifier(
-                showingOptions: $showingOptions,
-                installMailApp: $installMailApp
-            )
-        )
+        .if(UIDevice.isIPhone == true, transform: { view in
+            view
+                .modifier(
+                    ActionModifier(
+                        showingOptions: $showingOptions,
+                        installMailApp: $installMailApp
+                    )
+                )
+        })
         .modifier(
             PopUpHelper(
                 popUpView: PointDetailAlert(onDismiss: {
@@ -121,6 +124,15 @@ struct CategoryDetailView: View {
                 } label: {
                     Image("add")
                 }
+                .if(UIDevice.isIPad == true, transform: { view in
+                    view
+                        .modifier(
+                            ActionModifier(
+                                showingOptions: $showingOptions,
+                                installMailApp: $installMailApp
+                            )
+                        )
+                })
             },
             config: .init(isCenterMultiline: true)
         )

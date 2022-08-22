@@ -82,9 +82,13 @@ private struct BrandCell: View {
                     .frame(width: 50)
                     .padding(8)
                     .background(brand.color.cornerRadius(8))
-                    .onTapGesture {
-                        onPointClick(brand)
-                    }
+                    .if(UIDevice.isIPhone == true, transform: { view in
+                        view
+                            .onTapGesture {
+                                onPointClick(brand)
+                            }
+                    })
+                        
             }
             .padding(16)
             
