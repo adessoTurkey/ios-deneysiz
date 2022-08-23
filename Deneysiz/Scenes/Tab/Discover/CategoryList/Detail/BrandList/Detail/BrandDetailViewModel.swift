@@ -53,6 +53,10 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
     
     @Published var brandDetailUIModel: BrandDetailUIModel = .empty
     @Published var detail: [Details] = []
+    @Published var isFollowing: Bool = false
+    
+    @UserDefaultWrapper(key: Constants.UserDefaults.followedItem, defaultValue: [])
+    private var followedBrands: [BrandDetail]
 
     private let brandID: Int
     private let service: BrandDetailAPI
@@ -98,6 +102,13 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         )
     }
     
+    func follow() {
+        if !isFollowing, let brandDetail = brandDetail {
+            isFollowing = true
+            followedBrands.append(brandDetail)
+        }
+    }
+    
     private func evaluateDetail() {
         func image(_ state: Bool) -> String {
             state == true ? "statusYes" : "statusNo"
@@ -113,6 +124,10 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
         let parentCompanySafe = Details(title: "brand-detail-parentCompanySafe", image: image(brandDetail.parentCompany?.safe ?? true))
         
         detail = [hasVeganProduct, offerInChina, parentCompanySafe]
+        
+        self.isFollowing = self.followedBrands.contains { brandDetail in
+            brandDetail.id == brandID
+        }
     }
 }
 

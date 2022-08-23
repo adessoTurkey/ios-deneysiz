@@ -200,6 +200,10 @@ struct BrandDetailView: View {
                 TextInfo
                     .padding(.top, 16)
                 
+                HelperButton(image: viewModel.isFollowing ? Image("following") : Image("notFollowing"), title: Text("follow-button-title")) {
+                    viewModel.follow()
+                }
+                
                 LastUpdateText
                     .padding(.top, 10)
             }
@@ -216,6 +220,38 @@ struct BrandDetailView: View {
         Text(String(format: NSLocalizedString("update-date", comment: ""), viewModel.brandDetailUIModel.createDate))
             .font(.customFont(size: 14))
             .foregroundColor(.deneysizTextColor)
+    }
+    
+    private struct HelperButton: View {
+        let image: Image
+        let title: Text
+        let action: (() -> Void)?
+        
+        var body: some View {
+            Button {
+                action?()
+            } label: {
+                HStack {
+                    HStack {
+                        image
+                        title
+                            .font(.customFont(size: 17))
+                            .foregroundColor(.deneysizTextColor)
+                    }
+                    .padding(.vertical, 16)
+                    .padding(.horizontal, 21)
+                    
+                    Spacer()
+                }
+                .frame(height: 58)
+                .background(
+                    Color.white
+                        .cornerRadius(8)
+                        .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
+                )
+            }
+        }
+        
     }
 }
 

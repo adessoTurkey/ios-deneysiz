@@ -61,7 +61,7 @@ struct MainTabView: View {
                         .navigationBarTitle("")
                         .navigationBarHidden(true)
                     
-                    FollowingView()
+                    FollowingContainerView()
                         .tabItem {
                             VStack {
                                 Image("tabBarFollowing")
@@ -69,6 +69,7 @@ struct MainTabView: View {
                             }
                         }
                         .tag(TabViewEnum.following())
+                        .environmentObject(FollowingDependencyContainer())
                         .navigationBarTitle("")
                         .navigationBarHidden(true)
                 }
