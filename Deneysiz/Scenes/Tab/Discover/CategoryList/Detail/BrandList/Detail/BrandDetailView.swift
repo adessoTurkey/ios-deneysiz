@@ -14,6 +14,8 @@ struct BrandDetailView: View {
     @State private var installMailApp = false
     @State private var showingOptions = false
     
+    var hapticImpact = UIImpactFeedbackGenerator(style: .medium)
+
     // For fixing navigation link stuck error. add tag & selection
     @State private var certSelection: String?
     
@@ -200,8 +202,12 @@ struct BrandDetailView: View {
                 TextInfo
                     .padding(.top, 16)
                 
-                HelperButton(image: viewModel.isFollowing ? Image("following") : Image("notFollowing"), title: Text("follow-button-title")) {
+                HelperButton(
+                    image: viewModel.isFollowing ? Image("following") : Image("notFollowing"),
+                    title: Text("follow-button-title")
+                ) {
                     viewModel.follow()
+                    hapticImpact.impactOccurred()
                 }
                 
                 LastUpdateText

@@ -54,6 +54,7 @@ struct FollowingView: View {
                         // To get tap gesture event on Spacer
                             .contentShape(Rectangle())
                             .listRowInsets(EdgeInsets())
+                            .listRowBackground(Color.clear)
                             .background(NavigationLink(
                                 destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
                                 tag: brand.id,

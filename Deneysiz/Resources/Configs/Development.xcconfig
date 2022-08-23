@@ -10,8 +10,6 @@
 
 PRODUCT_BUNDLE_IDENTIFIER = com.deneyehayir.deneysiz.debug
 BASE_URL = api.development.com
-APP_VERSION = 1.0
-APP_BUILD = 1
 FIREBASE_PLIST_NAME = GoogleService-Info-Debug
 BUNDLE_DISPLAY_NAME = Deneysiz Debug
 

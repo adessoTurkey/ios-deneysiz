@@ -31,7 +31,7 @@
 "error" = "Hata!";
 "OK" = "Tamam";
 
-"sellInChina-description" = "2014 yılında kadar, Çin (anakarada) satıla sunulacak yerli ve ithal kozmetik ürünlerinin hayvanlar üzerinde test edilmesi yasal bir zorunluluktu. Firmalar bu testleri kendileri yapmasalar bile hükumete ait laboratuvarlarda bu testler yapılmadan ürünler raflara konulamıyordu.  2014 yılında bir değişiklik yapılarak, ülke içinde (onaylanmış güvenli içerik listesi ile) üretilen ürünler için hayvan testi zorunluluğu kalktı ancak yurt dışından ithal edilen ürünler için bu zorunluluk devam etti.\n
+"sellInChina-description" = "2014 yılında kadar, Çin (anakarada) satışa sunulacak yerli ve ithal kozmetik ürünlerinin hayvanlar üzerinde test edilmesi yasal bir zorunluluktu. Firmalar bu testleri kendileri yapmasalar bile hükumete ait laboratuvarlarda bu testler yapılmadan ürünler raflara konulamıyordu.  2014 yılında bir değişiklik yapılarak, ülke içinde (onaylanmış güvenli içerik listesi ile) üretilen ürünler için hayvan testi zorunluluğu kalktı ancak yurt dışından ithal edilen ürünler için bu zorunluluk devam etti.\n
 Hayvan testi zorunluluğu sadece anakarada fiziksel olarak satılacak (online satışlar muaf) ve Hong Kong dışındaki yerlerden ülkeye ithal edilen ürünler için geçerliydi. Ayrıca havaalanlarında satışa sunulan ürünler de hayvan testi zorunluluğundan muaftı.\n
 Çin Gıda ve İlaç Dairesi 2017’de bazı düzenlemeler yaptı ve ertesi yıl, Leaping Bunny’nin girişimiyle, ithal ürünlerin satış öncesi ve sonrasında hayvan testlerinden muaf tutulması için yerel olarak üretileceği bir pilot çalışma başlatıldı.\n
 2019’da Çin Medikal Ürün Dairesi, kozmetik ürün içeriklerinin hayvansız alternatif bilimsel yöntemlerle test edilebilmesi için dokuz yeni yöntemi onayladı ve ayrıca teknik güvenlik standardı olarak üç yeni yöntem de 2020’de yürürlüğe girdi. Her bir ürünün kontrolü için ortalama 70 hayvanın öldürüldüğü kozmetik ürünlerin hem satış öncesi hem de satış sonrası testlerinde, hayvanların kullanılmadığı bu alternatif yöntemlerin geçerliliğinin tanınması büyük bir adım oldu.";
@@ -44,13 +44,13 @@ Hayvan deneylerinin insan sağlığı için güvenilir bir test metodu olmadığ
 Hayvan deneylerinin etik boyutu ise son birkaç yüzyıldır önemli bir tartışma alanı olmuş, tüm canlıların doğuştan ve eşit şekilde sahip olduğu yaşam hakkını ihlâl eden bu uygulamaların bir an önce son bulması gerektiğinden hareketle birçok ülke, bir takım yasal değişiklikler yaparak kısıtlamalara gitmiştir.\n
 Hayvan deneyleriyle ilgili daha detaylı bilgi için [web sitemizi inceleyebilir](https://deneyehayir.org) ya da [“Hayvan Deneyleri: Hayvanlar bizim için mi var?”](https://yeniinsanyayinevi.com/kitaplarimiz/hayvan-deneyleri/?v=29b90007cbf9) adlı kitabı okuyabilirsiniz.";
 
-"veganProducts-description" = "**Vegan ürün nedir?**
+"veganProducts-description" = "**Vegan Ürün nedir?**
 Vegan ürün, içeriğinde direkt ya da dolaylı yoldan hayvanlardan elde edilen herhangi bir içerik (bal, balmumu, karmin, lanolin vb.) barındırmayan üründür.
 
-**Vegan Ürünler Aynı Zamanda Deneysiz midir?**
+**Vegan Ürünler aynı zamanda deneysiz midir?**
 Bir üründe hayvan kaynaklı içeriklerin olmaması onun hayvanlar üzerinde test edilmediği anlamına gelmez. Bunun yanında, ürün ambalajlarında vegan ibaresinin kötüye kullanımına da rastlayabiliyoruz. Bu yüzden hem deneysizliği hem de hayvan kaynaklı içerik barındırmadığını garantileyen bir sertifikalandırma programına dahil olmuş ürünlerin tercih edilmesi daha doğru olacaktır.
 
-**Vegan Ürünler Zulümsüz müdür?**
+**Vegan Ürünler zulümsüz müdür?**
 Bir ürüne \"zulümsüz\" diyebilmemiz için hem vegan hem de herhangi bir aşamada hayvanlar üzerinde test edilmemiş olması gerekir. Ana konusu hayvan deneyi olmayan sertifikalandırmalardan sadece The Vegan Society, Vegetarian Society ve V-Label, logo kullanımına izin verdiği ürünlerin aynı zamanda hayvanlar üzerinde test edilmediğini garanti eder.
 ";
 
@@ -89,8 +89,8 @@ Bize destek olmanın birden çok yolu var…";
 "brand-detail-order-subTitle" = "Sırala detay text";
 "brand-detail-point-asc" = "Artan Puan";
 "brand-detail-point-desc" = "Azalan Puan";
-"brand-detail-name-asc" = "İsime göre (A - Z)";
-"brand-detail-name-desc" = "İsime göre (Z - A)";
+"brand-detail-name-asc" = "A'dan Z'ye";
+"brand-detail-name-desc" = "Z'den A'ya";
 "brand-detail-inform-feedback" = "Yanlış/eksik veri bildir";
 "category_detail.suggest_new_brand" = "Yeni marka öner";
 "category-brand-found" = "%d tane bulundu";

@@ -59,6 +59,10 @@ struct WhoAreWeButton: View {
                 Spacer()
             }
             .padding()
+            .foregroundColor(Color.black)
+            .background(Color.white.cornerRadius(8))
+            .shadow(color: Color("button_shadow"), radius: 10, y: 3)
+            .padding(.horizontal)
         })
         .alert(isPresented: $showEmailProblemAlert) {
             Alert(title: Text("error"),
@@ -67,11 +71,6 @@ struct WhoAreWeButton: View {
         }
         .fullScreenCover(isPresented: $isDonateViewPresented, content: DonateView.init)
         .fullScreenCover(isPresented: $isSupportViewPresented, content: SupportView.init)
-        .foregroundColor(Color.black)
-        .background(Color.white)
-        .cornerRadius(8)
-        .shadow(color: Color("button_shadow"), radius: 10, y: 3)
-        .padding(.horizontal)
     }
     
     func buttonAction(for buttonType: WhoAreWeButtonType, completion: @escaping (Bool) -> Void) {
@@ -83,5 +82,12 @@ struct WhoAreWeButton: View {
         case .donate:
             isDonateViewPresented.toggle()
         }
+    }
+}
+
+
+struct WhoAreWeButton_Previews: PreviewProvider {
+    static var previews: some View {
+        WhoAreWeButton(buttonType: .contactUs)
     }
 }

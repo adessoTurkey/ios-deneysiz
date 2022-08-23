@@ -40,12 +40,10 @@ struct DonateView: View {
                         Spacer()
                     }
                     .padding()
+                    .foregroundColor(.white)
+                    .background(Color("orange").cornerRadius(8))
+                    .padding()
                 }
-                .background(Color("orange"))
-                .foregroundColor(.white)
-                .cornerRadius(8)
-                .padding(.vertical)
-                .padding(.horizontal)
             }
             .navBarTopSpacing(20)
         }

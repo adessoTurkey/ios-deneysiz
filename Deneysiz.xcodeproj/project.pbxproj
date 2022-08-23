@@ -46,6 +46,7 @@
 		92AFE33128B4D7F800051A83 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 92AFE33028B4D7F800051A83 /* FirebaseAnalytics */; };
 		92AFE33328B4D7F800051A83 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 92AFE33228B4D7F800051A83 /* FirebaseCrashlytics */; };
 		92AFE33928B4E6CB00051A83 /* GoogleService-Info-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92AFE33828B4E6C700051A83 /* GoogleService-Info-Debug.plist */; };
+		92AFE33B28B5012600051A83 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFE33A28B5012600051A83 /* UIApplication+Extension.swift */; };
 		92E3C6E327E7AF0900951146 /* CustomNavBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3C6E227E7AF0900951146 /* CustomNavBarContainer.swift */; };
 		92E3C6E627E7CDD300951146 /* PreferenceKeyBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E3C6E527E7CDD300951146 /* PreferenceKeyBase.swift */; };
 		92E45BBC2885F6C400845D22 /* BannerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E45BBB2885F6C400845D22 /* BannerModifier.swift */; };
@@ -201,6 +202,7 @@
 		92AFE32B28B4C59B00051A83 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92AFE32D28B4D57E00051A83 /* GoogleService-Info-Prod.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Prod.plist"; sourceTree = "<group>"; };
 		92AFE33828B4E6C700051A83 /* GoogleService-Info-Debug.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Debug.plist"; sourceTree = "<group>"; };
+		92AFE33A28B5012600051A83 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		92E3C6E227E7AF0900951146 /* CustomNavBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainer.swift; sourceTree = "<group>"; };
 		92E3C6E527E7CDD300951146 /* PreferenceKeyBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKeyBase.swift; sourceTree = "<group>"; };
 		92E45BBB2885F6C400845D22 /* BannerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModifier.swift; sourceTree = "<group>"; };
@@ -831,6 +833,7 @@
 				A5FC0A952694861800F0FAD6 /* Color+Extension.swift */,
 				A5C7114D278DBECD000F803C /* UINavigationController+Extension.swift */,
 				923BE92728B287AE0018B4AC /* UIDevice+Extension.swift */,
+				92AFE33A28B5012600051A83 /* UIApplication+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1232,6 +1235,7 @@
 				A5829268268CA30B00429A0E /* CategoryDetailView.swift in Sources */,
 				92AAD22428AA170F005B1458 /* CategoryAPI.swift in Sources */,
 				92AAD1FF28AA16E5005B1458 /* BrandDummy.swift in Sources */,
+				92AFE33B28B5012600051A83 /* UIApplication+Extension.swift in Sources */,
 				92AAD22828AA170F005B1458 /* BrandSearchService.swift in Sources */,
 				A518D6FB26FA1BE00084D8CC /* LottieRabbit.swift in Sources */,
 				A518C6102673655B00CD964D /* Configuration.swift in Sources */,
@@ -1480,7 +1484,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.deneyehayir.deneysiz.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1505,7 +1509,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.deneyehayir.deneysiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
