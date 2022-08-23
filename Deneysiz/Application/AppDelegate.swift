@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let firebase_plist_name: String? = try? Configuration.value(for: "FIREBASE_PLIST_NAME")
+        if let filePath = Bundle.main.path(forResource: firebase_plist_name, ofType: "plist") {
+            let options = FirebaseOptions(contentsOfFile: filePath)
+            FirebaseApp.configure(options: options!)
+        }
         return true
     }
 
