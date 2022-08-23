@@ -10,7 +10,7 @@ import Foundation
 final class SearchBrandViewModel: BaseViewModel, ObservableObject {
 
     @Published var searchText = ""
-    @Published var brands = [BrandSearch]()
+    @Published var brands: [BrandSearch]?
 
     private let searchBrandService: BrandSearchAPI
 
@@ -26,7 +26,7 @@ final class SearchBrandViewModel: BaseViewModel, ObservableObject {
             .removeDuplicates()
             .map { (string) -> String? in
                 if string.count < 1 {
-                    self.brands = []
+                    self.brands = nil
                     return nil
                 }
                 return string

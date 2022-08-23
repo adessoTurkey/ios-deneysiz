@@ -22,6 +22,8 @@ struct SearchBrandView: View {
     
     private let multiplier: CGFloat = 0.65
     
+    @State private var installMailApp = false
+    
     var body: some View {
         ZStack {
             GeometryReader { outerGeometry in
@@ -84,6 +86,46 @@ struct SearchBrandView: View {
         }
     }
     
+    var NoDataView: some View {
+        VStack {
+            LottieNoData()
+            Text("Oops")
+                .font(.customFont(size: 20, type: .fontBold))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 24)
+            Text("Aradığın marka bulunamadı. Uygulamada görmek istediğin marka için bizimle iletişime geçebilirsin.")
+                .font(.customFont(size: 20, type: .fontRegular))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 24)
+                .padding(.vertical, 8)
+            Button {
+                EmailService.shared.sendEmail(subject: NSLocalizedString("category_detail.email_subject", comment: ""), completion: {
+                    installMailApp = !$0
+                })
+            } label: {
+                HStack {
+                    Spacer()
+                    Text("category_detail.suggest_new_brand")
+                        .font(.customFont(size: 14, type: .fontRegular))
+                    Spacer()
+                }
+                .padding()
+            }
+            .background(Color("orange"))
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            .padding(.vertical)
+            .padding(.horizontal)
+            Spacer()
+        }
+        .padding(24)
+        .alert(isPresented: $installMailApp, content: {
+            Alert(title: Text("error"),
+                  message: Text("common-installMailApp"),
+                  dismissButton: .default(Text("OK")))
+        })
+    }
+    
     var NavBar: some View {
         CustomNavBar(
             left: {
@@ -103,38 +145,37 @@ struct SearchBrandView: View {
                         }
                     })
             })
-        .foregroundColor(.white)
+            .foregroundColor(.white)
     }
     
     private var BrandListScrollView: some View {
         VStack(alignment: .leading) {
-            Text(String(format: NSLocalizedString("category-brand-found", comment: ""), viewModel.brands.count))
-                .padding(.horizontal, 16)
-                .font(.customFont(size: 12, type: .fontRegular))
-                .foregroundColor(.deneysizTextColor)
-                .opacity(showBrandCount ? 1 : 0)
-            
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack {
-                    ForEach(viewModel.brands, id: \.name) { brand in
-                        NavigationLink(
-                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
-                            tag: brand.id,
-                            selection: $brandSelection,
-                            label: {
-                                BrandSearchCell(brandSearch: brand)
-                                // To get tap gesture event on Spacer
-                                    .contentShape(Rectangle())
-                            }
-                        )
+            if !viewModel.searchText.isEmpty && viewModel.brands?.isEmpty == true {
+                NoDataView
+            } else if let brands = viewModel.brands {
+                Text(String(format: NSLocalizedString("category-brand-found", comment: ""), brands.count))
+                    .padding(.horizontal, 16)
+                    .font(.customFont(size: 12, type: .fontRegular))
+                    .foregroundColor(.deneysizTextColor)
+                
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack {
+                        ForEach(brands, id: \.name) { brand in
+                            NavigationLink(
+                                destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
+                                tag: brand.id,
+                                selection: $brandSelection,
+                                label: {
+                                    BrandSearchCell(brandSearch: brand)
+                                    // To get tap gesture event on Spacer
+                                        .contentShape(Rectangle())
+                                }
+                            )
+                        }
                     }
                 }
             }
         }
-    }
-    
-    private var showBrandCount: Bool {
-        !viewModel.brands.isEmpty
     }
 }
 
@@ -161,7 +202,7 @@ struct SearchBar: View {
                         }
                     }
                 })
-                .disableAutocorrection(true)
+                    .disableAutocorrection(true)
                 if !searchText.isEmpty {
                     Spacer()
                     Image(systemName: "multiply.circle.fill")

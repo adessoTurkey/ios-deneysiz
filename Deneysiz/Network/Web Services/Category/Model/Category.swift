@@ -43,23 +43,23 @@ extension CategoryEnum {
     var categoryModel: CategoryUIModel {
         switch self {
         case .allBrands:
-            return (title: LocalizedStringKey("allBrands"), image: Image("allBrands"))
+            return (title: LocalizedStringKey("allBrands"), image: Image("all"))
         case .makeup:
             return (title: LocalizedStringKey("makeup"), image: Image("makeup"))
         case .haircare:
-            return (title: LocalizedStringKey("haircare"), image: Image("haircare"))
+            return (title: LocalizedStringKey("haircare"), image: Image("hair"))
         case .skincare:
-            return (title: LocalizedStringKey("skincare"), image: Image("skincare"))
+            return (title: LocalizedStringKey("skincare"), image: Image("skin"))
         case .perfume:
-            return (title: LocalizedStringKey("perfume"), image: Image("perfume"))
+            return (title: LocalizedStringKey("perfume"), image: Image("deodorantAndPerfume"))
         case .personalHygiene:
-            return (title: LocalizedStringKey("personalHygiene"), image: Image("personalHygiene"))
+            return (title: LocalizedStringKey("personalHygiene"), image: Image("personal"))
         case .dentalcare:
-            return (title: LocalizedStringKey("dentalcare"), image: Image("dentalcare"))
+            return (title: LocalizedStringKey("dentalcare"), image: Image("dental"))
         case .mombabycare:
-            return (title: LocalizedStringKey("mombabycare"), image: Image("mombabycare"))
+            return (title: LocalizedStringKey("mombabycare"), image: Image("mombaby"))
         case .homecare:
-            return (title: LocalizedStringKey("homecare"), image: Image("homecare"))
+            return (title: LocalizedStringKey("homecare"), image: Image("home"))
         }
     }
 }
