@@ -77,9 +77,9 @@ private struct BrandCell: View {
                 Spacer()
                 
                 Text(brand.pointTitle)
+                    .lineLimit(1)
                     .font(.customFont(size: 17))
                     .foregroundColor(.white)
-                    .frame(width: 50)
                     .padding(8)
                     .background(brand.color.cornerRadius(8))
                     .if(UIDevice.isIPhone == true, transform: { view in

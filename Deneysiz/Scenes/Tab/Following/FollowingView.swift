@@ -50,23 +50,28 @@ struct FollowingView: View {
                 
                 List {
                     ForEach(viewModel.brands, id: \.name) { brand in
-                        BrandFollowCell(brandDetail: brand)
-                        // To get tap gesture event on Spacer
-                            .contentShape(Rectangle())
-                            .listRowInsets(EdgeInsets())
-                            .listRowBackground(Color.clear)
-                            .background(NavigationLink(
-                                destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
-                                tag: brand.id,
-                                selection: $brandSelection,
-                                label: {}
-                            )
-                            .opacity(0))
+                        Button {
+                            brandSelection = brand.id
+                        } label: {
+                            BrandFollowCell(brandDetail: brand)
+                            // To get tap gesture event on Spacer
+                                .contentShape(Rectangle())
+                        }
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
+                        .background(NavigationLink(
+                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
+                            tag: brand.id,
+                            selection: $brandSelection,
+                            label: {}
+                        )
+                        .opacity(0))
                     }
                     .onDelete(perform: viewModel.removeRows(at:))
                 }
                 .frame(maxWidth: .infinity)
                 .edgesIgnoringSafeArea(.all)
+                .buttonStyle(PlainButtonStyle())
                 .listStyle(PlainListStyle())
             }
         }
@@ -91,9 +96,9 @@ private struct BrandFollowCell: View {
                 Spacer()
                 
                 Text(brandDetail.pointTitle)
+                    .lineLimit(1)
                     .font(.customFont(size: 17))
                     .foregroundColor(.white)
-                    .frame(width: 50)
                     .padding(8)
                     .background(brandDetail.color.cornerRadius(8))
             }

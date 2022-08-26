@@ -255,9 +255,9 @@ private struct BrandSearchCell: View {
                 Spacer()
                 
                 Text(brandSearch.pointTitle)
+                    .lineLimit(1)
                     .font(.customFont(size: 17))
                     .foregroundColor(.white)
-                    .frame(width: 50)
                     .padding(8)
                     .background(brandSearch.color.cornerRadius(8))
             }
