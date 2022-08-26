@@ -21,6 +21,17 @@ struct FollowingView: View {
             BrandListScrollView
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .modifier(
+            PopUpHelper(
+                popUpView: PointDetailAlert(onDismiss: {
+                    withAnimation {
+                        viewModel.showPointsPopUp = false
+                    }
+                }, config: viewModel.savedPointPopUpConfig),
+                isPresented: $viewModel.showPointsPopUp,
+                config: .init(backgroundOpacitiy: 0.45)
+            )
+        )
         .onAppear {
             viewModel.refresh()
         }
@@ -49,19 +60,21 @@ struct FollowingView: View {
                     .foregroundColor(.deneysizTextColor)
                 
                 List {
-                    ForEach(viewModel.brands, id: \.name) { brand in
+                    ForEach(viewModel.brands, id: \.name) { brandDetail in
                         Button {
-                            brandSelection = brand.id
+                            brandSelection = brandDetail.id
                         } label: {
-                            BrandFollowCell(brandDetail: brand)
+                            BrandFollowCell(brandDetail: brandDetail, onPointClick: { [viewModel] brandDetail in
+                                viewModel.createPointAlertConfig(brandDetail: brandDetail)
+                            })
                             // To get tap gesture event on Spacer
                                 .contentShape(Rectangle())
                         }
                         .listRowInsets(EdgeInsets())
                         .listRowBackground(Color.clear)
                         .background(NavigationLink(
-                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
-                            tag: brand.id,
+                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brandDetail.id)),
+                            tag: brandDetail.id,
                             selection: $brandSelection,
                             label: {}
                         )
@@ -80,7 +93,8 @@ struct FollowingView: View {
 
 private struct BrandFollowCell: View {
     let brandDetail: BrandDetail
-    
+    let onPointClick: (BrandDetail?) -> Void
+
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .top) {
@@ -101,6 +115,9 @@ private struct BrandFollowCell: View {
                     .foregroundColor(.white)
                     .padding(8)
                     .background(brandDetail.color.cornerRadius(8))
+                    .onTapGesture {
+                        onPointClick(brandDetail)
+                    }
             }
             .padding(16)
             

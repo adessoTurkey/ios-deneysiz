@@ -23,9 +23,6 @@ struct CategoryDetailView: View {
                 FilterOrder
                     .padding(.bottom, 16)
                     .disabled(viewModel.showNoDataLottie)
-                    .onTapGesture {
-
-                    }
                 
                 BrandListView(brands: $viewModel.brands) { [viewModel] brand in
                     viewModel.createPointAlertConfig(brand: brand)
