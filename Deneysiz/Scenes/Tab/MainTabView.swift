@@ -10,7 +10,8 @@ import SwiftUI
 struct MainTabView: View {
     @State private var selectedtab = TabViewEnum.search()
     @State private var showLottie = true
-    
+    @State private var barStyle: UIStatusBarStyle = .lightContent
+
     init() {
         UITabBar.appearance().backgroundColor = .white
     }
@@ -22,7 +23,10 @@ struct MainTabView: View {
                     showLottie.toggle()
                 }
             }
-            return LottieRabbit().eraseToAnyView()
+            return LottieRabbit()
+                .statusBar(style: barStyle)
+                .eraseToAnyView()
+
         } else {
             return NavigationView {
                 TabView(selection: $selectedtab) {
@@ -37,7 +41,7 @@ struct MainTabView: View {
                         .environmentObject(SearchBrandDependencyContainer())
                         .navigationBarTitle("")
                         .navigationBarHidden(true)
-                    
+
                     DiscoverView()
                         .tabItem {
                             VStack {
@@ -73,7 +77,11 @@ struct MainTabView: View {
                         .navigationBarTitle("")
                         .navigationBarHidden(true)
                 }
-                .accentColor(.orange)
+                .accentColor(.deneysizOrange)
+                .statusBar(style: barStyle)
+            }
+            .onChange(of: selectedtab) { newValue in
+                barStyle = newValue == TabViewEnum.search.rawValue ? .lightContent : .darkContent
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .buttonStyle(.plain)

@@ -103,9 +103,16 @@ final class BrandDetailViewModel: BaseViewModel, ObservableObject {
     }
     
     func follow() {
-        if !isFollowing, let brandDetail = brandDetail {
-            isFollowing = true
-            followedBrands.append(brandDetail)
+        if let brandDetail = brandDetail {
+            if !isFollowing {
+                isFollowing = true
+                followedBrands.append(brandDetail)
+            } else {
+                followedBrands.removeAll { brand in
+                    brandDetail.id == brand.id
+                }
+                isFollowing = false
+            }
         }
     }
     

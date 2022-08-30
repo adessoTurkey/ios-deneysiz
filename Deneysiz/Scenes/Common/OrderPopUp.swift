@@ -76,8 +76,8 @@ struct OrderPopUp: View, Alertable {
                         label: {
                         Text("apply")
                             .foregroundColor(.white)
-                            .padding()
-                            .frame(height: 42)
+                            .padding(8)
+                            .frame(minHeight: 42)
                             .frame(maxWidth: .infinity)
                             .background(
                                 Color.deneysizOrange

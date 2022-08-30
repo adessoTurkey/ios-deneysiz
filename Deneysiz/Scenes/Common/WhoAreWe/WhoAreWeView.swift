@@ -52,12 +52,6 @@ struct WhoAreWeView: View {
                 }
                 .padding(.horizontal, 24)
                 
-                Text(UIApplication.versionBuild())
-                    .font(.customFont(size: 14, type: .fontRegular))
-                    .padding(.top, 8)
-                    .padding(.horizontal, 24)
-
-                
                 Spacer()
             }
             .navBarTopSpacing(30)

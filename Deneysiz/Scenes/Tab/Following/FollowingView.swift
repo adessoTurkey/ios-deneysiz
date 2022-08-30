@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwipeCell
 
 struct FollowingView: View {
     @EnvironmentObject var container: FollowingDependencyContainer
@@ -18,8 +19,27 @@ struct FollowingView: View {
         CustomNavBarContainer {
             NavBar
         } content: {
-            BrandListScrollView
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            if viewModel.brands.isEmpty {
+                    LottieEmpty()
+                        .frame(width: 150, height: 150)
+                        .padding(.top, 60)
+                        .padding(.bottom, 25)
+
+                VStack(spacing: 8) {
+                    Text("Hop, hop, hop...")
+                        .font(.customFont(size: 20, type: .fontBold))
+                        .multilineTextAlignment(.center)
+
+                    Text("Görünüşe göre takip ettiğin bir marka yok, hemen keşfete zıpla ve takibe başla!")
+                        .font(.customFont(size: 20, type: .fontRegular))
+                        .multilineTextAlignment(.center)
+                }
+                .padding(.horizontal, 24)
+
+            } else {
+                BrandListScrollView
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
         }
         .modifier(
             PopUpHelper(
@@ -53,7 +73,6 @@ struct FollowingView: View {
     
     private var BrandListScrollView: some View {
         VStack(alignment: .leading) {
-            if !viewModel.brands.isEmpty {
                 Text(String(format: NSLocalizedString("category-brand-found", comment: ""), viewModel.brands.count))
                     .padding(.horizontal, 16)
                     .font(.customFont(size: 12, type: .fontRegular))
@@ -67,9 +86,36 @@ struct FollowingView: View {
                             BrandFollowCell(brandDetail: brandDetail, onPointClick: { [viewModel] brandDetail in
                                 viewModel.createPointAlertConfig(brandDetail: brandDetail)
                             })
-                            // To get tap gesture event on Spacer
-                                .contentShape(Rectangle())
                         }
+                        .modifier(
+                            SwipeModifier(
+                                label: {
+                                    Button { [viewModel] in
+                                        viewModel.removeBrand(id: brandDetail.id)
+                                    } label: {
+                                        Label("", image: "delete")
+                                    }
+                                    .buttonStyle(.automatic)
+                                },
+                                tintColor: .red,
+                                slots: [
+                                    Slot(
+                                        image: {
+                                            Image("delete")
+                                        },
+                                        title: {
+                                            EmptyView()
+                                                .eraseToAnyView()
+                                        },
+                                        action: { [viewModel] in
+                                            viewModel.removeBrand(id: brandDetail.id)
+                                        },
+                                        style: .init(background: .red)
+                                    )
+
+                                ]
+                            )
+                        )
                         .listRowInsets(EdgeInsets())
                         .listRowBackground(Color.clear)
                         .background(NavigationLink(
@@ -78,16 +124,13 @@ struct FollowingView: View {
                             selection: $brandSelection,
                             label: {}
                         )
-                        .opacity(0))
+                            .opacity(0))
                     }
-                    .onDelete(perform: viewModel.removeRows(at:))
                 }
                 .frame(maxWidth: .infinity)
                 .edgesIgnoringSafeArea(.all)
-                .buttonStyle(PlainButtonStyle())
                 .listStyle(PlainListStyle())
             }
-        }
     }
 }
 
@@ -114,6 +157,7 @@ private struct BrandFollowCell: View {
                     .font(.customFont(size: 17))
                     .foregroundColor(.white)
                     .padding(8)
+                    .frame(minWidth: 75)
                     .background(brandDetail.color.cornerRadius(8))
                     .onTapGesture {
                         onPointClick(brandDetail)

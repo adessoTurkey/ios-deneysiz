@@ -6,13 +6,20 @@
 //
 
 import SwiftUI
+import SwipeCell
 
 struct CategoryDetailView: View {
-    @StateObject var viewModel: CategoryDetailViewModel
+    @EnvironmentObject var container: DiscoverDependencyContainer
     @Environment(\.presentationMode) var presentationMode
+
+    @StateObject var viewModel: CategoryDetailViewModel
+
     @State private var installMailApp = false
     @State private var showingOptions = false
-    
+
+    // For fixing navigation link stuck error. add tag & selection
+    @State private var brandSelection: Int?
+
     var body: some View {
         CustomNavBarContainer {
             NavBar
@@ -24,9 +31,7 @@ struct CategoryDetailView: View {
                     .padding(.bottom, 16)
                     .disabled(viewModel.showNoDataLottie)
                 
-                BrandListView(brands: $viewModel.brands) { [viewModel] brand in
-                    viewModel.createPointAlertConfig(brand: brand)
-                }
+                BrandListScrollView
             }
             .navBarTopSpacing(40)
         }
@@ -140,24 +145,103 @@ struct CategoryDetailView: View {
         HStack {
             Button {
                 viewModel.orderButtonTapped()
+            } label: {
+                HStack {
+                    Image("list")
+                    Text(viewModel.currentConfig.title)
+                        .font(.customFont(size: 17))
+                        .foregroundColor(.orderFilterTextColor)
+
+                }
+                .padding(.vertical, 8)
+                .padding(.horizontal, 8)
+                .background(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(Color.orderFilterTextColor, lineWidth: 1)
+                        .background(Color.orderFilterBackground)
+                )
             }
-        label: {
-            HStack {
-                Image("list")
-                Text(viewModel.currentConfig.title)
-                    .font(.customFont(size: 17))
-                    .foregroundColor(.orderFilterTextColor)
-                
+        }
+    }
+
+    private var BrandListScrollView: some View {
+        VStack(alignment: .leading) {
+            Text(String(format: NSLocalizedString("category-brand-found", comment: ""), viewModel.brands.count))
+                .padding(.horizontal, 16)
+                .font(.customFont(size: 12, type: .fontRegular))
+                .foregroundColor(.deneysizTextColor)
+                .opacity(showBrandCount ? 1 : 0)
+
+            ScrollViewReader { reader in
+                List {
+                    ForEach(viewModel.brands, id: \.name) { brand in
+                        Button {
+                            brandSelection = brand.id
+                        } label: {
+                            BrandCell(brand: brand, onPointClick: {
+                                [viewModel] brand in
+                                viewModel.createPointAlertConfig(brand: brand)
+                            })
+                        }
+                        .modifier(
+                            SwipeModifier(
+                                label: {
+                                    Button {
+                                        viewModel.followBrand(brand: brand)
+                                    } label: {
+                                        Image("notFollowing")
+                                            .renderingMode(.template)
+                                            .foregroundColor(.white)
+                                    }
+                                    .buttonStyle(.automatic)
+                                },
+                                tintColor: .followBackground,
+                                slots: [
+                                    Slot(
+                                        image: {
+                                            Image("notFollowing")
+                                                .renderingMode(.template)
+                                        },
+                                        title: {
+                                            EmptyView()
+                                                .eraseToAnyView()
+                                        },
+                                        action: { [viewModel] in
+                                            viewModel.followBrand(brand: brand)
+                                        },
+                                        style: .init(background: .followBackground)
+                                    )
+
+                                ]
+                            )
+                        )
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
+                        .background(
+                            NavigationLink(
+                                destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
+                                tag: brand.id,
+                                selection: $brandSelection,
+                                label: {}
+                            )
+                            .opacity(0)
+                        )
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .edgesIgnoringSafeArea(.all)
+                .listStyle(PlainListStyle())
+                .onChange(of: viewModel.brands) { newValue in
+                    if let name = newValue.first?.name {
+                        reader.scrollTo(name)
+                    }
+                }
             }
-            .padding(.vertical, 8)
-            .padding(.horizontal, 8)
-            .background(
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(Color.orderFilterTextColor, lineWidth: 1)
-                    .background(Color.orderFilterBackground)
-            )
         }
-        }
+    }
+
+    private var showBrandCount: Bool {
+        !viewModel.brands.isEmpty
     }
 }
 

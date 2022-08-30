@@ -140,6 +140,7 @@ struct BrandDetailView: View {
             }
             .lineLimit(1)
             .padding(8)
+            .frame(minWidth: 75)
             .background(viewModel.brandDetailUIModel.scoreColor.cornerRadius(8))
             .onTapGesture {
                 withAnimation {

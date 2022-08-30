@@ -10,7 +10,6 @@ import SwiftUI
 struct LottieEmpty: View {
     var body: some View {
         LottieView(name: "empty", loopMode: .loop)
-            .frame(width: 250, height: 250)
     }
 }
 

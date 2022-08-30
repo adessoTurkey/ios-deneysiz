@@ -29,23 +29,28 @@ struct InfoView: View {
         CustomNavBarContainer {
             NavBar
                 .padding(.top)
+                .padding(.horizontal, 24)
+
         } content: {
-            Group {
+            VStack(alignment: .leading, spacing: 0) {
                 TopInfo
                     .padding(.top, 4)
+                    .padding(.horizontal, 24)
+
                 
                 Certificates
                     .padding(.top, 16)
+                    .padding(.horizontal, 24)
                 
                 Curiosities
                     .padding(.top, 32)
+                    .padding(.horizontal, 24)
                 
                 AdditionalInfos
                     .padding(.top, 16)
             }
             .navBarTopSpacing(12)
         }
-        .padding(.horizontal, 24)
     }
     
     var NavBar: some View {
@@ -114,31 +119,35 @@ struct InfoView: View {
     
     var AdditionalInfos: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            ForEach(Detail.allCases, id: \.self) { enumCase in
-                NavigationLink(
-                    destination:
-                        InfoDetailView(titleKey: enumCase.title, descriptionKey: enumCase.description),
-                    tag: enumCase.title,
-                    selection: $infoViewNavigationSelection,
-                    label: {
-                        RoundedRectangle(cornerRadius: 8.0)
-                            .foregroundColor(Color.certificateRectangleBackground)
-                            .shadow(color: Color.certificateShadowTemp, radius: 10, y: 8)
-                            .overlay(
-                                HStack {
-                                    Text(LocalizedStringKey(enumCase.title))
-                                        .multilineTextAlignment(.leading)
-                                    Spacer()
-                                    Image("arrowRight")
-                                }
-                                    .padding(.horizontal, 16)
-                            )
-                            .frame(height: 58)
-                    }
-                )
+            VStack(spacing: 16) {
+                ForEach(Detail.allCases, id: \.self) { enumCase in
+                    NavigationLink(
+                        destination:
+                            InfoDetailView(titleKey: enumCase.title, descriptionKey: enumCase.description),
+                        tag: enumCase.title,
+                        selection: $infoViewNavigationSelection,
+                        label: {
+                            RoundedRectangle(cornerRadius: 8.0)
+                                .foregroundColor(Color.certificateRectangleBackground)
+                                .shadow(color: Color.certificateShadowTemp, radius: 10, y: 0)
+                                .overlay(
+                                    HStack {
+                                        Text(LocalizedStringKey(enumCase.title))
+                                            .multilineTextAlignment(.leading)
+                                        Spacer()
+                                        Image("arrowRight")
+                                    }
+                                        .padding(.horizontal, 16)
+                                )
+                                .frame(height: 58)
+                        }
+                    )
+                    .padding(.horizontal, 24)
+                }
+                .font(.customFont(size: 17, type: .fontRegular))
+                .foregroundColor(.deneysizTextColor)
             }
-            .font(.customFont(size: 17, type: .fontRegular))
-            .foregroundColor(.deneysizTextColor)
+            .padding(.vertical, 4)
         }
     }
 }

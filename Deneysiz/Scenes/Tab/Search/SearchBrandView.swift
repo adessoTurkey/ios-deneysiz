@@ -98,6 +98,7 @@ struct SearchBrandView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 24)
                 .padding(.vertical, 8)
+                .fixedSize(horizontal: false, vertical: true)
             Button {
                 EmailService.shared.sendEmail(subject: NSLocalizedString("category_detail.email_subject", comment: ""), completion: {
                     installMailApp = !$0
@@ -110,12 +111,12 @@ struct SearchBrandView: View {
                     Spacer()
                 }
                 .padding()
+                .background(Color("orange"))
+                .foregroundColor(.white)
+                .cornerRadius(8)
+                .padding(.vertical)
+                .padding(.horizontal)
             }
-            .background(Color("orange"))
-            .foregroundColor(.white)
-            .cornerRadius(8)
-            .padding(.vertical)
-            .padding(.horizontal)
             Spacer()
         }
         .padding(24)
@@ -152,7 +153,7 @@ struct SearchBrandView: View {
         VStack(alignment: .leading) {
             if !viewModel.searchText.isEmpty && viewModel.brands?.isEmpty == true {
                 NoDataView
-            } else if let brands = viewModel.brands {
+            } else if let brands = viewModel.brands, !brands.isEmpty {
                 Text(String(format: NSLocalizedString("category-brand-found", comment: ""), brands.count))
                     .padding(.horizontal, 16)
                     .font(.customFont(size: 12, type: .fontRegular))
@@ -192,7 +193,7 @@ struct SearchBar: View {
     var body: some View {
         HStack {
             HStack(spacing: 8) {
-                Image(systemName: "magnifyingglass")
+                Image("magnifyingGlass")
                     .font(.system(size: 15, weight: .bold))
                     .foregroundColor(.secondary)
                 TextField("search-for-brand", text: $searchText, onEditingChanged: { editing in
@@ -214,7 +215,6 @@ struct SearchBar: View {
                 }
             }
             .padding(8)
-            .frame(height: 36)
             .background(Color.textFieldBackground)
             .cornerRadius(10)
             
@@ -227,9 +227,9 @@ struct SearchBar: View {
                     }
                 } label: {
                     Text("give-up")
-                    
+                        .foregroundColor(.cancelBlue)
+                        .padding(.horizontal, 10)
                 }
-                .padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
                 .animation(.default)
             }
@@ -259,6 +259,7 @@ private struct BrandSearchCell: View {
                     .font(.customFont(size: 17))
                     .foregroundColor(.white)
                     .padding(8)
+                    .frame(minWidth: 75)
                     .background(brandSearch.color.cornerRadius(8))
             }
             .padding(16)

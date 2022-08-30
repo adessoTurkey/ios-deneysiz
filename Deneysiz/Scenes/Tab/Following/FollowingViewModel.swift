@@ -26,6 +26,13 @@ final class FollowingViewModel: BaseViewModel, ObservableObject {
         refresh()
     }
 
+    func removeBrand(id: Int) {
+        followedBrands.removeAll { brand in
+            brand.id == id
+        }
+        refresh()
+    }
+
     func createPointAlertConfig(brandDetail: BrandDetail?) {
         self.savedPointPopUpConfig = .init(
             overlayImage: "points",

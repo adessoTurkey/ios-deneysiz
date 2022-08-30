@@ -59,6 +59,7 @@ struct PointDetailAlert: Alertable {
                                                 .foregroundColor(.white)
                                                 .padding(.vertical, 6)
                                                 .padding(.horizontal, 8)
+                                                .frame(minWidth: 75)
                                                 .background(detail.color.cornerRadius(8))
                                         }
 
@@ -100,6 +101,7 @@ struct PointDetailAlert: Alertable {
             .foregroundColor(.white)
             .padding(.vertical, 6)
             .padding(.horizontal, 8)
+            .frame(minWidth: 75)
             .background(Color.calculateColor(point).cornerRadius(8))
     }
 }
