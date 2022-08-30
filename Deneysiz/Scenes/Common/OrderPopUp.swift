@@ -44,26 +44,27 @@ struct OrderPopUp: View, Alertable {
                         .padding(.top, 56)
                     
                     ForEach(orderTypes) { detail in
-                        VStack(alignment: .leading, spacing: 12) {
-                            HStack {
-                                Image(systemName: self.selected == detail ? "largecircle.fill.circle" : "circle")
-                                    .renderingMode(.original)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 16, height: 16)
-                                    .foregroundColor(self.selected == detail ? .orderFilterTextColor : .deneysizText2Color)
-              
-                                Text(detail.title)
-                                    .font(.customFont(size: 17))
-                                    .foregroundColor(.deneysizTextColor)
-                                Spacer()
-                            }
-                            
-                            Divider()
-                        }
-                        .padding(.top, 10)
-                        .onTapGesture {
+                        Button {
                             self.selected = detail
+                        } label: {
+                            VStack(alignment: .leading, spacing: 12) {
+                                HStack {
+                                    Image(systemName: self.selected == detail ? "largecircle.fill.circle" : "circle")
+                                        .renderingMode(.original)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 16, height: 16)
+                                        .foregroundColor(self.selected == detail ? .orderFilterTextColor : .deneysizText2Color)
+                                    Text(detail.title)
+                                        .font(.customFont(size: 17))
+                                        .foregroundColor(.deneysizTextColor)
+                                    Spacer()
+                                }
+
+                                Divider()
+                            }
+                            .padding(.top, 10)
+                            .contentShape(Rectangle())
                         }
                     }
                     
@@ -75,8 +76,8 @@ struct OrderPopUp: View, Alertable {
                         label: {
                         Text("apply")
                             .foregroundColor(.white)
-                            .padding()
-                            .frame(height: 42)
+                            .padding(8)
+                            .frame(minHeight: 42)
                             .frame(maxWidth: .infinity)
                             .background(
                                 Color.deneysizOrange

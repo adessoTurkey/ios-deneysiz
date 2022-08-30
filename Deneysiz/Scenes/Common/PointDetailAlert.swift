@@ -10,6 +10,9 @@ import SwiftUI
 struct PointDetailAlert: Alertable {
     var onDismiss: (() -> Void)?
     let config: Config
+
+    @State private var contentSize: CGSize = .zero
+
     var body: some View {
         GeometryReader { geo in
             ZStack(alignment: .top) {
@@ -38,54 +41,67 @@ struct PointDetailAlert: Alertable {
                         .font(.customFont(size: 14))
                         .foregroundColor(.deneysizTextColor)
                         .padding(.top, 8)
-                    
-                    ForEach(config.details) { detail in
-                        VStack(alignment: .leading) {
-                            Group {
-                                HStack {
-                                    Text(detail.localizedKey)
-                                        .lineLimit(nil)
-                                        .font(.customFont(size: 17))
-                                        .foregroundColor(.deneysizTextColor)
-                                    Spacer()
-                                    Text(detail.point)
-                                        .font(.customFont(size: 14, type: .fontMedium))
-                                        .foregroundColor(.white)
-                                        .frame(width: 50)
-                                        .padding(.vertical, 6)
-                                        .padding(.horizontal, 8)
-                                        .background(detail.color.cornerRadius(8))
+                        .padding(.horizontal, 4)
+                    ScrollView(.vertical, showsIndicators: false) {
+                        VStack {
+                            ForEach(config.details) { detail in
+                                VStack(alignment: .leading) {
+                                    VStack(alignment: .leading) {
+                                        HStack {
+                                            Text(detail.localizedKey)
+                                                .lineLimit(nil)
+                                                .font(.customFont(size: 17))
+                                                .foregroundColor(.deneysizTextColor)
+                                            Spacer()
+                                            Text(detail.point)
+                                                .lineLimit(1)
+                                                .font(.customFont(size: 14, type: .fontMedium))
+                                                .foregroundColor(.white)
+                                                .padding(.vertical, 6)
+                                                .padding(.horizontal, 8)
+                                                .frame(minWidth: 75)
+                                                .background(detail.color.cornerRadius(8))
+                                        }
+
+                                        Text(detail.state)
+                                            .font(.customFont(size: 14))
+                                            .foregroundColor(.deneysizText2Color)
+                                    }
+                                    .padding(.horizontal, 16)
+
+                                    Divider()
                                 }
-
-                                Text(detail.state)
-                                    .font(.customFont(size: 14))
-                                    .foregroundColor(.deneysizText2Color)
+                                .padding(.top, 10)
                             }
-                            .padding(.horizontal, 16)
-
-                            Divider()
                         }
-                        .padding(.top, 10)
+                        .overlay(
+                            GeometryReader { geo in
+                                Color.clear
+                                    .onAppear {
+                                        contentSize = geo.size
+                                    }
+                            }
+                        )
                     }
+                    .frame(maxHeight: min(contentSize.height, geo.size.height))
                 }
                 .frame(width: geo.size.width - 96)
                 .padding(.top, 22)
                 .padding(.bottom, 24)
                 .background(Color.white.cornerRadius(12))
             }
-            .frame(width: geo.size.width,
-                   height: geo.size.height,
-                   alignment: .center)
+            .frame(minWidth: 0, maxWidth: .infinity, maxHeight: geo.size.height, alignment: .center)
         }
     }
     
     func createPointCapsule(_ point: Int) -> some View {
         Text("\(point)/10")
+            .lineLimit(1)
             .font(.customFont(size: 14, type: .fontMedium))
             .foregroundColor(.white)
-            .frame(width: 50)
             .padding(.vertical, 6)
             .padding(.horizontal, 8)
+            .frame(minWidth: 75)
             .background(Color.calculateColor(point).cornerRadius(8))
     }
 }

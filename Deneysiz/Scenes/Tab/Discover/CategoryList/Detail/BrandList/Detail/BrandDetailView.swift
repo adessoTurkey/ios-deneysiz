@@ -29,7 +29,7 @@ struct BrandDetailView: View {
                     .navBarTopSpacing(32)
                     .opacity(viewModel.viewState == .loaded ? 1 : 0)
         }
-        .padding(.horizontal, 24)
+        .padding(.horizontal, 23)
         .modifier(
             PopUpHelper(
                 popUpView: CustomErrorAlert(
@@ -138,8 +138,9 @@ struct BrandDetailView: View {
                 Image("info")
                     .foregroundColor(.white)
             }
-            .frame(width: 75)
+            .lineLimit(1)
             .padding(8)
+            .frame(minWidth: 75)
             .background(viewModel.brandDetailUIModel.scoreColor.cornerRadius(8))
             .onTapGesture {
                 withAnimation {
@@ -148,7 +149,7 @@ struct BrandDetailView: View {
             }
         }
     }
-    
+
     private var Certificates: some View {
         HStack {
             ForEach(viewModel.brandDetailUIModel.certificates) { cert in
@@ -158,14 +159,10 @@ struct BrandDetailView: View {
                     selection: $certSelection,
                     label: {
                         FixedImage(imageName: cert.name)
-                            .frame(maxWidth: 75, maxHeight: 75)
-                            .shadow(color: .certificateShadow, radius: 10, x: 0, y: 3)
-                            .opacity(cert.valid == true ? 1 : 0.3)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .opacity(cert.valid ? 1 : 0.3)
                     }
                 )
-                if viewModel.brandDetailUIModel.certificates.last != cert {
-                    Spacer(minLength: 9)
-                }
             }
         }
     }
@@ -179,11 +176,11 @@ struct BrandDetailView: View {
                         .font(Font.customFont(size: 16, type: .fontRegular))
                     Spacer()
                 }
-                .padding()
+                .padding(16)
                 .foregroundColor(Color.black)
                 .background(Color.white)
                 .cornerRadius(8)
-                .shadow(color: Color("button_shadow"), radius: 10, y: 3)
+                .padding(.horizontal, 4)
             }
         }
     }
@@ -192,13 +189,11 @@ struct BrandDetailView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading) {
                 Certificates
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 4)
-                
+                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+
                 Details
                     .padding(.top)
-                    .padding(.horizontal, 4)
-                
+
                 TextInfo
                     .padding(.top, 16)
                 
@@ -214,6 +209,9 @@ struct BrandDetailView: View {
                     .padding(.top, 10)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .shadow(color: Color("button_shadow"), radius: 10, y: 3)
+
     }
     
     private var TextInfo: some View {

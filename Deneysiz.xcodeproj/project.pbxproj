@@ -13,6 +13,10 @@
 		9299AACF28A982C200FD6DB6 /* SearchBrandViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AACC28A982C200FD6DB6 /* SearchBrandViewModel.swift */; };
 		9299AAD028A982C200FD6DB6 /* SearchBrandDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9299AACD28A982C200FD6DB6 /* SearchBrandDependencyContainer.swift */; };
 		92A6F36E2870F5AC004F5C73 /* InfoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A6F36D2870F5AC004F5C73 /* InfoDetailView.swift */; };
+		92A93E1328BE233300F1F1E7 /* SwipeCell in Frameworks */ = {isa = PBXBuildFile; productRef = 92A93E1228BE233300F1F1E7 /* SwipeCell */; };
+		92A93E1528BE287900F1F1E7 /* SwipeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A93E1428BE287900F1F1E7 /* SwipeModifier.swift */; };
+		92A93E1828BE387300F1F1E7 /* StatusBarStyleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A93E1728BE387300F1F1E7 /* StatusBarStyleKey.swift */; };
+		92A93E1A28BE388900F1F1E7 /* CustomHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A93E1928BE388900F1F1E7 /* CustomHostingController.swift */; };
 		92AAD1F928AA16E5005B1458 /* ParentCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAD1EC28AA16E5005B1458 /* ParentCompany.swift */; };
 		92AAD1FA28AA16E5005B1458 /* Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAD1ED28AA16E5005B1458 /* Certificate.swift */; };
 		92AAD1FB28AA16E5005B1458 /* BrandDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AAD1EE28AA16E5005B1458 /* BrandDetail.swift */; };
@@ -171,6 +175,9 @@
 		9299AACC28A982C200FD6DB6 /* SearchBrandViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBrandViewModel.swift; sourceTree = "<group>"; };
 		9299AACD28A982C200FD6DB6 /* SearchBrandDependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBrandDependencyContainer.swift; sourceTree = "<group>"; };
 		92A6F36D2870F5AC004F5C73 /* InfoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailView.swift; sourceTree = "<group>"; };
+		92A93E1428BE287900F1F1E7 /* SwipeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeModifier.swift; sourceTree = "<group>"; };
+		92A93E1728BE387300F1F1E7 /* StatusBarStyleKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarStyleKey.swift; sourceTree = "<group>"; };
+		92A93E1928BE388900F1F1E7 /* CustomHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHostingController.swift; sourceTree = "<group>"; };
 		92AAD1EC28AA16E5005B1458 /* ParentCompany.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentCompany.swift; sourceTree = "<group>"; };
 		92AAD1ED28AA16E5005B1458 /* Certificate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Certificate.swift; sourceTree = "<group>"; };
 		92AAD1EE28AA16E5005B1458 /* BrandDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandDetail.swift; sourceTree = "<group>"; };
@@ -318,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92AFE33328B4D7F800051A83 /* FirebaseCrashlytics in Frameworks */,
+				92A93E1328BE233300F1F1E7 /* SwipeCell in Frameworks */,
 				92AFE33128B4D7F800051A83 /* FirebaseAnalytics in Frameworks */,
 				A518D6F426FA1B3C0084D8CC /* Lottie in Frameworks */,
 			);
@@ -340,6 +348,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92A93E1628BE385F00F1F1E7 /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				92A93E1728BE387300F1F1E7 /* StatusBarStyleKey.swift */,
+				92A93E1928BE388900F1F1E7 /* CustomHostingController.swift */,
+			);
+			path = StatusBar;
+			sourceTree = "<group>";
+		};
 		92AAD1E928AA16E5005B1458 /* Brand */ = {
 			isa = PBXGroup;
 			children = (
@@ -749,6 +766,7 @@
 				A54ED83526CAEA6A00B4062D /* PointDetailAlert.swift */,
 				A5B2F957275FED4C00826518 /* OrderPopUp.swift */,
 				92E45BBB2885F6C400845D22 /* BannerModifier.swift */,
+				92A93E1428BE287900F1F1E7 /* SwipeModifier.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -766,6 +784,7 @@
 		A52227E9267CED8C00004C1F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				92A93E1628BE385F00F1F1E7 /* StatusBar */,
 				92AFE32328B4C22B00051A83 /* UserDefaultsWrapper.swift */,
 				A52227ED267CEE3200004C1F /* InstanceTracker.swift */,
 				A5FBCF0C268D910F00921791 /* Logger.swift */,
@@ -1022,6 +1041,7 @@
 				A518D6F326FA1B3C0084D8CC /* Lottie */,
 				92AFE33028B4D7F800051A83 /* FirebaseAnalytics */,
 				92AFE33228B4D7F800051A83 /* FirebaseCrashlytics */,
+				92A93E1228BE233300F1F1E7 /* SwipeCell */,
 			);
 			productName = Deneysiz;
 			productReference = A5CC7D23265D8D4F00DD3AA7 /* Deneysiz.app */;
@@ -1098,6 +1118,7 @@
 			packageReferences = (
 				A518D6F226FA1B3C0084D8CC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				92AFE32F28B4D7F800051A83 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				92A93E1128BE233200F1F1E7 /* XCRemoteSwiftPackageReference "SwipeCell" */,
 			);
 			productRefGroup = A5CC7D24265D8D4F00DD3AA7 /* Products */;
 			projectDirPath = "";
@@ -1218,6 +1239,7 @@
 				98576D0D2691CDA700C307FA /* DonateView.swift in Sources */,
 				A5C7114E278DBECD000F803C /* UINavigationController+Extension.swift in Sources */,
 				A562BCF6265EE66400BBC6A9 /* AppEnvironment.swift in Sources */,
+				92A93E1A28BE388900F1F1E7 /* CustomHostingController.swift in Sources */,
 				9834C3972691DA230037EC8F /* EmailService.swift in Sources */,
 				92AAD21D28AA170F005B1458 /* AuthService.swift in Sources */,
 				A51C45C12660DD23003CCC58 /* FirstContainerView.swift in Sources */,
@@ -1236,6 +1258,7 @@
 				92AAD22428AA170F005B1458 /* CategoryAPI.swift in Sources */,
 				92AAD1FF28AA16E5005B1458 /* BrandDummy.swift in Sources */,
 				92AFE33B28B5012600051A83 /* UIApplication+Extension.swift in Sources */,
+				92A93E1828BE387300F1F1E7 /* StatusBarStyleKey.swift in Sources */,
 				92AAD22828AA170F005B1458 /* BrandSearchService.swift in Sources */,
 				A518D6FB26FA1BE00084D8CC /* LottieRabbit.swift in Sources */,
 				A518C6102673655B00CD964D /* Configuration.swift in Sources */,
@@ -1258,6 +1281,7 @@
 				A542AC6A268FBB8000B725BE /* ActivityIndicator.swift in Sources */,
 				92E3C6E627E7CDD300951146 /* PreferenceKeyBase.swift in Sources */,
 				92AAD21C28AA170F005B1458 /* AuthAPI.swift in Sources */,
+				92A93E1528BE287900F1F1E7 /* SwipeModifier.swift in Sources */,
 				A51C45B72660DAF0003CCC58 /* FirstViewModel.swift in Sources */,
 				A54ED83426CADC3500B4062D /* CustomErrorAlert.swift in Sources */,
 				98880FB426887E6200D94852 /* WhoAreWeView.swift in Sources */,
@@ -1644,6 +1668,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		92A93E1128BE233200F1F1E7 /* XCRemoteSwiftPackageReference "SwipeCell" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EnesKaraosman/SwipeCell.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
 		92AFE32F28B4D7F800051A83 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1663,6 +1695,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		92A93E1228BE233300F1F1E7 /* SwipeCell */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92A93E1128BE233200F1F1E7 /* XCRemoteSwiftPackageReference "SwipeCell" */;
+			productName = SwipeCell;
+		};
 		92AFE33028B4D7F800051A83 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 92AFE32F28B4D7F800051A83 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

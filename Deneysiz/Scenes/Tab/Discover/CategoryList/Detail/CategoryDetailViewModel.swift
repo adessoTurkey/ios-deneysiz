@@ -56,6 +56,9 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
     
     var currentConfig: OrderConfig = .point(.desc)
 
+    @UserDefaultWrapper(key: Constants.UserDefaults.followedItem, defaultValue: [])
+    private var followedBrands: [BrandDetail]
+
     init(categoryEnum: CategoryEnum, brandService: BrandAPI) {
         self.categoryEnum = categoryEnum
         self.brandService = brandService
@@ -125,5 +128,19 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
             details: PointDetailPopUpLogic.makePointDetailUIModel(brand: brand)
         )
         self.showPointsPopUp = true
+    }
+
+    func followBrand(brand: Brand) {
+        if !followedBrands.contains(where: { brandDetail in
+            brandDetail.id == brand.id
+        }) {
+            followedBrands.append(BrandDetail(id: brand.id, name: brand.name, parentCompany: brand.parentCompany, offerInChina: brand.offerInChina, categoryId: brand.categoryId, certificates: brand.certificates, safe: brand.safe, vegan: brand.vegan, veganProduct: brand.veganProduct, score: brand.score, description: brand.description, createdAt: brand.createdAt))
+        }
+    }
+
+    func isFollowed(id: Int) -> Bool {
+        return followedBrands.contains { brand in
+            brand.id == id
+        }
     }
 }

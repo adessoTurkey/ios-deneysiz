@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwipeCell
 
 struct FollowingView: View {
     @EnvironmentObject var container: FollowingDependencyContainer
@@ -18,9 +19,39 @@ struct FollowingView: View {
         CustomNavBarContainer {
             NavBar
         } content: {
-            BrandListScrollView
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            if viewModel.brands.isEmpty {
+                    LottieEmpty()
+                        .frame(width: 150, height: 150)
+                        .padding(.top, 60)
+                        .padding(.bottom, 25)
+
+                VStack(spacing: 8) {
+                    Text("Hop, hop, hop...")
+                        .font(.customFont(size: 20, type: .fontBold))
+                        .multilineTextAlignment(.center)
+
+                    Text("Görünüşe göre takip ettiğin bir marka yok, hemen keşfete zıpla ve takibe başla!")
+                        .font(.customFont(size: 20, type: .fontRegular))
+                        .multilineTextAlignment(.center)
+                }
+                .padding(.horizontal, 24)
+
+            } else {
+                BrandListScrollView
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
         }
+        .modifier(
+            PopUpHelper(
+                popUpView: PointDetailAlert(onDismiss: {
+                    withAnimation {
+                        viewModel.showPointsPopUp = false
+                    }
+                }, config: viewModel.savedPointPopUpConfig),
+                isPresented: $viewModel.showPointsPopUp,
+                config: .init(backgroundOpacitiy: 0.45)
+            )
+        )
         .onAppear {
             viewModel.refresh()
         }
@@ -42,40 +73,71 @@ struct FollowingView: View {
     
     private var BrandListScrollView: some View {
         VStack(alignment: .leading) {
-            if !viewModel.brands.isEmpty {
                 Text(String(format: NSLocalizedString("category-brand-found", comment: ""), viewModel.brands.count))
                     .padding(.horizontal, 16)
                     .font(.customFont(size: 12, type: .fontRegular))
                     .foregroundColor(.deneysizTextColor)
                 
                 List {
-                    ForEach(viewModel.brands, id: \.name) { brand in
-                        BrandFollowCell(brandDetail: brand)
-                        // To get tap gesture event on Spacer
-                            .contentShape(Rectangle())
-                            .listRowInsets(EdgeInsets())
-                            .listRowBackground(Color.clear)
-                            .background(NavigationLink(
-                                destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brand.id)),
-                                tag: brand.id,
-                                selection: $brandSelection,
-                                label: {}
+                    ForEach(viewModel.brands, id: \.name) { brandDetail in
+                        Button {
+                            brandSelection = brandDetail.id
+                        } label: {
+                            BrandFollowCell(brandDetail: brandDetail, onPointClick: { [viewModel] brandDetail in
+                                viewModel.createPointAlertConfig(brandDetail: brandDetail)
+                            })
+                        }
+                        .modifier(
+                            SwipeModifier(
+                                label: {
+                                    Button { [viewModel] in
+                                        viewModel.removeBrand(id: brandDetail.id)
+                                    } label: {
+                                        Label("", image: "delete")
+                                    }
+                                    .buttonStyle(.automatic)
+                                },
+                                tintColor: .red,
+                                slots: [
+                                    Slot(
+                                        image: {
+                                            Image("delete")
+                                        },
+                                        title: {
+                                            EmptyView()
+                                                .eraseToAnyView()
+                                        },
+                                        action: { [viewModel] in
+                                            viewModel.removeBrand(id: brandDetail.id)
+                                        },
+                                        style: .init(background: .red)
+                                    )
+
+                                ]
                             )
+                        )
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
+                        .background(NavigationLink(
+                            destination: BrandDetailView(viewModel: container.makeBrandDetailViewModel(brandID: brandDetail.id)),
+                            tag: brandDetail.id,
+                            selection: $brandSelection,
+                            label: {}
+                        )
                             .opacity(0))
                     }
-                    .onDelete(perform: viewModel.removeRows(at:))
                 }
                 .frame(maxWidth: .infinity)
                 .edgesIgnoringSafeArea(.all)
                 .listStyle(PlainListStyle())
             }
-        }
     }
 }
 
 private struct BrandFollowCell: View {
     let brandDetail: BrandDetail
-    
+    let onPointClick: (BrandDetail?) -> Void
+
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .top) {
@@ -91,11 +153,15 @@ private struct BrandFollowCell: View {
                 Spacer()
                 
                 Text(brandDetail.pointTitle)
+                    .lineLimit(1)
                     .font(.customFont(size: 17))
                     .foregroundColor(.white)
-                    .frame(width: 50)
                     .padding(8)
+                    .frame(minWidth: 75)
                     .background(brandDetail.color.cornerRadius(8))
+                    .onTapGesture {
+                        onPointClick(brandDetail)
+                    }
             }
             .padding(16)
             

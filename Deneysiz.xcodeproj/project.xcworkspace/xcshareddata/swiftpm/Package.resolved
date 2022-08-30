@@ -116,6 +116,15 @@
         "revision" : "fa0fcd43f272a260e7f734f23e6dc55e16fcae0a",
         "version" : "1.19.1"
       }
+    },
+    {
+      "identity" : "swipecell",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/EnesKaraosman/SwipeCell.git",
+      "state" : {
+        "revision" : "0a0948096124ada6c12c7637a40ef5b3bc346922",
+        "version" : "0.1.3"
+      }
     }
   ],
   "version" : 2

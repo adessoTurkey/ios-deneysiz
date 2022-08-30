@@ -10,7 +10,10 @@ import Foundation
 final class FollowingViewModel: BaseViewModel, ObservableObject {
 
     @Published var brands: [BrandDetail] = []
-    
+    @Published var showPointsPopUp = false
+
+    var savedPointPopUpConfig: PointDetailAlert.Config = .dummy
+
     @UserDefaultWrapper(key: Constants.UserDefaults.followedItem, defaultValue: [])
     private var followedBrands: [BrandDetail]
     
@@ -21,5 +24,22 @@ final class FollowingViewModel: BaseViewModel, ObservableObject {
     func removeRows(at offsets: IndexSet) {
         followedBrands.remove(atOffsets: offsets)
         refresh()
+    }
+
+    func removeBrand(id: Int) {
+        followedBrands.removeAll { brand in
+            brand.id == id
+        }
+        refresh()
+    }
+
+    func createPointAlertConfig(brandDetail: BrandDetail?) {
+        self.savedPointPopUpConfig = .init(
+            overlayImage: "points",
+            description: "brand-detail-points-alert-description",
+            point: brandDetail?.score ?? 0,
+            details: PointDetailPopUpLogic.makePointDetailUIModel(detail: brandDetail)
+        )
+        self.showPointsPopUp = true
     }
 }
