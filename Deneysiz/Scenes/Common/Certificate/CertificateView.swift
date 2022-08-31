@@ -39,7 +39,7 @@ struct CertificateView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             HStack {
                                 Text("beauty_without_bunnies.inner_title")
-                                    .font(.customFont(size: 20, type: .fontBold))
+                                    .font(.customFont(size: 20, type: .fontExtraBold))
                                     .foregroundColor(.deneysizTextColor)
                                 Spacer()
                             }
@@ -83,7 +83,7 @@ struct CertificateView: View {
                         }
                     }
                     Text(viewModel.title)
-                        .font(.customFont(size: 20, type: .fontBold))
+                        .font(.customFont(size: 20, type: .fontExtraBold))
                         .foregroundColor(.deneysizTextColor)
                 }
                 .offset(y: -16)
@@ -92,7 +92,6 @@ struct CertificateView: View {
         )
         .foregroundColor(.deneysizTextColor)
         .padding(.horizontal)
-        .padding(.top)
     }
 }
 

@@ -58,8 +58,7 @@ struct DonateView: View {
                 VStack {
                     Image("questionMark")
                     Text("how_to_donate")
-                        .font(.title)
-                        .bold()
+                        .font(.customFont(size: 20, type: .fontExtraBold))
                 }
             },
             right: {

@@ -14,7 +14,6 @@ struct SupportView: View {
         CustomNavBarContainer {
             NavBar
                 .padding(.horizontal, 24)
-            
         } content: {
             ScrollView(.vertical, showsIndicators: false) {
                 Text("support.info_text")
@@ -79,8 +78,7 @@ struct SupportView: View {
                 VStack {
                     Image("questionMark")
                     Text("support.title")
-                        .font(.title)
-                        .bold()
+                        .font(.customFont(size: 20, type: .fontExtraBold))
                 }
             },
             right: {

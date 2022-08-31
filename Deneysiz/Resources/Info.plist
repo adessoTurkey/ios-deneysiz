@@ -41,6 +41,7 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Mulish-ExtraBold.ttf</string>
 		<string>Mulish-Regular.ttf</string>
 		<string>Mulish-Bold.ttf</string>
 		<string>Mulish-BoldItalic.ttf</string>

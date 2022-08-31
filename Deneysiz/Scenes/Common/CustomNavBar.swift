@@ -134,8 +134,8 @@ struct CustomNavBar_Previews: PreviewProvider {
                 },
                 center: {
                     Text(LocalizedStringKey(InfoView.Detail.animalLab.title))
-                        .font(.title)
-                        .bold()
+                        .font(.customFont(size: 24, type: .fontExtraBold))
+
 
                 },
                 config: .init(isCenterMultiline: true)

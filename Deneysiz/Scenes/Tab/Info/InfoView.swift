@@ -28,16 +28,13 @@ struct InfoView: View {
     var body: some View {
         CustomNavBarContainer {
             NavBar
-                .padding(.top)
                 .padding(.horizontal, 24)
-
         } content: {
             VStack(alignment: .leading, spacing: 0) {
                 TopInfo
                     .padding(.top, 4)
                     .padding(.horizontal, 24)
 
-                
                 Certificates
                     .padding(.top, 16)
                     .padding(.horizontal, 24)
@@ -57,7 +54,7 @@ struct InfoView: View {
         CustomNavBar(
             left: {
                 Text("do_you_know.question_mark")
-                    .font(.customFont(size: 24, type: .fontBold))
+                    .font(.customFont(size: 24, type: .fontExtraBold))
                     .foregroundColor(.deneysizTextColor)
             },
             right: {
@@ -108,7 +105,7 @@ struct InfoView: View {
     var Curiosities: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("info-curious")
-                .font(.customFont(size: 20, type: .fontBold))
+                .font(.customFont(size: 24, type: .fontExtraBold))
                 .foregroundColor(.deneysizTextColor)
             
             Text("do_you_know.curiosities_description")

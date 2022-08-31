@@ -45,13 +45,11 @@ struct InfoDetailView: View {
             },
             center: {
                 Text(LocalizedStringKey(titleKey))
-                    .font(.title)
-                    .bold()
+                    .font(.customFont(size: 24, type: .fontExtraBold))
             },
             config: .init(isCenterMultiline: true))
             .foregroundColor(.deneysizTextColor)
             .padding(.horizontal)
-            .padding(.top)
     }
 }
 

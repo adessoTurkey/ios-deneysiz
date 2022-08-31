@@ -16,8 +16,6 @@ struct DiscoverView: View {
     var body: some View {
         CustomNavBarContainer {
             NavBar
-                .padding(.top)
-            
         } content: {
             CategoryListView(viewModel: container.makeCategoryViewModel())
                 .navBarTopSpacing(32)
@@ -29,7 +27,7 @@ struct DiscoverView: View {
         CustomNavBar(
             left: {
                 Text("discover")
-                    .font(.customFont(size: 24, type: .fontBold))
+                    .font(.customFont(size: 24, type: .fontExtraBold))
                     .foregroundColor(.deneysizTextColor)
             },
             right: {

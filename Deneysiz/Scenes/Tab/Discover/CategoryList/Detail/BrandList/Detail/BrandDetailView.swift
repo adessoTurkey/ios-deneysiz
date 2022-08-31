@@ -22,8 +22,6 @@ struct BrandDetailView: View {
     var body: some View {
         CustomNavBarContainer {
             NavBar
-                .padding(.top)
-            
         } content: {
                 BrandDetailScrollView
                     .navBarTopSpacing(32)
@@ -94,7 +92,7 @@ struct BrandDetailView: View {
             },
             center: {
                 NavBarCenter
-                    .padding(.top, 42)
+                    .padding(.top, 16)
             },
             right: {
                 Button {
@@ -120,16 +118,16 @@ struct BrandDetailView: View {
     }
     
     private var NavBarCenter: some View {
-        VStack(spacing: 16) {
-            VStack(spacing: 8) {
+        VStack(spacing: 20) {
+            VStack(spacing: 30) {
                 Text(viewModel.brandDetailUIModel.name)
-                    .font(.customFont(size: 28, type: .fontBold))
+                    .font(.customFont(size: 28, type: .fontExtraBold))
                     .foregroundColor(.deneysizTextColor)
-                
-                Text(viewModel.brandDetailUIModel.parentCompanyName)
-                    .font(.customFont(size: 20, type: .fontBold))
-                    .foregroundColor(.deneysizText2Color)
-                
+                if !viewModel.brandDetailUIModel.parentCompanyName.isEmpty {
+                    Text(viewModel.brandDetailUIModel.parentCompanyName)
+                        .font(.customFont(size: 20, type: .fontExtraBold))
+                        .foregroundColor(.deneysizText2Color)
+                }
             }
             HStack {
                 Text(viewModel.brandDetailUIModel.point)
@@ -173,7 +171,7 @@ struct BrandDetailView: View {
                 HStack(spacing: 16) {
                     Image(detail.image)
                     Text(LocalizedStringKey(detail.title))
-                        .font(Font.customFont(size: 16, type: .fontRegular))
+                        .font(.customFont(size: 16, type: .fontRegular))
                     Spacer()
                 }
                 .padding(16)

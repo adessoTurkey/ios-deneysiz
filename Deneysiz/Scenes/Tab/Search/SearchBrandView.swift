@@ -67,8 +67,8 @@ struct SearchBrandView: View {
             if !isSearching {
                 VStack {
                     NavBar
-                        .padding(.top, 24)
                         .padding(.horizontal, 24)
+                        .padding(.top)
                     Spacer()
                 }
             }
@@ -131,7 +131,7 @@ struct SearchBrandView: View {
         CustomNavBar(
             left: {
                 Text("Deneysiz")
-                    .font(.customFont(size: 24, type: .fontBold))
+                    .font(.customFont(size: 24, type: .fontExtraBold))
             },
             right: {
                 NavigationLink(
@@ -245,7 +245,7 @@ private struct BrandSearchCell: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(brandSearch.name)
-                        .font(.customFont(size: 20, type: .fontBold))
+                        .font(.customFont(size: 20, type: .fontExtraBold))
                         .foregroundColor(.deneysizTextColor)
                     Text(brandSearch.parentCompany.name ?? "")
                         .font(.customFont(size: 17))

@@ -31,7 +31,7 @@ struct BrandCell: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(brand.name)
-                        .font(.customFont(size: 20, type: .fontBold))
+                        .font(.customFont(size: 20, type: .fontExtraBold))
                         .foregroundColor(.deneysizTextColor)
                     Text(brand.parentCompany?.name ?? "")
                         .font(.customFont(size: 17))

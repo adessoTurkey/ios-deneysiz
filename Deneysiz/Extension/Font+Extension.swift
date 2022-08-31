@@ -10,7 +10,6 @@ import SwiftUI
 extension Font {
     
     private struct FontFamily {
-        
         static let mulishRegular = "Mulish-Regular"
         static let mulishBold = "Mulish-Bold"
         static let mulishBoldItalic = "Mulish-BoldItalic"
@@ -22,7 +21,7 @@ extension Font {
         static let mulishBlackItalic = "Mulish-BlackItalic"
         static let mulishItalic = "Mulish-Italic"
         static let mulishMedium = "Mulish-Medium"
-
+        static let mulishExtraBold = "Mulish-ExtraBold"
     }
     
     public enum FontType {
@@ -37,10 +36,10 @@ extension Font {
         case fontBlackItalic
         case fontItalic
         case fontMedium
+        case fontExtraBold
     }
     
     public static func customFont(size: CGFloat, type: FontType = .fontRegular) -> Font {
-
         switch type {
         case .fontRegular:
             return Font.custom(FontFamily.mulishRegular, size: size)
@@ -64,9 +63,8 @@ extension Font {
             return Font.custom(FontFamily.mulishItalic, size: size)
         case .fontMedium:
             return Font.custom(FontFamily.mulishMedium, size: size)
-
+        case .fontExtraBold:
+            return Font.custom(FontFamily.mulishExtraBold, size: size)
         }
-        
     }
-    
 }

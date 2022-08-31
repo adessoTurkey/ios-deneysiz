@@ -20,10 +20,11 @@ struct CategoryDetailView: View {
     // For fixing navigation link stuck error. add tag & selection
     @State private var brandSelection: Int?
 
+    var hapticImpact = UIImpactFeedbackGenerator(style: .medium)
+
     var body: some View {
         CustomNavBarContainer {
             NavBar
-                .padding(.top)
                 .padding(.horizontal, 24)
         } content: {
             Group {
@@ -115,7 +116,7 @@ struct CategoryDetailView: View {
             },
             center: {
                 Text(viewModel.categoryEnum.categoryModel.title)
-                    .font(.customFont(size: 24, type: .fontBold))
+                    .font(.customFont(size: 24, type: .fontExtraBold))
                     .foregroundColor(.deneysizTextColor)
                     .lineLimit(2)
                     .multilineTextAlignment(.center)
@@ -188,6 +189,7 @@ struct CategoryDetailView: View {
                                 label: {
                                     Button {
                                         viewModel.followBrand(brand: brand)
+                                        hapticImpact.impactOccurred()
                                     } label: {
                                         Image("notFollowing")
                                             .renderingMode(.template)
@@ -208,6 +210,7 @@ struct CategoryDetailView: View {
                                         },
                                         action: { [viewModel] in
                                             viewModel.followBrand(brand: brand)
+                                            hapticImpact.impactOccurred()
                                         },
                                         style: .init(background: .followBackground)
                                     )

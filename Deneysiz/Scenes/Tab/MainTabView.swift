@@ -107,13 +107,12 @@ struct MainTabView_Previews: PreviewProvider {
         MainTabView()
             .environment(\.locale, .init(identifier: "tr"))
             .preferredColorScheme(.light)
-            .previewDisplayName("iPhone 12")
+            .previewDisplayName("Light")
         
         MainTabView()
             .environment(\.locale, .init(identifier: "tr"))
             .preferredColorScheme(.dark)
-            .previewDisplayName("iPhone 11")
-        
+            .previewDisplayName("Dark")
     }
 }
 #endif

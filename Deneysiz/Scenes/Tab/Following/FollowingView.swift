@@ -61,14 +61,13 @@ struct FollowingView: View {
         CustomNavBar(
             left: {
                 Text("following")
-                    .font(.customFont(size: 24, type: .fontBold))
+                    .font(.customFont(size: 24, type: .fontExtraBold))
             },
             right: {
                 
             })
         .foregroundColor(.deneysizTextColor)
         .padding(.horizontal)
-        .padding(.top)
     }
     
     private var BrandListScrollView: some View {
@@ -143,7 +142,7 @@ private struct BrandFollowCell: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(brandDetail.name)
-                        .font(.customFont(size: 20, type: .fontBold))
+                        .font(.customFont(size: 20, type: .fontExtraBold))
                         .foregroundColor(.deneysizTextColor)
                     Text(brandDetail.parentCompany?.name ?? "")
                         .font(.customFont(size: 17))

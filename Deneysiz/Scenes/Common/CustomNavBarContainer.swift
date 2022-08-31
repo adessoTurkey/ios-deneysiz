@@ -37,6 +37,7 @@ struct CustomNavBarContainer<NavBar: View, Content: View>: View {
     var body: some View {
         VStack(alignment: horizontalAlignment, spacing: spacing) {
             navbar
+                .padding(.top)
             VStack(spacing: 0) {
                 content
                     .navigationBarHidden(true)
@@ -64,8 +65,7 @@ struct CustomNavBarContainer_Previews: PreviewProvider {
                 },
                 center: {
                     Text("perfume")
-                        .font(.title)
-                        .bold()
+                        .font(.customFont(size: 24, type: .fontExtraBold))
                 },
                 right: {
                     Text("who-are-we")

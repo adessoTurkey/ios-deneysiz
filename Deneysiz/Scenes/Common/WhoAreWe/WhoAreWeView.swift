@@ -26,7 +26,6 @@ struct WhoAreWeView: View {
                         Link("deneysiz_app_website_link", destination: url)
                             .font(.customFont(size: 14, type: .fontRegular))
                             .foregroundColor(Color("orange"))
-                            .font(.body)
                         Spacer()
                     }
                     .padding()
@@ -68,15 +67,18 @@ struct WhoAreWeView: View {
                 })
             },
             center: {
-                Text("who_are_we-title")
-                    .font(.title)
-                    .bold()
+                VStack(spacing: 24) {
+                    Image("deneysizLogo")
+                    Text("who_are_we-title")
+                        .font(.customFont(size: 24, type: .fontExtraBold))
+                }
             },
             right: {
-            })
-            .foregroundColor(.deneysizTextColor)
-            .padding(.horizontal)
-            .padding(.top)
+            },
+            config: .init(alignment: .top)
+        )
+        .foregroundColor(.deneysizTextColor)
+        .padding(.horizontal)
     }
 }
 
