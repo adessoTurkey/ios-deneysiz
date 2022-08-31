@@ -35,11 +35,10 @@ struct FollowingView: View {
                         .multilineTextAlignment(.center)
                 }
                 .padding(.horizontal, 24)
-
-            } else {
-                BrandListScrollView
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
+
+            BrandListScrollView
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .modifier(
             PopUpHelper(
@@ -76,6 +75,7 @@ struct FollowingView: View {
                     .padding(.horizontal, 16)
                     .font(.customFont(size: 12, type: .fontRegular))
                     .foregroundColor(.deneysizTextColor)
+                    .opacity(viewModel.brands.isEmpty ? 0 : 1)
                 
                 List {
                     ForEach(viewModel.brands, id: \.name) { brandDetail in
@@ -126,7 +126,6 @@ struct FollowingView: View {
                             .opacity(0))
                     }
                 }
-                .frame(maxWidth: .infinity)
                 .edgesIgnoringSafeArea(.all)
                 .listStyle(PlainListStyle())
             }

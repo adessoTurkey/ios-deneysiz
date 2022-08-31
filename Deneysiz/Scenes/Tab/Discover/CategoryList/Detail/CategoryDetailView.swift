@@ -33,6 +33,7 @@ struct CategoryDetailView: View {
                     .disabled(viewModel.showNoDataLottie)
                 
                 BrandListScrollView
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .navBarTopSpacing(40)
         }
@@ -231,7 +232,6 @@ struct CategoryDetailView: View {
                         )
                     }
                 }
-                .frame(maxWidth: .infinity)
                 .edgesIgnoringSafeArea(.all)
                 .listStyle(PlainListStyle())
                 .onChange(of: viewModel.brands) { newValue in
