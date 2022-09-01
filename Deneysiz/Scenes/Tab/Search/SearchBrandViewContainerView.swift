@@ -9,14 +9,15 @@ import SwiftUI
 
 struct SearchBrandViewContainerView: View {
     @EnvironmentObject var container: SearchBrandDependencyContainer
+    @Binding var barStyle: UIStatusBarStyle
 
     var body: some View {
-        SearchBrandView(viewModel: container.makeSearchViewModel())
+        SearchBrandView(viewModel: container.makeSearchViewModel(), barStyle: $barStyle)
     }
 }
 
 struct SearchContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBrandViewContainerView()
+        SearchBrandViewContainerView(barStyle: .constant(.lightContent))
     }
 }

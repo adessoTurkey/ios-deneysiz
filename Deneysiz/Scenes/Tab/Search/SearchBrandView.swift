@@ -23,6 +23,7 @@ struct SearchBrandView: View {
     private let multiplier: CGFloat = 0.65
     
     @State private var installMailApp = false
+    @Binding var barStyle: UIStatusBarStyle
     
     var body: some View {
         ZStack {
@@ -84,12 +85,15 @@ struct SearchBrandView: View {
                 }
             }
         }
+        .onChange(of: isSearching) { newValue in
+            barStyle = newValue ? .darkContent : .lightContent
+        }
     }
     
     var NoDataView: some View {
         VStack {
             LottieNoData()
-            Text("Oops")
+            Text("Hay aksi")
                 .font(.customFont(size: 20, type: .fontBold))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 24)
@@ -182,7 +186,7 @@ struct SearchBrandView: View {
 
 struct SearchBrandView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBrandView(viewModel: .init(searchBrandService: BrandSearchService()))
+        SearchBrandView(viewModel: .init(searchBrandService: BrandSearchService()), barStyle: .constant(.lightContent))
     }
 }
 

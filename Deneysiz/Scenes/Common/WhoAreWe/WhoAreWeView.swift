@@ -53,7 +53,7 @@ struct WhoAreWeView: View {
                 
                 Spacer()
             }
-            .navBarTopSpacing(30)
+            .navBarTopSpacing(16)
         }
     }
     
@@ -67,7 +67,7 @@ struct WhoAreWeView: View {
                 })
             },
             center: {
-                VStack(spacing: 24) {
+                VStack(spacing: 12) {
                     Image("deneysizLogo")
                     Text("who_are_we-title")
                         .font(.customFont(size: 24, type: .fontExtraBold))

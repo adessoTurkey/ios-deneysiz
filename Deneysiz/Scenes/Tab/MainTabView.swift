@@ -30,7 +30,7 @@ struct MainTabView: View {
         } else {
             return NavigationView {
                 TabView(selection: $selectedtab) {
-                    SearchBrandViewContainerView()
+                    SearchBrandViewContainerView(barStyle: $barStyle)
                         .tabItem {
                             VStack {
                                 Image("tabBarSearch")
