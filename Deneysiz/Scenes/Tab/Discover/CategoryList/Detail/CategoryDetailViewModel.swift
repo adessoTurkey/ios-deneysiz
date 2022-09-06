@@ -47,6 +47,7 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
     @Published var showOrderSheet = false
     @Published var showPointsPopUp = false
     @Published var showNoDataLottie = false
+    @Published var followedBrandList: [BrandDetail] = []
 
     var savedPointPopUpConfig: PointDetailAlert.Config = .dummy
     var errorType: CustomErrorAlert.Config  = .operationFail
@@ -64,6 +65,10 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
         self.brandService = brandService
         super.init()
         self.getBrands()
+    }
+
+    func onAppear() {
+        self.followedBrandList = self.followedBrands
     }
     
     func getBrands() {
@@ -84,9 +89,10 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
                     break
                 }
             } receiveValue: { [weak self] brands in
-                self?.viewState = .loaded
-                self?.showNoDataLottie = brands.isEmpty
-                self?.brands = brands.sorted(by: { $0.score > $1.score })
+                guard let self = self else { return }
+                self.viewState = .loaded
+                self.showNoDataLottie = brands.isEmpty
+                self.brands = brands.sorted(by: { $0.score > $1.score })
             }
         .store(in: &self.cancellables)
     }
@@ -131,15 +137,23 @@ final class CategoryDetailViewModel: BaseViewModel, ObservableObject {
     }
 
     func followBrand(brand: Brand) {
-        if !followedBrands.contains(where: { brandDetail in
+        defer {
+            followedBrandList = followedBrands
+        }
+
+        if followedBrands.contains(where: { brandDetail in
             brandDetail.id == brand.id
         }) {
+            followedBrands.removeAll { followedBrand in
+                brand.id == followedBrand.id
+            }
+        } else {
             followedBrands.append(BrandDetail(id: brand.id, name: brand.name, parentCompany: brand.parentCompany, offerInChina: brand.offerInChina, categoryId: brand.categoryId, certificates: brand.certificates, safe: brand.safe, vegan: brand.vegan, veganProduct: brand.veganProduct, score: brand.score, description: brand.description, createdAt: brand.createdAt))
         }
     }
 
     func isFollowed(id: Int) -> Bool {
-        return followedBrands.contains { brand in
+        return self.followedBrandList.contains { brand in
             brand.id == id
         }
     }

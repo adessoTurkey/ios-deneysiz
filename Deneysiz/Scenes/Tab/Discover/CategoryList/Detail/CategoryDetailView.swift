@@ -192,9 +192,15 @@ struct CategoryDetailView: View {
                                         viewModel.followBrand(brand: brand)
                                         hapticImpact.impactOccurred()
                                     } label: {
-                                        Image("notFollowing")
-                                            .renderingMode(.template)
-                                            .foregroundColor(.white)
+                                        if viewModel.isFollowed(id: brand.id) {
+                                            Image("following")
+                                                .renderingMode(.template)
+                                                .foregroundColor(.white)
+                                        } else {
+                                            Image("notFollowing")
+                                                .renderingMode(.template)
+                                                .foregroundColor(.white)
+                                        }
                                     }
                                     .buttonStyle(.automatic)
                                 },
@@ -202,8 +208,13 @@ struct CategoryDetailView: View {
                                 slots: [
                                     Slot(
                                         image: {
-                                            Image("notFollowing")
-                                                .renderingMode(.template)
+                                            if viewModel.isFollowed(id: brand.id) {
+                                                return Image("following")
+                                                    .renderingMode(.template)
+                                            } else {
+                                                return Image("notFollowing")
+                                                    .renderingMode(.template)
+                                            }
                                         },
                                         title: {
                                             EmptyView()
@@ -238,6 +249,9 @@ struct CategoryDetailView: View {
                     if let name = newValue.first?.name {
                         reader.scrollTo(name)
                     }
+                }
+                .onAppear {
+                    viewModel.onAppear()
                 }
             }
         }
