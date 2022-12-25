@@ -13,8 +13,8 @@ file_length:
   error: 800
 
 line_length:
-  warning: 175
-  error: 200
+  warning: 200
+  error: 400
   ignores_function_declarations: true
   ignores_comments: true
   ignores_interpolated_strings: true
