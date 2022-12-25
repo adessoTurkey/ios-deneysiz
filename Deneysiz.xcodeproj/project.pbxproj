@@ -78,6 +78,9 @@
 		98880FBA26887F6500D94852 /* WhoAreWeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98880FB926887F6500D94852 /* WhoAreWeButton.swift */; };
 		98AD7F2C2770F22C009F04A6 /* OpenWebsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AD7F2B2770F22C009F04A6 /* OpenWebsite.swift */; };
 		98BC69E12947BF4800F06513 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 98BC69E02947BF4800F06513 /* Lottie */; };
+		98BC69E32947C07500F06513 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BC69E22947C07500F06513 /* FilterView.swift */; };
+		98F064D9295727A300594C98 /* ChoiceCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F064D8295727A300594C98 /* ChoiceCheckboxView.swift */; };
+		98F064DE2957B4F600594C98 /* FilterCertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F064DD2957B4F600594C98 /* FilterCertificateView.swift */; };
 		A508DCCC2683745800336A18 /* ExampleEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A508DCCB2683745800336A18 /* ExampleEnvironment.swift */; };
 		A50CB05B26DCE00400259E05 /* CertificateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CB05A26DCE00400259E05 /* CertificateView.swift */; };
 		A50CB05D26DCE9F700259E05 /* CertificateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50CB05C26DCE9F700259E05 /* CertificateViewModel.swift */; };
@@ -230,6 +233,9 @@
 		98880FB626887F0400D94852 /* SocialMediaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaButton.swift; sourceTree = "<group>"; };
 		98880FB926887F6500D94852 /* WhoAreWeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoAreWeButton.swift; sourceTree = "<group>"; };
 		98AD7F2B2770F22C009F04A6 /* OpenWebsite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWebsite.swift; sourceTree = "<group>"; };
+		98BC69E22947C07500F06513 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		98F064D8295727A300594C98 /* ChoiceCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCheckboxView.swift; sourceTree = "<group>"; };
+		98F064DD2957B4F600594C98 /* FilterCertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCertificateView.swift; sourceTree = "<group>"; };
 		A508DCCB2683745800336A18 /* ExampleEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleEnvironment.swift; sourceTree = "<group>"; };
 		A50CB05A26DCE00400259E05 /* CertificateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateView.swift; sourceTree = "<group>"; };
 		A50CB05C26DCE9F700259E05 /* CertificateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateViewModel.swift; sourceTree = "<group>"; };
@@ -587,6 +593,16 @@
 				98880FB926887F6500D94852 /* WhoAreWeButton.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		98F064DA29572A8100594C98 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				98BC69E22947C07500F06513 /* FilterView.swift */,
+				98F064D8295727A300594C98 /* ChoiceCheckboxView.swift */,
+				98F064DD2957B4F600594C98 /* FilterCertificateView.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		A50CB05926DCDFF300259E05 /* Certificate */ = {
@@ -958,6 +974,7 @@
 		A5FC0A992694F5CF00F0FAD6 /* BrandList */ = {
 			isa = PBXGroup;
 			children = (
+				98F064DA29572A8100594C98 /* Filter */,
 				A54DBB9F269D8AE40096BBAF /* Detail */,
 				A5FC0A9A2694F5DE00F0FAD6 /* BrandListView.swift */,
 			);
@@ -1162,6 +1179,7 @@
 				A54ED83626CAEA6A00B4062D /* PointDetailAlert.swift in Sources */,
 				92AFE32A28B4C26C00051A83 /* FollowingViewModel.swift in Sources */,
 				A52227B8267CE41D00004C1F /* DiscoverDependencyContainer.swift in Sources */,
+				98BC69E32947C07500F06513 /* FilterView.swift in Sources */,
 				92AFE32428B4C22B00051A83 /* UserDefaultsWrapper.swift in Sources */,
 				98619F662694377700E4275E /* BankAccountView.swift in Sources */,
 				98598324268C4C8B007678E8 /* Font+Extension.swift in Sources */,
@@ -1194,12 +1212,14 @@
 				92AAD22428AA170F005B1458 /* CategoryAPI.swift in Sources */,
 				92AAD1FF28AA16E5005B1458 /* BrandDummy.swift in Sources */,
 				92AAD22828AA170F005B1458 /* BrandSearchService.swift in Sources */,
+				98F064D9295727A300594C98 /* ChoiceCheckboxView.swift in Sources */,
 				A518D6FB26FA1BE00084D8CC /* LottieRabbit.swift in Sources */,
 				A518C6102673655B00CD964D /* Configuration.swift in Sources */,
 				A5CC7D80265D9DDE00DD3AA7 /* EnvironmentProtocol.swift in Sources */,
 				92AAD20328AA16E5005B1458 /* FakeBrandService.swift in Sources */,
 				A5CC7D29265D8D4F00DD3AA7 /* SceneDelegate.swift in Sources */,
 				92AAD22128AA170F005B1458 /* ExampleService.swift in Sources */,
+				98F064DE2957B4F600594C98 /* FilterCertificateView.swift in Sources */,
 				982CC4A528A7E3D7000770CA /* SearchBrandView.swift in Sources */,
 				92AAD21F28AA170F005B1458 /* FakeAuthService.swift in Sources */,
 				A5CC7D94265DA1BA00DD3AA7 /* APIError.swift in Sources */,

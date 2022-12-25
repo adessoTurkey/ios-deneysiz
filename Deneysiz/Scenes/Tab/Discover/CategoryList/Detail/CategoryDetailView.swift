@@ -12,7 +12,8 @@ struct CategoryDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var installMailApp = false
     @State private var showingOptions = false
-    
+    @State private var isSupportViewPresented = false
+
     var body: some View {
         CustomNavBarContainer {
             NavBar
@@ -35,13 +36,20 @@ struct CategoryDetailView: View {
         }
         .modifier(
             PopUpHelper(
-                popUpView: OrderPopUp(viewModel.currentConfig, onUpdate: viewModel.order(_:), onDismiss: {
+                popUpView: OrderPopUp(viewModel.currentOrderConfig, onUpdate: viewModel.order(_:), onDismiss: {
                     withAnimation {
                         viewModel.showOrderSheet = false
                     }
                 }),
                 isPresented: $viewModel.showOrderSheet)
         )
+        .sheet(isPresented: $viewModel.showFilterScreen) {
+            FilterView(viewModel.filterModel, onUpdate: viewModel.filter(_:), onDismiss: {
+                withAnimation {
+                    viewModel.showFilterScreen = false
+                }
+            })
+        }
         .modifier(
             PopUpHelper(
                 popUpView: LottieLoading(),
@@ -141,26 +149,48 @@ struct CategoryDetailView: View {
     
     var FilterOrder: some View {
         HStack {
-            Button {
-                viewModel.orderButtonTapped()
-            }
-        label: {
             HStack {
-                Image("list")
-                Text(viewModel.currentConfig.title)
-                    .font(.customFont(size: 17))
-                    .foregroundColor(.orderFilterTextColor)
-                
+                Button {
+                    viewModel.filterButtonTapped()
+                }
+            label: {
+                HStack {
+                    Image("filter")
+                    Text("Filtre")
+                        .font(.customFont(size: 17))
+                        .foregroundColor(.orderFilterTextColor)
+                    
+                }
+                .padding(.vertical, 8)
+                .padding(.horizontal, 8)
+                .background(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(Color.orderFilterTextColor, lineWidth: 1)
+                        .background(Color.orderFilterBackground)
+                )
             }
-            .padding(.vertical, 8)
-            .padding(.horizontal, 8)
-            .background(
-                RoundedRectangle(cornerRadius: 4)
-                    .stroke(Color.orderFilterTextColor, lineWidth: 1)
-                    .background(Color.orderFilterBackground)
-            )
-        }
-        }
+            }
+            HStack {
+                Button {
+                    viewModel.orderButtonTapped()
+                }
+            label: {
+                HStack {
+                    Image("list")
+                    Text(viewModel.currentOrderConfig.title)
+                        .font(.customFont(size: 17))
+                        .foregroundColor(.orderFilterTextColor)
+                    
+                }
+                .padding(.vertical, 8)
+                .padding(.horizontal, 8)
+                .background(
+                    RoundedRectangle(cornerRadius: 4)
+                        .stroke(Color.orderFilterTextColor, lineWidth: 1)
+                        .background(Color.orderFilterBackground)
+                )
+            }
+            }}
     }
 }
 
