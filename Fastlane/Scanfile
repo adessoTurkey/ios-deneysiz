@@ -1,7 +1,7 @@
 # For more information about this configuration visit
 # https://github.com/fastlane/scan#scanfile
 
-workspace "Deneysiz/project.xcworkspace"
+workspace "Deneysiz.xcodeproj/project.xcworkspace"
 scheme "Deneysiz"
 sdk "iphonesimulator"
 device "iPhone 11"
