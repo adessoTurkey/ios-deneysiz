@@ -4,8 +4,10 @@
 workspace "Deneysiz.xcodeproj/project.xcworkspace"
 scheme "Deneysiz"
 sdk "iphonesimulator"
-device "iPhone 11"
+device "iPhone 14"
 code_coverage true
 xcargs '-parallelizeTargets'
 prelaunch_simulator true
 derived_data_path "Build/"
+clean true
+prelaunch_simulator true

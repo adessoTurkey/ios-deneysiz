@@ -23,11 +23,16 @@ platform :ios do
     upload_to_testflight
   end
 
-desc 'Builds project and executes unit tests'
-    lane :unit_test do |options|
-      scan(
-        clean: options[:clean],
-        skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
-      )
-    end
+  desc 'Builds project and executes unit tests'
+      lane :unit_test do |options|
+        scan(
+          clean: options[:clean],
+          skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
+        )
+  end
+
+  desc 'Running iOS tests using fastlane'
+  lane :tests do
+    scan
+  end
 end

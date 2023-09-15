@@ -31,6 +31,14 @@ Push a new beta build to TestFlight
 
 Builds project and executes unit tests
 
+### ios tests
+
+```sh
+[bundle exec] fastlane ios tests
+```
+
+Running iOS tests using fastlane
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
