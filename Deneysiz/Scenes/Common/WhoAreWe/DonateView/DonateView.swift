@@ -41,7 +41,7 @@ struct DonateView: View {
                     }
                     .padding()
                     .foregroundColor(.white)
-                    .background(Color("orange").cornerRadius(8))
+                    .background(Color.deneysizOrange.cornerRadius(8))
                     .padding()
                 }
             }

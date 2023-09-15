@@ -1,4 +1,4 @@
-name: Pull Request
+run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 on:
   pull_request:

@@ -2,7 +2,7 @@ import Foundation
 
 @propertyWrapper
 struct UserDefaultWrapper<T: Codable> {
-    struct Wrapper<T>: Codable where T: Codable {
+    struct Wrapper: Codable {
         let wrapped: T
     }
 
@@ -18,7 +18,7 @@ struct UserDefaultWrapper<T: Codable> {
         get {
             guard let data = UserDefaults.standard.object(forKey: key) as? Data
                 else { return defaultValue }
-            let value = try? JSONDecoder().decode(Wrapper<T>.self, from: data)
+            let value = try? JSONDecoder().decode(Wrapper.self, from: data)
             return value?.wrapped ?? defaultValue
         }
         set {

@@ -126,7 +126,7 @@ struct CategoryDetailView: View {
                 Button {
                     self.showingOptions = true
                 } label: {
-                    Image("add")
+                    Image("deneysizAdd")
                 }
                 .if(UIDevice.isIPad == true, transform: { view in
                     view
