@@ -45,8 +45,9 @@ platform :ios do
     )
   end
 
-  lane :testFlight do
-    match(type: "appstore", readonly: true)
-    build_app
+  lane :runTestFlight do
+    setup_ci if ENV['CI']
+    match(type: "appstore", readonly: true, git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"])
+    build_app(clean: true, scheme: "Deneysiz")
   end
 end

@@ -39,10 +39,10 @@ Builds project and executes unit tests
 
 Running iOS tests using fastlane
 
-### ios testFlight
+### ios runTestFlight
 
 ```sh
-[bundle exec] fastlane ios testFlight
+[bundle exec] fastlane ios runTestFlight
 ```
 
 
