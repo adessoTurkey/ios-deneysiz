@@ -44,4 +44,9 @@ platform :ios do
       result_bundle: true
     )
   end
+
+  lane :testFlight do
+    match(type: "appstore", readonly: true)
+    build_app
+  end
 end
