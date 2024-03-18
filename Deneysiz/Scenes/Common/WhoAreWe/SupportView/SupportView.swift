@@ -32,7 +32,7 @@ struct SupportView: View {
                             VStack {
                                 Text("support.share_description")
                                     .font(.customFont(size: 14, type: .fontRegular))
-                                    .foregroundColor(Color("gray"))
+                                    .foregroundColor(Color("deneysizGray"))
                                     .fixedSize(horizontal: false, vertical: true)
                                     .padding(6)
                                 
@@ -56,7 +56,7 @@ struct SupportView: View {
                             HStack {
                                 Text("support.donate_description")
                                     .font(.customFont(size: 14, type: .fontRegular))
-                                    .foregroundColor(Color("gray"))
+                                    .foregroundColor(Color("deneysizGray"))
                                     .padding(6)
                                 Spacer()
                             }

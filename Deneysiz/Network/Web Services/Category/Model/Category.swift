@@ -43,7 +43,7 @@ extension CategoryEnum {
     var categoryModel: CategoryUIModel {
         switch self {
         case .allBrands:
-            return (title: LocalizedStringKey("allBrands"), image: Image("all"))
+            return (title: LocalizedStringKey("allBrands"), image: Image("allBrands"))
         case .makeup:
             return (title: LocalizedStringKey("makeup"), image: Image("makeup"))
         case .haircare:

@@ -115,7 +115,7 @@ struct SearchBrandView: View {
                     Spacer()
                 }
                 .padding()
-                .background(Color("orange"))
+                .background(Color.deneysizOrange)
                 .foregroundColor(.white)
                 .cornerRadius(8)
                 .padding(.vertical)

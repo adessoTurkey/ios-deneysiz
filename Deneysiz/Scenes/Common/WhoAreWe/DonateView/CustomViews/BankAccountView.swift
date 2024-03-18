@@ -66,7 +66,7 @@ struct BankAccountView: View {
                         .foregroundColor(Color("donateText"))
                     Text(account.branchName)
                         .font(.customFont(size: 12, type: .fontRegular))
-                        .foregroundColor(Color("gray"))
+                        .foregroundColor(Color("deneysizGray"))
                 }
                 
                 Spacer()

@@ -25,7 +25,7 @@ struct WhoAreWeView: View {
                     HStack {
                         Link("deneysiz_app_website_link", destination: url)
                             .font(.customFont(size: 14, type: .fontRegular))
-                            .foregroundColor(Color("orange"))
+                            .foregroundColor(Color.deneysizOrange)
                         Spacer()
                     }
                     .padding()
