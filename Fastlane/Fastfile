@@ -1,53 +1,87 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
-
 default_platform(:ios)
 
-ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "300"
+DEVELOPER_APP_ID = ENV["DEVELOPER_APP_ID"]
+DEVELOPER_APP_IDENTIFIER = ENV["DEVELOPER_APP_IDENTIFIER"]
+PROVISIONING_PROFILE_SPECIFIER = ENV["PROVISIONING_PROFILE_SPECIFIER"]
+TEMP_KEYCHAIN_USER = ENV["TEMP_KEYCHAIN_USER"]
+TEMP_KEYCHAIN_PASSWORD = ENV["TEMP_KEYCHAIN_PASSWORD"]
+APPLE_ISSUER_ID = ENV["APPLE_ISSUER_ID"]
+APPLE_KEY_ID = ENV["APPLE_KEY_ID"]
+APPLE_KEY_CONTENT = ENV["APPLE_KEY_CONTENT"]
+GIT_AUTHORIZATION = ENV["GIT_AUTHORIZATION"]
+
+def delete_temp_keychain(name)
+  delete_keychain(
+    name: name
+  ) if File.exist? File.expand_path("~/Library/Keychains/#{name}-db")
+end
+
+def create_temp_keychain(name, password)
+  create_keychain(
+    name: name,
+    password: password,
+    unlock: false,
+    timeout: 0
+  )
+end
+
+def ensure_temp_keychain(name, password)
+  delete_temp_keychain(name)
+  create_temp_keychain(name, password)
+end
 
 platform :ios do
-  desc "Push a new beta build to TestFlight"
-  lane :beta do
+  lane :closed_beta do
+    keychain_name = TEMP_KEYCHAIN_USER
+    keychain_password = TEMP_KEYCHAIN_PASSWORD
+    ensure_temp_keychain(keychain_name, keychain_password)
+
+    api_key = app_store_connect_api_key(
+      key_id: APPLE_KEY_ID,
+      issuer_id: APPLE_ISSUER_ID,
+      key_content: APPLE_KEY_CONTENT,            
+      duration: 1200,            
+      in_house: false
+    )
+    
     increment_build_number(xcodeproj: "Deneysiz.xcodeproj")
-    build_app(scheme: "Deneysiz")
-    upload_to_testflight
-  end
+    
+    cocoapods(
+      clean_install: true
+    )
 
-  desc 'Builds project and executes unit tests'
-      lane :unit_test do |options|
-        scan(
-          clean: options[:clean],
-          skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
-        )
-  end
+    match(
+      type: 'appstore',
+      app_identifier: "#{DEVELOPER_APP_IDENTIFIER}",
+      git_basic_authorization: Base64.strict_encode64(GIT_AUTHORIZATION),
+      readonly: true,
+      keychain_name: keychain_name,
+      keychain_password: keychain_password,
+      api_key: api_key
+    )
 
-  desc 'Running iOS tests using fastlane'
-  lane :tests do
-    run_tests(
+    gym(
+      configuration: "Release",
       workspace: "Deneysiz.xcodeproj/project.xcworkspace",
       scheme: "Deneysiz",
-      devices: ["iPhone 14"],
-      clean: true,
-      prelaunch_simulator: true,
-      result_bundle: true
+      export_method: "app-store",
+      export_options: {
+        provisioningProfiles: { 
+            DEVELOPER_APP_ID => PROVISIONING_PROFILE_SPECIFIER
+        }
+      }
     )
-  end
 
-  lane :runTestFlight do
-    setup_ci if ENV['CI']
-    match(type: "appstore", readonly: true, git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"])
-    build_app(clean: true, scheme: "Deneysiz")
+    pilot(
+      apple_id: "#{DEVELOPER_APP_ID}",
+      app_identifier: "#{DEVELOPER_APP_IDENTIFIER}",
+      skip_waiting_for_build_processing: true,
+      skip_submission: true,
+      distribute_external: false,
+      notify_external_testers: false,
+      ipa: "./Deneysiz.ipa"
+    )
+
+    delete_temp_keychain(keychain_name)
   end
 end
